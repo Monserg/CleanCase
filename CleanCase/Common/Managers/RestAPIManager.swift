@@ -15,7 +15,8 @@ typealias RequestParametersType = (method: HTTPMethod, path: String, body: [Stri
 enum RequestType {
     // GET
     case getCitiesList()
-    
+    case getCurrentAppWorkingVersion()
+
 
     // POST
     
@@ -28,11 +29,17 @@ enum RequestType {
         switch self {
         // GET
         case .getCitiesList():      return (method:         .get,
-                                            path:           "/GetCities/",
+                                            path:           "/GetCities",
                                             body:           nil,
                                             headers:        headers,
                                             parameters:     nil)
-     
+
+        case .getCurrentAppWorkingVersion():        return (method:         .get,
+                                                            path:           "/GetVer",
+                                                            body:           nil,
+                                                            headers:        headers,
+                                                            parameters:     nil)
+
         }
     }
 }

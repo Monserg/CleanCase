@@ -12,5 +12,14 @@ import CoreData
 
 @objc(Version)
 public class Version: NSManagedObject {
-
+    // MARK: - Properties
+    class var currentVersion: Int16 {
+        get {
+            if let versionEntity = CoreDataManager.instance.readEntity(withName: "Version") as? Version {
+                return versionEntity.workingVersion
+            }
+            
+            return 0
+        }
+    }
 }

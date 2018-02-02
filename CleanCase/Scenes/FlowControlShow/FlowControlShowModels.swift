@@ -15,14 +15,16 @@ import UIKit
 // MARK: - Data models
 enum FlowControlShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum Version {
         struct RequestModel {
         }
         
         struct ResponseModel {
+            let isEqual: Bool
         }
         
         struct ViewModel {
+            let isEqual: Bool
         }
     }
 }

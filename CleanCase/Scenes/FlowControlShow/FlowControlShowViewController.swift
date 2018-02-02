@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol FlowControlShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel)
+    func checkAppWorkingVersion(fromViewModel viewModel: FlowControlShowModels.Version.ViewModel)
 }
 
 class FlowControlShowViewController: UIViewController {
@@ -43,7 +43,7 @@ class FlowControlShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   FlowControlShowInteractor()
+        let interactor              =   FlowControlShowInteractor(AppDependency())
         let presenter               =   FlowControlShowPresenter()
         
         viewController.interactor   =   interactor
@@ -75,12 +75,13 @@ class FlowControlShowViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.routeToNextScene()
     }
 
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        let requestModel = FlowControlShowModels.Version.RequestModel()
+        self.interactor?.fetchAppWorkingVersion(withRequestModel: requestModel)
     }
     
     fileprivate func routeToNextScene() {
@@ -94,8 +95,28 @@ class FlowControlShowViewController: UIViewController {
 
 // MARK: - FlowControlShowDisplayLogic
 extension FlowControlShowViewController: FlowControlShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel) {
+    func checkAppWorkingVersion(fromViewModel viewModel: FlowControlShowModels.Version.ViewModel) {
         // NOTE: Display the result from the Presenter
-
+        if viewModel.isEqual {
+            print("Versions is equal...")
+            
+            self.routeToNextScene()
+        }
+        
+        else {
+            print("Versions is not equal...")
+            
+            DispatchQueue.main.async(execute: {
+                if let url = URL(string: "https://itunes.apple.com/app/id1042037745"), UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                        
+                    else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            })
+        }
     }
 }

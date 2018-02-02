@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol FlowControlShowPresentationLogic {
-    func presentSomething(fromResponseModel responseModel: FlowControlShowModels.Something.ResponseModel)
+    func presentAppWorkingVersion(fromResponseModel responseModel: FlowControlShowModels.Version.ResponseModel)
 }
 
 class FlowControlShowPresenter: FlowControlShowPresentationLogic {
@@ -23,8 +23,8 @@ class FlowControlShowPresenter: FlowControlShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentSomething(fromResponseModel responseModel: FlowControlShowModels.Something.ResponseModel) {
-        let viewModel = FlowControlShowModels.Something.ViewModel()
-        viewController?.displaySomething(fromViewModel: viewModel)
+    func presentAppWorkingVersion(fromResponseModel responseModel: FlowControlShowModels.Version.ResponseModel) {
+        let viewModel = FlowControlShowModels.Version.ViewModel(isEqual: responseModel.isEqual)
+        viewController?.checkAppWorkingVersion(fromViewModel: viewModel)
     }
 }

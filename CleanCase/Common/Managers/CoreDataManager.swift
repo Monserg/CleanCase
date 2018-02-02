@@ -99,6 +99,18 @@ class CoreDataManager {
     
     
     // Read
+    func readEntity(withName name: String) -> NSManagedObject? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        
+        do {
+            return try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest).first as? NSManagedObject
+        } catch {
+            print(error)
+            
+            return nil
+        }
+    }
+
     func entitiesRead(withName name: String, andPredicateParameters predicate: NSPredicate?) -> [NSManagedObject]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
         fetchRequest.predicate = predicate

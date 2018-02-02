@@ -14,28 +14,35 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol FlowControlShowBusinessLogic {
-    func doSomething(withRequestModel requestModel: FlowControlShowModels.Something.RequestModel)
+    func fetchAppWorkingVersion(withRequestModel requestModel: FlowControlShowModels.Version.RequestModel)
 }
 
 protocol FlowControlShowDataStore {
-//     var name: String { get set }
 }
 
-class FlowControlShowInteractor: FlowControlShowBusinessLogic, FlowControlShowDataStore {
+class FlowControlShowInteractor: ShareInteractor, FlowControlShowBusinessLogic, FlowControlShowDataStore {
     // MARK: - Properties
     var presenter: FlowControlShowPresentationLogic?
     var worker: FlowControlShowWorker?
     
-    // ... protocol implementation
-//    var name: String = ""
+    var isEqual: Bool = true
     
     
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: FlowControlShowModels.Something.RequestModel) {
+    func fetchAppWorkingVersion(withRequestModel requestModel: FlowControlShowModels.Version.RequestModel) {
         worker = FlowControlShowWorker()
-        worker?.doSomeWork()
-        
-        let responseModel = FlowControlShowModels.Something.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCurrentAppWorkingVersion(), andResponseType: ResponseAPIVersion.self, completionHandler: { [unowned self] responseAPI in
+            if let model = responseAPI.model as? ResponseAPIVersion {
+                // TODO: - SAVE TO COREDATA & CITIES
+                print(model)
+                
+                self.isEqual = Version.currentVersion == model.GetVerResult
+            }
+            
+            let responseModel = FlowControlShowModels.Version.ResponseModel(isEqual: self.isEqual)
+            self.presenter?.presentAppWorkingVersion(fromResponseModel: responseModel)
+        })
     }
 }

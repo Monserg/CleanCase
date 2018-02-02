@@ -35,8 +35,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         worker = SignInShowWorker()
         
         // API: Fetch request data
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(), andResponseType: GetCitiesResult.self, completionHandler: { [unowned self] responseAPI in
-            if let result = responseAPI.model as? GetCitiesResult {
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(), andResponseType: ResponseAPICities.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? ResponseAPICities {
                 // TODO: - SAVE TO COREDATA & CITIES
                 print(result)
             }

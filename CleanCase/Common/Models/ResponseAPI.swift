@@ -8,13 +8,17 @@
 
 import UIKit
 
-struct GetCitiesResult: Decodable {
+struct ResponseAPICities: Decodable {
     // MARK: - Properties
-    let GetCitiesResult: [ResponseCity]
+    let GetCitiesResult: [ResponseAPICity]
 }
 
-struct ResponseCity: Decodable {
+struct ResponseAPICity: Decodable {
     // MARK: - Properties
     let CityName: String
     let ID: Int16
+}
+
+struct ResponseAPIVersion: Decodable {
+    let GetVerResult: Int16
 }
