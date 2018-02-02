@@ -14,7 +14,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 @objc protocol FlowControlShowRoutingLogic {
-//    func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToMainShowScene()
+    func routeToSignInShowScene()
 }
 
 protocol FlowControlShowDataPassing {
@@ -28,26 +29,32 @@ class FlowControlShowRouter: NSObject, FlowControlShowRoutingLogic, FlowControlS
     
     
     // MARK: - Routing
-//    func routeToSomewhere(segue: UIStoryboardSegue?) {
-//        if let segue = segue {
-//            let destinationVC = segue.destination as! SomewhereViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//            navigateToSomewhere(source: viewController!, destination: destinationVC)
-//        }
-//    }
+    func routeToMainShowScene() {
+        let storyboard = UIStoryboard(name: "MainShow", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "MainShowVC") as! MainShowViewController
+        destinationVC.modalTransitionStyle = .crossDissolve
+        
+        self.navigateToMainShowScene(source: viewController!, destination: destinationVC)
+    }
+    
+    func routeToSignInShowScene() {
+        let storyboard = UIStoryboard(name: "SignInShow", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "SignInShowVC") as! SignInShowViewController
+        destinationVC.modalTransitionStyle = .crossDissolve
+        
+        self.navigateToSignInShowScene(source: viewController!, destination: destinationVC)
+    }
     
     
     // MARK: - Navigation
-//    func navigateToSomewhere(source: FlowControlShowViewController, destination: SomewhereViewController) {
-//        source.show(destination, sender: nil)
-//    }
+    func navigateToMainShowScene(source: FlowControlShowViewController, destination: MainShowViewController) {
+        source.present(destination, animated: true, completion: nil)
+    }
     
+    func navigateToSignInShowScene(source: FlowControlShowViewController, destination: SignInShowViewController) {
+        source.present(destination, animated: true, completion: nil)
+    }
+
     
     // MARK: - Passing data
 //    func passDataToSomewhere(source: FlowControlShowDataStore, destination: inout SomewhereDataStore) {

@@ -1,5 +1,5 @@
 //
-//  FlowControlShowViewController.swift
+//  SignInShowViewController.swift
 //  CleanCase
 //
 //  Created by msm72 on 02.02.2018.
@@ -13,18 +13,18 @@
 import UIKit
 
 // MARK: - Input & Output protocols
-protocol FlowControlShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel)
+protocol SignInShowDisplayLogic: class {
+    func displaySomething(fromViewModel viewModel: SignInShowModels.Something.ViewModel)
 }
 
-class FlowControlShowViewController: UIViewController {
+class SignInShowViewController: UIViewController {
     // MARK: - Properties
-    var interactor: FlowControlShowBusinessLogic?
-    var router: (NSObjectProtocol & FlowControlShowRoutingLogic & FlowControlShowDataPassing)?
+    var interactor: SignInShowBusinessLogic?
+    var router: (NSObjectProtocol & SignInShowRoutingLogic & SignInShowDataPassing)?
     
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     
     // MARK: - Class Initialization
@@ -44,9 +44,9 @@ class FlowControlShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   FlowControlShowInteractor()
-        let presenter               =   FlowControlShowPresenter()
-        let router                  =   FlowControlShowRouter()
+        let interactor              =   SignInShowInteractor()
+        let presenter               =   SignInShowPresenter()
+        let router                  =   SignInShowRouter()
         
         viewController.interactor   =   interactor
         viewController.router       =   router
@@ -76,27 +76,24 @@ class FlowControlShowViewController: UIViewController {
         viewSettingsDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.routeToNextScene()
-    }
-
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        let requestModel = SignInShowModels.Something.RequestModel()
+        interactor?.doSomething(withRequestModel: requestModel)
     }
     
-    fileprivate func routeToNextScene() {
-        arc4random_uniform(2) == 0 ? self.router?.routeToSignInShowScene() : self.router?.routeToMainShowScene()
+    
+    // MARK: - Actions
+    @IBAction func handlerSaveButtonTap(_ sender: Any) {
+        print("Save button tapped...")
     }
 }
 
 
-// MARK: - FlowControlShowDisplayLogic
-extension FlowControlShowViewController: FlowControlShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel) {
+// MARK: - SignInShowDisplayLogic
+extension SignInShowViewController: SignInShowDisplayLogic {
+    func displaySomething(fromViewModel viewModel: SignInShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
 //         nameTextField.text = viewModel.name
     }

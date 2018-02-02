@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5C72E5D6EC9AF2FC9D0F5CD1 /* Pods_CleanCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */; };
 		B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F4D0ED202447D50086E25F /* AppDelegate.swift */; };
-		B1F4D0F0202447D50086E25F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F4D0EF202447D50086E25F /* ViewController.swift */; };
-		B1F4D0F3202447D50086E25F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F1202447D50086E25F /* Main.storyboard */; };
 		B1F4D0F5202447D50086E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F4202447D50086E25F /* Assets.xcassets */; };
 		B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */; };
 		B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CED20244DC200351BB7 /* FlowControlShowPresenter.swift */; };
@@ -20,6 +18,21 @@
 		B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF120244DC200351BB7 /* FlowControlShowViewController.swift */; };
 		B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */; };
 		B1FA2CFA20244DDD00351BB7 /* FlowControlShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2CF920244DDD00351BB7 /* FlowControlShow.storyboard */; };
+		B1FA2D022024500000351BB7 /* SignInShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CFC2024500000351BB7 /* SignInShowPresenter.swift */; };
+		B1FA2D032024500000351BB7 /* SignInShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CFD2024500000351BB7 /* SignInShowWorker.swift */; };
+		B1FA2D042024500000351BB7 /* SignInShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CFE2024500000351BB7 /* SignInShowRouter.swift */; };
+		B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CFF2024500000351BB7 /* SignInShowModels.swift */; };
+		B1FA2D062024500000351BB7 /* SignInShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D002024500000351BB7 /* SignInShowViewController.swift */; };
+		B1FA2D072024500000351BB7 /* SignInShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D012024500000351BB7 /* SignInShowInteractor.swift */; };
+		B1FA2D092024501100351BB7 /* SignInShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D082024501100351BB7 /* SignInShow.storyboard */; };
+		B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */; };
+		B1FA2D13202458E400351BB7 /* MainShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D0D202458E400351BB7 /* MainShowPresenter.swift */; };
+		B1FA2D14202458E400351BB7 /* MainShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D0E202458E400351BB7 /* MainShowWorker.swift */; };
+		B1FA2D15202458E400351BB7 /* MainShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D0F202458E400351BB7 /* MainShowRouter.swift */; };
+		B1FA2D16202458E400351BB7 /* MainShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D10202458E400351BB7 /* MainShowModels.swift */; };
+		B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D11202458E400351BB7 /* MainShowViewController.swift */; };
+		B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D12202458E400351BB7 /* MainShowInteractor.swift */; };
+		B1FA2D1A202458F200351BB7 /* MainShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D19202458F200351BB7 /* MainShow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +40,6 @@
 		4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4D0EA202447D50086E25F /* CleanCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4D0ED202447D50086E25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B1F4D0EF202447D50086E25F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B1F4D0F2202447D50086E25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1F4D0F4202447D50086E25F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1F4D0F7202447D50086E25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1F4D0F9202447D50086E25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +50,21 @@
 		B1FA2CF120244DC200351BB7 /* FlowControlShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2CF920244DDD00351BB7 /* FlowControlShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlowControlShow.storyboard; sourceTree = "<group>"; };
+		B1FA2CFC2024500000351BB7 /* SignInShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowPresenter.swift; sourceTree = "<group>"; };
+		B1FA2CFD2024500000351BB7 /* SignInShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowWorker.swift; sourceTree = "<group>"; };
+		B1FA2CFE2024500000351BB7 /* SignInShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowRouter.swift; sourceTree = "<group>"; };
+		B1FA2CFF2024500000351BB7 /* SignInShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowModels.swift; sourceTree = "<group>"; };
+		B1FA2D002024500000351BB7 /* SignInShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowViewController.swift; sourceTree = "<group>"; };
+		B1FA2D012024500000351BB7 /* SignInShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowInteractor.swift; sourceTree = "<group>"; };
+		B1FA2D082024501100351BB7 /* SignInShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInShow.storyboard; sourceTree = "<group>"; };
+		B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		B1FA2D0D202458E400351BB7 /* MainShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowPresenter.swift; sourceTree = "<group>"; };
+		B1FA2D0E202458E400351BB7 /* MainShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowWorker.swift; sourceTree = "<group>"; };
+		B1FA2D0F202458E400351BB7 /* MainShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowRouter.swift; sourceTree = "<group>"; };
+		B1FA2D10202458E400351BB7 /* MainShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowModels.swift; sourceTree = "<group>"; };
+		B1FA2D11202458E400351BB7 /* MainShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowViewController.swift; sourceTree = "<group>"; };
+		B1FA2D12202458E400351BB7 /* MainShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowInteractor.swift; sourceTree = "<group>"; };
+		B1FA2D19202458F200351BB7 /* MainShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainShow.storyboard; sourceTree = "<group>"; };
 		B77D149EA968FA2CE61055A7 /* Pods-CleanCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +132,8 @@
 			children = (
 				B1FA2CF920244DDD00351BB7 /* FlowControlShow.storyboard */,
 				B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */,
-				B1F4D0F1202447D50086E25F /* Main.storyboard */,
+				B1FA2D19202458F200351BB7 /* MainShow.storyboard */,
+				B1FA2D082024501100351BB7 /* SignInShow.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -115,7 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				B1FA2CEC20244D9700351BB7 /* FlowControlShow */,
-				B1F4D0EF202447D50086E25F /* ViewController.swift */,
+				B1FA2D0C202458D300351BB7 /* MainShow */,
+				B1FA2CFB20244FF300351BB7 /* SignInShow */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -156,6 +184,7 @@
 		B1F4D1052024495E0086E25F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,6 +200,32 @@
 				B1FA2CEE20244DC200351BB7 /* FlowControlShowWorker.swift */,
 			);
 			path = FlowControlShow;
+			sourceTree = "<group>";
+		};
+		B1FA2CFB20244FF300351BB7 /* SignInShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1FA2D012024500000351BB7 /* SignInShowInteractor.swift */,
+				B1FA2CFF2024500000351BB7 /* SignInShowModels.swift */,
+				B1FA2CFC2024500000351BB7 /* SignInShowPresenter.swift */,
+				B1FA2CFE2024500000351BB7 /* SignInShowRouter.swift */,
+				B1FA2D002024500000351BB7 /* SignInShowViewController.swift */,
+				B1FA2CFD2024500000351BB7 /* SignInShowWorker.swift */,
+			);
+			path = SignInShow;
+			sourceTree = "<group>";
+		};
+		B1FA2D0C202458D300351BB7 /* MainShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1FA2D12202458E400351BB7 /* MainShowInteractor.swift */,
+				B1FA2D10202458E400351BB7 /* MainShowModels.swift */,
+				B1FA2D0D202458E400351BB7 /* MainShowPresenter.swift */,
+				B1FA2D0F202458E400351BB7 /* MainShowRouter.swift */,
+				B1FA2D11202458E400351BB7 /* MainShowViewController.swift */,
+				B1FA2D0E202458E400351BB7 /* MainShowWorker.swift */,
+			);
+			path = MainShow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +292,8 @@
 			files = (
 				B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */,
 				B1F4D0F5202447D50086E25F /* Assets.xcassets in Resources */,
-				B1F4D0F3202447D50086E25F /* Main.storyboard in Resources */,
+				B1FA2D1A202458F200351BB7 /* MainShow.storyboard in Resources */,
+				B1FA2D092024501100351BB7 /* SignInShow.storyboard in Resources */,
 				B1FA2CFA20244DDD00351BB7 /* FlowControlShow.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,28 +367,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1F4D0F0202447D50086E25F /* ViewController.swift in Sources */,
+				B1FA2D072024500000351BB7 /* SignInShowInteractor.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,
+				B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */,
+				B1FA2D032024500000351BB7 /* SignInShowWorker.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
 				B1FA2CF520244DC200351BB7 /* FlowControlShowRouter.swift in Sources */,
+				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
+				B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */,
+				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
+				B1FA2D062024500000351BB7 /* SignInShowViewController.swift in Sources */,
+				B1FA2D16202458E400351BB7 /* MainShowModels.swift in Sources */,
+				B1FA2D042024500000351BB7 /* SignInShowRouter.swift in Sources */,
 				B1FA2CF420244DC200351BB7 /* FlowControlShowWorker.swift in Sources */,
+				B1FA2D13202458E400351BB7 /* MainShowPresenter.swift in Sources */,
+				B1FA2D022024500000351BB7 /* SignInShowPresenter.swift in Sources */,
+				B1FA2D15202458E400351BB7 /* MainShowRouter.swift in Sources */,
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
 				B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */,
+				B1FA2D14202458E400351BB7 /* MainShowWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B1F4D0F1202447D50086E25F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B1F4D0F2202447D50086E25F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

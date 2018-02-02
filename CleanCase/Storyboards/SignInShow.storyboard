@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In Show View Controller-->
+        <scene sceneID="jfc-As-thW">
+            <objects>
+                <viewController storyboardIdentifier="SignInShowVC" modalTransitionStyle="crossDissolve" id="bxM-jC-7qF" customClass="SignInShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5yD-HB-1pb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywq-dV-TFN" userLabel="TopBar View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.00030086832699999997" green="0.66218382119999997" blue="0.52358740569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="RfT-MB-xdp"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXv-Os-4jb" userLabel="BottomBar View">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye3-bo-12x" userLabel="Save Button">
+                                        <rect key="frame" x="170" y="7" width="34" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="handlerSaveButtonTap:" destination="bxM-jC-7qF" eventType="touchUpInside" id="jtc-Bi-iFS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ye3-bo-12x" firstAttribute="centerY" secondItem="jXv-Os-4jb" secondAttribute="centerY" id="Uel-dC-1fK"/>
+                                    <constraint firstItem="ye3-bo-12x" firstAttribute="centerX" secondItem="jXv-Os-4jb" secondAttribute="centerX" id="Wp3-qY-4NC"/>
+                                    <constraint firstAttribute="height" constant="44" id="Yrv-Jb-Jov"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UrO-ky-v7J" firstAttribute="bottom" secondItem="jXv-Os-4jb" secondAttribute="bottom" id="JKX-6I-FAS"/>
+                            <constraint firstItem="jXv-Os-4jb" firstAttribute="leading" secondItem="UrO-ky-v7J" secondAttribute="leading" id="Nxy-BC-bW4"/>
+                            <constraint firstItem="UrO-ky-v7J" firstAttribute="trailing" secondItem="ywq-dV-TFN" secondAttribute="trailing" id="R8p-E1-B7a"/>
+                            <constraint firstItem="jXv-Os-4jb" firstAttribute="trailing" secondItem="UrO-ky-v7J" secondAttribute="trailing" id="cOq-51-nxf"/>
+                            <constraint firstItem="ywq-dV-TFN" firstAttribute="top" secondItem="UrO-ky-v7J" secondAttribute="top" id="gFW-Fp-ZMO"/>
+                            <constraint firstItem="ywq-dV-TFN" firstAttribute="leading" secondItem="UrO-ky-v7J" secondAttribute="leading" id="zW1-ec-Jsc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UrO-ky-v7J"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iRn-9s-Nm9">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="2UE-RD-GqT"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="ye3-bo-12x" id="kZH-fk-25O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AM8-pb-2AV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="168"/>
+        </scene>
+    </scenes>
+</document>

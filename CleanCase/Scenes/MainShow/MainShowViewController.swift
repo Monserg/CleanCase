@@ -1,5 +1,5 @@
 //
-//  FlowControlShowViewController.swift
+//  MainShowViewController.swift
 //  CleanCase
 //
 //  Created by msm72 on 02.02.2018.
@@ -13,18 +13,19 @@
 import UIKit
 
 // MARK: - Input & Output protocols
-protocol FlowControlShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel)
+protocol MainShowDisplayLogic: class {
+    func displaySomething(fromViewModel viewModel: MainShowModels.Something.ViewModel)
 }
 
-class FlowControlShowViewController: UIViewController {
+class MainShowViewController: UIViewController {
     // MARK: - Properties
-    var interactor: FlowControlShowBusinessLogic?
-    var router: (NSObjectProtocol & FlowControlShowRoutingLogic & FlowControlShowDataPassing)?
+    var interactor: MainShowBusinessLogic?
+    var router: (NSObjectProtocol & MainShowRoutingLogic & MainShowDataPassing)?
     
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var createOrderButton: UIButton!
+    @IBOutlet weak var myOrderButton: UIButton!
     
     
     // MARK: - Class Initialization
@@ -44,9 +45,9 @@ class FlowControlShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   FlowControlShowInteractor()
-        let presenter               =   FlowControlShowPresenter()
-        let router                  =   FlowControlShowRouter()
+        let interactor              =   MainShowInteractor()
+        let presenter               =   MainShowPresenter()
+        let router                  =   MainShowRouter()
         
         viewController.interactor   =   interactor
         viewController.router       =   router
@@ -76,27 +77,28 @@ class FlowControlShowViewController: UIViewController {
         viewSettingsDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.routeToNextScene()
-    }
-
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        let requestModel = MainShowModels.Something.RequestModel()
+        interactor?.doSomething(withRequestModel: requestModel)
     }
     
-    fileprivate func routeToNextScene() {
-        arc4random_uniform(2) == 0 ? self.router?.routeToSignInShowScene() : self.router?.routeToMainShowScene()
+    
+    // MARK: - Actions
+    @IBAction func handlerCreateOrderButtonTap(_ sender: Any) {
+        print("Create Order button tapped...")
+    }
+    
+    @IBAction func handlerMyOrderButtonTap(_ sender: Any) {
+        print("My Order button tapped...")
     }
 }
 
 
-// MARK: - FlowControlShowDisplayLogic
-extension FlowControlShowViewController: FlowControlShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel) {
+// MARK: - MainShowDisplayLogic
+extension MainShowViewController: MainShowDisplayLogic {
+    func displaySomething(fromViewModel viewModel: MainShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
 //         nameTextField.text = viewModel.name
     }
