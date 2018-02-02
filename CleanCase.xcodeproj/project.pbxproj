@@ -55,13 +55,69 @@
 			isa = PBXGroup;
 			children = (
 				B1F4D0ED202447D50086E25F /* AppDelegate.swift */,
-				B1F4D0EF202447D50086E25F /* ViewController.swift */,
-				B1F4D0F1202447D50086E25F /* Main.storyboard */,
-				B1F4D0F4202447D50086E25F /* Assets.xcassets */,
-				B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */,
-				B1F4D0F9202447D50086E25F /* Info.plist */,
+				B1F4D102202449400086E25F /* Common */,
+				B1F4D100202448FD0086E25F /* Scenes */,
+				B1F4D0FF202448E00086E25F /* Storyboards */,
+				B1F4D1012024490D0086E25F /* Resources */,
 			);
 			path = CleanCase;
+			sourceTree = "<group>";
+		};
+		B1F4D0FF202448E00086E25F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */,
+				B1F4D0F1202447D50086E25F /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B1F4D100202448FD0086E25F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B1F4D0EF202447D50086E25F /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B1F4D1012024490D0086E25F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1F4D0F4202447D50086E25F /* Assets.xcassets */,
+				B1F4D0F9202447D50086E25F /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B1F4D102202449400086E25F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B1F4D103202449490086E25F /* CoreData */,
+				B1F4D1052024495E0086E25F /* Extensions */,
+				B1F4D104202449500086E25F /* Managers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B1F4D103202449490086E25F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B1F4D104202449500086E25F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B1F4D1052024495E0086E25F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CleanCase/Info.plist;
+				INFOPLIST_FILE = CleanCase/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = msm72.CleanCase;
@@ -290,7 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CleanCase/Info.plist;
+				INFOPLIST_FILE = CleanCase/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = msm72.CleanCase;
