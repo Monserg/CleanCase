@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SideMenu
 
 // MARK: - Input & Output protocols
 protocol MainShowDisplayLogic: class {
@@ -22,11 +23,19 @@ class MainShowViewController: UIViewController {
     var interactor: MainShowBusinessLogic?
     var router: (NSObjectProtocol & MainShowRoutingLogic & MainShowDataPassing)?
     
+    fileprivate var sideMenuManager: SideMenuManager!
+
     
     // MARK: - IBOutlets
     @IBOutlet weak var createOrderButton: UIButton!
     @IBOutlet weak var myOrderButton: UIButton!
     
+    @IBOutlet weak var laundryButton: UIButton! {
+        didSet {
+            laundryButton.setTitle("ZORRO", for: .normal)
+        }
+    }
+
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -74,18 +83,78 @@ class MainShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
+        self.viewSettingsDidLoad()
+        self.setupSideMenu()
     }
-    
+        
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
+    fileprivate func viewSettingsDidLoad() {
         let requestModel = MainShowModels.Something.RequestModel()
         interactor?.doSomething(withRequestModel: requestModel)
     }
     
+    fileprivate     func setupSideMenu() {
+        sideMenuManager = SideMenuManager.default
+        let leftSideMenuNC      =   storyboard!.instantiateViewController(withIdentifier: "LeftSideMenuNC") as! UISideMenuNavigationController
+        
+        sideMenuManager.menuLeftNavigationController    =   leftSideMenuNC
+        
+        sideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        sideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        
+        sideMenuManager.menuWidth           =   270 * widthRatio
+        sideMenuManager.menuDismissOnPush   =   true
+        sideMenuManager.menuPresentMode     =   .menuSlideIn
+        
+        let leftSideMenuShowVC  =   leftSideMenuNC.viewControllers.first as! LeftSideMenuShowViewController
+        
+        sideMenuManager.menuLeftNavigationController = leftSideMenuNC
+        
+        // Handler left side menu item select
+        /*
+        leftSideMenuShowVC.handlerMenuItemSelectCompletion = { [unowned self] (scene) in
+            if let nextScene = scene as? SceneNameTuple, nextScene.identifier == "SelectCity"  {
+                // API: Load Cities list
+                self.checkNetworkConnection { [unowned self] _ in
+                    leftSideMenuNC.dismiss(animated: true, completion: {})
+                    let requestModel = EstablishmentsShowModels.Cities.RequestModel()
+                    self.interactor?.fetchCities(withRequestModel: requestModel)
+                }
+            } else if let nextScene = scene as? SceneNameTuple, nextScene.identifier != "LogOut"  {
+                let storyboard = UIStoryboard(name: nextScene.storyboard, bundle: nil)
+                let destinationVC = storyboard.instantiateViewController(withIdentifier: nextScene.identifier)
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
+                    leftSideMenuNC.dismiss(animated: true, completion: {})
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
+                        self.show(destinationVC, sender: nil)
+                    }
+                }
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
+                    leftSideMenuNC.dismiss(animated: true, completion: {})
+                    
+                    // Modify user in CoreData
+                    User.current?.update("isLogin", withValue: false)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
+                        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+ */
+    }
+
     
     // MARK: - Actions
+    @IBAction func handlerSideMenuBarButtonTap(_ sender: UIBarButtonItem) {
+        // Show side menu
+        present(sideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+
     @IBAction func handlerCreateOrderButtonTap(_ sender: Any) {
         print("Create Order button tapped...")
     }
@@ -101,5 +170,27 @@ extension MainShowViewController: MainShowDisplayLogic {
     func displaySomething(fromViewModel viewModel: MainShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
 //         nameTextField.text = viewModel.name
+    }
+}
+
+
+// MARK: - UISideMenuNavigationControllerDelegate
+extension MainShowViewController: UISideMenuNavigationControllerDelegate {
+    func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
+        print("SideMenu Appearing! (animated: \(animated))")
+        
+//        (self.sideMenuManager.menuLeftNavigationController!.viewControllers.first as! LeftSideMenuShowViewController).loadMenuItems()
+    }
+    
+    func sideMenuDidAppear(menu: UISideMenuNavigationController, animated: Bool) {
+        print("SideMenu Appeared! (animated: \(animated))")
+    }
+    
+    func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+        print("SideMenu Disappearing! (animated: \(animated))")
+    }
+    
+    func sideMenuDidDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+        print("SideMenu Disappeared! (animated: \(animated))")
     }
 }

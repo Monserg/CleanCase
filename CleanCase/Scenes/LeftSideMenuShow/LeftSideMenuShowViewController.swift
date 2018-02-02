@@ -1,5 +1,5 @@
 //
-//  FlowControlShowViewController.swift
+//  LeftSideMenuShowViewController.swift
 //  CleanCase
 //
 //  Created by msm72 on 02.02.2018.
@@ -11,20 +11,22 @@
 //
 
 import UIKit
+import SideMenu
 
 // MARK: - Input & Output protocols
-protocol FlowControlShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel)
+protocol LeftSideMenuShowDisplayLogic: class {
+    func displaySomething(fromViewModel viewModel: LeftSideMenuShowModels.Something.ViewModel)
 }
 
-class FlowControlShowViewController: UIViewController {
+class LeftSideMenuShowViewController: UIViewController {
     // MARK: - Properties
-    var interactor: FlowControlShowBusinessLogic?
-    var router: (NSObjectProtocol & FlowControlShowRoutingLogic & FlowControlShowDataPassing)?
+    var interactor: LeftSideMenuShowBusinessLogic?
+    var router: (NSObjectProtocol & LeftSideMenuShowRoutingLogic & LeftSideMenuShowDataPassing)?
     
+    var handlerMenuItemSelectCompletion: HandlerPassDataCompletion?
+
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
     
     
     // MARK: - Class Initialization
@@ -44,9 +46,9 @@ class FlowControlShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   FlowControlShowInteractor()
-        let presenter               =   FlowControlShowPresenter()
-        let router                  =   FlowControlShowRouter()
+        let interactor              =   LeftSideMenuShowInteractor()
+        let presenter               =   LeftSideMenuShowPresenter()
+        let router                  =   LeftSideMenuShowRouter()
         
         viewController.interactor   =   interactor
         viewController.router       =   router
@@ -76,28 +78,18 @@ class FlowControlShowViewController: UIViewController {
         viewSettingsDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.routeToNextScene()
-    }
-
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-    }
-    
-    fileprivate func routeToNextScene() {
-        self.router?.routeToMainShowScene()
-        //        arc4random_uniform(2) == 0 ? self.router?.routeToSignInShowScene() : self.router?.routeToMainShowScene()
+        let requestModel = LeftSideMenuShowModels.Something.RequestModel()
+        interactor?.doSomething(withRequestModel: requestModel)
     }
 }
 
 
-// MARK: - FlowControlShowDisplayLogic
-extension FlowControlShowViewController: FlowControlShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel) {
+// MARK: - LeftSideMenuShowDisplayLogic
+extension LeftSideMenuShowViewController: LeftSideMenuShowDisplayLogic {
+    func displaySomething(fromViewModel viewModel: LeftSideMenuShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
 //         nameTextField.text = viewModel.name
     }

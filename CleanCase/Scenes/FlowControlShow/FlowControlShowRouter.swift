@@ -31,10 +31,11 @@ class FlowControlShowRouter: NSObject, FlowControlShowRoutingLogic, FlowControlS
     // MARK: - Routing
     func routeToMainShowScene() {
         let storyboard = UIStoryboard(name: "MainShow", bundle: nil)
-        let destinationVC = storyboard.instantiateViewController(withIdentifier: "MainShowVC") as! MainShowViewController
+        let destinationNC = storyboard.instantiateViewController(withIdentifier: "MainShowNC") as! UINavigationController
+        let destinationVC = destinationNC.viewControllers.first as! MainShowViewController
         destinationVC.modalTransitionStyle = .crossDissolve
         
-        self.navigateToMainShowScene(source: viewController!, destination: destinationVC)
+        self.navigateToMainShowScene(source: viewController!, destination: destinationNC)
     }
     
     func routeToSignInShowScene() {
@@ -47,7 +48,7 @@ class FlowControlShowRouter: NSObject, FlowControlShowRoutingLogic, FlowControlS
     
     
     // MARK: - Navigation
-    func navigateToMainShowScene(source: FlowControlShowViewController, destination: MainShowViewController) {
+    func navigateToMainShowScene(source: FlowControlShowViewController, destination: UINavigationController) {
         source.present(destination, animated: true, completion: nil)
     }
     

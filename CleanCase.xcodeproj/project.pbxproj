@@ -82,6 +82,13 @@
 		B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D7A20245FC000351BB7 /* PriceListShowViewController.swift */; };
 		B1FA2D8120245FC000351BB7 /* PriceListShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D7B20245FC000351BB7 /* PriceListShowInteractor.swift */; };
 		B1FA2D8320245FCB00351BB7 /* PriceListShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D8220245FCB00351BB7 /* PriceListShow.storyboard */; };
+		B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8920246D2100351BB7 /* LeftSideMenuShowPresenter.swift */; };
+		B1FA2D9020246D2100351BB7 /* LeftSideMenuShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8A20246D2100351BB7 /* LeftSideMenuShowWorker.swift */; };
+		B1FA2D9120246D2100351BB7 /* LeftSideMenuShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8B20246D2100351BB7 /* LeftSideMenuShowRouter.swift */; };
+		B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8C20246D2100351BB7 /* LeftSideMenuShowModels.swift */; };
+		B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8D20246D2100351BB7 /* LeftSideMenuShowViewController.swift */; };
+		B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8E20246D2100351BB7 /* LeftSideMenuShowInteractor.swift */; };
+		B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D9520246FF700351BB7 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +170,13 @@
 		B1FA2D7A20245FC000351BB7 /* PriceListShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2D7B20245FC000351BB7 /* PriceListShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D8220245FCB00351BB7 /* PriceListShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PriceListShow.storyboard; sourceTree = "<group>"; };
+		B1FA2D8920246D2100351BB7 /* LeftSideMenuShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowPresenter.swift; sourceTree = "<group>"; };
+		B1FA2D8A20246D2100351BB7 /* LeftSideMenuShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowWorker.swift; sourceTree = "<group>"; };
+		B1FA2D8B20246D2100351BB7 /* LeftSideMenuShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowRouter.swift; sourceTree = "<group>"; };
+		B1FA2D8C20246D2100351BB7 /* LeftSideMenuShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowModels.swift; sourceTree = "<group>"; };
+		B1FA2D8D20246D2100351BB7 /* LeftSideMenuShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowViewController.swift; sourceTree = "<group>"; };
+		B1FA2D8E20246D2100351BB7 /* LeftSideMenuShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowInteractor.swift; sourceTree = "<group>"; };
+		B1FA2D9520246FF700351BB7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B77D149EA968FA2CE61055A7 /* Pods-CleanCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +262,7 @@
 			children = (
 				B1FA2D5720245ECF00351BB7 /* AboutShow */,
 				B1FA2CEC20244D9700351BB7 /* FlowControlShow */,
+				B1FA2D8820246D1400351BB7 /* LeftSideMenuShow */,
 				B1FA2D0C202458D300351BB7 /* MainShow */,
 				B1FA2D2C20245DCF00351BB7 /* OrderCreate */,
 				B1FA2D1D20245D4E00351BB7 /* OrderShow */,
@@ -296,6 +311,7 @@
 		B1F4D1052024495E0086E25F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B1FA2D9520246FF700351BB7 /* Constants.swift */,
 				B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */,
 			);
 			path = Extensions;
@@ -429,6 +445,19 @@
 				B1FA2D7720245FC000351BB7 /* PriceListShowWorker.swift */,
 			);
 			path = PriceListShow;
+			sourceTree = "<group>";
+		};
+		B1FA2D8820246D1400351BB7 /* LeftSideMenuShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1FA2D8E20246D2100351BB7 /* LeftSideMenuShowInteractor.swift */,
+				B1FA2D8C20246D2100351BB7 /* LeftSideMenuShowModels.swift */,
+				B1FA2D8920246D2100351BB7 /* LeftSideMenuShowPresenter.swift */,
+				B1FA2D8B20246D2100351BB7 /* LeftSideMenuShowRouter.swift */,
+				B1FA2D8D20246D2100351BB7 /* LeftSideMenuShowViewController.swift */,
+				B1FA2D8A20246D2100351BB7 /* LeftSideMenuShowWorker.swift */,
+			);
+			path = LeftSideMenuShow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,6 +611,8 @@
 				B1FA2D3820245DDF00351BB7 /* OrderCreateInteractor.swift in Sources */,
 				B1FA2D6520245EE900351BB7 /* AboutShowInteractor.swift in Sources */,
 				B1FA2D6420245EE900351BB7 /* AboutShowViewController.swift in Sources */,
+				B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */,
+				B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */,
 				B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,
 				B1FA2D6D20245F4B00351BB7 /* WriteUsShowPresenter.swift in Sources */,
@@ -591,6 +622,7 @@
 				B1FA2D8120245FC000351BB7 /* PriceListShowInteractor.swift in Sources */,
 				B1FA2D4520245E2B00351BB7 /* PersonalDataShowInteractor.swift in Sources */,
 				B1FA2D4320245E2B00351BB7 /* PersonalDataShowModels.swift in Sources */,
+				B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */,
 				B1FA2D7E20245FC000351BB7 /* PriceListShowRouter.swift in Sources */,
 				B1FA2D4420245E2B00351BB7 /* PersonalDataShowViewController.swift in Sources */,
 				B1FA2D7020245F4B00351BB7 /* WriteUsShowModels.swift in Sources */,
@@ -603,10 +635,12 @@
 				B1FA2D2520245D5F00351BB7 /* OrderShowWorker.swift in Sources */,
 				B1FA2D6220245EE900351BB7 /* AboutShowRouter.swift in Sources */,
 				B1FA2D3420245DDF00351BB7 /* OrderCreateWorker.swift in Sources */,
+				B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */,
 				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
+				B1FA2D9120246D2100351BB7 /* LeftSideMenuShowRouter.swift in Sources */,
 				B1FA2D5020245E8900351BB7 /* OrdersShowWorker.swift in Sources */,
 				B1FA2CF520244DC200351BB7 /* FlowControlShowRouter.swift in Sources */,
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
@@ -632,12 +666,14 @@
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
 				B1FA2D6F20245F4B00351BB7 /* WriteUsShowRouter.swift in Sources */,
 				B1FA2D4120245E2B00351BB7 /* PersonalDataShowWorker.swift in Sources */,
+				B1FA2D9020246D2100351BB7 /* LeftSideMenuShowWorker.swift in Sources */,
 				B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */,
 				B1FA2D7D20245FC000351BB7 /* PriceListShowWorker.swift in Sources */,
 				B1FA2D4220245E2B00351BB7 /* PersonalDataShowRouter.swift in Sources */,
 				B1FA2D3320245DDF00351BB7 /* OrderCreatePresenter.swift in Sources */,
 				B1FA2D7220245F4B00351BB7 /* WriteUsShowInteractor.swift in Sources */,
 				B1FA2D6020245EE900351BB7 /* AboutShowPresenter.swift in Sources */,
+				B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */,
 				B1FA2D14202458E400351BB7 /* MainShowWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
