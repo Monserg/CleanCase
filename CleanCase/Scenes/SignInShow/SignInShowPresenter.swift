@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol SignInShowPresentationLogic {
-    func presentSomething(fromResponseModel responseModel: SignInShowModels.Something.ResponseModel)
+    func presentCities(fromResponseModel responseModel: SignInShowModels.City.ResponseModel)
 }
 
 class SignInShowPresenter: SignInShowPresentationLogic {
@@ -23,8 +23,8 @@ class SignInShowPresenter: SignInShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentSomething(fromResponseModel responseModel: SignInShowModels.Something.ResponseModel) {
-        let viewModel = SignInShowModels.Something.ViewModel()
-        viewController?.displaySomething(fromViewModel: viewModel)
+    func presentCities(fromResponseModel responseModel: SignInShowModels.City.ResponseModel) {
+        let viewModel = SignInShowModels.City.ViewModel()
+        viewController?.displayCities(fromViewModel: viewModel)
     }
 }

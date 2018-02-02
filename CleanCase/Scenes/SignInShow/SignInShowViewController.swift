@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol SignInShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: SignInShowModels.Something.ViewModel)
+    func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel)
 }
 
 class SignInShowViewController: UIViewController {
@@ -25,6 +25,12 @@ class SignInShowViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var saveButton: UIButton!
+    
+    @IBOutlet weak var laundryButton: UIButton! {
+        didSet {
+            
+        }
+    }
     
     
     // MARK: - Class Initialization
@@ -44,7 +50,7 @@ class SignInShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   SignInShowInteractor()
+        let interactor              =   SignInShowInteractor(AppDependency())
         let presenter               =   SignInShowPresenter()
         let router                  =   SignInShowRouter()
         
@@ -75,12 +81,18 @@ class SignInShowViewController: UIViewController {
         
         viewSettingsDidLoad()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        let requestModel = SignInShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
+        let requestModel = SignInShowModels.City.RequestModel()
+        interactor?.fetchCities(withRequestModel: requestModel)
     }
     
     
@@ -93,8 +105,8 @@ class SignInShowViewController: UIViewController {
 
 // MARK: - SignInShowDisplayLogic
 extension SignInShowViewController: SignInShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: SignInShowModels.Something.ViewModel) {
+    func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+
     }
 }

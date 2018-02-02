@@ -1,9 +1,9 @@
 //
 //  Constants.swift
-//  FindRes
+//  CleanCase
 //
-//  Created by msm72 on 08.11.2017.
-//  Copyright © 2017 RockSoft. All rights reserved.
+//  Created by msm72 on 02.02.2018.
+//  Copyright © 2018 msm72. All rights reserved.
 //
 
 import UIKit

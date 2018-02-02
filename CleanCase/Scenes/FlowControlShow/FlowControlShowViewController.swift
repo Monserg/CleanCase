@@ -20,11 +20,10 @@ protocol FlowControlShowDisplayLogic: class {
 class FlowControlShowViewController: UIViewController {
     // MARK: - Properties
     var interactor: FlowControlShowBusinessLogic?
-    var router: (NSObjectProtocol & FlowControlShowRoutingLogic & FlowControlShowDataPassing)?
+    var router: NSObjectProtocol?
     
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
     
     
     // MARK: - Class Initialization
@@ -46,14 +45,10 @@ class FlowControlShowViewController: UIViewController {
         let viewController          =   self
         let interactor              =   FlowControlShowInteractor()
         let presenter               =   FlowControlShowPresenter()
-        let router                  =   FlowControlShowRouter()
         
         viewController.interactor   =   interactor
-        viewController.router       =   router
         interactor.presenter        =   presenter
         presenter.viewController    =   viewController
-        router.viewController       =   viewController
-        router.dataStore            =   interactor
     }
     
     
@@ -89,8 +84,10 @@ class FlowControlShowViewController: UIViewController {
     }
     
     fileprivate func routeToNextScene() {
-        self.router?.routeToMainShowScene()
-        //        arc4random_uniform(2) == 0 ? self.router?.routeToSignInShowScene() : self.router?.routeToMainShowScene()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
+            self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
+//            self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
+        }
     }
 }
 
@@ -99,6 +96,6 @@ class FlowControlShowViewController: UIViewController {
 extension FlowControlShowViewController: FlowControlShowDisplayLogic {
     func displaySomething(fromViewModel viewModel: FlowControlShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+
     }
 }

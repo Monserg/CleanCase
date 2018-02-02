@@ -15,7 +15,7 @@ import UIKit
 // MARK: - Data models
 enum SignInShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum City {
         struct RequestModel {
         }
         

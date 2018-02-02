@@ -14,28 +14,35 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol SignInShowBusinessLogic {
-    func doSomething(withRequestModel requestModel: SignInShowModels.Something.RequestModel)
+    func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel)
 }
 
 protocol SignInShowDataStore {
-//     var name: String { get set }
+     var cities: [City]! { get set }
 }
 
-class SignInShowInteractor: SignInShowBusinessLogic, SignInShowDataStore {
+class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShowDataStore {
     // MARK: - Properties
     var presenter: SignInShowPresentationLogic?
     var worker: SignInShowWorker?
     
-    // ... protocol implementation
-//    var name: String = ""
+    // SignInShowDataStore protocol implementation
+    var cities: [City]! = [City]()
     
     
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: SignInShowModels.Something.RequestModel) {
+    func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel) {
         worker = SignInShowWorker()
-        worker?.doSomeWork()
         
-        let responseModel = SignInShowModels.Something.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(), andResponseType: GetCitiesResult.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? GetCitiesResult {
+                // TODO: - SAVE TO COREDATA & CITIES
+                print(result)
+            }
+            
+            let responseModel = SignInShowModels.City.ResponseModel()
+            self.presenter?.presentCities(fromResponseModel: responseModel)
+        })
     }
 }

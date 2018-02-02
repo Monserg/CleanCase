@@ -169,7 +169,7 @@ class MainShowViewController: UIViewController {
 extension MainShowViewController: MainShowDisplayLogic {
     func displaySomething(fromViewModel viewModel: MainShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+
     }
 }
 
@@ -178,8 +178,6 @@ extension MainShowViewController: MainShowDisplayLogic {
 extension MainShowViewController: UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
         print("SideMenu Appearing! (animated: \(animated))")
-        
-//        (self.sideMenuManager.menuLeftNavigationController!.viewControllers.first as! LeftSideMenuShowViewController).loadMenuItems()
     }
     
     func sideMenuDidAppear(menu: UISideMenuNavigationController, animated: Bool) {

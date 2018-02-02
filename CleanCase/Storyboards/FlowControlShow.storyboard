@@ -34,10 +34,30 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZTO-ZL-Olu"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="WOp-uw-LfR" kind="presentation" identifier="SignInShowSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="aqf-Rk-7oV"/>
+                        <segue destination="SEc-qw-hnP" kind="presentation" identifier="MainShowSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="uNE-8E-f9o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg7-pW-TgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383.19999999999999" y="60.719640179910051"/>
+            <point key="canvasLocation" x="423" y="61"/>
+        </scene>
+        <!--SignInShowNC-->
+        <scene sceneID="ELg-O4-qTf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignInShow" referencedIdentifier="SignInShowNC" id="WOp-uw-LfR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qsd-bB-syY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="7"/>
+        </scene>
+        <!--MainShowNC-->
+        <scene sceneID="eGr-ff-XVU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainShow" referencedIdentifier="MainShowNC" id="SEc-qw-hnP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6v7-Q5-BfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dLt-YY-ujF">

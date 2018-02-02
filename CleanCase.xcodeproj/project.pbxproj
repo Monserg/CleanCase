@@ -13,7 +13,6 @@
 		B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */; };
 		B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CED20244DC200351BB7 /* FlowControlShowPresenter.swift */; };
 		B1FA2CF420244DC200351BB7 /* FlowControlShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CEE20244DC200351BB7 /* FlowControlShowWorker.swift */; };
-		B1FA2CF520244DC200351BB7 /* FlowControlShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CEF20244DC200351BB7 /* FlowControlShowRouter.swift */; };
 		B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF020244DC200351BB7 /* FlowControlShowModels.swift */; };
 		B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF120244DC200351BB7 /* FlowControlShowViewController.swift */; };
 		B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */; };
@@ -92,6 +91,16 @@
 		B1FA2D9A2024735D00351BB7 /* LeftMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D982024735D00351BB7 /* LeftMenuItemCell.swift */; };
 		B1FA2D9B2024735D00351BB7 /* LeftMenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D992024735D00351BB7 /* LeftMenuItemCell.xib */; };
 		B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D9C2024748E00351BB7 /* Protocols.swift */; };
+		B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D9E202490A900351BB7 /* CoreDataManager.swift */; };
+		B1FA2DA32024914900351BB7 /* CleanCaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DA12024914900351BB7 /* CleanCaseModel.xcdatamodeld */; };
+		B1FA2DA7202492E300351BB7 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DA6202492E300351BB7 /* ResponseAPI.swift */; };
+		B1FA2DA92024948400351BB7 /* RestAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DA82024948400351BB7 /* RestAPIManager.swift */; };
+		B1FA2DAB202496F100351BB7 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DAA202496F100351BB7 /* ErrorManager.swift */; };
+		B1FA2DB0202498C500351BB7 /* City+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DAC202498C500351BB7 /* City+CoreDataClass.swift */; };
+		B1FA2DB1202498C500351BB7 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DAD202498C500351BB7 /* City+CoreDataProperties.swift */; };
+		B1FA2DB2202498C500351BB7 /* Version+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */; };
+		B1FA2DB3202498C500351BB7 /* Version+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DAF202498C500351BB7 /* Version+CoreDataProperties.swift */; };
+		B1FA2DB620249B2F00351BB7 /* ShareInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2DB520249B2F00351BB7 /* ShareInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,7 +113,6 @@
 		B1F4D0F9202447D50086E25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1FA2CED20244DC200351BB7 /* FlowControlShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowPresenter.swift; sourceTree = "<group>"; };
 		B1FA2CEE20244DC200351BB7 /* FlowControlShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowWorker.swift; sourceTree = "<group>"; };
-		B1FA2CEF20244DC200351BB7 /* FlowControlShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowRouter.swift; sourceTree = "<group>"; };
 		B1FA2CF020244DC200351BB7 /* FlowControlShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowModels.swift; sourceTree = "<group>"; };
 		B1FA2CF120244DC200351BB7 /* FlowControlShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowInteractor.swift; sourceTree = "<group>"; };
@@ -183,6 +191,17 @@
 		B1FA2D982024735D00351BB7 /* LeftMenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuItemCell.swift; sourceTree = "<group>"; };
 		B1FA2D992024735D00351BB7 /* LeftMenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuItemCell.xib; sourceTree = "<group>"; };
 		B1FA2D9C2024748E00351BB7 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		B1FA2D9E202490A900351BB7 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B1FA2DA22024914900351BB7 /* CleanCaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CleanCaseModel.xcdatamodel; sourceTree = "<group>"; };
+		B1FA2DA42024925200351BB7 /* CleanCaseModel 1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CleanCaseModel 1.xcdatamodel"; sourceTree = "<group>"; };
+		B1FA2DA6202492E300351BB7 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
+		B1FA2DA82024948400351BB7 /* RestAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPIManager.swift; sourceTree = "<group>"; };
+		B1FA2DAA202496F100351BB7 /* ErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		B1FA2DAC202498C500351BB7 /* City+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1FA2DAD202498C500351BB7 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Version+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1FA2DAF202498C500351BB7 /* Version+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Version+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1FA2DB520249B2F00351BB7 /* ShareInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareInteractor.swift; sourceTree = "<group>"; };
 		B77D149EA968FA2CE61055A7 /* Pods-CleanCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,6 +315,8 @@
 				B1F4D103202449490086E25F /* CoreData */,
 				B1F4D1052024495E0086E25F /* Extensions */,
 				B1F4D104202449500086E25F /* Managers */,
+				B1FA2DA5202492D500351BB7 /* Models */,
+				B1FA2DB420249B1300351BB7 /* UIViewControllers */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -303,6 +324,8 @@
 		B1F4D103202449490086E25F /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B1FA2DA02024912100351BB7 /* Entities */,
+				B1FA2DA12024914900351BB7 /* CleanCaseModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -310,6 +333,9 @@
 		B1F4D104202449500086E25F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B1FA2D9E202490A900351BB7 /* CoreDataManager.swift */,
+				B1FA2DAA202496F100351BB7 /* ErrorManager.swift */,
+				B1FA2DA82024948400351BB7 /* RestAPIManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -330,7 +356,6 @@
 				B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */,
 				B1FA2CF020244DC200351BB7 /* FlowControlShowModels.swift */,
 				B1FA2CED20244DC200351BB7 /* FlowControlShowPresenter.swift */,
-				B1FA2CEF20244DC200351BB7 /* FlowControlShowRouter.swift */,
 				B1FA2CF120244DC200351BB7 /* FlowControlShowViewController.swift */,
 				B1FA2CEE20244DC200351BB7 /* FlowControlShowWorker.swift */,
 			);
@@ -475,6 +500,33 @@
 				B1FA2D992024735D00351BB7 /* LeftMenuItemCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B1FA2DA02024912100351BB7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B1FA2DAC202498C500351BB7 /* City+CoreDataClass.swift */,
+				B1FA2DAD202498C500351BB7 /* City+CoreDataProperties.swift */,
+				B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */,
+				B1FA2DAF202498C500351BB7 /* Version+CoreDataProperties.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B1FA2DA5202492D500351BB7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1FA2DA6202492E300351BB7 /* ResponseAPI.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1FA2DB420249B1300351BB7 /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1FA2DB520249B2F00351BB7 /* ShareInteractor.swift */,
+			);
+			path = UIViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,6 +682,7 @@
 				B1FA2D6520245EE900351BB7 /* AboutShowInteractor.swift in Sources */,
 				B1FA2D6420245EE900351BB7 /* AboutShowViewController.swift in Sources */,
 				B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */,
+				B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */,
 				B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */,
 				B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,
@@ -644,25 +697,30 @@
 				B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */,
 				B1FA2D7E20245FC000351BB7 /* PriceListShowRouter.swift in Sources */,
 				B1FA2D4420245E2B00351BB7 /* PersonalDataShowViewController.swift in Sources */,
+				B1FA2DA7202492E300351BB7 /* ResponseAPI.swift in Sources */,
 				B1FA2D7020245F4B00351BB7 /* WriteUsShowModels.swift in Sources */,
 				B1FA2D2420245D5F00351BB7 /* OrderShowPresenter.swift in Sources */,
 				B1FA2D4020245E2B00351BB7 /* PersonalDataShowPresenter.swift in Sources */,
 				B1FA2D6E20245F4B00351BB7 /* WriteUsShowWorker.swift in Sources */,
 				B1FA2D2820245D5F00351BB7 /* OrderShowViewController.swift in Sources */,
 				B1FA2D3720245DDF00351BB7 /* OrderCreateViewController.swift in Sources */,
+				B1FA2DB1202498C500351BB7 /* City+CoreDataProperties.swift in Sources */,
 				B1FA2D3520245DDF00351BB7 /* OrderCreateRouter.swift in Sources */,
+				B1FA2DA32024914900351BB7 /* CleanCaseModel.xcdatamodeld in Sources */,
 				B1FA2D2520245D5F00351BB7 /* OrderShowWorker.swift in Sources */,
 				B1FA2D6220245EE900351BB7 /* AboutShowRouter.swift in Sources */,
 				B1FA2D3420245DDF00351BB7 /* OrderCreateWorker.swift in Sources */,
 				B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */,
 				B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */,
 				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
+				B1FA2DB620249B2F00351BB7 /* ShareInteractor.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
+				B1FA2DB3202498C500351BB7 /* Version+CoreDataProperties.swift in Sources */,
 				B1FA2D9120246D2100351BB7 /* LeftSideMenuShowRouter.swift in Sources */,
+				B1FA2DA92024948400351BB7 /* RestAPIManager.swift in Sources */,
 				B1FA2D5020245E8900351BB7 /* OrdersShowWorker.swift in Sources */,
-				B1FA2CF520244DC200351BB7 /* FlowControlShowRouter.swift in Sources */,
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
 				B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */,
 				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
@@ -670,9 +728,12 @@
 				B1FA2D5120245E8900351BB7 /* OrdersShowRouter.swift in Sources */,
 				B1FA2D5320245E8900351BB7 /* OrdersShowViewController.swift in Sources */,
 				B1FA2D7F20245FC000351BB7 /* PriceListShowModels.swift in Sources */,
+				B1FA2DAB202496F100351BB7 /* ErrorManager.swift in Sources */,
 				B1FA2D062024500000351BB7 /* SignInShowViewController.swift in Sources */,
 				B1FA2D16202458E400351BB7 /* MainShowModels.swift in Sources */,
+				B1FA2DB2202498C500351BB7 /* Version+CoreDataClass.swift in Sources */,
 				B1FA2D5220245E8900351BB7 /* OrdersShowModels.swift in Sources */,
+				B1FA2DB0202498C500351BB7 /* City+CoreDataClass.swift in Sources */,
 				B1FA2D7120245F4B00351BB7 /* WriteUsShowViewController.swift in Sources */,
 				B1FA2D042024500000351BB7 /* SignInShowRouter.swift in Sources */,
 				B1FA2CF420244DC200351BB7 /* FlowControlShowWorker.swift in Sources */,
@@ -873,6 +934,20 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B1FA2DA12024914900351BB7 /* CleanCaseModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B1FA2DA42024925200351BB7 /* CleanCaseModel 1.xcdatamodel */,
+				B1FA2DA22024914900351BB7 /* CleanCaseModel.xcdatamodel */,
+			);
+			currentVersion = B1FA2DA42024925200351BB7 /* CleanCaseModel 1.xcdatamodel */;
+			path = CleanCaseModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B1F4D0E2202447D40086E25F /* Project object */;
 }
