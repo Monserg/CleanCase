@@ -33,6 +33,13 @@
 		B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D11202458E400351BB7 /* MainShowViewController.swift */; };
 		B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D12202458E400351BB7 /* MainShowInteractor.swift */; };
 		B1FA2D1A202458F200351BB7 /* MainShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D19202458F200351BB7 /* MainShow.storyboard */; };
+		B1FA2D1C20245D4A00351BB7 /* OrderShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D1B20245D4A00351BB7 /* OrderShow.storyboard */; };
+		B1FA2D2420245D5F00351BB7 /* OrderShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D1E20245D5F00351BB7 /* OrderShowPresenter.swift */; };
+		B1FA2D2520245D5F00351BB7 /* OrderShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D1F20245D5F00351BB7 /* OrderShowWorker.swift */; };
+		B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D2020245D5F00351BB7 /* OrderShowRouter.swift */; };
+		B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D2120245D5F00351BB7 /* OrderShowModels.swift */; };
+		B1FA2D2820245D5F00351BB7 /* OrderShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D2220245D5F00351BB7 /* OrderShowViewController.swift */; };
+		B1FA2D2920245D5F00351BB7 /* OrderShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D2320245D5F00351BB7 /* OrderShowInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +72,13 @@
 		B1FA2D11202458E400351BB7 /* MainShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2D12202458E400351BB7 /* MainShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D19202458F200351BB7 /* MainShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainShow.storyboard; sourceTree = "<group>"; };
+		B1FA2D1B20245D4A00351BB7 /* OrderShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderShow.storyboard; sourceTree = "<group>"; };
+		B1FA2D1E20245D5F00351BB7 /* OrderShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderShowPresenter.swift; sourceTree = "<group>"; };
+		B1FA2D1F20245D5F00351BB7 /* OrderShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderShowWorker.swift; sourceTree = "<group>"; };
+		B1FA2D2020245D5F00351BB7 /* OrderShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderShowRouter.swift; sourceTree = "<group>"; };
+		B1FA2D2120245D5F00351BB7 /* OrderShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderShowModels.swift; sourceTree = "<group>"; };
+		B1FA2D2220245D5F00351BB7 /* OrderShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderShowViewController.swift; sourceTree = "<group>"; };
+		B1FA2D2320245D5F00351BB7 /* OrderShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderShowInteractor.swift; sourceTree = "<group>"; };
 		B77D149EA968FA2CE61055A7 /* Pods-CleanCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +147,7 @@
 				B1FA2CF920244DDD00351BB7 /* FlowControlShow.storyboard */,
 				B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */,
 				B1FA2D19202458F200351BB7 /* MainShow.storyboard */,
+				B1FA2D1B20245D4A00351BB7 /* OrderShow.storyboard */,
 				B1FA2D082024501100351BB7 /* SignInShow.storyboard */,
 			);
 			path = Storyboards;
@@ -143,6 +158,7 @@
 			children = (
 				B1FA2CEC20244D9700351BB7 /* FlowControlShow */,
 				B1FA2D0C202458D300351BB7 /* MainShow */,
+				B1FA2D1D20245D4E00351BB7 /* OrderShow */,
 				B1FA2CFB20244FF300351BB7 /* SignInShow */,
 			);
 			path = Scenes;
@@ -228,6 +244,19 @@
 			path = MainShow;
 			sourceTree = "<group>";
 		};
+		B1FA2D1D20245D4E00351BB7 /* OrderShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1FA2D2320245D5F00351BB7 /* OrderShowInteractor.swift */,
+				B1FA2D2120245D5F00351BB7 /* OrderShowModels.swift */,
+				B1FA2D1E20245D5F00351BB7 /* OrderShowPresenter.swift */,
+				B1FA2D2020245D5F00351BB7 /* OrderShowRouter.swift */,
+				B1FA2D2220245D5F00351BB7 /* OrderShowViewController.swift */,
+				B1FA2D1F20245D5F00351BB7 /* OrderShowWorker.swift */,
+			);
+			path = OrderShow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -290,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FA2D1C20245D4A00351BB7 /* OrderShow.storyboard in Resources */,
 				B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */,
 				B1F4D0F5202447D50086E25F /* Assets.xcassets in Resources */,
 				B1FA2D1A202458F200351BB7 /* MainShow.storyboard in Resources */,
@@ -368,9 +398,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1FA2D072024500000351BB7 /* SignInShowInteractor.swift in Sources */,
+				B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,
 				B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */,
 				B1FA2D032024500000351BB7 /* SignInShowWorker.swift in Sources */,
+				B1FA2D2420245D5F00351BB7 /* OrderShowPresenter.swift in Sources */,
+				B1FA2D2820245D5F00351BB7 /* OrderShowViewController.swift in Sources */,
+				B1FA2D2520245D5F00351BB7 /* OrderShowWorker.swift in Sources */,
+				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
 				B1FA2CF520244DC200351BB7 /* FlowControlShowRouter.swift in Sources */,
@@ -384,6 +419,7 @@
 				B1FA2D13202458E400351BB7 /* MainShowPresenter.swift in Sources */,
 				B1FA2D022024500000351BB7 /* SignInShowPresenter.swift in Sources */,
 				B1FA2D15202458E400351BB7 /* MainShowRouter.swift in Sources */,
+				B1FA2D2920245D5F00351BB7 /* OrderShowInteractor.swift in Sources */,
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
 				B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */,
 				B1FA2D14202458E400351BB7 /* MainShowWorker.swift in Sources */,
