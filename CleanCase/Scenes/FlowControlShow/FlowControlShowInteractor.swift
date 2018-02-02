@@ -35,10 +35,14 @@ class FlowControlShowInteractor: ShareInteractor, FlowControlShowBusinessLogic, 
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCurrentAppWorkingVersion(), andResponseType: ResponseAPIVersion.self, completionHandler: { [unowned self] responseAPI in
             if let model = responseAPI.model as? ResponseAPIVersion {
-                // TODO: - SAVE TO COREDATA & CITIES
-                print(model)
-                
+                print("model = \(model.GetVerResult), version = \(Version.currentVersion)")
                 self.isEqual = Version.currentVersion == model.GetVerResult
+
+                // CoreData: update Version
+                self.appDependency.coreDataManager.updateEntity(EntityUpdateTuple(name:         "Version",
+                                                                                  predicate:    nil,
+                                                                                  key:          "workingVersion",
+                                                                                  value:        model.GetVerResult))
             }
             
             let responseModel = FlowControlShowModels.Version.ResponseModel(isEqual: self.isEqual)

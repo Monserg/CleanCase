@@ -99,9 +99,13 @@ class CoreDataManager {
     
     
     // Read
-    func readEntity(withName name: String) -> NSManagedObject? {
+    func readEntity(withName name: String, andPredicateParameters predicate: NSPredicate?) -> NSManagedObject? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
         
+        if predicate != nil {
+            fetchRequest.predicate = predicate!
+        }
+
         do {
             return try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest).first as? NSManagedObject
         } catch {
@@ -113,19 +117,43 @@ class CoreDataManager {
 
     func entitiesRead(withName name: String, andPredicateParameters predicate: NSPredicate?) -> [NSManagedObject]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
-        fetchRequest.predicate = predicate
+
+        if predicate != nil {
+            fetchRequest.predicate = predicate!
+        }
 
         do {
             return try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
         } catch {
             print(error)
+            
             return nil
         }
     }
     
     // Update
-    
+    func updateEntity(_ property: EntityUpdateTuple) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: property.name)
+        
+        if let predicate = property.predicate {
+            fetchRequest.predicate = predicate
+        }
+        
+        var entity = readEntity(withName: property.name, andPredicateParameters: property.predicate)
+        
+        if entity == nil {
+            entity = self.createEntity(property.name)
+        }
+        
+        if let versionEntity = entity as? Version {
+            versionEntity.setValue(property.value, forKey: property.key)
+        }
+
+        self.contextSave()
+    }
+
     // Create
-    
-    
+    fileprivate func createEntity(_ name: String) -> NSManagedObject {
+        return NSEntityDescription.insertNewObject(forEntityName: name, into: managedObjectContext)
+    }
 }

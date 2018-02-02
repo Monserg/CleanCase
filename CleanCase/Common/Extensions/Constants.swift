@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 
 // Typealiases
+typealias EntityUpdateTuple     =   (name: String, predicate: NSPredicate?, key: String, value: Any)
+
 
 // Closure
 typealias HandlerPassDataCompletion     =   ((_ data: Any?) -> Void)

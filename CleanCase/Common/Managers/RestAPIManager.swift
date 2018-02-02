@@ -57,7 +57,7 @@ final class RestAPIManager {
             components.host     =   "192.116.53.69"
         #endif
         
-        components.path!.append("/Facade")
+        components.path         =   "/Facade"
         components.path!.append("/facade.svc")
         components.path!.append(parameters.path)
 
@@ -71,7 +71,7 @@ final class RestAPIManager {
         }
         
         // Body
-        // TODO: -  ADD REQUEST BODY PARAMETERS
+        // TODO: - ADD REQUEST BODY PARAMETERS
         
         return components
     }
