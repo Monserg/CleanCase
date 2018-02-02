@@ -15,7 +15,7 @@ import SideMenu
 
 // MARK: - Input & Output protocols
 protocol LeftSideMenuShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: LeftSideMenuShowModels.Something.ViewModel)
+    func displayMenuItems(fromViewModel viewModel: LeftSideMenuShowModels.MenuItems.ViewModel)
 }
 
 class LeftSideMenuShowViewController: UIViewController {
@@ -27,6 +27,14 @@ class LeftSideMenuShowViewController: UIViewController {
 
     
     // MARK: - IBOutlets
+    @IBOutlet weak var menuTableView: UITableView! {
+        didSet {
+            menuTableView.isScrollEnabled = false
+            menuTableView.showsVerticalScrollIndicator = false
+            menuTableView.delegate = self
+            menuTableView.dataSource = self
+        }
+    }
     
     
     // MARK: - Class Initialization
@@ -81,16 +89,95 @@ class LeftSideMenuShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        let requestModel = LeftSideMenuShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
+        self.loadMenuItems()
+    }
+    
+    public func loadMenuItems() {
+        let requestModel = LeftSideMenuShowModels.MenuItems.RequestModel()
+        self.interactor?.loadMenuItems(withRequestModel: requestModel)
     }
 }
 
 
 // MARK: - LeftSideMenuShowDisplayLogic
 extension LeftSideMenuShowViewController: LeftSideMenuShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: LeftSideMenuShowModels.Something.ViewModel) {
+    func displayMenuItems(fromViewModel viewModel: LeftSideMenuShowModels.MenuItems.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+        if self.router!.dataStore!.menuItems.count > 0 {
+            DispatchQueue.main.async(execute: {
+                self.menuTableView.reloadData()
+            })
+        }
+    }
+}
+
+
+
+// MARK: - UITableViewDataSource
+extension LeftSideMenuShowViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.router?.dataStore?.menuItems.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = self.router!.dataStore!.menuItems[indexPath.row].cellIdentifier
+        self.menuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        
+        let cell = self.menuTableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let menuItem = self.router!.dataStore!.menuItems[indexPath.row]
+        
+        // Config cell
+        (cell as! ConfigureCell).setup(withItem: menuItem, andIndexPath: indexPath)
+
+        return cell
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+extension LeftSideMenuShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+//        handlerSelectRowCompletion!((isSearchBarActive) ? dataSourceFiltered[indexPath.section][indexPath.row] : dataSource[indexPath.section][indexPath.row])
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 0) {
+            self.navigationController?.dismiss(animated: true, completion: {})
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.router!.dataStore!.menuItems[indexPath.row].cellHeight * heightRatio
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+//        let cell = self.menuTableView.cellForRow(at: indexPath)!
+        
+//        switch cell {
+//        case cell as LeftMenuItemCell:
+//            cell.contentView.backgroundColor = UIColor.white.darkened(amount: 0.2)
+//
+//        case cell as SelectSortingViewCell, is SelectCityViewCell:
+//            cell.contentView.backgroundColor = UIColor.white.darkened(amount: 0.2)
+//
+//        case cell as CategoryTableViewCell:
+//            cell.contentView.backgroundColor = UIColor.veryLightGray.darkened(amount: 0.2)
+//
+//        default:
+//            break
+//        }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = self.menuTableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor = .clear
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }

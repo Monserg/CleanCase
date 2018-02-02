@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol LeftSideMenuShowPresentationLogic {
-    func presentSomething(fromResponseModel responseModel: LeftSideMenuShowModels.Something.ResponseModel)
+    func presentMenuItems(fromResponseModel responseModel: LeftSideMenuShowModels.MenuItems.ResponseModel)
 }
 
 class LeftSideMenuShowPresenter: LeftSideMenuShowPresentationLogic {
@@ -23,8 +23,8 @@ class LeftSideMenuShowPresenter: LeftSideMenuShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentSomething(fromResponseModel responseModel: LeftSideMenuShowModels.Something.ResponseModel) {
-        let viewModel = LeftSideMenuShowModels.Something.ViewModel()
-        viewController?.displaySomething(fromViewModel: viewModel)
+    func presentMenuItems(fromResponseModel responseModel: LeftSideMenuShowModels.MenuItems.ResponseModel) {
+        let viewModel = LeftSideMenuShowModels.MenuItems.ViewModel()
+        viewController?.displayMenuItems(fromViewModel: viewModel)
     }
 }

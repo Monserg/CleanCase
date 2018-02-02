@@ -15,11 +15,21 @@ import UIKit
 // MARK: - Data models
 enum LeftSideMenuShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum MenuItems {
         struct RequestModel {
         }
         
         struct ResponseModel {
+            struct MenuItem: InitCellParameters {
+                let title: String
+                let iconName: String
+                let storyboardID: String
+                let storyboardName: String
+                
+                // InitCellParameters protocol implementation
+                var cellHeight: CGFloat
+                var cellIdentifier: String
+            }
         }
         
         struct ViewModel {

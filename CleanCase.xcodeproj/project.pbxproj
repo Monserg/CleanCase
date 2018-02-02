@@ -89,6 +89,9 @@
 		B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8D20246D2100351BB7 /* LeftSideMenuShowViewController.swift */; };
 		B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8E20246D2100351BB7 /* LeftSideMenuShowInteractor.swift */; };
 		B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D9520246FF700351BB7 /* Constants.swift */; };
+		B1FA2D9A2024735D00351BB7 /* LeftMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D982024735D00351BB7 /* LeftMenuItemCell.swift */; };
+		B1FA2D9B2024735D00351BB7 /* LeftMenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D992024735D00351BB7 /* LeftMenuItemCell.xib */; };
+		B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D9C2024748E00351BB7 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +180,9 @@
 		B1FA2D8D20246D2100351BB7 /* LeftSideMenuShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2D8E20246D2100351BB7 /* LeftSideMenuShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D9520246FF700351BB7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B1FA2D982024735D00351BB7 /* LeftMenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuItemCell.swift; sourceTree = "<group>"; };
+		B1FA2D992024735D00351BB7 /* LeftMenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuItemCell.xib; sourceTree = "<group>"; };
+		B1FA2D9C2024748E00351BB7 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		B77D149EA968FA2CE61055A7 /* Pods-CleanCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -312,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FA2D9520246FF700351BB7 /* Constants.swift */,
+				B1FA2D9C2024748E00351BB7 /* Protocols.swift */,
 				B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */,
 			);
 			path = Extensions;
@@ -450,6 +457,7 @@
 		B1FA2D8820246D1400351BB7 /* LeftSideMenuShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1FA2D972024733500351BB7 /* Views */,
 				B1FA2D8E20246D2100351BB7 /* LeftSideMenuShowInteractor.swift */,
 				B1FA2D8C20246D2100351BB7 /* LeftSideMenuShowModels.swift */,
 				B1FA2D8920246D2100351BB7 /* LeftSideMenuShowPresenter.swift */,
@@ -458,6 +466,15 @@
 				B1FA2D8A20246D2100351BB7 /* LeftSideMenuShowWorker.swift */,
 			);
 			path = LeftSideMenuShow;
+			sourceTree = "<group>";
+		};
+		B1FA2D972024733500351BB7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1FA2D982024735D00351BB7 /* LeftMenuItemCell.swift */,
+				B1FA2D992024735D00351BB7 /* LeftMenuItemCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1FA2D1C20245D4A00351BB7 /* OrderShow.storyboard in Resources */,
+				B1FA2D9B2024735D00351BB7 /* LeftMenuItemCell.xib in Resources */,
 				B1FA2D5920245ED600351BB7 /* AboutShow.storyboard in Resources */,
 				B1FA2D4720245E3700351BB7 /* PersonalDataShow.storyboard in Resources */,
 				B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */,
@@ -620,6 +638,7 @@
 				B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */,
 				B1FA2D032024500000351BB7 /* SignInShowWorker.swift in Sources */,
 				B1FA2D8120245FC000351BB7 /* PriceListShowInteractor.swift in Sources */,
+				B1FA2D9A2024735D00351BB7 /* LeftMenuItemCell.swift in Sources */,
 				B1FA2D4520245E2B00351BB7 /* PersonalDataShowInteractor.swift in Sources */,
 				B1FA2D4320245E2B00351BB7 /* PersonalDataShowModels.swift in Sources */,
 				B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */,
@@ -636,6 +655,7 @@
 				B1FA2D6220245EE900351BB7 /* AboutShowRouter.swift in Sources */,
 				B1FA2D3420245DDF00351BB7 /* OrderCreateWorker.swift in Sources */,
 				B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */,
+				B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */,
 				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,

@@ -11,14 +11,15 @@
 //
 
 import UIKit
+import Localize_Swift
 
 // MARK: - Business Logic protocols
 protocol LeftSideMenuShowBusinessLogic {
-    func doSomething(withRequestModel requestModel: LeftSideMenuShowModels.Something.RequestModel)
+    func loadMenuItems(withRequestModel requestModel: LeftSideMenuShowModels.MenuItems.RequestModel)
 }
 
 protocol LeftSideMenuShowDataStore {
-//     var name: String { get set }
+    var menuItems: [LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem]! { get set }
 }
 
 class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuShowDataStore {
@@ -26,16 +27,41 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
     var presenter: LeftSideMenuShowPresentationLogic?
     var worker: LeftSideMenuShowWorker?
     
-    // ... protocol implementation
-//    var name: String = ""
+    // LeftSideMenuShowDataStore protocol implementation
+    var menuItems: [LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem]!
     
     
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: LeftSideMenuShowModels.Something.RequestModel) {
+    func loadMenuItems(withRequestModel requestModel: LeftSideMenuShowModels.MenuItems.RequestModel) {
         worker = LeftSideMenuShowWorker()
-        worker?.doSomeWork()
+        menuItems = [LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem]()
         
-        let responseModel = LeftSideMenuShowModels.Something.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+        let itemsTitles = [
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
+        ]
+        
+        let itemsIcons = [
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
+        ]
+        
+        let itemsStoryboardIDs = [
+            "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC"
+        ]
+        
+        let itemsStoryboardNames = [
+            "Show", "Show", "Show", "Show", "Show", "Show", "Show", "Show", "Show", "Show", "Show"
+        ]
+
+        for i in 0..<11 {
+            menuItems.append(LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem(title:             itemsTitles[i].localized(),
+                                                                                     iconName:          itemsIcons[i],
+                                                                                     storyboardID:      itemsStoryboardIDs[i],
+                                                                                     storyboardName:    itemsStoryboardNames[i],
+                                                                                     cellHeight:        50.0,
+                                                                                     cellIdentifier:    "LeftMenuItemCell"))
+        }
+        
+        let responseModel = LeftSideMenuShowModels.MenuItems.ResponseModel()
+        presenter?.presentMenuItems(fromResponseModel: responseModel)
     }
 }
