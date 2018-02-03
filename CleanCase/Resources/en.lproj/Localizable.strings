@@ -1,0 +1,100 @@
+/* 
+  Localizable.strings
+  CleanCase
+
+  Created by msm72 on 03.02.2018.
+  Copyright © 2018 msm72. All rights reserved.
+*/
+
+// Menu Items
+"0"                                         =   "";
+"1"                                         =   "";
+"2"                                         =   "";
+"3"                                         =   "";
+"4"                                         =   "";
+"5"                                         =   "";
+"6"                                         =   "";
+"7"                                         =   "";
+"8"                                         =   "";
+"9"                                         =   "";
+"10"                                        =   "";
+
+
+// Labels
+"Please, restart App"                       =   "Please, restart App";
+
+
+// Titles
+
+
+// Buttons
+"Save"                                      =   "Continue";
+"Cancel"                                    =   "Cancel";
+"Ok"                                        =   "Ok";
+"Done"                                      =   "Done";
+"Send"                                      =   "Send";
+
+
+// Info/Errors Messages
+"Info"                                      =   "Info";
+"Error"                                     =   "Error";
+"CoreData saved error"                      =   "There was an error creating or loading the application's saved data";
+"CoreData init error"                       =   "Failed to initialize the application's saved data";
+"Empty phone number message"                =   "Please\nenter phone number";
+"Phone number error"                        =   "Please\nenter correct phone number";
+"Empty sms code message"                    =   "Please\nenter code from sms";
+"SMS code error"                            =   "Please\nenter correct code from sms";
+"Empty user name message"                   =   "Please\nenter your name";
+"Retry count info message"                  =   "Entry opportunity is blocked for 15 minutes";
+"Cities list is empty"                      =   "Cities list is empty";
+"User welcome"                              =   "Welcome!";
+"Connected to Network"                      =   "Connected to Network";
+"Disconnected from Network"                 =   "Disconnected from Network";
+"Reachable"                                 =   "Reachable";
+"Not Reachable"                             =   "Not Reachable";
+"About App Doc is empty"                    =   "Content of About Project\nis empty";
+"Private Policy Doc is empty"               =   "Content of Private Policy\nis empty";
+"Service Terms Doc is empty"                =   "Content of Service Terms\nis empty";
+"Agreement Doc is empty"                    =   "Content of Agreement\nis empty";
+"Establishments List is empty"              =   "Establishments list\nis empty";
+"Establishment Profile is empty"            =   "Establishment profile\nis empty";
+"History Booking List is empty"             =   "History booking list\nis empty";
+"Favorites List is empty"                   =   "Favorites establishments list\nis empty";
+"Active Booking List is empty"              =   "Active booking list\nis empty";
+"Settings List is empty"                    =   "Settings list\nis empty";
+"Services List is empty"                    =   "Services list\nis empty";
+"Categories List is empty"                  =   "Categories list\nis empty";
+"Location authorization error"              =   "Please go into Settings and give this app authorization to your location";
+"Please Login in App"                       =   "Please\nregister in the application";
+"Please modify hours"                       =   "Please,\nchange the time and the number of hours";
+
+
+// TextField Placeholders
+
+
+
+// Request Errors
+"SUCCESS"                                   =   "";     //  200
+"CONTINUE"                                  =   "";     //  2201
+"CREATED"                                   =   "";     //  201
+"NOT_MODIFIED"                              =   "";     //  304
+"BAD_REQUEST_400"                           =   "Bad request";                                      //  400
+"INVALID_CREDENTIAL"                        =   "";     //  401
+"NOT_FOUND"                                 =   "";     //  404
+"INCORRECT_PHONE_NUMBER"                    =   "Phone number is not supported";                    //  406
+"CONFLICT"                                  =   "Busy time";                                        //  409
+"AUTHENTICATION_EXPIRED"                    =   "";     //  419
+"SOMETHING_WRONG_3894"                      =   "Email is already use";                             //  3894
+"WRONG_SHOW_INFO"                           =   "Failed on showing info for service";               //  4200
+"BAD_AUTHORIZATION"                         =   "Bad authorization";                                //  4401
+"INCORRECT_PASSWORD"                        =   "Password is incorrect";                            //  4402
+"INCORRECT_PHONE_NUMBER"                    =   "Incorrect phone number";                           //
+"SOMETHING_WRONG_4222"                      =   "User does not exist";                              //  4222
+"BAD_REQUEST_4444"                          =   "Bad request";                                      //  4444
+"WRONG_INPUT_DATA"                          =   "Wrong input data";                                 //  4500
+"USER_EXIST"                                =   "User is already exist";                            //  4670
+"SOMETHING_WRONG_5000"                      =   "Please enter the correct code";                    //  5000
+"REQUEST_HANDLING_FAIL"                     =   "SQL processing failed";                            //  5005
+"ORG_NAME_EXIST"                            =   "Organization name is already exist";               //  6992
+"TIMESHEET_BROKEN"                          =   "Timesheet is not available";                       //  8100
+"RESPONSE_NIL"                              =   "API is not available";                             //  Nil
