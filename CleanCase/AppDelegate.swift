@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Set navbar & status bar color
+        UINavigationBar.appearance().shadowImage            =   UIImage()           // NavBar bottom line
+        UINavigationBar.appearance().barTintColor           =   UIColor.blue        // Navbar background color
+        UINavigationBar.appearance().tintColor              =   .white              // Navbar items color
+
+//        UITabBar.appearance().barTintColor                 =   UIColor.veryDarkGrayishBlue
+//        UITabBar.appearance().tintColor                     =   UIColor.white
+
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black
 

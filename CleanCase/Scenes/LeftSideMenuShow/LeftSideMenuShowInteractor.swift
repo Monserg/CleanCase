@@ -37,19 +37,19 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
         menuItems = [LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem]()
         
         let itemsTitles = [
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
+            "New order", "Hours of work", "Current order", "Price list", "My orders", "Chat", "Personal data", "Write us", "About us", "Agreement", "Sign out"
         ]
         
         let itemsIcons = [
-            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
+            "icon-menu-new-order", "icon-menu-working-hours", "icon-menu-current-order", "icon-menu-price-list", "icon-menu-my-orders", "icon-menu-chat", "icon-menu-personal-data", "icon-menu-write-us", "icon-menu-about-us", "icon-menu-agreement", "icon-menu-sign-out"
         ]
         
         let itemsStoryboardIDs = [
-            "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC", "ShowVC"
+            "OrderCreateVC", "ShowVC", "OrderShowVC", "PriceListShowVC", "OrdersShowVC", "ShowVC", "PersonalDataShowVC", "WriteUsShowVC", "AboutShowVC", "ShowVC", "SignOut"
         ]
         
         let itemsStoryboardNames = [
-            "Show", "Show", "Show", "Show", "Show", "Show", "Show", "Show", "Show", "Show", "Show"
+            "OrderCreate", "Show", "OrderShow", "PriceListShow", "OrdersShow", "Show", "PersonalDataShow", "WriteUsShow", "AboutShow", "Show", "SignOut"
         ]
 
         for i in 0..<11 {

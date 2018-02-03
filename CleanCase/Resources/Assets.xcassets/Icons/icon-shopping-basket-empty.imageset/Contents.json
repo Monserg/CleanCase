@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon-shopping-basket-empty.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icon-shopping-basket-empty@2x.png",
       "scale" : "2x"
     },
     {

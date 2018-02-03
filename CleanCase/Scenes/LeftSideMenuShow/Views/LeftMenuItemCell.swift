@@ -42,6 +42,7 @@ extension LeftMenuItemCell: ConfigureCell {
         
         itemTitleLabel.text = menuItem.title
         itemImageView.image = UIImage.init(named: menuItem.iconName)
+        itemImageView.contentMode = .center
         selectionStyle = .none
     }
 }

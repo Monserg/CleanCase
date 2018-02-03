@@ -92,8 +92,8 @@ class FlowControlShowViewController: UIViewController {
     
     fileprivate func routeToNextScene() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
-//            self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
-            self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
+            self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
+//            self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
         }
     }
 }

@@ -26,7 +26,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yQ2-NE-i3d">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-menu-sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="yQ2-NE-i3d">
                         <rect key="frame" x="251.5" y="8" width="48.5" height="48.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -65,4 +65,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon-menu-sign-out" width="48" height="48"/>
+    </resources>
 </document>
