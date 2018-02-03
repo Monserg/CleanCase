@@ -29,7 +29,12 @@ class MainShowViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var createOrderButton: UIButton!
     @IBOutlet weak var myOrderButton: UIButton!
-    @IBOutlet weak var laundryView: LaundryView!
+    
+    @IBOutlet weak var laundryBarButton: LaundryBarButtonItem! {
+        didSet {
+            laundryBarButton.addLaundryInfo(withName: "My hero is Zorro!!!")
+        }
+    }
     
     
     // MARK: - Class Initialization
@@ -107,18 +112,10 @@ class MainShowViewController: UIViewController {
         sideMenuManager.menuLeftNavigationController = leftSideMenuNC
         
         // Handler left side menu item select
-        /*
         leftSideMenuShowVC.handlerMenuItemSelectCompletion = { [unowned self] (scene) in
-            if let nextScene = scene as? SceneNameTuple, nextScene.identifier == "SelectCity"  {
-                // API: Load Cities list
-                self.checkNetworkConnection { [unowned self] _ in
-                    leftSideMenuNC.dismiss(animated: true, completion: {})
-                    let requestModel = EstablishmentsShowModels.Cities.RequestModel()
-                    self.interactor?.fetchCities(withRequestModel: requestModel)
-                }
-            } else if let nextScene = scene as? SceneNameTuple, nextScene.identifier != "LogOut"  {
-                let storyboard = UIStoryboard(name: nextScene.storyboard, bundle: nil)
-                let destinationVC = storyboard.instantiateViewController(withIdentifier: nextScene.identifier)
+            if let nextScene = scene as? LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem, nextScene.storyboardID != "SignOut"  {
+                let storyboard = UIStoryboard(name: nextScene.storyboardName, bundle: nil)
+                let destinationVC = storyboard.instantiateViewController(withIdentifier: nextScene.storyboardID)
                 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
                     leftSideMenuNC.dismiss(animated: true, completion: {})
@@ -131,16 +128,15 @@ class MainShowViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
                     leftSideMenuNC.dismiss(animated: true, completion: {})
                     
-                    // Modify user in CoreData
-                    User.current?.update("isLogin", withValue: false)
-                    
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
-                        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-                    }
+                    // Close App
+                    self.showAlertView(withTitle: "Info", andMessage: "Our App close after 15 sec", completion: {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 90) {
+                            exit(1)
+                        }
+                    })
                 }
             }
         }
- */
     }
 
     

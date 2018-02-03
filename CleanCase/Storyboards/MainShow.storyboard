@@ -71,6 +71,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="createOrderButton" destination="8tN-Oq-pw7" id="s3T-6j-3nR"/>
+                        <outlet property="laundryBarButton" destination="ZRC-ah-1zF" id="TzX-ZK-PXD"/>
                         <outlet property="myOrderButton" destination="meJ-Rk-hKP" id="jdh-tx-ut0"/>
                     </connections>
                 </viewController>

@@ -151,8 +151,7 @@ extension LeftSideMenuShowViewController: UITableViewDataSource {
 extension LeftSideMenuShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
-//        handlerSelectRowCompletion!((isSearchBarActive) ? dataSourceFiltered[indexPath.section][indexPath.row] : dataSource[indexPath.section][indexPath.row])
+        handlerMenuItemSelectCompletion!(self.router!.dataStore!.menuItems[indexPath.row])
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 0) {
             self.navigationController?.dismiss(animated: true, completion: {})

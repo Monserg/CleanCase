@@ -13,13 +13,13 @@ class LaundryBarButtonItem: UIBarButtonItem {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
      
-        addLaundryInfo(withName: "Zorro")
+//        addLaundryInfo(withName: "Zorro")
     }
 
     
     // MARK: - Custom Functions
-    func addLaundryInfo(withName name: String) {
-        self.customView = LaundryView(withName: "Zorro sjdkh jksdfjhs dfjh")
+    public func addLaundryInfo(withName name: String) {
+        self.customView = LaundryView(withName: name)
         print(name)
     }
 }

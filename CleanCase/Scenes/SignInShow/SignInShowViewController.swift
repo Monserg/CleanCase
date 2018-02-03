@@ -26,12 +26,12 @@ class SignInShowViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var saveButton: UIButton!
     
-    @IBOutlet weak var laundryButton: UIButton! {
+    @IBOutlet weak var laundryBarButton: LaundryBarButtonItem! {
         didSet {
-            
+            laundryBarButton.addLaundryInfo(withName: "My hero is Zorro!!!")
         }
     }
-    
+
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

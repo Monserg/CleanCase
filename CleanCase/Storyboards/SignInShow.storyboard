@@ -14,22 +14,28 @@
         <scene sceneID="jfc-As-thW">
             <objects>
                 <viewController storyboardIdentifier="SignInShowVC" modalTransitionStyle="crossDissolve" id="bxM-jC-7qF" customClass="SignInShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5yD-HB-1pb">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="5yD-HB-1pb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkC-82-B5i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </scrollView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXv-Os-4jb" userLabel="BottomBar View">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye3-bo-12x" userLabel="Save Button">
                                         <rect key="frame" x="170" y="7" width="34" height="30"/>
-                                        <state key="normal" title="Save"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="handlerSaveButtonTap:" destination="bxM-jC-7qF" eventType="touchUpInside" id="jtc-Bi-iFS"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ye3-bo-12x" firstAttribute="centerY" secondItem="jXv-Os-4jb" secondAttribute="centerY" id="Uel-dC-1fK"/>
                                     <constraint firstItem="ye3-bo-12x" firstAttribute="centerX" secondItem="jXv-Os-4jb" secondAttribute="centerX" id="Wp3-qY-4NC"/>
@@ -37,25 +43,23 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mkC-82-B5i" firstAttribute="leading" secondItem="UrO-ky-v7J" secondAttribute="leading" id="A6c-hb-Ngs"/>
                             <constraint firstItem="UrO-ky-v7J" firstAttribute="bottom" secondItem="jXv-Os-4jb" secondAttribute="bottom" id="JKX-6I-FAS"/>
+                            <constraint firstItem="UrO-ky-v7J" firstAttribute="trailing" secondItem="mkC-82-B5i" secondAttribute="trailing" id="NKb-ka-41t"/>
                             <constraint firstItem="jXv-Os-4jb" firstAttribute="leading" secondItem="UrO-ky-v7J" secondAttribute="leading" id="Nxy-BC-bW4"/>
+                            <constraint firstItem="jXv-Os-4jb" firstAttribute="top" secondItem="mkC-82-B5i" secondAttribute="bottom" id="PrO-VG-Be2"/>
                             <constraint firstItem="jXv-Os-4jb" firstAttribute="trailing" secondItem="UrO-ky-v7J" secondAttribute="trailing" id="cOq-51-nxf"/>
+                            <constraint firstItem="mkC-82-B5i" firstAttribute="top" secondItem="UrO-ky-v7J" secondAttribute="top" id="sZN-ei-t3u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UrO-ky-v7J"/>
                     </view>
                     <navigationItem key="navigationItem" id="iRn-9s-Nm9">
-                        <barButtonItem key="rightBarButtonItem" style="done" id="jvQ-oR-7NT">
-                            <button key="customView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sjg-cP-XUB" userLabel="Laundry Button">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Laundry"/>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" id="ThW-4e-8TX" customClass="LaundryBarButtonItem" customModule="CleanCase"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="laundryButton" destination="sjg-cP-XUB" id="d26-em-l2v"/>
+                        <outlet property="laundryBarButton" destination="ThW-4e-8TX" id="bFC-jO-ZyK"/>
                         <outlet property="saveButton" destination="ye3-bo-12x" id="kZH-fk-25O"/>
                     </connections>
                 </viewController>
