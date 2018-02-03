@@ -29,13 +29,8 @@ class MainShowViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var createOrderButton: UIButton!
     @IBOutlet weak var myOrderButton: UIButton!
+    @IBOutlet weak var laundryView: LaundryView!
     
-    @IBOutlet weak var laundryButton: UIButton! {
-        didSet {
-            laundryButton.setTitle("ZORRO", for: .normal)
-        }
-    }
-
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -94,11 +89,11 @@ class MainShowViewController: UIViewController {
         interactor?.doSomething(withRequestModel: requestModel)
     }
     
-    fileprivate     func setupSideMenu() {
+    fileprivate func setupSideMenu() {
         sideMenuManager = SideMenuManager.default
-        let leftSideMenuNC      =   storyboard!.instantiateViewController(withIdentifier: "LeftSideMenuNC") as! UISideMenuNavigationController
+        let leftSideMenuNC = storyboard!.instantiateViewController(withIdentifier: "LeftSideMenuNC") as! UISideMenuNavigationController
         
-        sideMenuManager.menuLeftNavigationController    =   leftSideMenuNC
+        sideMenuManager.menuLeftNavigationController = leftSideMenuNC
         
         sideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         sideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)

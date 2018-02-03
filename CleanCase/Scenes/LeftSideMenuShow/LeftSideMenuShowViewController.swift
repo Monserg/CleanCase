@@ -12,6 +12,7 @@
 
 import UIKit
 import SideMenu
+import DynamicColor
 
 // MARK: - Input & Output protocols
 protocol LeftSideMenuShowDisplayLogic: class {
@@ -96,6 +97,14 @@ class LeftSideMenuShowViewController: UIViewController {
         let requestModel = LeftSideMenuShowModels.MenuItems.RequestModel()
         self.interactor?.loadMenuItems(withRequestModel: requestModel)
     }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerSideMenuButtonTap(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 0) {
+            self.navigationController?.dismiss(animated: true, completion: {})
+        }
+    }
 }
 
 
@@ -155,21 +164,8 @@ extension LeftSideMenuShowViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-//        let cell = self.menuTableView.cellForRow(at: indexPath)!
-        
-//        switch cell {
-//        case cell as LeftMenuItemCell:
-//            cell.contentView.backgroundColor = UIColor.white.darkened(amount: 0.2)
-//
-//        case cell as SelectSortingViewCell, is SelectCityViewCell:
-//            cell.contentView.backgroundColor = UIColor.white.darkened(amount: 0.2)
-//
-//        case cell as CategoryTableViewCell:
-//            cell.contentView.backgroundColor = UIColor.veryLightGray.darkened(amount: 0.2)
-//
-//        default:
-//            break
-//        }
+        let cell = self.menuTableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor = UIColor.white.darkened(amount: 0.2)
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
