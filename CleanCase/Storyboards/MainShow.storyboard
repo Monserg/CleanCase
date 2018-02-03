@@ -19,40 +19,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WLY-dw-sW4" userLabel="Buttons Stack View">
-                                <rect key="frame" x="93.5" y="266.5" width="187.5" height="133"/>
+                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WLY-dw-sW4" userLabel="Buttons Stack View">
+                                <rect key="frame" x="93.5" y="216.5" width="187.5" height="233"/>
                                 <subviews>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tN-Oq-pw7" userLabel="Create Order Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="56.5"/>
+                                    <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tN-Oq-pw7" userLabel="Create Order Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="116.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="hhhh" backgroundImage="button-blue"/>
+                                        <state key="normal" title="Create Order" backgroundImage="button-blue">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="button-cyan"/>
                                         <connections>
                                             <action selector="handlerCreateOrderButtonTap:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="UMJ-RP-ogb"/>
                                         </connections>
                                     </button>
                                     <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meJ-Rk-hKP" userLabel="My Order Button">
-                                        <rect key="frame" x="0.0" y="76.5" width="187.5" height="56.5"/>
+                                        <rect key="frame" x="0.0" y="116.5" width="187.5" height="116.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="My Order">
+                                        <state key="normal" title="My Order" backgroundImage="button-blue">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <state key="highlighted" backgroundImage="button-cyan"/>
                                         <connections>
                                             <action selector="handlerMyOrderButtonTap:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="mZ2-xs-e1U"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T10-be-qAS">
-                                <rect key="frame" x="86" y="106" width="195" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" backgroundImage="button-brown"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WLY-dw-sW4" firstAttribute="width" secondItem="bmp-rR-Be3" secondAttribute="width" multiplier="0.5" id="A7Y-pk-Yid"/>
                             <constraint firstItem="WLY-dw-sW4" firstAttribute="centerX" secondItem="bmp-rR-Be3" secondAttribute="centerX" id="FwS-nE-SEv"/>
-                            <constraint firstItem="WLY-dw-sW4" firstAttribute="height" secondItem="bmp-rR-Be3" secondAttribute="height" multiplier="0.2" id="eyL-ti-kSp"/>
+                            <constraint firstItem="WLY-dw-sW4" firstAttribute="height" secondItem="bmp-rR-Be3" secondAttribute="height" multiplier="0.35" id="eyL-ti-kSp"/>
                             <constraint firstItem="WLY-dw-sW4" firstAttribute="centerY" secondItem="bmp-rR-Be3" secondAttribute="centerY" id="jhn-3m-G27"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="92S-Kb-ftZ"/>
@@ -165,7 +165,7 @@
     </scenes>
     <resources>
         <image name="button-blue" width="128" height="128"/>
-        <image name="button-brown" width="128" height="128"/>
+        <image name="button-cyan" width="128" height="128"/>
         <image name="icon-side-menu" width="20" height="20"/>
     </resources>
 </document>

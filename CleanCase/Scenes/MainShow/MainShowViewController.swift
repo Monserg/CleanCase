@@ -28,8 +28,17 @@ class MainShowViewController: UIViewController {
 
     
     // MARK: - IBOutlets
-    @IBOutlet weak var createOrderButton: UIButton!
-    @IBOutlet weak var myOrderButton: UIButton!
+    @IBOutlet weak var createOrderButton: UIButton! {
+        didSet {
+            
+        }
+    }
+    
+    @IBOutlet weak var myOrderButton: UIButton! {
+        didSet {
+            
+        }
+    }
     
     @IBOutlet weak var laundryBarButton: LaundryBarButtonItem! {
         didSet {

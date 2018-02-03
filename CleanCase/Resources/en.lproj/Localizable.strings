@@ -24,6 +24,7 @@
 "Please, restart App"                       =   "Please, restart App";
 "Application is closing..."                 =   "Application\n is closing...";
 
+
 // Titles
 
 
@@ -33,6 +34,8 @@
 "Ok"                                        =   "Ok";
 "Done"                                      =   "Done";
 "Send"                                      =   "Send";
+"Create Order"                              =   "Create Order";
+"My Order"                                  =   "My Order";
 
 
 // Info/Errors Messages
