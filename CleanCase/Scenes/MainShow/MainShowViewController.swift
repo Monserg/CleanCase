@@ -12,6 +12,7 @@
 
 import UIKit
 import SideMenu
+import SwiftSpinner
 
 // MARK: - Input & Output protocols
 protocol MainShowDisplayLogic: class {
@@ -129,9 +130,15 @@ class MainShowViewController: UIViewController {
                     leftSideMenuNC.dismiss(animated: true, completion: {})
                     
                     // Close App
-                    self.showAlertView(withTitle: "Info", andMessage: "Our App close after 15 sec", completion: {
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 90) {
-                            exit(1)
+                    self.showAlertView(withTitle: "Info", andMessage: "Our App close after 15 sec", needCancel: true, completion: { [unowned self] result in
+                        if result {
+                            SwiftSpinner.show("Application is closing...".localized(), animated: true)
+                            self.view.isUserInteractionEnabled = false
+                            self.navigationItem.leftBarButtonItem?.isEnabled = false
+                            
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 90) {
+                                exit(1)
+                            }
                         }
                     })
                 }
