@@ -7,17 +7,17 @@
 */
 
 // Menu Items
-"0"                                         =   "";
-"1"                                         =   "";
-"2"                                         =   "";
-"3"                                         =   "";
-"4"                                         =   "";
-"5"                                         =   "";
-"6"                                         =   "";
-"7"                                         =   "";
-"8"                                         =   "";
-"9"                                         =   "";
-"10"                                        =   "";
+"New order"                                 =   "New order";
+"Hours of work"                             =   "Hours of work";
+"Current order"                             =   "Current order";
+"Price list"                                =   "Price list";
+"My orders"                                 =   "My orders";
+"Chat"                                      =   "Chat";
+"Personal data"                             =   "Personal data";
+"Write us"                                  =   "Write us";
+"About us"                                  =   "About us";
+"Agreement"                                 =   "Agreement";
+"Sign out"                                  =   "Sign out";
 
 
 // Labels
