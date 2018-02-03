@@ -24,6 +24,12 @@ class FlowControlShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
+    @IBOutlet weak var flowControlLabel: UILabel! {
+        didSet {
+            flowControlLabel.text = flowControlLabel.text?.localized()
+            flowControlLabel.isHidden = true
+        }
+    }
     
     
     // MARK: - Class Initialization
@@ -86,8 +92,8 @@ class FlowControlShowViewController: UIViewController {
     
     fileprivate func routeToNextScene() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
-            self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
-//            self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
+//            self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
+            self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
         }
     }
 }
@@ -116,6 +122,8 @@ extension FlowControlShowViewController: FlowControlShowDisplayLogic {
                         UIApplication.shared.openURL(url)
                     }
                 }
+                
+                self.flowControlLabel.isHidden = false
             })
         }
     }

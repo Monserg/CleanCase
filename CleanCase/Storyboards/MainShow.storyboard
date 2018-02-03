@@ -14,7 +14,7 @@
         <!--Main Show View Controller-->
         <scene sceneID="2bn-c8-GJG">
             <objects>
-                <viewController storyboardIdentifier="MainShowVC" id="s6c-Yv-o5R" customClass="MainShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainShowVC" modalTransitionStyle="crossDissolve" id="s6c-Yv-o5R" customClass="MainShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bmp-rR-Be3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

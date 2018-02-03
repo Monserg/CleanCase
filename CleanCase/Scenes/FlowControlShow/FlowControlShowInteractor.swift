@@ -37,12 +37,6 @@ class FlowControlShowInteractor: ShareInteractor, FlowControlShowBusinessLogic, 
             if let model = responseAPI.model as? ResponseAPIVersion {
                 print("model = \(model.GetVerResult), version = \(Version.currentVersion)")
                 self.isEqual = Version.currentVersion == model.GetVerResult
-
-                // CoreData: update Version
-                self.appDependency.coreDataManager.updateEntity(EntityUpdateTuple(name:         "Version",
-                                                                                  predicate:    nil,
-                                                                                  key:          "workingVersion",
-                                                                                  value:        model.GetVerResult))
             }
             
             let responseModel = FlowControlShowModels.Version.ResponseModel(isEqual: self.isEqual)

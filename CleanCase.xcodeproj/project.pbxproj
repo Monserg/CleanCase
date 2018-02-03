@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C72E5D6EC9AF2FC9D0F5CD1 /* Pods_CleanCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */; };
+		B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */; };
 		B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F4D0ED202447D50086E25F /* AppDelegate.swift */; };
 		B1F4D0F5202447D50086E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F4202447D50086E25F /* Assets.xcassets */; };
 		B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */; };
@@ -106,6 +107,7 @@
 /* Begin PBXFileReference section */
 		27913F3729368B518AECD01C /* Pods-CleanCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.release.xcconfig"; sourceTree = "<group>"; };
 		4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		B1F4D0EA202447D50086E25F /* CleanCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4D0ED202447D50086E25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1F4D0F4202447D50086E25F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FA2D9520246FF700351BB7 /* Constants.swift */,
+				B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */,
 				B1FA2D9C2024748E00351BB7 /* Protocols.swift */,
 				B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */,
 			);
@@ -715,6 +718,7 @@
 				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
 				B1FA2DB620249B2F00351BB7 /* ShareInteractor.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
+				B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
 				B1FA2DB3202498C500351BB7 /* Version+CoreDataProperties.swift in Sources */,
