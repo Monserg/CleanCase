@@ -109,10 +109,10 @@
 		27913F3729368B518AECD01C /* Pods-CleanCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.release.xcconfig"; sourceTree = "<group>"; };
 		4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11B18662025811B00EA29F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		B11B18672025814D00EA29F7 /* yi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = yi; path = yi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B11B186B2025816D00EA29F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B11B186D2025817100EA29F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B11B186E2025817200EA29F7 /* yi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = yi; path = yi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B11B186F2025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B11B18702025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		B1F4D0EA202447D50086E25F /* CleanCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4D0ED202447D50086E25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -586,7 +586,7 @@
 				en,
 				Base,
 				ar,
-				yi,
+				he,
 			);
 			mainGroup = B1F4D0E1202447D40086E25F;
 			productRefGroup = B1F4D0EB202447D50086E25F /* Products */;
@@ -781,7 +781,7 @@
 			children = (
 				B11B186B2025816D00EA29F7 /* en */,
 				B11B186D2025817100EA29F7 /* ar */,
-				B11B186E2025817200EA29F7 /* yi */,
+				B11B18702025851600EA29F7 /* he */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -791,7 +791,7 @@
 			children = (
 				B1F4D0F7202447D50086E25F /* Base */,
 				B11B18662025811B00EA29F7 /* ar */,
-				B11B18672025814D00EA29F7 /* yi */,
+				B11B186F2025851600EA29F7 /* he */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
