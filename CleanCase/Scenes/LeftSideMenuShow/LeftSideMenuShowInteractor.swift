@@ -37,22 +37,22 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
         menuItems = [LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem]()
         
         let itemsTitles = [
-            "New order", "Hours of work", "Current order", "Price list", "My orders", "Chat", "Personal data", "Write us", "About us", "Agreement", "Sign out"
+            "New order", "Hours of work", "Current order", "Price list", "My orders", "Chat", "Personal data", "Write us", "About us", "Agreement"
         ]
         
         let itemsIcons = [
-            "icon-menu-new-order", "icon-menu-working-hours", "icon-menu-current-order", "icon-menu-price-list", "icon-menu-my-orders", "icon-menu-chat", "icon-menu-personal-data", "icon-menu-write-us", "icon-menu-about-us", "icon-menu-agreement", "icon-menu-sign-out"
+            "icon-menu-new-order", "icon-menu-working-hours", "icon-menu-current-order", "icon-menu-price-list", "icon-menu-my-orders", "icon-menu-chat", "icon-menu-personal-data", "icon-menu-write-us", "icon-menu-about-us", "icon-menu-agreement"
         ]
         
         let itemsStoryboardIDs = [
-            "OrderCreateVC", "ShowVC", "OrderShowVC", "PriceListShowVC", "OrdersShowVC", "ShowVC", "PersonalDataShowVC", "WriteUsShowVC", "AboutShowVC", "ShowVC", "SignOut"
+            "OrderCreateVC", "ShowVC", "OrderShowVC", "PriceListShowVC", "OrdersShowVC", "ShowVC", "PersonalDataShowVC", "WriteUsShowVC", "AboutShowVC", "ShowVC"
         ]
         
         let itemsStoryboardNames = [
-            "OrderCreate", "Show", "OrderShow", "PriceListShow", "OrdersShow", "Show", "PersonalDataShow", "WriteUsShow", "AboutShow", "Show", "SignOut"
+            "OrderCreate", "Show", "OrderShow", "PriceListShow", "OrdersShow", "Show", "PersonalDataShow", "WriteUsShow", "AboutShow", "Show"
         ]
 
-        for i in 0..<11 {
+        for i in 0..<itemsTitles.count {
             menuItems.append(LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem(title:             itemsTitles[i].localized(),
                                                                                      iconName:          itemsIcons[i],
                                                                                      storyboardID:      itemsStoryboardIDs[i],
