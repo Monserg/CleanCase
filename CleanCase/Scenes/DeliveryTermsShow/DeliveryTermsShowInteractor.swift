@@ -16,7 +16,7 @@ import UIKit
 protocol DeliveryTermsShowBusinessLogic {
     func saveSelectedDateRow(_ value: Int)
     func saveSelectedTimeRow(_ value: Int)
-    func fetchData(withRequestModel requestModel: DeliveryTermsShowModels.Data.RequestModel)
+    func fetchDates(withRequestModel requestModel: DeliveryTermsShowModels.Dates.RequestModel)
 }
 
 protocol DeliveryTermsShowDataStore {
@@ -43,25 +43,62 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
     ]
 
     var dates: [PickerViewSupport]! = [PickerViewSupport]()
-    var times: [PickerViewSupport]! = [PickerViewSupport]()
+    var times: [PickerViewSupport]!
 
     
     // MARK: - Business logic implementation
     func saveSelectedDateRow(_ value: Int) {
         self.selectedDateRow = value
+        self.times = [PickerViewSupport]()
+
+        // Fetch Delivery Times
+        let selectedWeekDay = (dates[value] as! DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView).weekDay
+        
+        let timesFiltered = (dates as! [DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView]).filter({
+            $0.weekDay >= selectedWeekDay
+        })
+        
+        for (index, date) in timesFiltered.enumerated() {
+            times.append(DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView(id:           "\(index)",
+                                                                                      title:        "\(date.fromTime.getTime())-\(date.toTime.getTime())",
+                                                                                      weekDay:      date.weekDay,
+                                                                                      fromTime:     date.fromTime,
+                                                                                      toTime:       date.toTime))
+        }
     }
 
     func saveSelectedTimeRow(_ value: Int) {
         self.selectedTimeRow = value
     }
 
-    func fetchData(withRequestModel requestModel: DeliveryTermsShowModels.Data.RequestModel) {
+    func fetchDates(withRequestModel requestModel: DeliveryTermsShowModels.Dates.RequestModel) {
         // CoreData: Fetch data
         if let dateEntities = appDependency.coreDataManager.readEntities(withName: "DeliveryDate", andPredicateParameters: nil), dateEntities.count > 0 {
+            let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: Date())
             
+            let dateEntitiesFiltered = (dateEntities as! [DeliveryDate]).filter({
+                $0.weekDay > dateComponents.weekday! ||
+                ($0.weekDay == dateComponents.weekday! && $0.fromDate.convertToFloat() >= (Float(dateComponents.hour!) + Float(dateComponents.minute!) / 100))
+            })
+            
+//            dateEntitiesFiltered.sort(by: { date1, date2 in
+//                return date1.weekDay < date2.weekDay && date1.fromDate < date2.fromDate
+//            })
+            
+            print(dateEntitiesFiltered)
+            
+            for (index, entity) in dateEntitiesFiltered.enumerated() {
+                let weekDate = (entity.weekDay != dateComponents.weekday!) ? ("\(dateComponents.day!)".addZero() + "/" + "\(dateComponents.month!)".addZero() + "/\(dateComponents.year!)") : "ff"
+                    
+                dates.append(DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView(id:           "\(index)",
+                                                                                          title:        "\(entity.name!) " + weekDate,
+                                                                                          weekDay:      entity.weekDay,
+                                                                                          fromTime:     entity.fromDate,
+                                                                                          toTime:       entity.toDate))
+            }
         }
                 
-        let responseModel = DeliveryTermsShowModels.Data.ResponseModel()
+        let responseModel = DeliveryTermsShowModels.Dates.ResponseModel()
         presenter?.presentData(fromResponseModel: responseModel)
     }
 }

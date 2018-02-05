@@ -25,4 +25,17 @@ extension String {
     var uppercaseFirst: String {
         return first.uppercased() + String(dropFirst())
     }
+    
+    func addZero() -> String {
+        return self.count == 1 ? "0" + self : self
+    }
+    
+    func convertToFloat() -> Float {
+        let time = self.components(separatedBy: " ").last!.replacingOccurrences(of: ":", with: ".")
+        return Float(time)!
+    }
+    
+    func getTime() -> String {
+        return self.components(separatedBy: " ").last!
+    }
 }

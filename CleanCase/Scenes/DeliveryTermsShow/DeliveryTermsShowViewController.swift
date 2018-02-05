@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol DeliveryTermsShowDisplayLogic: class {
-    func displayData(fromViewModel viewModel: DeliveryTermsShowModels.Data.ViewModel)
+    func displayData(fromViewModel viewModel: DeliveryTermsShowModels.Dates.ViewModel)
 }
 
 class DeliveryTermsShowViewController: UIViewController {
@@ -119,7 +119,7 @@ class DeliveryTermsShowViewController: UIViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+             
         loadViewSettings()
     }
     
@@ -127,8 +127,8 @@ class DeliveryTermsShowViewController: UIViewController {
     // MARK: - Custom Functions
     func loadViewSettings() {
         DispatchQueue.main.async(execute: {
-            let requestModel = DeliveryTermsShowModels.Data.RequestModel()
-            self.interactor?.fetchData(withRequestModel: requestModel)
+            let requestModel = DeliveryTermsShowModels.Dates.RequestModel()
+            self.interactor?.fetchDates(withRequestModel: requestModel)
         })
     }
 
@@ -138,11 +138,11 @@ class DeliveryTermsShowViewController: UIViewController {
         }
             
         else {
-            self.view.isUserInteractionEnabled = false
+//            self.view.isUserInteractionEnabled = false
             
             DispatchQueue.main.async(execute: {
-                let requestModel = DeliveryTermsShowModels.Data.RequestModel()
-                self.interactor?.fetchData(withRequestModel: requestModel)
+//                let requestModel = DeliveryTermsShowModels.Dates.RequestModel()
+//                self.interactor?.fetchDates(withRequestModel: requestModel)
             })
         }
     }
@@ -186,7 +186,7 @@ class DeliveryTermsShowViewController: UIViewController {
 
 // MARK: - DeliveryTermsShowDisplayLogic
 extension DeliveryTermsShowViewController: DeliveryTermsShowDisplayLogic {
-    func displayData(fromViewModel viewModel: DeliveryTermsShowModels.Data.ViewModel) {
+    func displayData(fromViewModel viewModel: DeliveryTermsShowModels.Dates.ViewModel) {
         // NOTE: Display the result from the Presenter
         
     }
@@ -201,6 +201,10 @@ extension DeliveryTermsShowViewController: UITextFieldDelegate {
                 if let selectedDate = date as? PickerViewSupport {
                     textField.text = selectedDate.title
                     self.interactor?.saveSelectedDateRow(Int(selectedDate.id)!)
+
+                    self.saveButton.isEnabled = false
+                    self.textFieldsCollection.first(where: { $0.tag == 1 }).map({ $0.text = nil })
+                    self.interactor?.saveSelectedTimeRow(0)
                 }
                 
                 textField.resignFirstResponder()
@@ -208,16 +212,16 @@ extension DeliveryTermsShowViewController: UITextFieldDelegate {
         }
             
         else if textField.tag == 1 {
-//            let selectedCodeRow = (router?.dataStore?.selectedCodeTitle == nil) ? 0 : router!.dataStore!.codes.index(where: { $0.title == router!.dataStore!.selectedCodeTitle })
-//
-//            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.codes, andSelectedItem: selectedCodeRow!, { [unowned self] code in
-//                if let selectedCode = code as? PickerViewSupport {
-//                    textField.text = selectedCode.title
-//                    self.interactor?.saveSelectedCodeTitle(selectedCode.title)
-//                }
-//
-//                textField.resignFirstResponder()
-//            })
+            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.times, andSelectedItem: router!.dataStore!.selectedTimeRow, { [unowned self] time in
+                if let selectedTime = time as? PickerViewSupport {
+                    textField.text = selectedTime.title
+                    self.interactor?.saveSelectedTimeRow(Int(selectedTime.id)!)
+
+                    self.saveButton.isEnabled = true
+                }
+                
+                textField.resignFirstResponder()
+            })
         }
         
         return true

@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol DeliveryTermsShowPresentationLogic {
-    func presentData(fromResponseModel responseModel: DeliveryTermsShowModels.Data.ResponseModel)
+    func presentData(fromResponseModel responseModel: DeliveryTermsShowModels.Dates.ResponseModel)
 }
 
 class DeliveryTermsShowPresenter: DeliveryTermsShowPresentationLogic {
@@ -23,8 +23,8 @@ class DeliveryTermsShowPresenter: DeliveryTermsShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentData(fromResponseModel responseModel: DeliveryTermsShowModels.Data.ResponseModel) {
-        let viewModel = DeliveryTermsShowModels.Data.ViewModel()
+    func presentData(fromResponseModel responseModel: DeliveryTermsShowModels.Dates.ResponseModel) {
+        let viewModel = DeliveryTermsShowModels.Dates.ViewModel()
         viewController?.displayData(fromViewModel: viewModel)
     }
 }

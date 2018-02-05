@@ -15,12 +15,16 @@ import UIKit
 // MARK: - Data models
 enum DeliveryTermsShowModels {
     // MARK: - Use cases
-    enum Data {
+    enum Dates {
         struct RequestModel {
             struct ItemForPickerView: PickerViewSupport {
                 // PickerViewSupport protocol implementation
                 var id: String
                 var title: String
+                
+                var weekDay: Int16
+                var fromTime: String
+                var toTime: String
             }
         }
         

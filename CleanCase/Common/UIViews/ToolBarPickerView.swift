@@ -55,6 +55,23 @@ extension ToolBarPickerView: UIPickerViewDelegate {
         return items![row].title
     }
 
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label: UILabel!
+        
+        if view == nil {
+            label = UILabel()
+        } else {
+            label = view as! UILabel
+        }
+        
+//        label.font              =   UIFont.setupBy("Calibri", withStyle: .Regular, andSize: 20.0)
+        label.textColor         =   UIColor.blue
+        label.textAlignment     =   .center
+        label.text              =   items![row].title
+        
+        return label
+    }
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 //        self.txt_pickUpData.text = items[row]
     }
