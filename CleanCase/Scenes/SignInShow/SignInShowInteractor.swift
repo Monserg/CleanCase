@@ -39,10 +39,10 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(), andResponseType: ResponseAPICities.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICities {
-                for city in result.GetCitiesResult {
-                    CoreDataManager.instance.updateEntity(EntityUpdateTuple(name:         "City",
-                                                                            predicate:    NSPredicate.init(format: "codeID = \(city.ID)"),
-                                                                            values:       [ "codeID": city.ID, "name": city.CityName ]))
+                for model in result.GetCitiesResult {
+                    CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "City",
+                                                                                      predicate:  NSPredicate.init(format: "iD = \(model.ID)"),
+                                                                                      model:      model))
                 }
             }
             

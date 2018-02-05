@@ -17,6 +17,6 @@ extension Version {
         return NSFetchRequest<Version>(entityName: "Version")
     }
 
-    @NSManaged public var workingVersion: Int16
+    @NSManaged public var getVerResult: Int16
 
 }

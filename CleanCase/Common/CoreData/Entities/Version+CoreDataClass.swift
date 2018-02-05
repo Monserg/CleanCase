@@ -16,7 +16,7 @@ public class Version: NSManagedObject {
     class var currentVersion: Int16 {
         get {
             if let versionEntity = CoreDataManager.instance.readEntity(withName: "Version", andPredicateParameters: nil) as? Version {
-                return versionEntity.workingVersion
+                return versionEntity.getVerResult
             }
             
             return 0

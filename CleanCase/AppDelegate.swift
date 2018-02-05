@@ -28,9 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black
 
         // CoreData: update current App version
-        CoreDataManager.instance.updateEntity(EntityUpdateTuple(name:         "Version",
-                                                                predicate:    nil,
-                                                                values:       [ "workingVersion": Bundle.main.versionNumber ]))
+        CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:         "Version",
+                                                                          predicate:    nil,
+                                                                          model:        ResponseAPIVersion(GetVerResult: Bundle.main.versionNumber)))
 
         return true
     }

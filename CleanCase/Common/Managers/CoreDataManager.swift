@@ -132,21 +132,21 @@ class CoreDataManager {
     }
     
     // Update
-    func updateEntity(_ property: EntityUpdateTuple) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: property.name)
+    func updateEntity(withData data: EntityUpdateTuple) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: data.name)
         
-        if let predicate = property.predicate {
+        if let predicate = data.predicate {
             fetchRequest.predicate = predicate
         }
         
-        var entity = readEntity(withName: property.name, andPredicateParameters: property.predicate)
+        var entity = readEntity(withName: data.name, andPredicateParameters: data.predicate)
         
         if entity == nil {
-            entity = self.createEntity(property.name)
+            entity = self.createEntity(data.name)
         }
         
-        for dict in property.values {
-            entity!.setValue(dict.value, forKey: dict.key)
+        for propertyName in data.model.propertyNames() {
+            entity!.setValue(data.model.valueByProperty(name: propertyName.lowercaseFirst()), forKey: propertyName.lowercaseFirst())
         }
 
         self.contextSave()
