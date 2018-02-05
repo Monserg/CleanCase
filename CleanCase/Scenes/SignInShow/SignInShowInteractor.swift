@@ -15,6 +15,7 @@ import UIKit
 // MARK: - Business Logic protocols
 protocol SignInShowBusinessLogic {
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel)
+    func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel)
 }
 
 protocol SignInShowDataStore {
@@ -37,7 +38,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         worker = SignInShowWorker()
         
         // API: Fetch request data
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(), andResponseType: ResponseAPICities.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(nil, false), andResponseType: ResponseAPICities.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICities {
                 for model in result.GetCitiesResult {
                     CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "City",
@@ -48,6 +49,24 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
             
             let responseModel = SignInShowModels.City.ResponseModel()
             self.presenter?.presentCities(fromResponseModel: responseModel)
+        })
+    }
+    
+    func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel) {
+        worker = SignInShowWorker()
+        
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getLaundryInfo([ "city_id": requestModel.cityID ], false), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? ResponseAPILaundryResult {
+                let model = result.GetLaundryByCityResult
+               
+                CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Laundry",
+                                                                                  predicate:  NSPredicate.init(format: "iD = \(model.ID)"),
+                                                                                  model:      model))
+            }
+            
+            let responseModel = SignInShowModels.Laundry.ResponseModel()
+            self.presenter?.presentLaundry(fromResponseModel: responseModel)
         })
     }
 }

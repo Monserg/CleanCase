@@ -10,35 +10,37 @@ import UIKit
 import Alamofire
 
 typealias ResponseAPI = (model: Decodable?, error: Error?)
-typealias RequestParametersType = (method: HTTPMethod, path: String, body: [String: Any]?, headers: [String: String]?, parameters: [String: Any]?)
+typealias RequestParametersType = (method: HTTPMethod, path: String, body: [String: Any]?, parameters: [String: String]?)
 
 enum RequestType {
     // GET
-    case getCitiesList()
-    case getCurrentAppWorkingVersion()
-
+    case getCitiesList([String: String]?, Bool)
+    case getLaundryInfo([String: String]?, Bool)
+    case getCurrentAppWorkingVersion([String: String]?, Bool)
 
     // POST
     
     
     // MARK: - Custom functions
     func introduced() -> RequestParametersType {
-        let headers = [ "Content-Type": "application/json", "Accept-Charset": "UTF-8" ]
-        
         // Body & Parametes named such as in Postman
         switch self {
         // GET
-        case .getCitiesList():      return (method:         .get,
-                                            path:           "/GetCities",
-                                            body:           nil,
-                                            headers:        headers,
-                                            parameters:     nil)
-
-        case .getCurrentAppWorkingVersion():        return (method:         .get,
-                                                            path:           "/GetVer",
-                                                            body:           nil,
-                                                            headers:        headers,
-                                                            parameters:     nil)
+        case .getCitiesList(let params, let isBodyParams):      return (method:         .get,
+                                                                        path:           "/GetCities",
+                                                                        body:           (isBodyParams ? params : nil),
+                                                                        parameters:      (isBodyParams ? nil : params))
+            
+        case .getLaundryInfo(let params, let isBodyParams):      return (method:         .get,
+                                                                        path:           "/GetLaundryByCity/",
+                                                                        body:           (isBodyParams ? params : nil),
+                                                                        parameters:      (isBodyParams ? nil : params))
+            
+        case .getCurrentAppWorkingVersion(let params, let isBodyParams):        return (method:         .get,
+                                                                                        path:           "/GetVer",
+                                                                                        body:           (isBodyParams ? params : nil),
+                                                                                        parameters:      (isBodyParams ? nil : params))
+            
 
         }
     }
@@ -63,28 +65,28 @@ final class RestAPIManager {
 
         // Parameters
         if let params = parameters.parameters, parameters.body == nil {
-            for param in params {
-                let queryItem   =   URLQueryItem(name: param.key, value: param.value as? String)
-                
-                components.queryItems?.append(queryItem)
-            }
+            components.path!.append(params.values.first!)
         }
         
         // Body
-        // TODO: - ADD REQUEST BODY PARAMETERS
+        else {
+            // TODO: - ADD REQUEST BODY PARAMETERS
+        
+        }
         
         return components
     }
     
     func fetchRequest<T: Decodable>(withRequestType requestType: RequestType, andResponseType responseType: T.Type, completionHandler: @escaping (ResponseAPI) -> Void) {
+        let headers             = [ "Content-Type": "application/json", "Accept-Charset": "UTF-8" ]
         let requestParameters   =   requestType.introduced()
         let components          =   createURLComponents(withParameters: requestType.introduced())
         
         Alamofire.request(components.url!,
-                          method: requestParameters.method,
-                          parameters: nil,
-                          encoding: JSONEncoding.default,
-                          headers: nil).responseJSON { response in
+                          method:       requestParameters.method,
+                          parameters:   nil,
+                          encoding:     JSONEncoding.default,
+                          headers:      headers).responseJSON { response in
                             do {
                                 let responseAPI = try JSONDecoder().decode(responseType, from: response.data!)
                                 completionHandler((model: responseAPI, error: response.error))

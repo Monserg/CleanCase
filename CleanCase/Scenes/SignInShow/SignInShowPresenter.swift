@@ -15,6 +15,7 @@ import UIKit
 // MARK: - Presentation Logic protocols
 protocol SignInShowPresentationLogic {
     func presentCities(fromResponseModel responseModel: SignInShowModels.City.ResponseModel)
+    func presentLaundry(fromResponseModel responseModel: SignInShowModels.Laundry.ResponseModel)
 }
 
 class SignInShowPresenter: SignInShowPresentationLogic {
@@ -26,5 +27,10 @@ class SignInShowPresenter: SignInShowPresentationLogic {
     func presentCities(fromResponseModel responseModel: SignInShowModels.City.ResponseModel) {
         let viewModel = SignInShowModels.City.ViewModel()
         viewController?.displayCities(fromViewModel: viewModel)
+    }
+    
+    func presentLaundry(fromResponseModel responseModel: SignInShowModels.Laundry.ResponseModel) {
+        let viewModel = SignInShowModels.Laundry.ViewModel()
+        viewController?.initializationLaundryInfo(fromViewModel: viewModel)
     }
 }

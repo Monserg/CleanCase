@@ -22,3 +22,20 @@ struct ResponseAPICity: Decodable {
 struct ResponseAPIVersion: Decodable {
     let GetVerResult: Int16
 }
+
+struct ResponseAPILaundryResult: Decodable {
+    // MARK: - Properties
+    let GetLaundryByCityResult: ResponseAPILaundryInfo
+}
+
+struct ResponseAPILaundryInfo: Decodable {
+    // MARK: - Properties
+    let AddressLine: String?
+    let BusinessId: String?
+    let CityID: Int16
+    let CityName: String
+    let Header: String?
+    let ID: Int16
+    let Name: String?
+    let Telephone: String?
+}

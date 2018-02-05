@@ -15,6 +15,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol SignInShowDisplayLogic: class {
     func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel)
+    func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel)
 }
 
 class SignInShowViewController: UIViewController {
@@ -89,10 +90,17 @@ class SignInShowViewController: UIViewController {
         interactor?.fetchCities(withRequestModel: requestModel)
     }
     
+    fileprivate func startDataValidation() {
+        if 2 + 2 == 4 {
+            let requestModel = SignInShowModels.Laundry.RequestModel(cityID: "1")
+            interactor?.fetchLaundry(withRequestModel: requestModel)
+        }
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerSaveButtonTapped(_ sender: Any) {
-        print("Save button tapped...")
+        self.startDataValidation()
     }
 }
 
@@ -102,5 +110,10 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel) {
         // NOTE: Display the result from the Presenter
         self.displayLaundryInfo(withName: "My Laundry", andPhoneNumber: nil)
+    }
+    
+    func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel) {
+        // NOTE: Display the result from the Presenter
+
     }
 }

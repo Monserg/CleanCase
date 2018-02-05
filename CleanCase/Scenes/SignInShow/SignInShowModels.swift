@@ -25,4 +25,16 @@ enum SignInShowModels {
         struct ViewModel {
         }
     }
+
+    enum Laundry {
+        struct RequestModel {
+            let cityID: String
+        }
+        
+        struct ResponseModel {
+        }
+        
+        struct ViewModel {
+        }
+    }
 }

@@ -33,7 +33,7 @@ class FlowControlShowInteractor: ShareInteractor, FlowControlShowBusinessLogic, 
         worker = FlowControlShowWorker()
 
         // API: Fetch request data
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCurrentAppWorkingVersion(), andResponseType: ResponseAPIVersion.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCurrentAppWorkingVersion(nil, false), andResponseType: ResponseAPIVersion.self, completionHandler: { [unowned self] responseAPI in
             if let model = responseAPI.model as? ResponseAPIVersion {
                 print("model = \(model.GetVerResult), version = \(Version.currentVersion)")
                 self.isEqual = Version.currentVersion == model.GetVerResult
