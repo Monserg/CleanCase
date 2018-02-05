@@ -39,13 +39,7 @@ class MainShowViewController: UIViewController {
             
         }
     }
-    
-    @IBOutlet weak var laundryBarButton: LaundryBarButtonItem! {
-        didSet {
-            laundryBarButton.addLaundryInfo(withName: "My hero is Zorro!!!")
-        }
-    }
-    
+        
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -190,6 +184,7 @@ extension MainShowViewController: MainShowDisplayLogic {
     func displaySomething(fromViewModel viewModel: MainShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
 
+        self.displayLaundryInfo(withName: "Current Laundry", andPhoneNumber: "0932918165")
     }
 }
 

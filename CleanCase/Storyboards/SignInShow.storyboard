@@ -59,11 +59,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UrO-ky-v7J"/>
                     </view>
-                    <navigationItem key="navigationItem" id="iRn-9s-Nm9">
-                        <barButtonItem key="rightBarButtonItem" style="done" id="ThW-4e-8TX" customClass="LaundryBarButtonItem" customModule="CleanCase"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="iRn-9s-Nm9"/>
                     <connections>
-                        <outlet property="laundryBarButton" destination="ThW-4e-8TX" id="bFC-jO-ZyK"/>
                         <outlet property="saveButton" destination="ye3-bo-12x" id="kZH-fk-25O"/>
                     </connections>
                 </viewController>

@@ -28,7 +28,7 @@ extension UIViewController {
         present(alertViewController, animated: true, completion: nil)
     }
     
-    func createPopover(withName name: String) {
+    public func createPopover(withName name: String) {
         let storyboard: UIStoryboard = UIStoryboard(name: name, bundle: nil)
         let presentedViewController = storyboard.instantiateViewController(withIdentifier: name + "VC")
         presentedViewController.providesPresentationContextTransitionStyle = true
@@ -37,6 +37,12 @@ extension UIViewController {
         presentedViewController.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.8)
 
         self.present(presentedViewController, animated: true, completion: nil)
+    }
+    
+    public func displayLaundryInfo(withName name: String, andPhoneNumber phone: String?) {
+        let laundryBarButton = UIBarButtonItem()
+        laundryBarButton.customView = LaundryView(withName: name, andPhoneNumber: phone)
+        self.navigationItem.rightBarButtonItem = laundryBarButton
     }
 }
 

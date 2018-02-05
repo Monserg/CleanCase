@@ -16,15 +16,24 @@ class LaundryView: UIView {
         }
     }
     
-    @IBOutlet weak var laundryLabel: UILabel!
+    @IBOutlet weak var laundryNameLabel: UILabel!
+    @IBOutlet weak var laundryPhoneButton: UIButton!
     
     
     // MARK: - Class Initialization
-    init(withName name: String) {
-        super.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 100, height: 44)))
+    init(withName name: String, andPhoneNumber phoneNumber: String?) {
+        super.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 280.0 * widthRatio, height: 44)))
         
         createFromXIB()
-        laundryLabel.text = name
+        laundryNameLabel.text = name.localized()
+        
+        if let phone = phoneNumber {
+            laundryPhoneButton.setTitle(phone, for: .normal)
+        }
+        
+        else {
+            laundryPhoneButton.isHidden = true
+        }
     }
     
     override init(frame: CGRect) {
@@ -46,4 +55,16 @@ class LaundryView: UIView {
         addSubview(view)
         view.frame = frame
     }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerLaundryPhoneButtonTapped(_ sender: UIButton) {
+        guard let numberURL = URL(string: "tel://" + (sender.titleLabel?.text)!) else { return }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(numberURL)
+        } else {
+            UIApplication.shared.openURL(numberURL)
+        }
+    }    
 }

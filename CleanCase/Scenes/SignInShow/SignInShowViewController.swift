@@ -26,12 +26,6 @@ class SignInShowViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var saveButton: UIButton!
     
-    @IBOutlet weak var laundryBarButton: LaundryBarButtonItem! {
-        didSet {
-            laundryBarButton.addLaundryInfo(withName: "My hero is Zorro!!!")
-        }
-    }
-
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -107,6 +101,6 @@ class SignInShowViewController: UIViewController {
 extension SignInShowViewController: SignInShowDisplayLogic {
     func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel) {
         // NOTE: Display the result from the Presenter
-
+        self.displayLaundryInfo(withName: "My Laundry", andPhoneNumber: nil)
     }
 }

@@ -11,7 +11,6 @@
 		B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B11B186C2025816D00EA29F7 /* Localizable.strings */; };
 		B179409F2026076A00A9B675 /* LaundryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179409E2026076A00A9B675 /* LaundryView.swift */; };
 		B17940A12026077300A9B675 /* LaundryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17940A02026077300A9B675 /* LaundryView.xib */; };
-		B17940A420260E2A00A9B675 /* LaundryBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17940A320260E2A00A9B675 /* LaundryBarButtonItem.swift */; };
 		B17940A620261BA100A9B675 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17940A520261BA100A9B675 /* UIViewController+Extensions.swift */; };
 		B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */; };
 		B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */; };
@@ -123,7 +122,6 @@
 		B11B18702025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B179409E2026076A00A9B675 /* LaundryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaundryView.swift; sourceTree = "<group>"; };
 		B17940A02026077300A9B675 /* LaundryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaundryView.xib; sourceTree = "<group>"; };
-		B17940A320260E2A00A9B675 /* LaundryBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaundryBarButtonItem.swift; sourceTree = "<group>"; };
 		B17940A520261BA100A9B675 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementShow.storyboard; sourceTree = "<group>"; };
 		B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementShowViewController.swift; sourceTree = "<group>"; };
@@ -267,14 +265,6 @@
 			path = UIViews;
 			sourceTree = "<group>";
 		};
-		B17940A220260E0200A9B675 /* UIBarButtons */ = {
-			isa = PBXGroup;
-			children = (
-				B17940A320260E2A00A9B675 /* LaundryBarButtonItem.swift */,
-			);
-			path = UIBarButtons;
-			sourceTree = "<group>";
-		};
 		B19DA3CC202852BE00E9F7D6 /* AgreementShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,7 +358,6 @@
 				B1F4D1052024495E0086E25F /* Extensions */,
 				B1F4D104202449500086E25F /* Managers */,
 				B1FA2DA5202492D500351BB7 /* Models */,
-				B17940A220260E0200A9B675 /* UIBarButtons */,
 				B1FA2DB420249B1300351BB7 /* UIViewControllers */,
 				B179409D2026074E00A9B675 /* UIViews */,
 			);
@@ -789,7 +778,6 @@
 				B1FA2DA92024948400351BB7 /* RestAPIManager.swift in Sources */,
 				B1FA2D5020245E8900351BB7 /* OrdersShowWorker.swift in Sources */,
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
-				B17940A420260E2A00A9B675 /* LaundryBarButtonItem.swift in Sources */,
 				B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */,
 				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
 				B1FA2D5420245E8900351BB7 /* OrdersShowInteractor.swift in Sources */,
