@@ -100,7 +100,7 @@ class LeftSideMenuShowViewController: UIViewController {
     
     
     // MARK: - Actions
-    @IBAction func handlerSideMenuButtonTap(_ sender: Any) {
+    @IBAction func handlerSideMenuButtonTapped(_ sender: Any) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 0) {
             self.navigationController?.dismiss(animated: true, completion: {})
         }

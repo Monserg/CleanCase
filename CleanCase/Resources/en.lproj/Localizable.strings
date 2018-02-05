@@ -23,6 +23,9 @@
 // Labels
 "Please, restart App"                       =   "Please, restart App";
 "Application is closing..."                 =   "Application\n is closing...";
+"Agreement Title"                           =   "Agreement Title";
+"Agreement Caption"                         =   "Agreement Caption";
+"Agreement Content"                         =   "Agreement Content";
 
 
 // Titles

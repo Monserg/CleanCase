@@ -131,7 +131,13 @@ class MainShowViewController: UIViewController {
                     leftSideMenuNC.dismiss(animated: true, completion: {})
                     
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
-                        self.show(destinationVC, sender: nil)
+                        if nextScene.storyboardID == "AgreementShowVC" {
+                            self.createPopover(withName: nextScene.storyboardName)
+                        }
+                            
+                        else {
+                            self.show(destinationVC, sender: nil)
+                        }
                     }
                 }
             }
@@ -159,17 +165,22 @@ class MainShowViewController: UIViewController {
 
     
     // MARK: - Actions
-    @IBAction func handlerSideMenuBarButtonTap(_ sender: UIBarButtonItem) {
+    @IBAction func handlerSideMenuBarButtonTapped(_ sender: UIBarButtonItem) {
         // Show side menu
         present(sideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
 
-    @IBAction func handlerCreateOrderButtonTap(_ sender: Any) {
+    @IBAction func handlerCreateOrderButtonTapped(_ sender: Any) {
         print("Create Order button tapped...")
     }
     
-    @IBAction func handlerMyOrderButtonTap(_ sender: Any) {
+    @IBAction func handlerMyOrderButtonTapped(_ sender: Any) {
         print("My Order button tapped...")
+    }
+    
+    // FIXME: - DELETE AFTER TEST
+    @IBAction func handlerPopoverButtonTapped(_ sender: Any) {
+        self.createPopover(withName: "AgreementShow")
     }
 }
 

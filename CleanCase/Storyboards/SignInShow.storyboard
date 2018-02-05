@@ -35,7 +35,7 @@
                                         </state>
                                         <state key="highlighted" backgroundImage="button-cyan"/>
                                         <connections>
-                                            <action selector="handlerSaveButtonTap:" destination="bxM-jC-7qF" eventType="touchUpInside" id="jtc-Bi-iFS"/>
+                                            <action selector="handlerSaveButtonTapped:" destination="bxM-jC-7qF" eventType="touchUpInside" id="KOZ-Hb-CMR"/>
                                         </connections>
                                     </button>
                                 </subviews>

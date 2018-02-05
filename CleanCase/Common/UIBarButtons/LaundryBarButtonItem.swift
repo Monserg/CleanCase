@@ -12,8 +12,6 @@ class LaundryBarButtonItem: UIBarButtonItem {
     // MARK: - Class Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-     
-//        addLaundryInfo(withName: "Zorro")
     }
 
     

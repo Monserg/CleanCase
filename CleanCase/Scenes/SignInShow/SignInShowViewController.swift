@@ -97,7 +97,7 @@ class SignInShowViewController: UIViewController {
     
     
     // MARK: - Actions
-    @IBAction func handlerSaveButtonTap(_ sender: Any) {
+    @IBAction func handlerSaveButtonTapped(_ sender: Any) {
         print("Save button tapped...")
     }
 }

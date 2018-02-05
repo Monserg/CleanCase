@@ -15,7 +15,7 @@
         <scene sceneID="2bn-c8-GJG">
             <objects>
                 <viewController storyboardIdentifier="MainShowVC" modalTransitionStyle="crossDissolve" id="s6c-Yv-o5R" customClass="MainShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bmp-rR-Be3">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="bmp-rR-Be3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -30,7 +30,7 @@
                                         </state>
                                         <state key="highlighted" backgroundImage="button-cyan"/>
                                         <connections>
-                                            <action selector="handlerCreateOrderButtonTap:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="UMJ-RP-ogb"/>
+                                            <action selector="handlerCreateOrderButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="RsU-Fj-9QO"/>
                                         </connections>
                                     </button>
                                     <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meJ-Rk-hKP" userLabel="My Order Button">
@@ -41,7 +41,20 @@
                                         </state>
                                         <state key="highlighted" backgroundImage="button-cyan"/>
                                         <connections>
-                                            <action selector="handlerMyOrderButtonTap:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="mZ2-xs-e1U"/>
+                                            <action selector="handlerMyOrderButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="Y0A-ZX-A4m"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <stackView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PCN-7U-7Yp" userLabel="Test Stack View">
+                                <rect key="frame" x="302" y="64" width="57" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7H-4K-02z" userLabel="Popover Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="30"/>
+                                        <state key="normal" title="Popover"/>
+                                        <connections>
+                                            <action selector="handlerPopoverButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="GUd-O6-pLA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -52,7 +65,9 @@
                         <constraints>
                             <constraint firstItem="WLY-dw-sW4" firstAttribute="width" secondItem="bmp-rR-Be3" secondAttribute="width" multiplier="0.5" id="A7Y-pk-Yid"/>
                             <constraint firstItem="WLY-dw-sW4" firstAttribute="centerX" secondItem="bmp-rR-Be3" secondAttribute="centerX" id="FwS-nE-SEv"/>
+                            <constraint firstItem="PCN-7U-7Yp" firstAttribute="top" secondItem="92S-Kb-ftZ" secondAttribute="top" id="cid-7W-cbl"/>
                             <constraint firstItem="WLY-dw-sW4" firstAttribute="height" secondItem="bmp-rR-Be3" secondAttribute="height" multiplier="0.35" id="eyL-ti-kSp"/>
+                            <constraint firstItem="PCN-7U-7Yp" firstAttribute="trailing" secondItem="92S-Kb-ftZ" secondAttribute="trailing" constant="-16" id="iKV-Ew-U9M"/>
                             <constraint firstItem="WLY-dw-sW4" firstAttribute="centerY" secondItem="bmp-rR-Be3" secondAttribute="centerY" id="jhn-3m-G27"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="92S-Kb-ftZ"/>
@@ -63,7 +78,7 @@
                     <navigationItem key="navigationItem" id="uwP-0w-hvB">
                         <barButtonItem key="leftBarButtonItem" image="icon-side-menu" id="IE4-Cq-ODy" userLabel="Menu Bar Button Item">
                             <connections>
-                                <action selector="handlerSideMenuBarButtonTap:" destination="s6c-Yv-o5R" id="Vqg-NB-klh"/>
+                                <action selector="handlerSideMenuBarButtonTapped:" destination="s6c-Yv-o5R" id="3f3-4d-FCo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" id="ZRC-ah-1zF" customClass="LaundryBarButtonItem" customModule="CleanCase"/>
@@ -95,7 +110,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="handlerSideMenuButtonTap:" destination="M6e-eh-3U6" eventType="touchUpInside" id="HW0-40-QG4"/>
+                                    <action selector="handlerSideMenuButtonTapped:" destination="M6e-eh-3U6" eventType="touchUpInside" id="Qbu-ia-FG1"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -27,4 +27,23 @@ extension UIViewController {
         alertViewController.addAction(alertViewControllerOkAction)
         present(alertViewController, animated: true, completion: nil)
     }
+    
+    func createPopover(withName name: String) {
+        let storyboard: UIStoryboard = UIStoryboard(name: name, bundle: nil)
+        let presentedViewController = storyboard.instantiateViewController(withIdentifier: name + "VC")
+        presentedViewController.providesPresentationContextTransitionStyle = true
+        presentedViewController.definesPresentationContext = true
+        presentedViewController.modalPresentationStyle = .overCurrentContext
+        presentedViewController.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.8)
+
+        self.present(presentedViewController, animated: true, completion: nil)
+    }
+}
+
+
+// MARK: - UIPopoverPresentationControllerDelegate
+extension UIViewController: UIPopoverPresentationControllerDelegate {
+    public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
 }

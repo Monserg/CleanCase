@@ -45,11 +45,11 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
         ]
         
         let itemsStoryboardIDs = [
-            "OrderCreateVC", "ShowVC", "OrderShowVC", "PriceListShowVC", "OrdersShowVC", "ShowVC", "PersonalDataShowVC", "WriteUsShowVC", "AboutShowVC", "ShowVC"
+            "OrderCreateVC", "ShowVC", "OrderShowVC", "PriceListShowVC", "OrdersShowVC", "ShowVC", "PersonalDataShowVC", "WriteUsShowVC", "AboutShowVC", "AgreementShowVC"
         ]
         
         let itemsStoryboardNames = [
-            "OrderCreate", "Show", "OrderShow", "PriceListShow", "OrdersShow", "Show", "PersonalDataShow", "WriteUsShow", "AboutShow", "Show"
+            "OrderCreate", "Show", "OrderShow", "PriceListShow", "OrdersShow", "Show", "PersonalDataShow", "WriteUsShow", "AboutShow", "AgreementShow"
         ]
 
         for i in 0..<itemsTitles.count {
