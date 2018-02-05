@@ -25,7 +25,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXv-Os-4jb" userLabel="BottomBar View">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye3-bo-12x" userLabel="Save Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye3-bo-12x" userLabel="Save Button">
                                         <rect key="frame" x="123" y="-10" width="128" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="RNp-Ed-IYm"/>
