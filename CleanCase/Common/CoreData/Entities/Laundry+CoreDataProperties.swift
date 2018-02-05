@@ -23,7 +23,7 @@ extension Laundry {
     @NSManaged public var cityName: String
     @NSManaged public var header: String?
     @NSManaged public var iD: Int16
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
     @NSManaged public var telephone: String?
 
 }

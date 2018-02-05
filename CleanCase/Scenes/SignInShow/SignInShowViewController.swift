@@ -16,6 +16,7 @@ import UIKit
 protocol SignInShowDisplayLogic: class {
     func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel)
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel)
+    func initializationCollectionDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel)
 }
 
 class SignInShowViewController: UIViewController {
@@ -114,6 +115,11 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel) {
         // NOTE: Display the result from the Presenter
-
+        let requestModel = SignInShowModels.Date.RequestModel(laundryID: "1")
+        interactor?.fetchCollectionDates(withRequestModel: requestModel)
+    }
+    
+    func initializationCollectionDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel) {
+        // NOTE: Display the result from the Presenter
     }
 }

@@ -94,6 +94,8 @@ class MainShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     fileprivate func viewSettingsDidLoad() {
+        self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
+
         let requestModel = MainShowModels.Something.RequestModel()
         interactor?.doSomething(withRequestModel: requestModel)
     }
@@ -184,7 +186,6 @@ extension MainShowViewController: MainShowDisplayLogic {
     func displaySomething(fromViewModel viewModel: MainShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
 
-        self.displayLaundryInfo(withName: "Current Laundry", andPhoneNumber: "0932918165")
     }
 }
 

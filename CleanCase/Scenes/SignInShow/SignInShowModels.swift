@@ -37,4 +37,16 @@ enum SignInShowModels {
         struct ViewModel {
         }
     }
+
+    enum Date {
+        struct RequestModel {
+            let laundryID: String
+        }
+        
+        struct ResponseModel {
+        }
+        
+        struct ViewModel {
+        }
+    }
 }

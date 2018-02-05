@@ -9,6 +9,16 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="CollectionDate" representedClassName="CollectionDate" syncable="YES">
+        <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromDate" attributeType="String" syncable="YES"/>
+        <attribute name="laundryId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDate" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weekDay" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="Laundry" representedClassName="Laundry" syncable="YES">
         <attribute name="addressLine" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,7 +26,7 @@
         <attribute name="cityName" attributeType="String" syncable="YES"/>
         <attribute name="header" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iD" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="telephone" optional="YES" attributeType="String" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -29,7 +39,8 @@
     </entity>
     <elements>
         <element name="City" positionX="-54" positionY="-9" width="128" height="75"/>
-        <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
         <element name="Laundry" positionX="-45" positionY="18" width="128" height="165"/>
+        <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
+        <element name="CollectionDate" positionX="-45" positionY="63" width="128" height="165"/>
     </elements>
 </model>

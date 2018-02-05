@@ -18,6 +18,8 @@
 		B19DA3F82028993900E9F7D6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F72028993900E9F7D6 /* String+Extensions.swift */; };
 		B19DA3FB2028B0B000E9F7D6 /* Laundry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */; };
 		B19DA3FC2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */; };
+		B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */; };
+		B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */; };
 		B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */; };
 		B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F4D0ED202447D50086E25F /* AppDelegate.swift */; };
 		B1F4D0F5202447D50086E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F4202447D50086E25F /* Assets.xcassets */; };
@@ -131,6 +133,8 @@
 		B19DA3F72028993900E9F7D6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Laundry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Laundry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		B1F4D0EA202447D50086E25F /* CleanCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4D0ED202447D50086E25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -558,6 +562,8 @@
 			children = (
 				B1FA2DAC202498C500351BB7 /* City+CoreDataClass.swift */,
 				B1FA2DAD202498C500351BB7 /* City+CoreDataProperties.swift */,
+				B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */,
+				B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */,
 				B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */,
 				B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */,
 				B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */,
@@ -745,6 +751,7 @@
 				B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */,
 				B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */,
 				B19DA3FB2028B0B000E9F7D6 /* Laundry+CoreDataClass.swift in Sources */,
+				B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */,
 				B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */,
 				B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,
@@ -786,6 +793,7 @@
 				B1FA2D5020245E8900351BB7 /* OrdersShowWorker.swift in Sources */,
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
 				B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */,
+				B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */,
 				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
 				B1FA2D5420245E8900351BB7 /* OrdersShowInteractor.swift in Sources */,
 				B1FA2D5120245E8900351BB7 /* OrdersShowRouter.swift in Sources */,

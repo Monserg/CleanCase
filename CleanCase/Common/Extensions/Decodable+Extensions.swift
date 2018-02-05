@@ -27,6 +27,10 @@ extension Decodable {
                 return laundryModel.CityName
             }
 
+            else if let collectionDateModel = self as? ResponseAPICollectionDate {
+                return collectionDateModel.CityName
+            }
+
         case "iD":
             if let cityModel = self as? ResponseAPICity {
                 return cityModel.ID
@@ -49,10 +53,34 @@ extension Decodable {
             return (self as! ResponseAPILaundryInfo).Header
             
         case "name":
-            return (self as! ResponseAPILaundryInfo).Name
+            if let laundryInfoModel = self as? ResponseAPILaundryInfo {
+                return laundryInfoModel.Name
+            }
+
+            else if let collectionDateModel = self as? ResponseAPICollectionDate {
+                return collectionDateModel.Name
+            }
             
         case "telephone":
             return (self as! ResponseAPILaundryInfo).Telephone
+            
+        case "fromDate":
+            return (self as! ResponseAPICollectionDate).FromDate
+            
+        case "toDate":
+            return (self as! ResponseAPICollectionDate).ToDate
+            
+        case "laundryId":
+            return (self as! ResponseAPICollectionDate).LaundryId
+            
+        case "remarks":
+            return (self as! ResponseAPICollectionDate).Remarks
+            
+        case "type":
+            return (self as! ResponseAPICollectionDate).Type
+            
+        case "weekDay":
+            return (self as! ResponseAPICollectionDate).WeekDay
             
         default:
             fatalError("Wrong property name")

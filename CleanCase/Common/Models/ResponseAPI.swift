@@ -39,3 +39,20 @@ struct ResponseAPILaundryInfo: Decodable {
     let Name: String?
     let Telephone: String?
 }
+
+struct ResponseAPICollectionDatesResult: Decodable {
+    // MARK: - Properties
+    let GetCollectionDatesResult: [ResponseAPICollectionDate]
+}
+
+struct ResponseAPICollectionDate: Decodable {
+    // MARK: - Properties
+    let CityName: String?
+    let FromDate: String
+    let LaundryId: Int16
+    let Name: String?
+    let Remarks: String?
+    let ToDate: String
+    let `Type`: Int16
+    let WeekDay: Int16
+}

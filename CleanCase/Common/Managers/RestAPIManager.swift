@@ -16,6 +16,7 @@ enum RequestType {
     // GET
     case getCitiesList([String: String]?, Bool)
     case getLaundryInfo([String: String]?, Bool)
+    case getCollectionDatesList([String: String]?, Bool)
     case getCurrentAppWorkingVersion([String: String]?, Bool)
 
     // POST
@@ -35,6 +36,11 @@ enum RequestType {
                                                                         path:           "/GetLaundryByCity/",
                                                                         body:           (isBodyParams ? params : nil),
                                                                         parameters:      (isBodyParams ? nil : params))
+            
+        case .getCollectionDatesList(let params, let isBodyParams):             return (method:         .get,
+                                                                                        path:           "/GetCollectionDates/",
+                                                                                        body:           (isBodyParams ? params : nil),
+                                                                                        parameters:      (isBodyParams ? nil : params))
             
         case .getCurrentAppWorkingVersion(let params, let isBodyParams):        return (method:         .get,
                                                                                         path:           "/GetVer",
