@@ -26,6 +26,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     var presenter: SignInShowPresentationLogic?
     var worker: SignInShowWorker?
     
+    let operatorCode = [ "050", "052", "053", "054", "055" ]
+
     // SignInShowDataStore protocol implementation
     var cities: [City]! = [City]()
     

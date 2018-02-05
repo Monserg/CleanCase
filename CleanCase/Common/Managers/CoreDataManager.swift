@@ -114,7 +114,7 @@ class CoreDataManager {
             return nil
         }
     }
-
+    
     func entitiesRead(withName name: String, andPredicateParameters predicate: NSPredicate?) -> [NSManagedObject]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
 
@@ -145,8 +145,8 @@ class CoreDataManager {
             entity = self.createEntity(property.name)
         }
         
-        if let versionEntity = entity as? Version {
-            versionEntity.setValue(property.value, forKey: property.key)
+        for dict in property.values {
+            entity!.setValue(dict.value, forKey: dict.key)
         }
 
         self.contextSave()

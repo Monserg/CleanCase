@@ -134,24 +134,26 @@ class MainShowViewController: UIViewController {
                         self.show(destinationVC, sender: nil)
                     }
                 }
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
-                    leftSideMenuNC.dismiss(animated: true, completion: {})
-                    
-                    // Close App
-                    self.showAlertView(withTitle: "Info", andMessage: "Our App close after 15 sec", needCancel: true, completion: { [unowned self] result in
-                        if result {
-                            SwiftSpinner.show("Application is closing...".localized(), animated: true)
-                            self.view.isUserInteractionEnabled = false
-                            self.navigationItem.leftBarButtonItem?.isEnabled = false
-                            
-                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 90) {
-                                exit(1)
-                            }
-                        }
-                    })
-                }
             }
+            
+//            else {
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
+//                    leftSideMenuNC.dismiss(animated: true, completion: {})
+//
+//                    // Close App
+//                    self.showAlertView(withTitle: "Info", andMessage: "Our App close after 15 sec", needCancel: true, completion: { [unowned self] result in
+//                        if result {
+//                            SwiftSpinner.show("Application is closing...".localized(), animated: true)
+//                            self.view.isUserInteractionEnabled = false
+//                            self.navigationItem.leftBarButtonItem?.isEnabled = false
+//
+//                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 90) {
+//                                exit(1)
+//                            }
+//                        }
+//                    })
+//                }
+//            }
         }
     }
 

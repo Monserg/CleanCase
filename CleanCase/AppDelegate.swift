@@ -30,8 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // CoreData: update current App version
         CoreDataManager.instance.updateEntity(EntityUpdateTuple(name:         "Version",
                                                                 predicate:    nil,
-                                                                key:          "workingVersion",
-                                                                value:        Bundle.main.versionNumber))
+                                                                values:       [ "workingVersion": Bundle.main.versionNumber ]))
 
         return true
     }

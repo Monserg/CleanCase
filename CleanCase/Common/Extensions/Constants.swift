@@ -10,7 +10,8 @@ import UIKit
 import Alamofire
 
 // Typealiases
-typealias EntityUpdateTuple     =   (name: String, predicate: NSPredicate?, key: String, value: Any)
+typealias EntityUpdateTuple     =   (name: String, predicate: NSPredicate?, values: [ String: Any ])
+//typealias EntityUpdateTuple     =   (name: String, predicate: NSPredicate?, key: String, value: Any)
 
 
 // Closure
