@@ -20,32 +20,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WLY-dw-sW4" userLabel="Buttons Stack View">
-                                <rect key="frame" x="80" y="156" width="160" height="168"/>
+                                <rect key="frame" x="60" y="155" width="200" height="170"/>
                                 <subviews>
-                                    <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tN-Oq-pw7" userLabel="Create Order Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="84"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Create Order" backgroundImage="button-blue">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="highlighted" backgroundImage="button-cyan"/>
-                                        <connections>
-                                            <action selector="handlerCreateOrderButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="RsU-Fj-9QO"/>
-                                        </connections>
-                                    </button>
-                                    <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meJ-Rk-hKP" userLabel="My Order Button">
-                                        <rect key="frame" x="0.0" y="84" width="160" height="84"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="My Order" backgroundImage="button-blue">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <state key="highlighted" backgroundImage="button-cyan"/>
-                                        <connections>
-                                            <action selector="handlerMyOrderButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="Y0A-ZX-A4m"/>
-                                        </connections>
-                                    </button>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hW8-ZW-pGr" userLabel="Create Order View">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="85"/>
+                                        <subviews>
+                                            <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tN-Oq-pw7" userLabel="Create Order Button">
+                                                <rect key="frame" x="25" y="-17.5" width="150" height="120"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="7J6-fG-u1Y"/>
+                                                    <constraint firstAttribute="width" constant="150" id="h0B-6N-CFO"/>
+                                                </constraints>
+                                                <state key="normal" title="Create Order" backgroundImage="button-blue">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted" backgroundImage="button-cyan"/>
+                                                <connections>
+                                                    <action selector="handlerCreateOrderButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="RsU-Fj-9QO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="8tN-Oq-pw7" firstAttribute="centerY" secondItem="hW8-ZW-pGr" secondAttribute="centerY" id="Axn-Nf-8Nv"/>
+                                            <constraint firstItem="8tN-Oq-pw7" firstAttribute="centerX" secondItem="hW8-ZW-pGr" secondAttribute="centerX" id="aqi-RJ-Vbe"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aps-gp-w8o" userLabel="My Order View">
+                                        <rect key="frame" x="0.0" y="85" width="200" height="85"/>
+                                        <subviews>
+                                            <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meJ-Rk-hKP" userLabel="My Order Button">
+                                                <rect key="frame" x="25" y="-17.5" width="150" height="120"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="YDj-Y4-Ni1"/>
+                                                    <constraint firstAttribute="width" constant="150" id="kSw-x5-YGa"/>
+                                                </constraints>
+                                                <state key="normal" title="My Order" backgroundImage="button-blue">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <state key="highlighted" backgroundImage="button-cyan"/>
+                                                <connections>
+                                                    <action selector="handlerMyOrderButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="Y0A-ZX-A4m"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="meJ-Rk-hKP" firstAttribute="centerX" secondItem="aps-gp-w8o" secondAttribute="centerX" id="N9R-RL-f1o"/>
+                                            <constraint firstItem="meJ-Rk-hKP" firstAttribute="centerY" secondItem="aps-gp-w8o" secondAttribute="centerY" id="UdG-64-L15"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="CrH-k1-WVG"/>
+                                    <constraint firstAttribute="height" constant="170" id="it8-Vl-Mkw"/>
+                                </constraints>
                             </stackView>
                             <stackView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PCN-7U-7Yp" userLabel="Test Stack View">
                                 <rect key="frame" x="247" y="64" width="57" height="30"/>
@@ -71,6 +103,12 @@
                             <constraint firstItem="WLY-dw-sW4" firstAttribute="centerY" secondItem="bmp-rR-Be3" secondAttribute="centerY" id="jhn-3m-G27"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="92S-Kb-ftZ"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="A7Y-pk-Yid"/>
+                                <exclude reference="eyL-ti-kSp"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="jLw-pb-Vlv"/>
@@ -85,7 +123,15 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="createOrderButton" destination="8tN-Oq-pw7" id="s3T-6j-3nR"/>
+                        <outlet property="createOrderView" destination="hW8-ZW-pGr" id="9KW-70-qkn"/>
                         <outlet property="myOrderButton" destination="meJ-Rk-hKP" id="jdh-tx-ut0"/>
+                        <outlet property="myOrderView" destination="aps-gp-w8o" id="Bs1-5C-0ac"/>
+                        <outletCollection property="orderButtonsHeightConstraintsCollection" destination="7J6-fG-u1Y" collectionClass="NSMutableArray" id="66c-7l-3om"/>
+                        <outletCollection property="orderButtonsHeightConstraintsCollection" destination="YDj-Y4-Ni1" collectionClass="NSMutableArray" id="OyM-0H-JpC"/>
+                        <outletCollection property="orderButtonsHeightConstraintsCollection" destination="CrH-k1-WVG" collectionClass="NSMutableArray" id="deL-Ok-4hd"/>
+                        <outletCollection property="orderButtonsWidthConstraintsCollection" destination="h0B-6N-CFO" collectionClass="NSMutableArray" id="bDT-XU-xAc"/>
+                        <outletCollection property="orderButtonsWidthConstraintsCollection" destination="kSw-x5-YGa" collectionClass="NSMutableArray" id="VkV-bN-pbI"/>
+                        <outletCollection property="orderButtonsWidthConstraintsCollection" destination="CrH-k1-WVG" collectionClass="NSMutableArray" id="3Xr-qD-v6j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hxm-QV-qHM" userLabel="First Responder" sceneMemberID="firstResponder"/>

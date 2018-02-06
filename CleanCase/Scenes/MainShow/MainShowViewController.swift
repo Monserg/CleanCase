@@ -28,6 +28,18 @@ class MainShowViewController: UIViewController {
 
     
     // MARK: - IBOutlets
+    @IBOutlet weak var createOrderView: UIView! {
+        didSet {
+            createOrderView.isHidden = false
+        }
+    }
+    
+    @IBOutlet weak var myOrderView: UIView! {
+        didSet {
+            
+        }
+    }
+    
     @IBOutlet weak var createOrderButton: UIButton! {
         didSet {
             
@@ -36,11 +48,23 @@ class MainShowViewController: UIViewController {
     
     @IBOutlet weak var myOrderButton: UIButton! {
         didSet {
-            
+
         }
     }
         
+    @IBOutlet var orderButtonsHeightConstraintsCollection: [NSLayoutConstraint]! {
+        didSet {
+            _ = orderButtonsHeightConstraintsCollection.map({ $0.constant *= heightRatio })
+        }
+    }
     
+    @IBOutlet var orderButtonsWidthConstraintsCollection: [NSLayoutConstraint]! {
+        didSet {
+            _ = orderButtonsWidthConstraintsCollection.map({ $0.constant *= widthRatio })
+        }
+    }
+    
+
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
