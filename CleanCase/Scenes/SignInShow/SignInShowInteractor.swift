@@ -16,6 +16,7 @@ import UIKit
 protocol SignInShowBusinessLogic {
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel)
     func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel)
+    func fetchDeliveryDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel)
     func fetchCollectionDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel)
 }
 
@@ -71,6 +72,26 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         })
     }
     
+    func fetchDeliveryDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel) {
+        worker = SignInShowWorker()
+        
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDeliveryDatesList([ "laundry_id": requestModel.laundryID ], false), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? ResponseAPIDeliveryDatesResult {
+                for model in result.GetDeliveryDatesResult {
+                    let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == \(model.Type) AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
+                    
+                    CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "DeliveryDate",
+                                                                                      predicate:  predicate,
+                                                                                      model:      model))
+                }
+            }
+            
+            let responseModel = SignInShowModels.Date.ResponseModel()
+            self.presenter?.presentDeliveryDates(fromResponseModel: responseModel)
+        })
+    }
+
     func fetchCollectionDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel) {
         worker = SignInShowWorker()
         
@@ -78,25 +99,10 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCollectionDatesList([ "laundry_id": requestModel.laundryID ], false), andResponseType: ResponseAPICollectionDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICollectionDatesResult {
                 for model in result.GetCollectionDatesResult {
-                    let predicateMain = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == \(model.Type) AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
-                    
-//                    if let cityName = model.CityName, !cityName.isEmpty {
-//                        predicateString += " AND cityName = \(cityName)"
-//                    }
-//
-//                    if let name = model.Name, !name.isEmpty {
-//                        predicateString += " AND name = \(name)"
-//                    }
-//
-//                    if let remarks = model.Remarks, !remarks.isEmpty {
-//                        predicateString += " AND remarks = \(remarks)"
-//                    }
-                    
-//                    let predicate = NSPredicate.init(format: predicateString)
-                    let predicateCompound = NSCompoundPredicate.init(type: .or, subpredicates: [ predicateMain ])
+                    let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == \(model.Type) AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
                     
                     CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "CollectionDate",
-                                                                                      predicate:  predicateCompound,
+                                                                                      predicate:  predicate,
                                                                                       model:      model))
                 }
             }

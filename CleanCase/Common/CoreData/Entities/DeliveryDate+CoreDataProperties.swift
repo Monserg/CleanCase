@@ -1,5 +1,5 @@
 //
-//  CollectionDate+CoreDataProperties.swift
+//  DeliveryDate+CoreDataProperties.swift
 //  CleanCase
 //
 //  Created by msm72 on 06.02.2018.
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension CollectionDate {
+extension DeliveryDate {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CollectionDate> {
-        return NSFetchRequest<CollectionDate>(entityName: "CollectionDate")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<DeliveryDate> {
+        return NSFetchRequest<DeliveryDate>(entityName: "DeliveryDate")
     }
 
     @NSManaged public var cityName: String?

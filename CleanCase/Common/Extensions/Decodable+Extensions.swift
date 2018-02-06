@@ -31,6 +31,10 @@ extension Decodable {
                 return collectionDateModel.CityName
             }
 
+            else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
+                return deliveryDateModel.CityName
+            }
+
         case "iD":
             if let cityModel = self as? ResponseAPICity {
                 return cityModel.ID
@@ -60,27 +64,67 @@ extension Decodable {
             else if let collectionDateModel = self as? ResponseAPICollectionDate {
                 return collectionDateModel.Name
             }
-            
+
+            else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
+                return deliveryDateModel.Name
+            }
+
         case "telephone":
             return (self as! ResponseAPILaundryInfo).Telephone
             
         case "fromDate":
-            return (self as! ResponseAPICollectionDate).FromDate
+            if let collectionDateModel = self as? ResponseAPICollectionDate {
+                return collectionDateModel.FromDate
+            }
+                
+            else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
+                return deliveryDateModel.FromDate
+            }
             
         case "toDate":
-            return (self as! ResponseAPICollectionDate).ToDate
+            if let collectionDateModel = self as? ResponseAPICollectionDate {
+                return collectionDateModel.ToDate
+            }
+                
+            else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
+                return deliveryDateModel.ToDate
+            }
             
         case "laundryId":
-            return (self as! ResponseAPICollectionDate).LaundryId
+            if let collectionDateModel = self as? ResponseAPICollectionDate {
+                return collectionDateModel.LaundryId
+            }
+                
+            else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
+                return deliveryDateModel.LaundryId
+            }
             
         case "remarks":
-            return (self as! ResponseAPICollectionDate).Remarks
+            if let collectionDateModel = self as? ResponseAPICollectionDate {
+                return collectionDateModel.Remarks
+            }
+                
+            else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
+                return deliveryDateModel.Remarks
+            }
             
         case "type":
-            return (self as! ResponseAPICollectionDate).Type
+            if let collectionDateModel = self as? ResponseAPICollectionDate {
+                return collectionDateModel.Type
+            }
+                
+            else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
+                return deliveryDateModel.Type
+            }
             
         case "weekDay":
-            return (self as! ResponseAPICollectionDate).WeekDay
+            if let collectionDateModel = self as? ResponseAPICollectionDate {
+                return collectionDateModel.WeekDay
+            }
+                
+            else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
+                return deliveryDateModel.WeekDay
+            }
             
         default:
             fatalError("Wrong property name")

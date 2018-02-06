@@ -16,6 +16,7 @@ import UIKit
 protocol SignInShowDisplayLogic: class {
     func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel)
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel)
+    func initializationDeliveryDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel)
     func initializationCollectionDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel)
 }
 
@@ -93,8 +94,12 @@ class SignInShowViewController: UIViewController {
     
     fileprivate func startDataValidation() {
         if 2 + 2 == 4 {
-            let requestModel = SignInShowModels.Laundry.RequestModel(cityID: "1")
-            interactor?.fetchLaundry(withRequestModel: requestModel)
+            self.view.isUserInteractionEnabled = false
+            
+            DispatchQueue.main.async(execute: {
+                let requestModel = SignInShowModels.Laundry.RequestModel(cityID: "1")
+                self.interactor?.fetchLaundry(withRequestModel: requestModel)
+            })
         }
     }
     
@@ -115,10 +120,21 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel) {
         // NOTE: Display the result from the Presenter
-        let requestModel = SignInShowModels.Date.RequestModel(laundryID: "1")
-        interactor?.fetchCollectionDates(withRequestModel: requestModel)
+        DispatchQueue.main.async(execute: {
+            let requestModel = SignInShowModels.Date.RequestModel(laundryID: "1")
+            self.interactor?.fetchCollectionDates(withRequestModel: requestModel)
+        })
+
+        DispatchQueue.main.async(execute: {
+            let requestModel = SignInShowModels.Date.RequestModel(laundryID: "1")
+            self.interactor?.fetchDeliveryDates(withRequestModel: requestModel)
+        })
     }
     
+    func initializationDeliveryDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel) {
+        // NOTE: Display the result from the Presenter
+    }
+
     func initializationCollectionDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel) {
         // NOTE: Display the result from the Presenter
     }

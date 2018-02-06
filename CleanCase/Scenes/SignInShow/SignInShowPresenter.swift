@@ -16,6 +16,7 @@ import UIKit
 protocol SignInShowPresentationLogic {
     func presentCities(fromResponseModel responseModel: SignInShowModels.City.ResponseModel)
     func presentLaundry(fromResponseModel responseModel: SignInShowModels.Laundry.ResponseModel)
+    func presentDeliveryDates(fromResponseModel responseModel: SignInShowModels.Date.ResponseModel)
     func presentCollectionDates(fromResponseModel responseModel: SignInShowModels.Date.ResponseModel)
 }
 
@@ -35,6 +36,11 @@ class SignInShowPresenter: SignInShowPresentationLogic {
         viewController?.initializationLaundryInfo(fromViewModel: viewModel)
     }
     
+    func presentDeliveryDates(fromResponseModel responseModel: SignInShowModels.Date.ResponseModel) {
+        let viewModel = SignInShowModels.Date.ViewModel()
+        viewController?.initializationDeliveryDates(fromViewModel: viewModel)
+    }
+
     func presentCollectionDates(fromResponseModel responseModel: SignInShowModels.Date.ResponseModel) {
         let viewModel = SignInShowModels.Date.ViewModel()
         viewController?.initializationCollectionDates(fromViewModel: viewModel)

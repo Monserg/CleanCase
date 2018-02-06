@@ -20,6 +20,8 @@
 		B19DA3FC2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */; };
 		B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */; };
 		B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */; };
+		B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */; };
+		B1DBDEFB2029879B00127ECB /* DeliveryDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEF92029879B00127ECB /* DeliveryDate+CoreDataProperties.swift */; };
 		B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */; };
 		B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F4D0ED202447D50086E25F /* AppDelegate.swift */; };
 		B1F4D0F5202447D50086E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F4202447D50086E25F /* Assets.xcassets */; };
@@ -135,6 +137,8 @@
 		B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Laundry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1DBDEF92029879B00127ECB /* DeliveryDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		B1F4D0EA202447D50086E25F /* CleanCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4D0ED202447D50086E25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -564,6 +568,8 @@
 				B1FA2DAD202498C500351BB7 /* City+CoreDataProperties.swift */,
 				B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */,
 				B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */,
+				B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */,
+				B1DBDEF92029879B00127ECB /* DeliveryDate+CoreDataProperties.swift */,
 				B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */,
 				B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */,
 				B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */,
@@ -807,6 +813,7 @@
 				B1FA2DB2202498C500351BB7 /* Version+CoreDataClass.swift in Sources */,
 				B1FA2D5220245E8900351BB7 /* OrdersShowModels.swift in Sources */,
 				B1FA2DB0202498C500351BB7 /* City+CoreDataClass.swift in Sources */,
+				B1DBDEFB2029879B00127ECB /* DeliveryDate+CoreDataProperties.swift in Sources */,
 				B1FA2D7120245F4B00351BB7 /* WriteUsShowViewController.swift in Sources */,
 				B1FA2D042024500000351BB7 /* SignInShowRouter.swift in Sources */,
 				B1FA2CF420244DC200351BB7 /* FlowControlShowWorker.swift in Sources */,
@@ -832,6 +839,7 @@
 				B1FA2D6020245EE900351BB7 /* AboutShowPresenter.swift in Sources */,
 				B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */,
 				B1FA2D14202458E400351BB7 /* MainShowWorker.swift in Sources */,
+				B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ enum RequestType {
     // GET
     case getCitiesList([String: String]?, Bool)
     case getLaundryInfo([String: String]?, Bool)
+    case getDeliveryDatesList([String: String]?, Bool)
     case getCollectionDatesList([String: String]?, Bool)
     case getCurrentAppWorkingVersion([String: String]?, Bool)
 
@@ -30,22 +31,27 @@ enum RequestType {
         case .getCitiesList(let params, let isBodyParams):      return (method:         .get,
                                                                         path:           "/GetCities",
                                                                         body:           (isBodyParams ? params : nil),
-                                                                        parameters:      (isBodyParams ? nil : params))
+                                                                        parameters:     (isBodyParams ? nil : params))
             
         case .getLaundryInfo(let params, let isBodyParams):      return (method:         .get,
                                                                         path:           "/GetLaundryByCity/",
                                                                         body:           (isBodyParams ? params : nil),
-                                                                        parameters:      (isBodyParams ? nil : params))
+                                                                        parameters:     (isBodyParams ? nil : params))
+            
+        case .getDeliveryDatesList(let params, let isBodyParams):               return (method:         .get,
+                                                                                        path:           "/GetDeliveryDates/",
+                                                                                        body:           (isBodyParams ? params : nil),
+                                                                                        parameters:     (isBodyParams ? nil : params))
             
         case .getCollectionDatesList(let params, let isBodyParams):             return (method:         .get,
                                                                                         path:           "/GetCollectionDates/",
                                                                                         body:           (isBodyParams ? params : nil),
-                                                                                        parameters:      (isBodyParams ? nil : params))
+                                                                                        parameters:     (isBodyParams ? nil : params))
             
         case .getCurrentAppWorkingVersion(let params, let isBodyParams):        return (method:         .get,
                                                                                         path:           "/GetVer",
                                                                                         body:           (isBodyParams ? params : nil),
-                                                                                        parameters:      (isBodyParams ? nil : params))
+                                                                                        parameters:     (isBodyParams ? nil : params))
             
 
         }
