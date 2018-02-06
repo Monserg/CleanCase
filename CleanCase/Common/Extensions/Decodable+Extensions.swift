@@ -43,7 +43,16 @@ extension Decodable {
             else if let laundryModel = self as? ResponseAPILaundryInfo {
                 return laundryModel.ID
             }
-            
+        
+        case "id":
+            if let departmentModel = self as? ResponseAPIDepartment {
+                return departmentModel.Id
+            }
+                
+            else if let departmentItemModel = self as? ResponseAPIDepartmentItem {
+                return departmentItemModel.Id
+            }
+
         case "cityID":
             return (self as! ResponseAPILaundryInfo).CityID
             
@@ -67,6 +76,10 @@ extension Decodable {
 
             else if let deliveryDateModel = self as? ResponseAPIDeliveryDate {
                 return deliveryDateModel.Name
+            }
+            
+            else if let departmentItemModel = self as? ResponseAPIDepartmentItem {
+                return departmentItemModel.Name
             }
 
         case "telephone":
@@ -99,6 +112,10 @@ extension Decodable {
                 return deliveryDateModel.LaundryId
             }
             
+            else if let departmentModel = self as? ResponseAPIDepartment {
+                return departmentModel.LaundryId
+            }
+            
         case "remarks":
             if let collectionDateModel = self as? ResponseAPICollectionDate {
                 return collectionDateModel.Remarks
@@ -126,6 +143,41 @@ extension Decodable {
                 return deliveryDateModel.WeekDay
             }
             
+        case "departmentId":
+            if let departmentModel = self as? ResponseAPIDepartment {
+                return departmentModel.DepartmentId
+            }
+                
+            else if let departmentItemModel = self as? ResponseAPIDepartmentItem {
+                return departmentItemModel.DepartmentId
+            }
+            
+        case "departmentItemId":
+            if let departmentItemModel = self as? ResponseAPIDepartmentItem {
+                return departmentItemModel.DepartmentItemId
+            }
+            
+        case "departmentName":
+            if let departmentModel = self as? ResponseAPIDepartment {
+                return departmentModel.DepartmentName
+            }
+                
+            else if let departmentItemModel = self as? ResponseAPIDepartmentItem {
+                return departmentItemModel.DepartmentName
+            }
+            
+        case "description":
+            if let departmentModel = self as? ResponseAPIDepartment {
+                return departmentModel.Description
+            }
+                
+            else if let departmentItemModel = self as? ResponseAPIDepartmentItem {
+                return departmentItemModel.Description
+            }
+            
+        case "price":
+            return (self as! ResponseAPIDepartmentItem).Price
+
         default:
             fatalError("Wrong property name")
         }

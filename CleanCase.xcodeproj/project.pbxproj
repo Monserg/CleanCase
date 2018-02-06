@@ -22,6 +22,10 @@
 		B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */; };
 		B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */; };
 		B1DBDEFB2029879B00127ECB /* DeliveryDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEF92029879B00127ECB /* DeliveryDate+CoreDataProperties.swift */; };
+		B1DBDF00202998E100127ECB /* Department+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEFC202998E100127ECB /* Department+CoreDataClass.swift */; };
+		B1DBDF01202998E100127ECB /* Department+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEFD202998E100127ECB /* Department+CoreDataProperties.swift */; };
+		B1DBDF02202998E100127ECB /* DepartmentItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEFE202998E100127ECB /* DepartmentItem+CoreDataClass.swift */; };
+		B1DBDF03202998E100127ECB /* DepartmentItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEFF202998E100127ECB /* DepartmentItem+CoreDataProperties.swift */; };
 		B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */; };
 		B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F4D0ED202447D50086E25F /* AppDelegate.swift */; };
 		B1F4D0F5202447D50086E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F4202447D50086E25F /* Assets.xcassets */; };
@@ -139,6 +143,10 @@
 		B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1DBDEF92029879B00127ECB /* DeliveryDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1DBDEFC202998E100127ECB /* Department+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Department+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1DBDEFD202998E100127ECB /* Department+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Department+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1DBDEFE202998E100127ECB /* DepartmentItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartmentItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1DBDEFF202998E100127ECB /* DepartmentItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DepartmentItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		B1F4D0EA202447D50086E25F /* CleanCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F4D0ED202447D50086E25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -570,6 +578,10 @@
 				B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */,
 				B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */,
 				B1DBDEF92029879B00127ECB /* DeliveryDate+CoreDataProperties.swift */,
+				B1DBDEFC202998E100127ECB /* Department+CoreDataClass.swift */,
+				B1DBDEFD202998E100127ECB /* Department+CoreDataProperties.swift */,
+				B1DBDEFE202998E100127ECB /* DepartmentItem+CoreDataClass.swift */,
+				B1DBDEFF202998E100127ECB /* DepartmentItem+CoreDataProperties.swift */,
 				B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */,
 				B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */,
 				B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */,
@@ -748,6 +760,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1DBDF03202998E100127ECB /* DepartmentItem+CoreDataProperties.swift in Sources */,
 				B1FA2D6320245EE900351BB7 /* AboutShowModels.swift in Sources */,
 				B1FA2D072024500000351BB7 /* SignInShowInteractor.swift in Sources */,
 				B1FA2D3820245DDF00351BB7 /* OrderCreateInteractor.swift in Sources */,
@@ -760,6 +773,7 @@
 				B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */,
 				B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */,
 				B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */,
+				B1DBDF00202998E100127ECB /* Department+CoreDataClass.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,
 				B1FA2D6D20245F4B00351BB7 /* WriteUsShowPresenter.swift in Sources */,
 				B1FA2D6120245EE900351BB7 /* AboutShowWorker.swift in Sources */,
@@ -780,6 +794,7 @@
 				B1FA2D2820245D5F00351BB7 /* OrderShowViewController.swift in Sources */,
 				B1FA2D3720245DDF00351BB7 /* OrderCreateViewController.swift in Sources */,
 				B1FA2DB1202498C500351BB7 /* City+CoreDataProperties.swift in Sources */,
+				B1DBDF02202998E100127ECB /* DepartmentItem+CoreDataClass.swift in Sources */,
 				B1FA2D3520245DDF00351BB7 /* OrderCreateRouter.swift in Sources */,
 				B1FA2DA32024914900351BB7 /* CleanCaseModel.xcdatamodeld in Sources */,
 				B1FA2D2520245D5F00351BB7 /* OrderShowWorker.swift in Sources */,
@@ -800,6 +815,7 @@
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
 				B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */,
 				B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */,
+				B1DBDF01202998E100127ECB /* Department+CoreDataProperties.swift in Sources */,
 				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
 				B1FA2D5420245E8900351BB7 /* OrdersShowInteractor.swift in Sources */,
 				B1FA2D5120245E8900351BB7 /* OrdersShowRouter.swift in Sources */,

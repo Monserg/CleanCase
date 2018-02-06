@@ -19,6 +19,7 @@ protocol SignInShowBusinessLogic {
     func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel)
     func fetchDeliveryDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel)
     func fetchCollectionDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel)
+    func fetchDepartments(withRequestModel requestModel: SignInShowModels.Department.RequestModel)
 }
 
 protocol SignInShowDataStore {
@@ -119,6 +120,26 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
             
             let responseModel = SignInShowModels.Date.ResponseModel()
             self.presenter?.presentCollectionDates(fromResponseModel: responseModel)
+        })
+    }
+    
+    func fetchDepartments(withRequestModel requestModel: SignInShowModels.Department.RequestModel) {
+        worker = SignInShowWorker()
+        
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDepartmentsList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? ResponseAPIDepartmentsResult {
+                for model in result.GetDepartmentsResult {
+                    let predicate = NSPredicate.init(format: "departmentId == \(model.DepartmentId)")
+                    
+                    CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Department",
+                                                                                      predicate:  predicate,
+                                                                                      model:      model))
+                }
+            }
+            
+            let responseModel = SignInShowModels.Department.ResponseModel()
+            self.presenter?.presentDepartments(fromResponseModel: responseModel)
         })
     }
 }

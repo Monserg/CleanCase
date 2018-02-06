@@ -47,4 +47,15 @@ enum SignInShowModels {
         struct ViewModel {
         }
     }
+
+    enum Department {
+        struct RequestModel {
+        }
+        
+        struct ResponseModel {
+        }
+        
+        struct ViewModel {
+        }
+    }
 }

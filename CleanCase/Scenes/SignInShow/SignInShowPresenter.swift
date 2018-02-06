@@ -18,6 +18,7 @@ protocol SignInShowPresentationLogic {
     func presentLaundry(fromResponseModel responseModel: SignInShowModels.Laundry.ResponseModel)
     func presentDeliveryDates(fromResponseModel responseModel: SignInShowModels.Date.ResponseModel)
     func presentCollectionDates(fromResponseModel responseModel: SignInShowModels.Date.ResponseModel)
+    func presentDepartments(fromResponseModel responseModel: SignInShowModels.Department.ResponseModel)
 }
 
 class SignInShowPresenter: SignInShowPresentationLogic {
@@ -44,5 +45,10 @@ class SignInShowPresenter: SignInShowPresentationLogic {
     func presentCollectionDates(fromResponseModel responseModel: SignInShowModels.Date.ResponseModel) {
         let viewModel = SignInShowModels.Date.ViewModel()
         viewController?.initializationCollectionDates(fromViewModel: viewModel)
+    }
+    
+    func presentDepartments(fromResponseModel responseModel: SignInShowModels.Department.ResponseModel) {
+        let viewModel = SignInShowModels.Department.ViewModel()
+        viewController?.initializationDepartments(fromViewModel: viewModel)
     }
 }

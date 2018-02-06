@@ -29,6 +29,24 @@
         <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weekDay" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="Department" representedClassName="Department" syncable="YES">
+        <attribute name="departmentId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departmentName" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionItem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="laundryId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DepartmentItem" inverseName="department" inverseEntity="DepartmentItem" syncable="YES"/>
+    </entity>
+    <entity name="DepartmentItem" representedClassName="DepartmentItem" syncable="YES">
+        <attribute name="departmentId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departmentItemId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departmentName" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionItem" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="items" inverseEntity="Department" syncable="YES"/>
+    </entity>
     <entity name="Laundry" representedClassName="Laundry" syncable="YES">
         <attribute name="addressLine" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,5 +71,7 @@
         <element name="Laundry" positionX="-45" positionY="18" width="128" height="165"/>
         <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
         <element name="DeliveryDate" positionX="-45" positionY="90" width="128" height="165"/>
+        <element name="Department" positionX="-36" positionY="108" width="128" height="30"/>
+        <element name="DepartmentItem" positionX="-27" positionY="126" width="128" height="30"/>
     </elements>
 </model>

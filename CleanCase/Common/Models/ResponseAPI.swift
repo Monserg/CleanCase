@@ -73,3 +73,29 @@ struct ResponseAPIDeliveryDate: Decodable {
     let `Type`: Int16
     let WeekDay: Int16
 }
+
+struct ResponseAPIDepartmentsResult: Decodable {
+    // MARK: - Properties
+    let GetDepartmentsResult: [ResponseAPIDepartment]
+}
+
+struct ResponseAPIDepartment: Decodable {
+    // MARK: - Properties
+    let DepartmentId: Int16
+    let DepartmentName: String
+    let Description: String?
+    let Id: Int16
+    let LaundryId: Int16
+    let Items: [ResponseAPIDepartmentItem]?
+}
+
+struct ResponseAPIDepartmentItem: Decodable {
+    // MARK: - Properties
+    let DepartmentId: Int16
+    let DepartmentItemId: Int16
+    let DepartmentName: String
+    let Description: String?
+    let Id: Int16
+    let Name: String
+    let Price: Float
+}

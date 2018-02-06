@@ -18,6 +18,7 @@ protocol SignInShowDisplayLogic: class {
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel)
     func initializationDeliveryDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel)
     func initializationCollectionDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel)
+    func initializationDepartments(fromViewModel viewModel: SignInShowModels.Department.ViewModel)
 }
 
 class SignInShowViewController: UIViewController {
@@ -131,6 +132,11 @@ extension SignInShowViewController: SignInShowDisplayLogic {
             let requestModel = SignInShowModels.Date.RequestModel()
             self.interactor?.fetchDeliveryDates(withRequestModel: requestModel)
         })
+        
+        DispatchQueue.main.async(execute: {
+            let requestModel = SignInShowModels.Department.RequestModel()
+            self.interactor?.fetchDepartments(withRequestModel: requestModel)
+        })
     }
     
     func initializationDeliveryDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel) {
@@ -138,6 +144,10 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     }
 
     func initializationCollectionDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel) {
+        // NOTE: Display the result from the Presenter
+    }
+    
+    func initializationDepartments(fromViewModel viewModel: SignInShowModels.Department.ViewModel) {
         // NOTE: Display the result from the Presenter
     }
 }
