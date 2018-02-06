@@ -44,6 +44,19 @@ extension UIViewController {
         laundryBarButton.customView = LaundryView(withName: name, andPhoneNumber: phone)
         self.navigationItem.rightBarButtonItem = laundryBarButton
     }
+    
+    public func hideBackBarButton() {
+        let backButton = UIBarButtonItem(title: "", style: .done, target: navigationController, action: nil)
+        self.navigationItem.leftBarButtonItem = backButton
+    }
+    
+    public func addNavigationBarShadow() {
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.gray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4
+    }
 }
 
 

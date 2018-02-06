@@ -12,5 +12,6 @@ target 'CleanCase' do
     pod 'DynamicColor', '~> 4.0'
     pod 'LTHRadioButton', '~> 1.2'
     pod 'Localize-Swift', '~> 2.0'
+    pod 'ImageSlideshow', '~> 1.5'
     
 end

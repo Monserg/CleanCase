@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkC-82-B5i">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkC-82-B5i">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
@@ -62,11 +62,20 @@
                     <navigationItem key="navigationItem" id="iRn-9s-Nm9"/>
                     <connections>
                         <outlet property="saveButton" destination="ye3-bo-12x" id="kZH-fk-25O"/>
+                        <segue destination="t1D-4U-o5C" kind="show" identifier="OnboardShowSegue" id="aGa-we-a8k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AM8-pb-2AV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1300" y="168"/>
+        </scene>
+        <!--OnboardShowVC-->
+        <scene sceneID="4YF-TJ-r12">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OnboardShow" referencedIdentifier="OnboardShowVC" id="t1D-4U-o5C" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOl-62-ZT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2025" y="167"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x5K-lH-3Yi">

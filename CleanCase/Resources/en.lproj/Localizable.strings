@@ -27,10 +27,16 @@
 "Agreement Caption"                         =   "Agreement Caption";
 "Agreement Content"                         =   "Agreement Content";
 "Loading App data..."                       =   "Application\n downloads data...";
+"Initialization..."                         =   "Initialization...";
 
 
 // Titles
 "My Laundry"                                =   "My laundry";
+"TitleForPage0"                             =   "TitleForPage0";
+"TitleForPage1"                             =   "TitleForPage1";
+"TitleForPage2"                             =   "TitleForPage2";
+"TitleForPage3"                             =   "TitleForPage3";
+"TitleForPage4"                             =   "TitleForPage4";
 
 
 // Buttons
@@ -41,6 +47,8 @@
 "Send"                                      =   "Send";
 "Create Order"                              =   "Create Order";
 "My Order"                                  =   "My Order";
+"Next"                                      =   "Next";
+"Start"                                     =   "Start";
 
 
 // Info/Errors Messages

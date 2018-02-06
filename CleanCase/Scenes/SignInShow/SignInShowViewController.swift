@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 // MARK: - Input & Output protocols
 protocol SignInShowDisplayLogic: class {
@@ -70,6 +71,8 @@ class SignInShowViewController: UIViewController {
                 router.perform(selector, with: segue)
             }
         }
+        
+        SwiftSpinner.hide()
     }
     
     
@@ -106,6 +109,10 @@ class SignInShowViewController: UIViewController {
         }
     }
     
+    fileprivate func displayOnboardScene() {
+        self.performSegue(withIdentifier: "OnboardShowSegue", sender: nil)
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerSaveButtonTapped(_ sender: Any) {
@@ -124,6 +131,8 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel) {
         // NOTE: Display the result from the Presenter
         DispatchQueue.main.async(execute: {
+            SwiftSpinner.show("Initialization...".localized(), animated: true)
+
             let requestModel = SignInShowModels.Date.RequestModel()
             self.interactor?.fetchCollectionDates(withRequestModel: requestModel)
         })
@@ -149,5 +158,6 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     
     func initializationDepartments(fromViewModel viewModel: SignInShowModels.Department.ViewModel) {
         // NOTE: Display the result from the Presenter
+        self.displayOnboardScene()
     }
 }

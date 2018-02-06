@@ -111,6 +111,7 @@ class MainShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addNavigationBarShadow()
         self.viewSettingsDidLoad()
         self.setupSideMenu()
     }
@@ -201,6 +202,10 @@ class MainShowViewController: UIViewController {
     // FIXME: - DELETE AFTER TEST
     @IBAction func handlerPopoverButtonTapped(_ sender: Any) {
         self.createPopover(withName: "AgreementShow")
+    }
+    
+    @IBAction func handlerOnboardButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "OnboardShowSegue", sender: nil)
     }
 }
 

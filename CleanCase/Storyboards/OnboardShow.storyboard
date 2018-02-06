@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboard Show View Controller-->
+        <scene sceneID="NLC-HX-vSj">
+            <objects>
+                <viewController storyboardIdentifier="OnboardShowVC" id="MvJ-79-BAL" customClass="OnboardShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" id="oeI-dE-kU3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBF-Ou-F87" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="64"/>
+                                <subviews>
+                                    <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnV-Z6-PXj" userLabel="Next Button">
+                                        <rect key="frame" x="16" y="-8" width="100" height="80"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="QHq-IX-rnL"/>
+                                            <constraint firstAttribute="height" constant="80" id="gjf-xv-74Y"/>
+                                        </constraints>
+                                        <state key="normal" title="Next" backgroundImage="button-blue"/>
+                                        <state key="highlighted" backgroundImage="button-cyan"/>
+                                        <connections>
+                                            <action selector="handlerNextButtonTapped:" destination="MvJ-79-BAL" eventType="touchUpInside" id="1IX-XV-bek"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="HQ7-cY-u2B"/>
+                                    <constraint firstItem="jnV-Z6-PXj" firstAttribute="leading" secondItem="VBF-Ou-F87" secondAttribute="leading" constant="16" id="pB9-7m-SxY"/>
+                                    <constraint firstItem="jnV-Z6-PXj" firstAttribute="centerY" secondItem="VBF-Ou-F87" secondAttribute="centerY" id="wZT-wW-0Ew"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oc0-xa-BBM" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="0.0" y="86" width="375" height="581"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFO-0S-Xkt" userLabel="Page Title Label">
+                                <rect key="frame" x="16" y="134" width="343" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-cg-xeJ" userLabel="Control Page Button">
+                                <rect key="frame" x="112" y="623" width="150" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mha-SO-uMo"/>
+                                    <constraint firstAttribute="width" constant="150" id="u21-5B-g02"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="handlerControlPageButtonTapped:" destination="MvJ-79-BAL" eventType="touchUpInside" id="4fI-9d-HuV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oc0-xa-BBM" firstAttribute="top" secondItem="VBF-Ou-F87" secondAttribute="bottom" constant="2" id="2bT-KF-xGN"/>
+                            <constraint firstItem="wFO-0S-Xkt" firstAttribute="top" secondItem="VBF-Ou-F87" secondAttribute="bottom" constant="50" id="3gb-32-2ne"/>
+                            <constraint firstItem="VBF-Ou-F87" firstAttribute="leading" secondItem="5Fz-pW-3yf" secondAttribute="leading" id="7N1-jw-WJT"/>
+                            <constraint firstItem="5Fz-pW-3yf" firstAttribute="trailing" secondItem="wFO-0S-Xkt" secondAttribute="trailing" constant="16" id="BAO-fJ-O7x"/>
+                            <constraint firstItem="wFO-0S-Xkt" firstAttribute="centerX" secondItem="oeI-dE-kU3" secondAttribute="centerX" id="BQw-z9-2BI"/>
+                            <constraint firstItem="5Fz-pW-3yf" firstAttribute="trailing" secondItem="oc0-xa-BBM" secondAttribute="trailing" id="Jk9-gL-HoG"/>
+                            <constraint firstItem="VBF-Ou-F87" firstAttribute="top" secondItem="5Fz-pW-3yf" secondAttribute="top" id="KiE-JL-AEu"/>
+                            <constraint firstItem="I1b-cg-xeJ" firstAttribute="centerX" secondItem="oeI-dE-kU3" secondAttribute="centerX" id="Meh-x9-nGl"/>
+                            <constraint firstItem="wFO-0S-Xkt" firstAttribute="leading" secondItem="5Fz-pW-3yf" secondAttribute="leading" constant="16" id="Tso-zq-rNY"/>
+                            <constraint firstItem="5Fz-pW-3yf" firstAttribute="bottom" secondItem="I1b-cg-xeJ" secondAttribute="bottom" id="UeK-lc-U5U"/>
+                            <constraint firstItem="oc0-xa-BBM" firstAttribute="leading" secondItem="5Fz-pW-3yf" secondAttribute="leading" id="dF2-mm-nR7"/>
+                            <constraint firstItem="5Fz-pW-3yf" firstAttribute="trailing" secondItem="VBF-Ou-F87" secondAttribute="trailing" id="oXH-v9-xKp"/>
+                            <constraint firstItem="5Fz-pW-3yf" firstAttribute="bottom" secondItem="oc0-xa-BBM" secondAttribute="bottom" id="xk9-Jd-Fc4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Fz-pW-3yf"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageSlideShow" destination="oc0-xa-BBM" id="KSv-rP-GdN"/>
+                        <outlet property="nextButton" destination="jnV-Z6-PXj" id="UJj-94-Mbz"/>
+                        <outlet property="pageTitleLabel" destination="wFO-0S-Xkt" id="Wxy-bM-dot"/>
+                        <segue destination="YTS-eA-ieb" kind="presentation" identifier="MainShowSegue" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Tlk-KL-neT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MGX-wq-qUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23" y="124"/>
+        </scene>
+        <!--MainShowNC-->
+        <scene sceneID="V4u-WV-8cr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainShow" referencedIdentifier="MainShowNC" id="YTS-eA-ieb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RgD-5R-Fwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628" y="123"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button-blue" width="128" height="128"/>
+        <image name="button-cyan" width="128" height="128"/>
+    </resources>
+</document>
