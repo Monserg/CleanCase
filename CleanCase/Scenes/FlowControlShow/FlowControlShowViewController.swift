@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 // MARK: - Input & Output protocols
 protocol FlowControlShowDisplayLogic: class {
@@ -67,6 +68,8 @@ class FlowControlShowViewController: UIViewController {
                 router.perform(selector, with: segue)
             }
         }
+        
+        SwiftSpinner.hide()
     }
     
     
@@ -86,14 +89,20 @@ class FlowControlShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        SwiftSpinner.show("Loading App data...".localized(), animated: true)
+        
         let requestModel = FlowControlShowModels.Version.RequestModel()
         self.interactor?.fetchAppWorkingVersion(withRequestModel: requestModel)
     }
     
     fileprivate func routeToNextScene() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
-//            self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
-            self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
+            guard Laundry.name != "My Laundry".localized() || Laundry.phoneNumber != nil else {
+                self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
+                return
+            }
+            
+            self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
         }
     }
 }
