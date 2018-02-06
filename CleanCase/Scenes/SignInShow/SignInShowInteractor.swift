@@ -14,6 +14,7 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol SignInShowBusinessLogic {
+    func saveSelectedCityID(_ value: String)
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel)
     func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel)
     func fetchDeliveryDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel)
@@ -21,7 +22,9 @@ protocol SignInShowBusinessLogic {
 }
 
 protocol SignInShowDataStore {
-     var cities: [City]! { get set }
+    var cities: [City]! { get set }
+    var laundryID: String! { get set }
+    var selectedCityID: String! { get set }
 }
 
 class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShowDataStore {
@@ -32,10 +35,16 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     let operatorCode = [ "050", "052", "053", "054", "055" ]
 
     // SignInShowDataStore protocol implementation
+    var laundryID: String! = "0"
     var cities: [City]! = [City]()
+    var selectedCityID: String! = "0"
     
     
     // MARK: - Business logic implementation
+    func saveSelectedCityID(_ value: String) {
+        self.selectedCityID = value
+    }
+    
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel) {
         worker = SignInShowWorker()
         
@@ -58,12 +67,13 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         worker = SignInShowWorker()
         
         // API: Fetch request data
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getLaundryInfo([ "city_id": requestModel.cityID ], false), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getLaundryInfo([ "city_id": self.selectedCityID ], false), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPILaundryResult {
                 let model = result.GetLaundryByCityResult
-               
+                self.laundryID = "\(model.ID)"
+                
                 CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Laundry",
-                                                                                  predicate:  NSPredicate.init(format: "iD = \(model.ID)"),
+                                                                                  predicate:  NSPredicate.init(format: "iD == %@", self.laundryID),
                                                                                   model:      model))
             }
             
@@ -76,7 +86,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         worker = SignInShowWorker()
         
         // API: Fetch request data
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDeliveryDatesList([ "laundry_id": requestModel.laundryID ], false), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDeliveryDatesList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIDeliveryDatesResult {
                 for model in result.GetDeliveryDatesResult {
                     let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == \(model.Type) AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
@@ -96,7 +106,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         worker = SignInShowWorker()
         
         // API: Fetch request data
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCollectionDatesList([ "laundry_id": requestModel.laundryID ], false), andResponseType: ResponseAPICollectionDatesResult.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCollectionDatesList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPICollectionDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICollectionDatesResult {
                 for model in result.GetCollectionDatesResult {
                     let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == \(model.Type) AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)

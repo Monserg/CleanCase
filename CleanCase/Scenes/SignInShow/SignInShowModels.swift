@@ -28,7 +28,6 @@ enum SignInShowModels {
 
     enum Laundry {
         struct RequestModel {
-            let cityID: String
         }
         
         struct ResponseModel {
@@ -40,7 +39,6 @@ enum SignInShowModels {
 
     enum Date {
         struct RequestModel {
-            let laundryID: String
         }
         
         struct ResponseModel {

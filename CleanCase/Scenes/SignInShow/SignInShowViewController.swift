@@ -97,7 +97,9 @@ class SignInShowViewController: UIViewController {
             self.view.isUserInteractionEnabled = false
             
             DispatchQueue.main.async(execute: {
-                let requestModel = SignInShowModels.Laundry.RequestModel(cityID: "1")
+                self.interactor?.saveSelectedCityID("1")
+
+                let requestModel = SignInShowModels.Laundry.RequestModel()
                 self.interactor?.fetchLaundry(withRequestModel: requestModel)
             })
         }
@@ -121,12 +123,12 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel) {
         // NOTE: Display the result from the Presenter
         DispatchQueue.main.async(execute: {
-            let requestModel = SignInShowModels.Date.RequestModel(laundryID: "1")
+            let requestModel = SignInShowModels.Date.RequestModel()
             self.interactor?.fetchCollectionDates(withRequestModel: requestModel)
         })
 
         DispatchQueue.main.async(execute: {
-            let requestModel = SignInShowModels.Date.RequestModel(laundryID: "1")
+            let requestModel = SignInShowModels.Date.RequestModel()
             self.interactor?.fetchDeliveryDates(withRequestModel: requestModel)
         })
     }
