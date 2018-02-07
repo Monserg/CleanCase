@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import Device_swift
 import SideMenu
 import DynamicColor
 
@@ -37,6 +38,19 @@ class LeftSideMenuShowViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var menuTableViewTopConstraint: NSLayoutConstraint! {
+        didSet {
+            let deviceType = UIDevice.current.deviceType
+            
+            switch deviceType {
+            case .iPhone4S, .iPhone5, .iPhone5C, .iPhone5S:
+                menuTableViewTopConstraint.constant = 24.0
+
+            default:
+                menuTableViewTopConstraint.constant = 44.0
+            }
+        }
+    }
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
