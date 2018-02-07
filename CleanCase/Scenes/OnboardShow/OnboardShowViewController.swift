@@ -44,6 +44,7 @@ class OnboardShowViewController: UIViewController {
 
         self.hideBackBarButton()
         self.addNavigationBarShadow()
+        self.loadTitle(forPage: currentPage)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         self.prepareInfoForPresentation()
     }
@@ -55,7 +56,7 @@ class OnboardShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     fileprivate func loadTitle(forPage page: Int) {
-        let pageTitles = [ "TitleForPage0", "TitleForPage", "TitleForPage2", "TitleForPage3", "TitleForPage4" ]
+        let pageTitles = [ "TitleForPage0", "TitleForPage1", "TitleForPage2", "TitleForPage3", "TitleForPage4" ]
         self.pageTitleLabel.fadeTransition(0.5)
         self.pageTitleLabel.text = pageTitles[page]
     }

@@ -56,6 +56,10 @@ class LaundryView: UIView {
         view.frame = frame
     }
     
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 280.0 * widthRatio, height: 44)
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerLaundryPhoneButtonTapped(_ sender: UIButton) {
