@@ -218,7 +218,9 @@ extension SignInShowViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         guard textField.tag != 0 && textField.tag != 1 else {
             if textField.tag == 0 {
-                textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.cities, { [unowned self] city in
+                let selectedCityRow = (router?.dataStore?.selectedCityID == nil) ? 0 : router!.dataStore!.cities.index(where: { $0.id == router!.dataStore!.selectedCityID })
+                    
+                textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.cities, andSelectedItem: selectedCityRow!, { [unowned self] city in
                     if let selectedCity = city as? PickerViewSupport {
                         textField.text = selectedCity.title
                         self.interactor?.saveSelectedCityID(selectedCity.id)

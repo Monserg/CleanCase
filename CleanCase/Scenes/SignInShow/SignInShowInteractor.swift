@@ -25,7 +25,7 @@ protocol SignInShowBusinessLogic {
 protocol SignInShowDataStore {
     var cities: [PickerViewSupport]! { get set }
     var laundryID: String! { get set }
-    var selectedCityID: String! { get set }
+    var selectedCityID: String? { get set }
 }
 
 class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShowDataStore {
@@ -38,7 +38,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     // SignInShowDataStore protocol implementation
     var laundryID: String! = "0"
     var cities: [PickerViewSupport]! = [PickerViewSupport]()
-    var selectedCityID: String! = "0"
+    var selectedCityID: String?
     
     
     // MARK: - Business logic implementation
@@ -71,7 +71,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         worker = SignInShowWorker()
         
         // API: Fetch request data
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getLaundryInfo([ "city_id": self.selectedCityID ], false), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getLaundryInfo([ "city_id": self.selectedCityID! ], false), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPILaundryResult {
                 let model = result.GetLaundryByCityResult
                 self.laundryID = "\(model.ID)"

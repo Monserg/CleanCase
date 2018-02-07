@@ -11,9 +11,9 @@ import ActionKit
 
 extension UITextField {
     // MARK: - Class Initialization
-    func showToolBar(withPickerViewDataSource dataSource: [PickerViewSupport], _ completion: @escaping HandlerPassDataCompletion) {
+    func showToolBar(withPickerViewDataSource dataSource: [PickerViewSupport], andSelectedItem selectedRow: Int, _ completion: @escaping HandlerPassDataCompletion) {
         let pickerView = ToolBarPickerView(withFrame: .zero, andItems: dataSource)
-        pickerView.selectRow(0, inComponent: 0, animated: true)
+        pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
         
         let toolbar             =   UIToolbar()
         toolbar.barStyle        =   .default
