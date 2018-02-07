@@ -229,7 +229,20 @@ extension SignInShowViewController: UITextFieldDelegate {
                     textField.resignFirstResponder()
                 })
             }
-            
+
+            else if textField.tag == 1 {
+                let selectedCodeRow = (router?.dataStore?.selectedCodeTitle == nil) ? 0 : router!.dataStore!.codes.index(where: { $0.title == router!.dataStore!.selectedCodeTitle })
+                
+                textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.codes, andSelectedItem: selectedCodeRow!, { [unowned self] code in
+                    if let selectedCode = code as? PickerViewSupport {
+                        textField.text = selectedCode.title
+                        self.interactor?.saveSelectedCodeTitle(selectedCode.title)
+                    }
+                    
+                    textField.resignFirstResponder()
+                })
+            }
+
             return true
         }
         

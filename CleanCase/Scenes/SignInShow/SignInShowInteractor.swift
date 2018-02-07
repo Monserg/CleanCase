@@ -15,6 +15,7 @@ import UIKit
 // MARK: - Business Logic protocols
 protocol SignInShowBusinessLogic {
     func saveSelectedCityID(_ value: String)
+    func saveSelectedCodeTitle(_ value: String)
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel)
     func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel)
     func fetchDeliveryDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel)
@@ -24,8 +25,10 @@ protocol SignInShowBusinessLogic {
 
 protocol SignInShowDataStore {
     var cities: [PickerViewSupport]! { get set }
+    var codes: [PickerViewSupport]! { get set }
     var laundryID: String! { get set }
     var selectedCityID: String? { get set }
+    var selectedCodeTitle: String? { get set }
 }
 
 class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShowDataStore {
@@ -37,17 +40,27 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
 
     // SignInShowDataStore protocol implementation
     var laundryID: String! = "0"
-    var cities: [PickerViewSupport]! = [PickerViewSupport]()
     var selectedCityID: String?
-    
+    var selectedCodeTitle: String?
+    var codes: [PickerViewSupport]! = [PickerViewSupport]()
+    var cities: [PickerViewSupport]! = [PickerViewSupport]()
+
     
     // MARK: - Business logic implementation
     func saveSelectedCityID(_ value: String) {
         self.selectedCityID = value
     }
     
+    func saveSelectedCodeTitle(_ value: String) {
+        self.selectedCodeTitle = value
+    }
+    
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel) {
         worker = SignInShowWorker()
+        
+        for i in 0...4 {
+            codes.append(SignInShowModels.City.ResponseModel.ItemForPickerView(id: "\(i)", title: operatorCode[i]))
+        }
         
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(nil, false), andResponseType: ResponseAPICities.self, completionHandler: { [unowned self] responseAPI in
@@ -58,7 +71,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                                                                                                 predicate:  NSPredicate.init(format: "iD = \(model.ID)"),
                                                                                                 model:      model))
                     
-                    self.cities.append(SignInShowModels.City.ResponseModel.DisplayedCity(id: "\(model.ID)", title: model.CityName))
+                    self.cities.append(SignInShowModels.City.ResponseModel.ItemForPickerView(id: "\(model.ID)", title: model.CityName))
                 }
             }
             
