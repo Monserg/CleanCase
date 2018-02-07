@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +22,144 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkC-82-B5i">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94q-9A-2Wf" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="48" width="375" height="498"/>
+                                        <subviews>
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select City" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0B-Hj-tfE" userLabel="Select City Text Field">
+                                                <rect key="frame" x="16" y="16" width="343" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FAP-Pf-Z2b" userLabel="Phone Code Text Field">
+                                                <rect key="frame" x="16" y="62" width="64" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAH-Qu-1GS" userLabel="Phone Number Text Field">
+                                                <rect key="frame" x="96" y="62" width="263" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
+                                            </textField>
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jb2-Ak-Lfk" userLabel="First Name Text Field">
+                                                <rect key="frame" x="16" y="108" width="343" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                            </textField>
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="47K-yj-jwL" userLabel="Last Name Text Field">
+                                                <rect key="frame" x="16" y="154" width="343" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="family-name"/>
+                                            </textField>
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQf-vD-EaJ" userLabel="Address Text Field">
+                                                <rect key="frame" x="16" y="200" width="343" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSZ-IG-k8o" userLabel="Email Text Field">
+                                                <rect key="frame" x="16" y="246" width="343" height="30"/>
+                                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                            </textField>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6k-0O-JEp">
+                                                <rect key="frame" x="16" y="308" width="343" height="54"/>
+                                                <subviews>
+                                                    <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="bt3-JL-S02" userLabel="Accept Agreement Checkbox" customClass="M13Checkbox" customModule="M13Checkbox">
+                                                        <rect key="frame" x="305" y="16" width="22" height="22"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="22" id="Q2h-xC-CIR"/>
+                                                            <constraint firstAttribute="width" secondItem="bt3-JL-S02" secondAttribute="height" multiplier="1:1" id="sfl-ob-taA"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hideBox" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="secondaryTintColor">
+                                                                <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accept Agreement" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlr-1x-Epc" userLabel="Accept Agreement Label">
+                                                        <rect key="frame" x="16" y="17" width="273" height="21"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="bt3-JL-S02" secondAttribute="trailing" constant="16" id="8e3-xu-h2e"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bt3-JL-S02" secondAttribute="bottom" constant="16" id="DuL-tP-Zvg"/>
+                                                    <constraint firstItem="bt3-JL-S02" firstAttribute="leading" secondItem="mlr-1x-Epc" secondAttribute="trailing" constant="16" id="SCN-Qd-HFh"/>
+                                                    <constraint firstItem="bt3-JL-S02" firstAttribute="top" secondItem="r6k-0O-JEp" secondAttribute="top" constant="16" id="SaX-Ob-zRy"/>
+                                                    <constraint firstItem="mlr-1x-Epc" firstAttribute="leading" secondItem="r6k-0O-JEp" secondAttribute="leading" constant="16" id="U14-Cp-VMX"/>
+                                                    <constraint firstItem="bt3-JL-S02" firstAttribute="centerY" secondItem="mlr-1x-Epc" secondAttribute="centerY" id="dN1-XR-pCB"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63b-XS-r6M" userLabel="Read Agreement Button">
+                                                <rect key="frame" x="130" y="378" width="114" height="30"/>
+                                                <state key="normal" title="Read Agreement">
+                                                    <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handlerReadAgreementButtonTapped:" destination="bxM-jC-7qF" eventType="touchUpInside" id="3JA-eZ-lbv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="jb2-Ak-Lfk" firstAttribute="top" secondItem="FAP-Pf-Z2b" secondAttribute="bottom" constant="16" id="09q-5J-v7B"/>
+                                            <constraint firstItem="47K-yj-jwL" firstAttribute="top" secondItem="jb2-Ak-Lfk" secondAttribute="bottom" constant="16" id="3Mg-Sh-kc4"/>
+                                            <constraint firstItem="XSZ-IG-k8o" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="5Ta-Oe-9J6"/>
+                                            <constraint firstAttribute="trailing" secondItem="47K-yj-jwL" secondAttribute="trailing" constant="16" id="AGY-Ys-YvS"/>
+                                            <constraint firstAttribute="trailing" secondItem="g0B-Hj-tfE" secondAttribute="trailing" constant="16" id="CXe-wH-MDc"/>
+                                            <constraint firstItem="47K-yj-jwL" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="Hye-OW-cZa"/>
+                                            <constraint firstItem="ZQf-vD-EaJ" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="INq-hj-m5O"/>
+                                            <constraint firstItem="r6k-0O-JEp" firstAttribute="top" secondItem="XSZ-IG-k8o" secondAttribute="bottom" constant="32" id="K6T-es-hYI"/>
+                                            <constraint firstAttribute="trailing" secondItem="r6k-0O-JEp" secondAttribute="trailing" constant="16" id="L9X-ib-ODS"/>
+                                            <constraint firstItem="FAP-Pf-Z2b" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="MIG-fa-MnG"/>
+                                            <constraint firstItem="ZQf-vD-EaJ" firstAttribute="top" secondItem="47K-yj-jwL" secondAttribute="bottom" constant="16" id="TZi-tL-Wg5"/>
+                                            <constraint firstItem="NAH-Qu-1GS" firstAttribute="centerY" secondItem="FAP-Pf-Z2b" secondAttribute="centerY" id="WMl-3z-tGa"/>
+                                            <constraint firstItem="FAP-Pf-Z2b" firstAttribute="top" secondItem="g0B-Hj-tfE" secondAttribute="bottom" constant="16" id="Wti-jT-U7h"/>
+                                            <constraint firstItem="g0B-Hj-tfE" firstAttribute="top" secondItem="94q-9A-2Wf" secondAttribute="top" constant="16" id="XI2-gf-Idu"/>
+                                            <constraint firstAttribute="trailing" secondItem="jb2-Ak-Lfk" secondAttribute="trailing" constant="16" id="YNl-5Z-gR9"/>
+                                            <constraint firstItem="g0B-Hj-tfE" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="bhN-yd-wEJ"/>
+                                            <constraint firstAttribute="height" priority="750" constant="498" id="gUC-AX-kRS"/>
+                                            <constraint firstItem="NAH-Qu-1GS" firstAttribute="leading" secondItem="FAP-Pf-Z2b" secondAttribute="trailing" constant="16" id="h8Z-Lf-q3p"/>
+                                            <constraint firstItem="r6k-0O-JEp" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="lIO-Tb-mhy"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZQf-vD-EaJ" secondAttribute="trailing" constant="16" id="nWO-4L-TY9"/>
+                                            <constraint firstItem="XSZ-IG-k8o" firstAttribute="top" secondItem="ZQf-vD-EaJ" secondAttribute="bottom" constant="16" id="pRe-Kz-wu9"/>
+                                            <constraint firstItem="63b-XS-r6M" firstAttribute="top" secondItem="r6k-0O-JEp" secondAttribute="bottom" constant="16" id="tLZ-GI-Vqs"/>
+                                            <constraint firstAttribute="trailing" secondItem="XSZ-IG-k8o" secondAttribute="trailing" constant="16" id="yYm-oI-KWz"/>
+                                            <constraint firstItem="jb2-Ak-Lfk" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="yfS-1d-b0z"/>
+                                            <constraint firstAttribute="trailing" secondItem="NAH-Qu-1GS" secondAttribute="trailing" constant="16" id="z1t-9o-OYU"/>
+                                            <constraint firstItem="63b-XS-r6M" firstAttribute="centerX" secondItem="94q-9A-2Wf" secondAttribute="centerX" id="zku-aX-r67"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="94q-9A-2Wf" secondAttribute="trailing" id="Ftx-jD-1Ry"/>
+                                    <constraint firstAttribute="bottom" secondItem="94q-9A-2Wf" secondAttribute="bottom" id="Mjc-SE-GqJ"/>
+                                    <constraint firstItem="94q-9A-2Wf" firstAttribute="top" secondItem="mkC-82-B5i" secondAttribute="top" constant="48" id="Zh4-Ci-vuc"/>
+                                    <constraint firstItem="94q-9A-2Wf" firstAttribute="leading" secondItem="mkC-82-B5i" secondAttribute="leading" id="ggb-HL-JYv"/>
+                                    <constraint firstItem="94q-9A-2Wf" firstAttribute="centerX" secondItem="mkC-82-B5i" secondAttribute="centerX" id="v5L-Ew-6eS"/>
+                                </constraints>
                             </scrollView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXv-Os-4jb" userLabel="BottomBar View">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
@@ -55,19 +194,30 @@
                             <constraint firstItem="jXv-Os-4jb" firstAttribute="leading" secondItem="UrO-ky-v7J" secondAttribute="leading" id="Nxy-BC-bW4"/>
                             <constraint firstItem="jXv-Os-4jb" firstAttribute="top" secondItem="mkC-82-B5i" secondAttribute="bottom" id="PrO-VG-Be2"/>
                             <constraint firstItem="jXv-Os-4jb" firstAttribute="trailing" secondItem="UrO-ky-v7J" secondAttribute="trailing" id="cOq-51-nxf"/>
+                            <constraint firstItem="FAP-Pf-Z2b" firstAttribute="width" secondItem="5yD-HB-1pb" secondAttribute="width" multiplier="0.17" id="qlv-p3-9SK"/>
                             <constraint firstItem="mkC-82-B5i" firstAttribute="top" secondItem="UrO-ky-v7J" secondAttribute="top" id="sZN-ei-t3u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UrO-ky-v7J"/>
                     </view>
                     <navigationItem key="navigationItem" id="iRn-9s-Nm9"/>
                     <connections>
+                        <outlet property="acceptAgreementCheckBox" destination="bt3-JL-S02" id="uaM-gI-Yjy"/>
+                        <outlet property="acceptAgreementLabel" destination="mlr-1x-Epc" id="mME-kt-QEi"/>
+                        <outlet property="addressTextField" destination="ZQf-vD-EaJ" id="0C9-Ls-DWX"/>
+                        <outlet property="cityTextField" destination="g0B-Hj-tfE" id="RUZ-5i-PbP"/>
+                        <outlet property="emailTextField" destination="XSZ-IG-k8o" id="VAj-fX-ZMZ"/>
+                        <outlet property="firstNameTextField" destination="jb2-Ak-Lfk" id="q29-N8-sb0"/>
+                        <outlet property="lastNameTextField" destination="47K-yj-jwL" id="8Xk-aa-3aG"/>
+                        <outlet property="phoneCodeTextField" destination="FAP-Pf-Z2b" id="nyX-nw-yEp"/>
+                        <outlet property="phoneNumberTextField" destination="NAH-Qu-1GS" id="GFd-bP-mr8"/>
+                        <outlet property="readAgreementButton" destination="63b-XS-r6M" id="dLK-CE-ALO"/>
                         <outlet property="saveButton" destination="ye3-bo-12x" id="kZH-fk-25O"/>
                         <segue destination="t1D-4U-o5C" kind="show" identifier="OnboardShowSegue" id="aGa-we-a8k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AM8-pb-2AV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1300" y="168"/>
+            <point key="canvasLocation" x="1300" y="167.76611694152925"/>
         </scene>
         <!--OnboardShowVC-->
         <scene sceneID="4YF-TJ-r12">

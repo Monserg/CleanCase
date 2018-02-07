@@ -86,7 +86,15 @@
 
 
 // TextField Placeholders
-
+"Select City"                               =   "Select City";
+"Code"                                      =   "Code";
+"Enter Phone Number"                        =   "Enter Phone Number";
+"Enter First Name"                          =   "Enter First Name";
+"Enter Last Name"                           =   "Enter Last Name";
+"Enter Address"                             =   "Enter Address";
+"Enter Email"                               =   "Enter Email";
+"Accept Agreement"                          =   "Accept Agreement";
+"Read Agreement"                            =   "Read Agreement";
 
 
 // Request Errors

@@ -7,6 +7,7 @@ target 'CleanCase' do
     pod 'Fabric', '~> 1.7'
     pod 'SideMenu', '~> 3.1'
     pod 'Alamofire', '~> 4.5'
+    pod 'M13Checkbox', '~> 3.2'
     pod 'Crashlytics', '~> 3.9'
     pod 'Device.swift', '~> 1.1'
     pod 'SwiftSpinner', '~> 1.5'
