@@ -33,42 +33,42 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FAP-Pf-Z2b" userLabel="Phone Code Text Field">
+                                            <textField clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FAP-Pf-Z2b" userLabel="Phone Code Text Field">
                                                 <rect key="frame" x="16" y="62" width="64" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAH-Qu-1GS" userLabel="Phone Number Text Field">
+                                            <textField clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAH-Qu-1GS" userLabel="Phone Number Text Field">
                                                 <rect key="frame" x="96" y="62" width="263" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
                                             </textField>
-                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jb2-Ak-Lfk" userLabel="First Name Text Field">
+                                            <textField clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jb2-Ak-Lfk" userLabel="First Name Text Field">
                                                 <rect key="frame" x="16" y="108" width="343" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                             </textField>
-                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="47K-yj-jwL" userLabel="Last Name Text Field">
+                                            <textField clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="47K-yj-jwL" userLabel="Last Name Text Field">
                                                 <rect key="frame" x="16" y="154" width="343" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="family-name"/>
                                             </textField>
-                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQf-vD-EaJ" userLabel="Address Text Field">
+                                            <textField clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQf-vD-EaJ" userLabel="Address Text Field">
                                                 <rect key="frame" x="16" y="200" width="343" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSZ-IG-k8o" userLabel="Email Text Field">
+                                            <textField clipsSubviews="YES" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSZ-IG-k8o" userLabel="Email Text Field">
                                                 <rect key="frame" x="16" y="246" width="343" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
@@ -207,15 +207,15 @@
                     <connections>
                         <outlet property="acceptAgreementCheckBox" destination="bt3-JL-S02" id="uaM-gI-Yjy"/>
                         <outlet property="acceptAgreementLabel" destination="mlr-1x-Epc" id="mME-kt-QEi"/>
-                        <outlet property="addressTextField" destination="ZQf-vD-EaJ" id="0C9-Ls-DWX"/>
-                        <outlet property="cityTextField" destination="g0B-Hj-tfE" id="RUZ-5i-PbP"/>
-                        <outlet property="emailTextField" destination="XSZ-IG-k8o" id="VAj-fX-ZMZ"/>
-                        <outlet property="firstNameTextField" destination="jb2-Ak-Lfk" id="q29-N8-sb0"/>
-                        <outlet property="lastNameTextField" destination="47K-yj-jwL" id="8Xk-aa-3aG"/>
-                        <outlet property="phoneCodeTextField" destination="FAP-Pf-Z2b" id="nyX-nw-yEp"/>
-                        <outlet property="phoneNumberTextField" destination="NAH-Qu-1GS" id="GFd-bP-mr8"/>
                         <outlet property="readAgreementButton" destination="63b-XS-r6M" id="dLK-CE-ALO"/>
                         <outlet property="saveButton" destination="ye3-bo-12x" id="kZH-fk-25O"/>
+                        <outletCollection property="textFieldsCollection" destination="g0B-Hj-tfE" collectionClass="NSMutableArray" id="nvY-N0-N9T"/>
+                        <outletCollection property="textFieldsCollection" destination="FAP-Pf-Z2b" collectionClass="NSMutableArray" id="5O5-vr-4oG"/>
+                        <outletCollection property="textFieldsCollection" destination="NAH-Qu-1GS" collectionClass="NSMutableArray" id="nQ3-ao-9UU"/>
+                        <outletCollection property="textFieldsCollection" destination="jb2-Ak-Lfk" collectionClass="NSMutableArray" id="XSA-g9-5H8"/>
+                        <outletCollection property="textFieldsCollection" destination="47K-yj-jwL" collectionClass="NSMutableArray" id="cBE-DZ-Q0w"/>
+                        <outletCollection property="textFieldsCollection" destination="ZQf-vD-EaJ" collectionClass="NSMutableArray" id="J1h-Ee-BYv"/>
+                        <outletCollection property="textFieldsCollection" destination="XSZ-IG-k8o" collectionClass="NSMutableArray" id="IWS-iy-8V9"/>
                         <segue destination="t1D-4U-o5C" kind="show" identifier="OnboardShowSegue" id="aGa-we-a8k"/>
                     </connections>
                 </viewController>

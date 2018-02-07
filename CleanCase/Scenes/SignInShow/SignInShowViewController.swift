@@ -13,6 +13,7 @@
 import UIKit
 import M13Checkbox
 import SwiftSpinner
+import ADEmailAndPassword
 
 // MARK: - Input & Output protocols
 protocol SignInShowDisplayLogic: class {
@@ -36,13 +37,13 @@ class SignInShowViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var phoneCodeTextField: UITextField!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var addressTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
+//    @IBOutlet weak var cityTextField: UITextField!
+//    @IBOutlet weak var phoneCodeTextField: UITextField!
+//    @IBOutlet weak var phoneNumberTextField: UITextField!
+//    @IBOutlet weak var firstNameTextField: UITextField!
+//    @IBOutlet weak var lastNameTextField: UITextField!
+//    @IBOutlet weak var addressTextField: UITextField!
+//    @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var acceptAgreementCheckBox: M13Checkbox! {
         didSet {
@@ -53,6 +54,16 @@ class SignInShowViewController: UIViewController {
     
     @IBOutlet weak var acceptAgreementLabel: UILabel!
     @IBOutlet weak var readAgreementButton: UIButton!
+    
+    @IBOutlet var textFieldsCollection: [UITextField]! {
+        didSet {
+            _ = textFieldsCollection.map({
+                $0.placeholder = $0.placeholder?.localized()
+                $0.backgroundColor = .red
+                $0.delegate = self
+            })
+        }
+    }
     
     
     // MARK: - Class Initialization
@@ -192,5 +203,70 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     func initializationDepartments(fromViewModel viewModel: SignInShowModels.Department.ViewModel) {
         // NOTE: Display the result from the Presenter
         self.displayOnboardScene()
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension SignInShowViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard textField.tag != 0 && textField.tag != 1 else {
+            view.endEditing(true)
+            return false
+        }
+        
+        return true
+    }
+    
+    // Clear button tap
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    // Hide keyboard
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.tag == 6 {
+            if let email = textField.text, !email.isEmpty {
+                guard ADEmailAndPassword.validateEmail(emailId: email) else {
+                    self.showAlertView(withTitle: "Error", andMessage: "Please, enter correct email...", needCancel: false, completion: { _ in })
+                    return false
+                }
+                
+                return true
+            }
+            
+            return false
+        }
+        
+        return true
+    }
+    
+    // TextField editing
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField.tag {
+        case 2:
+            guard !string.isEmpty else { return true }
+            return (textField.text!.count + string.count) < 8 && CharacterSet.decimalDigits.contains(Unicode.Scalar(string)!)
+
+        case 3, 4:
+            return (textField.text!.count + string.count) < 21
+
+        case 5, 6:
+            return (textField.text!.count + string.count) < 51
+
+        default:
+            return true
+        }
+    }
+    
+    // Return button tap
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 6 {
+            textField.resignFirstResponder()
+        } else {
+            textFieldsCollection.first(where: { $0.tag == textField.tag + 1 })?.becomeFirstResponder()
+        }
+        
+        return true
     }
 }

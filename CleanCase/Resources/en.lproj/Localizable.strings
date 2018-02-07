@@ -83,6 +83,7 @@
 "Location authorization error"              =   "Please go into Settings and give this app authorization to your location";
 "Please Login in App"                       =   "Please\nregister in the application";
 "Please modify hours"                       =   "Please,\nchange the time and the number of hours";
+"Please, enter correct email..."            =   "Please, \nenter correct email...";
 
 
 // TextField Placeholders
