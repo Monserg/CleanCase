@@ -30,7 +30,12 @@ class SignInShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton! {
+        didSet {
+            saveButton.isEnabled = false
+        }
+    }
+    
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var phoneCodeTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -138,7 +143,13 @@ class SignInShowViewController: UIViewController {
     }
     
     @IBAction func handlerReadAgreementButtonTapped(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
+            self.createPopover(withName: "AgreementShow")
+        }
+    }
     
+    @IBAction func handlerCheckBoxTapped(_ sender: M13Checkbox) {
+        self.saveButton.isEnabled = (sender.checkState == .checked) ? true : false
     }
 }
 

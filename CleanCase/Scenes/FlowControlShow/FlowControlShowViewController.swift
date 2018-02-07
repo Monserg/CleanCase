@@ -120,6 +120,7 @@ extension FlowControlShowViewController: FlowControlShowDisplayLogic {
         
         else {
             print("Versions is not equal...")
+            SwiftSpinner.sharedInstance.title = "Please, restart App...".localized()
             
             DispatchQueue.main.async(execute: {
                 if let url = URL(string: "https://itunes.apple.com/app/id1042037745"), UIApplication.shared.canOpenURL(url) {
