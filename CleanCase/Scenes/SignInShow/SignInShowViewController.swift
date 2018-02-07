@@ -148,6 +148,12 @@ class SignInShowViewController: UIViewController {
     }
     
     
+    // MARK: - Gestures
+    @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
     // MARK: - Actions
     @IBAction func handlerSaveButtonTapped(_ sender: Any) {
         self.startDataValidation()
@@ -211,8 +217,18 @@ extension SignInShowViewController: SignInShowDisplayLogic {
 extension SignInShowViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         guard textField.tag != 0 && textField.tag != 1 else {
-            view.endEditing(true)
-            return false
+            if textField.tag == 0 {
+                textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.cities, { [unowned self] city in
+                    if let selectedCity = city as? PickerViewSupport {
+                        textField.text = selectedCity.title
+                        self.interactor?.saveSelectedCityID(selectedCity.id)
+                    }
+                    
+                    textField.resignFirstResponder()
+                })
+            }
+            
+            return true
         }
         
         return true
@@ -234,8 +250,6 @@ extension SignInShowViewController: UITextFieldDelegate {
                 
                 return true
             }
-            
-            return false
         }
         
         return true

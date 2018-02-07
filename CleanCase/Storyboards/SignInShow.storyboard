@@ -163,6 +163,9 @@
                                     <constraint firstItem="94q-9A-2Wf" firstAttribute="leading" secondItem="mkC-82-B5i" secondAttribute="leading" id="ggb-HL-JYv"/>
                                     <constraint firstItem="94q-9A-2Wf" firstAttribute="centerX" secondItem="mkC-82-B5i" secondAttribute="centerX" id="v5L-Ew-6eS"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="v1f-co-n85" appends="YES" id="bu5-xA-Cdx"/>
+                                </connections>
                             </scrollView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXv-Os-4jb" userLabel="BottomBar View">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
@@ -220,6 +223,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AM8-pb-2AV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="v1f-co-n85">
+                    <connections>
+                        <action selector="handlerTapGestureRecognizer:" destination="bxM-jC-7qF" id="DUq-NM-a1G"/>
+                        <outlet property="delegate" destination="5yD-HB-1pb" id="rOU-P3-lGt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1300" y="167.76611694152925"/>
         </scene>

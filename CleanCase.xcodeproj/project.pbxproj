@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5C72E5D6EC9AF2FC9D0F5CD1 /* Pods_CleanCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */; };
 		B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B11B186C2025816D00EA29F7 /* Localizable.strings */; };
+		B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF34E202B5139002B170F /* ToolBarPickerView.swift */; };
+		B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF350202B5563002B170F /* UITextField+Extension.swift */; };
 		B179409F2026076A00A9B675 /* LaundryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179409E2026076A00A9B675 /* LaundryView.swift */; };
 		B17940A12026077300A9B675 /* LaundryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17940A02026077300A9B675 /* LaundryView.xib */; };
 		B17940A620261BA100A9B675 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17940A520261BA100A9B675 /* UIViewController+Extensions.swift */; };
@@ -133,6 +135,8 @@
 		B11B186D2025817100EA29F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B11B186F2025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B11B18702025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B15AF34E202B5139002B170F /* ToolBarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerView.swift; sourceTree = "<group>"; };
+		B15AF350202B5563002B170F /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B179409E2026076A00A9B675 /* LaundryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaundryView.swift; sourceTree = "<group>"; };
 		B17940A02026077300A9B675 /* LaundryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaundryView.xib; sourceTree = "<group>"; };
 		B17940A520261BA100A9B675 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 			children = (
 				B179409E2026076A00A9B675 /* LaundryView.swift */,
 				B17940A02026077300A9B675 /* LaundryView.xib */,
+				B15AF34E202B5139002B170F /* ToolBarPickerView.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				B1FA2D9C2024748E00351BB7 /* Protocols.swift */,
 				B19DA3F72028993900E9F7D6 /* String+Extensions.swift */,
 				B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */,
+				B15AF350202B5563002B170F /* UITextField+Extension.swift */,
 				B1DBDF092029EF6A00127ECB /* UIView+Extensions.swift */,
 				B17940A520261BA100A9B675 /* UIViewController+Extensions.swift */,
 			);
@@ -718,6 +724,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ADEmailAndPassword/ADEmailAndPassword.framework",
+				"${BUILT_PRODUCTS_DIR}/ActionKit/ActionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Device.swift/Device_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework",
@@ -731,6 +738,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ADEmailAndPassword.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Device_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
@@ -864,12 +872,14 @@
 				B1FA2D7C20245FC000351BB7 /* PriceListShowPresenter.swift in Sources */,
 				B1FA2D13202458E400351BB7 /* MainShowPresenter.swift in Sources */,
 				B1FA2D022024500000351BB7 /* SignInShowPresenter.swift in Sources */,
+				B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */,
 				B1FA2D15202458E400351BB7 /* MainShowRouter.swift in Sources */,
 				B1FA2D3620245DDF00351BB7 /* OrderCreateModels.swift in Sources */,
 				B1FA2D2920245D5F00351BB7 /* OrderShowInteractor.swift in Sources */,
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
 				B1FA2D6F20245F4B00351BB7 /* WriteUsShowRouter.swift in Sources */,
 				B1FA2D4120245E2B00351BB7 /* PersonalDataShowWorker.swift in Sources */,
+				B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */,
 				B1FA2D9020246D2100351BB7 /* LeftSideMenuShowWorker.swift in Sources */,
 				B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */,
 				B1FA2D7D20245FC000351BB7 /* PriceListShowWorker.swift in Sources */,

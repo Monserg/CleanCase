@@ -20,6 +20,11 @@ enum SignInShowModels {
         }
         
         struct ResponseModel {
+            struct DisplayedCity: PickerViewSupport {
+                // PickerViewSupport protocol implementation
+                var id: String
+                var title: String
+            }
         }
         
         struct ViewModel {

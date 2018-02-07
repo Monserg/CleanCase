@@ -23,7 +23,7 @@ protocol SignInShowBusinessLogic {
 }
 
 protocol SignInShowDataStore {
-    var cities: [City]! { get set }
+    var cities: [PickerViewSupport]! { get set }
     var laundryID: String! { get set }
     var selectedCityID: String! { get set }
 }
@@ -37,7 +37,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
 
     // SignInShowDataStore protocol implementation
     var laundryID: String! = "0"
-    var cities: [City]! = [City]()
+    var cities: [PickerViewSupport]! = [PickerViewSupport]()
     var selectedCityID: String! = "0"
     
     
@@ -52,10 +52,13 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(nil, false), andResponseType: ResponseAPICities.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICities {
+                
                 for model in result.GetCitiesResult {
-                    CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "City",
-                                                                                      predicate:  NSPredicate.init(format: "iD = \(model.ID)"),
-                                                                                      model:      model))
+                    self.appDependency.coreDataManager.updateEntity(withData: EntityUpdateTuple(name:       "City",
+                                                                                                predicate:  NSPredicate.init(format: "iD = \(model.ID)"),
+                                                                                                model:      model))
+                    
+                    self.cities.append(SignInShowModels.City.ResponseModel.DisplayedCity(id: "\(model.ID)", title: model.CityName))
                 }
             }
             

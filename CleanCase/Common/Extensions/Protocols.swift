@@ -17,6 +17,11 @@ protocol InitCellParameters {
     var cellIdentifier: String { get set }
 }
 
+protocol PickerViewSupport {
+    var id: String { get set }
+    var title: String { get set }
+}
+
 
 // Inject Dependencies
 protocol HasRestAPIManager {
