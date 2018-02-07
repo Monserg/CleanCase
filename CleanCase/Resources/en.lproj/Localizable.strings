@@ -84,6 +84,13 @@
 "Please Login in App"                       =   "Please\nregister in the application";
 "Please modify hours"                       =   "Please,\nchange the time and the number of hours";
 "Please, enter correct email..."            =   "Please, \nenter correct email...";
+"Please, select city..."                    =   "Please, \nselect city...";
+"Please, select code..."                    =   "Please, \nselect code...";
+"Please, enter phone number..."             =   "Please, \nenter phone number...";
+"Please, enter first name..."               =   "Please, \nenter first name...";
+"Please, enter last name..."                =   "Please, \nenter last name...";
+"Please, enter address..."                  =   "Please, \nenter address...";
+"Please, enter email..."                    =   "Please, \nenter email...";
 
 
 // TextField Placeholders

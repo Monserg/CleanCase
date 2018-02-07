@@ -28,6 +28,7 @@ protocol SignInShowDataStore {
     var codes: [PickerViewSupport]! { get set }
     var laundryID: String! { get set }
     var selectedCityID: String? { get set }
+    var textFieldsTexts: [ (placeholder: String, errorText: String) ] { get set }
     var selectedCodeTitle: String? { get set }
 }
 
@@ -45,6 +46,16 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     var codes: [PickerViewSupport]! = [PickerViewSupport]()
     var cities: [PickerViewSupport]! = [PickerViewSupport]()
 
+    var textFieldsTexts: [ (placeholder: String, errorText: String) ] = [
+        (placeholder: "Select City".localized(), errorText: "Please, select city...".localized()),
+        (placeholder: "Code".localized(), errorText: "Please, select code...".localized()),
+        (placeholder: "Enter Phone Number".localized(), errorText: "Please, enter phone number...".localized()),
+        (placeholder: "Enter First Name".localized(), errorText: "Please, enter first name...".localized()),
+        (placeholder: "Enter Last Name".localized(), errorText: "Please, enter last name...".localized()),
+        (placeholder: "Enter Address".localized(), errorText: "Please, enter address...".localized()),
+        (placeholder: "Enter Email".localized(), errorText: "Please, enter email...".localized())
+    ]
+    
     
     // MARK: - Business logic implementation
     func saveSelectedCityID(_ value: String) {

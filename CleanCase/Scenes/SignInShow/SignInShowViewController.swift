@@ -36,15 +36,7 @@ class SignInShowViewController: UIViewController {
             saveButton.isEnabled = false
         }
     }
-    
-//    @IBOutlet weak var cityTextField: UITextField!
-//    @IBOutlet weak var phoneCodeTextField: UITextField!
-//    @IBOutlet weak var phoneNumberTextField: UITextField!
-//    @IBOutlet weak var firstNameTextField: UITextField!
-//    @IBOutlet weak var lastNameTextField: UITextField!
-//    @IBOutlet weak var addressTextField: UITextField!
-//    @IBOutlet weak var emailTextField: UITextField!
-    
+        
     @IBOutlet weak var acceptAgreementCheckBox: M13Checkbox! {
         didSet {
             acceptAgreementCheckBox.boxType = .square
@@ -58,7 +50,8 @@ class SignInShowViewController: UIViewController {
     @IBOutlet var textFieldsCollection: [UITextField]! {
         didSet {
             _ = textFieldsCollection.map({
-                $0.placeholder = $0.placeholder?.localized()
+                $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
+                $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
                 $0.backgroundColor = .red
                 $0.delegate = self
             })
@@ -131,12 +124,14 @@ class SignInShowViewController: UIViewController {
     }
     
     fileprivate func startDataValidation() {
-        if 2 + 2 == 4 {
+        if let textField = textFieldsCollection.first(where: { ($0.text?.isEmpty)! }) {
+            self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
+        }
+        
+        else {
             self.view.isUserInteractionEnabled = false
             
             DispatchQueue.main.async(execute: {
-                self.interactor?.saveSelectedCityID("1")
-
                 let requestModel = SignInShowModels.Laundry.RequestModel()
                 self.interactor?.fetchLaundry(withRequestModel: requestModel)
             })
