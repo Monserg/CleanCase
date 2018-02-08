@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,14 +34,22 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="uwP-0w-hvB">
-                        <barButtonItem key="leftBarButtonItem" image="icon-side-menu" id="IE4-Cq-ODy" userLabel="Menu Bar Button Item">
-                            <connections>
-                                <action selector="handlerSideMenuBarButtonTapped:" destination="s6c-Yv-o5R" id="3f3-4d-FCo"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="icon-side-menu" id="IE4-Cq-ODy" userLabel="Menu Bar Button Item">
+                                <connections>
+                                    <action selector="handlerSideMenuBarButtonTapped:" destination="s6c-Yv-o5R" id="3f3-4d-FCo"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem id="q8C-pp-4bS" userLabel="Basket Bar Button Item">
+                                <connections>
+                                    <action selector="handlerBasketBarButtonItemTapped:" destination="s6c-Yv-o5R" id="bM1-cH-61g"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="basketBarButtonItem" destination="q8C-pp-4bS" id="Ac6-a7-1Wn"/>
                         <outlet property="containerView" destination="rvy-4f-Cyh" id="J3i-cL-e5v"/>
                     </connections>
                 </viewController>

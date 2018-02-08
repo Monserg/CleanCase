@@ -24,6 +24,7 @@ enum LeftSideMenuShowModels {
                 let title: String
                 let iconName: String
                 let storyboardName: String
+                let hasShoppingBasketIcon: Bool
                 
                 // InitCellParameters protocol implementation
                 var cellHeight: CGFloat

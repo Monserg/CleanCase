@@ -28,6 +28,7 @@ class MainShowViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var basketBarButtonItem: UIBarButtonItem!
     
     
     // MARK: - Class Functions
@@ -79,6 +80,7 @@ class MainShowViewController: UIViewController {
                             
                         else if nextScene.storyboardName != "XXX" {
                             self.activeViewController = self.nextViewController(fromStoryboardName: nextScene.storyboardName)
+                            self.basketBarButtonItem.image = (nextScene.hasShoppingBasketIcon) ? UIImage.init(named: "icon-shopping-basket-empty") : nil
                         }
                         
                         // FIXME: - DELETE AFTER CREATE 'WORKING HOURS SCENE'
@@ -129,6 +131,10 @@ class MainShowViewController: UIViewController {
     @IBAction func handlerSideMenuBarButtonTapped(_ sender: UIBarButtonItem) {
         // Show side menu
         present(sideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+    
+    @IBAction func handlerBasketBarButtonItemTapped(_ sender: UIBarButtonItem) {
+    
     }
 }
 
