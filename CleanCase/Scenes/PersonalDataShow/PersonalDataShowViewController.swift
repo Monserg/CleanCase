@@ -24,7 +24,6 @@ class PersonalDataShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
     
     
     // MARK: - Class Initialization
@@ -73,6 +72,9 @@ class PersonalDataShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addBackBarButtonItem()
+        self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
+
         viewSettingsDidLoad()
     }
     
@@ -89,6 +91,6 @@ class PersonalDataShowViewController: UIViewController {
 extension PersonalDataShowViewController: PersonalDataShowDisplayLogic {
     func displaySomething(fromViewModel viewModel: PersonalDataShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+
     }
 }

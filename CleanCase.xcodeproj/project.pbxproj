@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5C72E5D6EC9AF2FC9D0F5CD1 /* Pods_CleanCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */; };
 		B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B11B186C2025816D00EA29F7 /* Localizable.strings */; };
-		B148E8F7202C34860007D79B /* OrdersControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8F6202C34860007D79B /* OrdersControlViewController.swift */; };
-		B148E8F9202C36140007D79B /* OrdersControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B148E8F8202C36140007D79B /* OrdersControl.storyboard */; };
 		B148E8FB202C410C0007D79B /* ChatShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B148E8FA202C410C0007D79B /* ChatShow.storyboard */; };
 		B148E903202C418B0007D79B /* ChatShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */; };
 		B148E904202C418B0007D79B /* ChatShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8FE202C418B0007D79B /* ChatShowWorker.swift */; };
@@ -134,8 +132,6 @@
 		B11B186D2025817100EA29F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B11B186F2025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B11B18702025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B148E8F6202C34860007D79B /* OrdersControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersControlViewController.swift; sourceTree = "<group>"; };
-		B148E8F8202C36140007D79B /* OrdersControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrdersControl.storyboard; sourceTree = "<group>"; };
 		B148E8FA202C410C0007D79B /* ChatShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatShow.storyboard; sourceTree = "<group>"; };
 		B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowPresenter.swift; sourceTree = "<group>"; };
 		B148E8FE202C418B0007D79B /* ChatShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowWorker.swift; sourceTree = "<group>"; };
@@ -284,14 +280,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B148E8F5202C344C0007D79B /* OrdersControl */ = {
-			isa = PBXGroup;
-			children = (
-				B148E8F6202C34860007D79B /* OrdersControlViewController.swift */,
-			);
-			path = OrdersControl;
-			sourceTree = "<group>";
-		};
 		B148E8FC202C41750007D79B /* ChatShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +360,6 @@
 				B1FA2D19202458F200351BB7 /* MainShow.storyboard */,
 				B1DBDF072029DAC400127ECB /* OnboardShow.storyboard */,
 				B1FA2D2A20245DC600351BB7 /* OrderCreate.storyboard */,
-				B148E8F8202C36140007D79B /* OrdersControl.storyboard */,
 				B1FA2D1B20245D4A00351BB7 /* OrderShow.storyboard */,
 				B1FA2D5520245E9300351BB7 /* OrdersShow.storyboard */,
 				B1FA2D4620245E3700351BB7 /* PersonalDataShow.storyboard */,
@@ -394,7 +381,6 @@
 				B1FA2D0C202458D300351BB7 /* MainShow */,
 				B1DBDF042029DA7E00127ECB /* OnboardShow */,
 				B1FA2D2C20245DCF00351BB7 /* OrderCreate */,
-				B148E8F5202C344C0007D79B /* OrdersControl */,
 				B1FA2D1D20245D4E00351BB7 /* OrderShow */,
 				B1FA2D4820245E7900351BB7 /* OrdersShow */,
 				B1FA2D3920245E1C00351BB7 /* PersonalDataShow */,
@@ -713,7 +699,6 @@
 				B1FA2D4720245E3700351BB7 /* PersonalDataShow.storyboard in Resources */,
 				B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */,
 				B1DBDF082029DAC400127ECB /* OnboardShow.storyboard in Resources */,
-				B148E8F9202C36140007D79B /* OrdersControl.storyboard in Resources */,
 				B1FA2D7420245F5700351BB7 /* WriteUsShow.storyboard in Resources */,
 				B1FA2D5620245E9300351BB7 /* OrdersShow.storyboard in Resources */,
 				B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */,
@@ -880,7 +865,6 @@
 				B1FA2DB0202498C500351BB7 /* City+CoreDataClass.swift in Sources */,
 				B1DBDEFB2029879B00127ECB /* DeliveryDate+CoreDataProperties.swift in Sources */,
 				B1DBDF0A2029EF6A00127ECB /* UIView+Extensions.swift in Sources */,
-				B148E8F7202C34860007D79B /* OrdersControlViewController.swift in Sources */,
 				B1FA2D7120245F4B00351BB7 /* WriteUsShowViewController.swift in Sources */,
 				B1FA2D042024500000351BB7 /* SignInShowRouter.swift in Sources */,
 				B1FA2CF420244DC200351BB7 /* FlowControlShowWorker.swift in Sources */,

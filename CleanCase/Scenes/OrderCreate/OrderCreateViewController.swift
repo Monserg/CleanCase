@@ -73,6 +73,9 @@ class OrderCreateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addBackBarButtonItem()
+        self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
+        
         viewSettingsDidLoad()
     }
     

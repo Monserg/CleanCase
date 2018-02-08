@@ -48,13 +48,10 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
             "OrderCreate", "XXX", "OrderShow", "PriceListShow", "OrdersShow", "ChatShow", "PersonalDataShow", "WriteUsShow", "AboutShow", "AgreementShow"
         ]
 
-        let itemsBasketIconNeed = [ false, false, true, true, true, false, false, true, true, false ]
-
         for i in 0..<itemsTitles.count {
             menuItems.append(LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem(title:             itemsTitles[i].localized(),
                                                                                      iconName:          itemsIcons[i],
                                                                                      storyboardName:    itemsStoryboardNames[i],
-                                                                                     hasShoppingBasketIcon: itemsBasketIconNeed[i],
                                                                                      cellHeight:        50.0,
                                                                                      cellIdentifier:    "LeftMenuItemCell"))
         }

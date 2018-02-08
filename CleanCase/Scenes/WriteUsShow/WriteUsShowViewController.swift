@@ -24,7 +24,6 @@ class WriteUsShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
     
     
     // MARK: - Class Initialization
@@ -73,6 +72,10 @@ class WriteUsShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addBackBarButtonItem()
+        self.addBasketBarButtonItem(true)
+        self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
+
         viewSettingsDidLoad()
     }
     

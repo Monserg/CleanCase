@@ -39,6 +39,14 @@ extension UIViewController {
         self.present(presentedViewController, animated: true, completion: nil)
     }
     
+    public func addNavigationBarShadow() {
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.gray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4
+    }
+    
     public func displayLaundryInfo(withName name: String, andPhoneNumber phone: String?) {
         let laundryBarButton = UIBarButtonItem()
         laundryBarButton.customView = LaundryView(withName: name, andPhoneNumber: phone)
@@ -49,13 +57,36 @@ extension UIViewController {
         let backButton = UIBarButtonItem(title: "", style: .done, target: navigationController, action: nil)
         self.navigationItem.leftBarButtonItem = backButton
     }
+
+    public func addBackBarButtonItem() {
+        let backButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 10, height: 44)))
+        backButton.setImage(UIImage.init(named: "icon-back-bar-button"), for: .normal)
+        backButton.addTarget(self, action: #selector(handlerBackButtonTapped), for: .touchUpInside)
+        backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        backButton.setTitle("Back".localized(), for: .normal)
+        backButton.setTitleColor(UIColor.white, for: .normal)
+        backButton.setTitleColor(UIColor.gray, for: .highlighted)
+
+        let backBarButtonItem = UIBarButtonItem.init(customView: backButton)
+        self.navigationItem.leftBarButtonItems = [backBarButtonItem]
+    }
     
-    public func addNavigationBarShadow() {
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.gray.cgColor
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 4.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 4
+    public func addBasketBarButtonItem(_ isEmpty: Bool) {
+        let basketButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 20, height: 44)))
+        basketButton.setImage(UIImage.init(named: (isEmpty) ? "icon-shopping-basket-empty" : "icon-shopping-basket-complete"), for: .normal)
+        basketButton.addTarget(self, action: #selector(handlerBasketButtonTapped), for: .touchUpInside)
+        basketButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        let basketBarButtonItem = UIBarButtonItem.init(customView: basketButton)
+        self.navigationItem.leftBarButtonItems?.append(basketBarButtonItem)
+    }
+    
+    @objc func handlerBasketButtonTapped(_ sender: UIBarButtonItem) {
+        print("BasketBarButtonItem tapped...")
+    }
+
+    @objc func handlerBackButtonTapped(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
