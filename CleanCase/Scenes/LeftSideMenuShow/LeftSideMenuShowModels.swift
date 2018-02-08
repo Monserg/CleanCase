@@ -23,7 +23,6 @@ enum LeftSideMenuShowModels {
             struct MenuItem: InitCellParameters {
                 let title: String
                 let iconName: String
-                let storyboardID: String
                 let storyboardName: String
                 
                 // InitCellParameters protocol implementation

@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		5C72E5D6EC9AF2FC9D0F5CD1 /* Pods_CleanCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */; };
 		B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B11B186C2025816D00EA29F7 /* Localizable.strings */; };
+		B148E8F7202C34860007D79B /* OrdersControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8F6202C34860007D79B /* OrdersControlViewController.swift */; };
+		B148E8F9202C36140007D79B /* OrdersControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B148E8F8202C36140007D79B /* OrdersControl.storyboard */; };
+		B148E8FB202C410C0007D79B /* ChatShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B148E8FA202C410C0007D79B /* ChatShow.storyboard */; };
+		B148E903202C418B0007D79B /* ChatShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */; };
+		B148E904202C418B0007D79B /* ChatShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8FE202C418B0007D79B /* ChatShowWorker.swift */; };
+		B148E905202C418B0007D79B /* ChatShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8FF202C418B0007D79B /* ChatShowRouter.swift */; };
+		B148E906202C418B0007D79B /* ChatShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E900202C418B0007D79B /* ChatShowModels.swift */; };
+		B148E907202C418B0007D79B /* ChatShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E901202C418B0007D79B /* ChatShowViewController.swift */; };
+		B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E902202C418B0007D79B /* ChatShowInteractor.swift */; };
 		B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF34E202B5139002B170F /* ToolBarPickerView.swift */; };
 		B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF350202B5563002B170F /* UITextField+Extension.swift */; };
 		B179409F2026076A00A9B675 /* LaundryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179409E2026076A00A9B675 /* LaundryView.swift */; };
@@ -49,12 +58,7 @@
 		B1FA2D072024500000351BB7 /* SignInShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D012024500000351BB7 /* SignInShowInteractor.swift */; };
 		B1FA2D092024501100351BB7 /* SignInShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D082024501100351BB7 /* SignInShow.storyboard */; };
 		B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */; };
-		B1FA2D13202458E400351BB7 /* MainShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D0D202458E400351BB7 /* MainShowPresenter.swift */; };
-		B1FA2D14202458E400351BB7 /* MainShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D0E202458E400351BB7 /* MainShowWorker.swift */; };
-		B1FA2D15202458E400351BB7 /* MainShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D0F202458E400351BB7 /* MainShowRouter.swift */; };
-		B1FA2D16202458E400351BB7 /* MainShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D10202458E400351BB7 /* MainShowModels.swift */; };
 		B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D11202458E400351BB7 /* MainShowViewController.swift */; };
-		B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D12202458E400351BB7 /* MainShowInteractor.swift */; };
 		B1FA2D1A202458F200351BB7 /* MainShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D19202458F200351BB7 /* MainShow.storyboard */; };
 		B1FA2D1C20245D4A00351BB7 /* OrderShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D1B20245D4A00351BB7 /* OrderShow.storyboard */; };
 		B1FA2D2420245D5F00351BB7 /* OrderShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D1E20245D5F00351BB7 /* OrderShowPresenter.swift */; };
@@ -130,6 +134,15 @@
 		B11B186D2025817100EA29F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B11B186F2025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B11B18702025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B148E8F6202C34860007D79B /* OrdersControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersControlViewController.swift; sourceTree = "<group>"; };
+		B148E8F8202C36140007D79B /* OrdersControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrdersControl.storyboard; sourceTree = "<group>"; };
+		B148E8FA202C410C0007D79B /* ChatShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatShow.storyboard; sourceTree = "<group>"; };
+		B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowPresenter.swift; sourceTree = "<group>"; };
+		B148E8FE202C418B0007D79B /* ChatShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowWorker.swift; sourceTree = "<group>"; };
+		B148E8FF202C418B0007D79B /* ChatShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowRouter.swift; sourceTree = "<group>"; };
+		B148E900202C418B0007D79B /* ChatShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowModels.swift; sourceTree = "<group>"; };
+		B148E901202C418B0007D79B /* ChatShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowViewController.swift; sourceTree = "<group>"; };
+		B148E902202C418B0007D79B /* ChatShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowInteractor.swift; sourceTree = "<group>"; };
 		B15AF34E202B5139002B170F /* ToolBarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerView.swift; sourceTree = "<group>"; };
 		B15AF350202B5563002B170F /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B179409E2026076A00A9B675 /* LaundryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaundryView.swift; sourceTree = "<group>"; };
@@ -172,12 +185,7 @@
 		B1FA2D012024500000351BB7 /* SignInShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D082024501100351BB7 /* SignInShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInShow.storyboard; sourceTree = "<group>"; };
 		B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
-		B1FA2D0D202458E400351BB7 /* MainShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2D0E202458E400351BB7 /* MainShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowWorker.swift; sourceTree = "<group>"; };
-		B1FA2D0F202458E400351BB7 /* MainShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowRouter.swift; sourceTree = "<group>"; };
-		B1FA2D10202458E400351BB7 /* MainShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowModels.swift; sourceTree = "<group>"; };
 		B1FA2D11202458E400351BB7 /* MainShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowViewController.swift; sourceTree = "<group>"; };
-		B1FA2D12202458E400351BB7 /* MainShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D19202458F200351BB7 /* MainShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainShow.storyboard; sourceTree = "<group>"; };
 		B1FA2D1B20245D4A00351BB7 /* OrderShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderShow.storyboard; sourceTree = "<group>"; };
 		B1FA2D1E20245D5F00351BB7 /* OrderShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderShowPresenter.swift; sourceTree = "<group>"; };
@@ -276,6 +284,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B148E8F5202C344C0007D79B /* OrdersControl */ = {
+			isa = PBXGroup;
+			children = (
+				B148E8F6202C34860007D79B /* OrdersControlViewController.swift */,
+			);
+			path = OrdersControl;
+			sourceTree = "<group>";
+		};
+		B148E8FC202C41750007D79B /* ChatShow */ = {
+			isa = PBXGroup;
+			children = (
+				B148E902202C418B0007D79B /* ChatShowInteractor.swift */,
+				B148E900202C418B0007D79B /* ChatShowModels.swift */,
+				B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */,
+				B148E8FF202C418B0007D79B /* ChatShowRouter.swift */,
+				B148E901202C418B0007D79B /* ChatShowViewController.swift */,
+				B148E8FE202C418B0007D79B /* ChatShowWorker.swift */,
+			);
+			path = ChatShow;
+			sourceTree = "<group>";
+		};
 		B179409D2026074E00A9B675 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,11 +366,13 @@
 			children = (
 				B1FA2D5820245ED600351BB7 /* AboutShow.storyboard */,
 				B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */,
+				B148E8FA202C410C0007D79B /* ChatShow.storyboard */,
 				B1FA2CF920244DDD00351BB7 /* FlowControlShow.storyboard */,
 				B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */,
 				B1FA2D19202458F200351BB7 /* MainShow.storyboard */,
 				B1DBDF072029DAC400127ECB /* OnboardShow.storyboard */,
 				B1FA2D2A20245DC600351BB7 /* OrderCreate.storyboard */,
+				B148E8F8202C36140007D79B /* OrdersControl.storyboard */,
 				B1FA2D1B20245D4A00351BB7 /* OrderShow.storyboard */,
 				B1FA2D5520245E9300351BB7 /* OrdersShow.storyboard */,
 				B1FA2D4620245E3700351BB7 /* PersonalDataShow.storyboard */,
@@ -357,11 +388,13 @@
 			children = (
 				B1FA2D5720245ECF00351BB7 /* AboutShow */,
 				B19DA3CC202852BE00E9F7D6 /* AgreementShow */,
+				B148E8FC202C41750007D79B /* ChatShow */,
 				B1FA2CEC20244D9700351BB7 /* FlowControlShow */,
 				B1FA2D8820246D1400351BB7 /* LeftSideMenuShow */,
 				B1FA2D0C202458D300351BB7 /* MainShow */,
 				B1DBDF042029DA7E00127ECB /* OnboardShow */,
 				B1FA2D2C20245DCF00351BB7 /* OrderCreate */,
+				B148E8F5202C344C0007D79B /* OrdersControl */,
 				B1FA2D1D20245D4E00351BB7 /* OrderShow */,
 				B1FA2D4820245E7900351BB7 /* OrdersShow */,
 				B1FA2D3920245E1C00351BB7 /* PersonalDataShow */,
@@ -458,12 +491,7 @@
 		B1FA2D0C202458D300351BB7 /* MainShow */ = {
 			isa = PBXGroup;
 			children = (
-				B1FA2D12202458E400351BB7 /* MainShowInteractor.swift */,
-				B1FA2D10202458E400351BB7 /* MainShowModels.swift */,
-				B1FA2D0D202458E400351BB7 /* MainShowPresenter.swift */,
-				B1FA2D0F202458E400351BB7 /* MainShowRouter.swift */,
 				B1FA2D11202458E400351BB7 /* MainShowViewController.swift */,
-				B1FA2D0E202458E400351BB7 /* MainShowWorker.swift */,
 			);
 			path = MainShow;
 			sourceTree = "<group>";
@@ -685,6 +713,7 @@
 				B1FA2D4720245E3700351BB7 /* PersonalDataShow.storyboard in Resources */,
 				B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */,
 				B1DBDF082029DAC400127ECB /* OnboardShow.storyboard in Resources */,
+				B148E8F9202C36140007D79B /* OrdersControl.storyboard in Resources */,
 				B1FA2D7420245F5700351BB7 /* WriteUsShow.storyboard in Resources */,
 				B1FA2D5620245E9300351BB7 /* OrdersShow.storyboard in Resources */,
 				B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */,
@@ -693,6 +722,7 @@
 				B17940A12026077300A9B675 /* LaundryView.xib in Resources */,
 				B1FA2D092024501100351BB7 /* SignInShow.storyboard in Resources */,
 				B1FA2D2B20245DC600351BB7 /* OrderCreate.storyboard in Resources */,
+				B148E8FB202C410C0007D79B /* ChatShow.storyboard in Resources */,
 				B1FA2CFA20244DDD00351BB7 /* FlowControlShow.storyboard in Resources */,
 				B1FA2D8320245FCB00351BB7 /* PriceListShow.storyboard in Resources */,
 			);
@@ -785,6 +815,7 @@
 				B1FA2D6420245EE900351BB7 /* AboutShowViewController.swift in Sources */,
 				B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */,
 				B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */,
+				B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */,
 				B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */,
 				B19DA3FB2028B0B000E9F7D6 /* Laundry+CoreDataClass.swift in Sources */,
 				B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */,
@@ -798,6 +829,7 @@
 				B1FA2D8120245FC000351BB7 /* PriceListShowInteractor.swift in Sources */,
 				B1FA2D9A2024735D00351BB7 /* LeftMenuItemCell.swift in Sources */,
 				B1FA2D4520245E2B00351BB7 /* PersonalDataShowInteractor.swift in Sources */,
+				B148E904202C418B0007D79B /* ChatShowWorker.swift in Sources */,
 				B1FA2D4320245E2B00351BB7 /* PersonalDataShowModels.swift in Sources */,
 				B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */,
 				B1FA2D7E20245FC000351BB7 /* PriceListShowRouter.swift in Sources */,
@@ -818,43 +850,44 @@
 				B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */,
 				B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */,
 				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
+				B148E903202C418B0007D79B /* ChatShowPresenter.swift in Sources */,
 				B1FA2DB620249B2F00351BB7 /* ShareInteractor.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
 				B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
 				B1FA2DB3202498C500351BB7 /* Version+CoreDataProperties.swift in Sources */,
+				B148E905202C418B0007D79B /* ChatShowRouter.swift in Sources */,
 				B1FA2D9120246D2100351BB7 /* LeftSideMenuShowRouter.swift in Sources */,
 				B1FA2DA92024948400351BB7 /* RestAPIManager.swift in Sources */,
 				B1FA2D5020245E8900351BB7 /* OrdersShowWorker.swift in Sources */,
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
-				B1FA2D18202458E400351BB7 /* MainShowInteractor.swift in Sources */,
 				B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */,
 				B1DBDF01202998E100127ECB /* Department+CoreDataProperties.swift in Sources */,
 				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
+				B148E907202C418B0007D79B /* ChatShowViewController.swift in Sources */,
 				B1FA2D5420245E8900351BB7 /* OrdersShowInteractor.swift in Sources */,
 				B1FA2D5120245E8900351BB7 /* OrdersShowRouter.swift in Sources */,
+				B148E906202C418B0007D79B /* ChatShowModels.swift in Sources */,
 				B17940A620261BA100A9B675 /* UIViewController+Extensions.swift in Sources */,
 				B1FA2D5320245E8900351BB7 /* OrdersShowViewController.swift in Sources */,
 				B1FA2D7F20245FC000351BB7 /* PriceListShowModels.swift in Sources */,
 				B179409F2026076A00A9B675 /* LaundryView.swift in Sources */,
 				B1FA2DAB202496F100351BB7 /* ErrorManager.swift in Sources */,
 				B1FA2D062024500000351BB7 /* SignInShowViewController.swift in Sources */,
-				B1FA2D16202458E400351BB7 /* MainShowModels.swift in Sources */,
 				B1FA2DB2202498C500351BB7 /* Version+CoreDataClass.swift in Sources */,
 				B1FA2D5220245E8900351BB7 /* OrdersShowModels.swift in Sources */,
 				B1FA2DB0202498C500351BB7 /* City+CoreDataClass.swift in Sources */,
 				B1DBDEFB2029879B00127ECB /* DeliveryDate+CoreDataProperties.swift in Sources */,
 				B1DBDF0A2029EF6A00127ECB /* UIView+Extensions.swift in Sources */,
+				B148E8F7202C34860007D79B /* OrdersControlViewController.swift in Sources */,
 				B1FA2D7120245F4B00351BB7 /* WriteUsShowViewController.swift in Sources */,
 				B1FA2D042024500000351BB7 /* SignInShowRouter.swift in Sources */,
 				B1FA2CF420244DC200351BB7 /* FlowControlShowWorker.swift in Sources */,
 				B1FA2D4F20245E8900351BB7 /* OrdersShowPresenter.swift in Sources */,
 				B1FA2D7C20245FC000351BB7 /* PriceListShowPresenter.swift in Sources */,
-				B1FA2D13202458E400351BB7 /* MainShowPresenter.swift in Sources */,
 				B1FA2D022024500000351BB7 /* SignInShowPresenter.swift in Sources */,
 				B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */,
-				B1FA2D15202458E400351BB7 /* MainShowRouter.swift in Sources */,
 				B1FA2D3620245DDF00351BB7 /* OrderCreateModels.swift in Sources */,
 				B1FA2D2920245D5F00351BB7 /* OrderShowInteractor.swift in Sources */,
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
@@ -872,7 +905,6 @@
 				B19DA3F82028993900E9F7D6 /* String+Extensions.swift in Sources */,
 				B1FA2D7220245F4B00351BB7 /* WriteUsShowInteractor.swift in Sources */,
 				B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */,
-				B1FA2D14202458E400351BB7 /* MainShowWorker.swift in Sources */,
 				B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,97 +14,20 @@ import UIKit
 import SideMenu
 import SwiftSpinner
 
-// MARK: - Input & Output protocols
-protocol MainShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: MainShowModels.Something.ViewModel)
-}
-
 class MainShowViewController: UIViewController {
     // MARK: - Properties
-    var interactor: MainShowBusinessLogic?
-    var router: (NSObjectProtocol & MainShowRoutingLogic & MainShowDataPassing)?
-    
     fileprivate var sideMenuManager: SideMenuManager!
 
+    private var activeViewController: UIViewController? {
+        didSet {
+            self.removeInactiveViewController(oldValue)
+            self.updateActiveViewController()
+        }
+    }
+    
     
     // MARK: - IBOutlets
-    @IBOutlet weak var createOrderView: UIView! {
-        didSet {
-            createOrderView.isHidden = false
-        }
-    }
-    
-    @IBOutlet weak var myOrderView: UIView! {
-        didSet {
-            
-        }
-    }
-    
-    @IBOutlet weak var createOrderButton: UIButton! {
-        didSet {
-            
-        }
-    }
-    
-    @IBOutlet weak var myOrderButton: UIButton! {
-        didSet {
-
-        }
-    }
-        
-    @IBOutlet var orderButtonsHeightConstraintsCollection: [NSLayoutConstraint]! {
-        didSet {
-            _ = orderButtonsHeightConstraintsCollection.map({ $0.constant *= heightRatio })
-        }
-    }
-    
-    @IBOutlet var orderButtonsWidthConstraintsCollection: [NSLayoutConstraint]! {
-        didSet {
-            _ = orderButtonsWidthConstraintsCollection.map({ $0.constant *= widthRatio })
-        }
-    }
-    
-
-    // MARK: - Class Initialization
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        setup()
-    }
-    
-    
-    // MARK: - Setup
-    private func setup() {
-        let viewController          =   self
-        let interactor              =   MainShowInteractor()
-        let presenter               =   MainShowPresenter()
-        let router                  =   MainShowRouter()
-        
-        viewController.interactor   =   interactor
-        viewController.router       =   router
-        interactor.presenter        =   presenter
-        presenter.viewController    =   viewController
-        router.viewController       =   viewController
-        router.dataStore            =   interactor
-    }
-    
-    
-    // MARK: - Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
+    @IBOutlet weak var containerView: UIView!
     
     
     // MARK: - Class Functions
@@ -114,15 +37,13 @@ class MainShowViewController: UIViewController {
         self.addNavigationBarShadow()
         self.viewSettingsDidLoad()
         self.setupSideMenu()
+        self.activeViewController = self.nextViewController(fromStoryboardName: "OrdersControl")
     }
         
     
     // MARK: - Custom Functions
     fileprivate func viewSettingsDidLoad() {
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
-
-        let requestModel = MainShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
     }
     
     fileprivate func setupSideMenu() {
@@ -144,44 +65,63 @@ class MainShowViewController: UIViewController {
         
         // Handler left side menu item select
         leftSideMenuShowVC.handlerMenuItemSelectCompletion = { [unowned self] (scene) in
-            if let nextScene = scene as? LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem, nextScene.storyboardID != "SignOut"  {
-                let storyboard = UIStoryboard(name: nextScene.storyboardName, bundle: nil)
-                let destinationVC = storyboard.instantiateViewController(withIdentifier: nextScene.storyboardID)
-                
+            SwiftSpinner.show("Loading App data...".localized(), animated: true)
+
+            if let nextScene = scene as? LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem  {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
                     leftSideMenuNC.dismiss(animated: true, completion: {})
                     
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
-                        if nextScene.storyboardID == "AgreementShowVC" {
+                        if nextScene.storyboardName == "AgreementShow" {
+                            SwiftSpinner.hide()
                             self.createPopover(withName: nextScene.storyboardName)
                         }
                             
+                        else if nextScene.storyboardName != "XXX" {
+                            self.activeViewController = self.nextViewController(fromStoryboardName: nextScene.storyboardName)
+                        }
+                        
+                        // FIXME: - DELETE AFTER CREATE 'WORKING HOURS SCENE'
                         else {
-                            self.show(destinationVC, sender: nil)
+                            SwiftSpinner.hide()
                         }
                     }
                 }
             }
-            
-//            else {
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
-//                    leftSideMenuNC.dismiss(animated: true, completion: {})
-//
-//                    // Close App
-//                    self.showAlertView(withTitle: "Info", andMessage: "Our App close after 15 sec", needCancel: true, completion: { [unowned self] result in
-//                        if result {
-//                            SwiftSpinner.show("Application is closing...".localized(), animated: true)
-//                            self.view.isUserInteractionEnabled = false
-//                            self.navigationItem.leftBarButtonItem?.isEnabled = false
-//
-//                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 90) {
-//                                exit(1)
-//                            }
-//                        }
-//                    })
-//                }
-//            }
         }
+    }
+    
+    private func removeInactiveViewController(_ inactiveViewController: UIViewController?) {
+        if let inActiveVC = inactiveViewController {
+            // call before removing child view controller's view from hierarchy
+            inActiveVC.willMove(toParentViewController: nil)
+            
+            inActiveVC.view.removeFromSuperview()
+            
+            // call after removing child view controller's view from hierarchy
+            inActiveVC.removeFromParentViewController()
+        }
+    }
+    
+    private func updateActiveViewController() {
+        if let activeVC = activeViewController {
+            // call before adding child view controller's view as subview
+            addChildViewController(activeVC)
+            
+            activeVC.view.frame = containerView.bounds
+            containerView.addSubview(activeVC.view)
+            
+            // call before adding child view controller's view as subview
+            activeVC.didMove(toParentViewController: self)
+        }
+        
+        guard (self.activeViewController as? AboutShowViewController) == nil else { return }
+        
+        SwiftSpinner.hide()
+    }
+    
+    fileprivate func nextViewController(fromStoryboardName storyboardName: String) -> UIViewController {
+        return UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardName + "VC")
     }
 
     
@@ -189,32 +129,6 @@ class MainShowViewController: UIViewController {
     @IBAction func handlerSideMenuBarButtonTapped(_ sender: UIBarButtonItem) {
         // Show side menu
         present(sideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
-    }
-
-    @IBAction func handlerCreateOrderButtonTapped(_ sender: Any) {
-        print("Create Order button tapped...")
-    }
-    
-    @IBAction func handlerMyOrderButtonTapped(_ sender: Any) {
-        print("My Order button tapped...")
-    }
-    
-    // FIXME: - DELETE AFTER TEST
-    @IBAction func handlerPopoverButtonTapped(_ sender: Any) {
-        self.createPopover(withName: "AgreementShow")
-    }
-    
-    @IBAction func handlerOnboardButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "OnboardShowSegue", sender: nil)
-    }
-}
-
-
-// MARK: - MainShowDisplayLogic
-extension MainShowViewController: MainShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: MainShowModels.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
-
     }
 }
 

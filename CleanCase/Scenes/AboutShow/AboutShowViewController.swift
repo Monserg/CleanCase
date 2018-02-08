@@ -43,7 +43,7 @@ class AboutShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SwiftSpinner.show("Loading App data...".localized(), animated: true)
+//        SwiftSpinner.show("Loading App data...".localized(), animated: true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
         let myURL = URL(string: "http://www.okyanuscleaners.co.il/%25d7%2590%25d7%2595%25d7%2593%25d7%2595%25d7%25aa/")

@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Write Us Show View Controller-->
-        <scene sceneID="46B-kV-kHT">
+        <!--Chat Show View Controller-->
+        <scene sceneID="omN-dl-hSn">
             <objects>
-                <viewController storyboardIdentifier="WriteUsShowVC" id="iwb-qP-K8K" customClass="WriteUsShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fn3-Yd-NqY">
+                <viewController storyboardIdentifier="ChatShowVC" id="oaO-vs-Yw4" customClass="ChatShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oIM-ea-WZP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WriteUsShow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je2-g6-MwZ">
-                                <rect key="frame" x="135.5" y="323" width="103.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChatShow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="311-NN-Nfu">
+                                <rect key="frame" x="147.5" y="323" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,15 +27,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Je2-g6-MwZ" firstAttribute="centerY" secondItem="Fn3-Yd-NqY" secondAttribute="centerY" id="tEF-pf-Waf"/>
-                            <constraint firstItem="Je2-g6-MwZ" firstAttribute="centerX" secondItem="Fn3-Yd-NqY" secondAttribute="centerX" id="usF-R6-XEp"/>
+                            <constraint firstItem="311-NN-Nfu" firstAttribute="centerY" secondItem="oIM-ea-WZP" secondAttribute="centerY" id="4bi-ZF-vgg"/>
+                            <constraint firstItem="311-NN-Nfu" firstAttribute="centerX" secondItem="oIM-ea-WZP" secondAttribute="centerX" id="EdY-OK-ZsV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="X1k-h0-CJf"/>
+                        <viewLayoutGuide key="safeArea" id="Ky1-yv-xif"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Alq-iW-fKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dAq-GF-OKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="76"/>
+            <point key="canvasLocation" x="6" y="67"/>
         </scene>
     </scenes>
 </document>

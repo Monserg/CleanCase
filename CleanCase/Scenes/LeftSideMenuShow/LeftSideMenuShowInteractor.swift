@@ -44,18 +44,13 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
             "icon-menu-new-order", "icon-menu-working-hours", "icon-menu-current-order", "icon-menu-price-list", "icon-menu-my-orders", "icon-menu-chat", "icon-menu-personal-data", "icon-menu-write-us", "icon-menu-about-us", "icon-menu-agreement"
         ]
         
-        let itemsStoryboardIDs = [
-            "OrderCreateVC", "ShowVC", "OrderShowVC", "PriceListShowVC", "OrdersShowVC", "ShowVC", "PersonalDataShowVC", "WriteUsShowVC", "AboutShowVC", "AgreementShowVC"
-        ]
-        
         let itemsStoryboardNames = [
-            "OrderCreate", "Show", "OrderShow", "PriceListShow", "OrdersShow", "Show", "PersonalDataShow", "WriteUsShow", "AboutShow", "AgreementShow"
+            "OrderCreate", "XXX", "OrderShow", "PriceListShow", "OrdersShow", "ChatShow", "PersonalDataShow", "WriteUsShow", "AboutShow", "AgreementShow"
         ]
 
         for i in 0..<itemsTitles.count {
             menuItems.append(LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem(title:             itemsTitles[i].localized(),
                                                                                      iconName:          itemsIcons[i],
-                                                                                     storyboardID:      itemsStoryboardIDs[i],
                                                                                      storyboardName:    itemsStoryboardNames[i],
                                                                                      cellHeight:        50.0,
                                                                                      cellIdentifier:    "LeftMenuItemCell"))
