@@ -11,84 +11,65 @@
 //
 
 import UIKit
+import WebKit
+import SwiftSpinner
 
 // MARK: - Input & Output protocols
-protocol AboutShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: AboutShowModels.Something.ViewModel)
-}
-
 class AboutShowViewController: UIViewController {
     // MARK: - Properties
-    var interactor: AboutShowBusinessLogic?
-    var router: (NSObjectProtocol & AboutShowRoutingLogic & AboutShowDataPassing)?
-    
-    
-    // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
-    
+    var webView: WKWebView!
+
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        setup()
-    }
-    
-    
-    // MARK: - Setup
-    private func setup() {
-        let viewController          =   self
-        let interactor              =   AboutShowInteractor()
-        let presenter               =   AboutShowPresenter()
-        let router                  =   AboutShowRouter()
-        
-        viewController.interactor   =   interactor
-        viewController.router       =   router
-        interactor.presenter        =   presenter
-        presenter.viewController    =   viewController
-        router.viewController       =   viewController
-        router.dataStore            =   interactor
-    }
-    
-    
-    // MARK: - Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
     }
     
     
     // MARK: - Class Functions
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        
+        view = webView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
-    }
-    
-    
-    // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
-        let requestModel = AboutShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
+        SwiftSpinner.show("Loading App data...".localized(), animated: true)
+        self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
+        
+        let myURL = URL(string: "http://www.okyanuscleaners.co.il/%25d7%2590%25d7%2595%25d7%2593%25d7%2595%25d7%25aa/")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
     }
 }
 
 
-// MARK: - AboutShowDisplayLogic
-extension AboutShowViewController: AboutShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: AboutShowModels.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+// MARK: - WKUIDelegate
+extension AboutShowViewController: WKUIDelegate {}
+
+
+// MARK: - WKNavigationDelegate
+extension AboutShowViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        print(error.localizedDescription)
+        SwiftSpinner.hide()
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        print("Start to load")
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("Finish to load")
+        SwiftSpinner.hide()
     }
 }

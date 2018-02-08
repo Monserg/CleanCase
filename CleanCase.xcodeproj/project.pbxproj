@@ -85,12 +85,7 @@
 		B1FA2D5420245E8900351BB7 /* OrdersShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D4E20245E8900351BB7 /* OrdersShowInteractor.swift */; };
 		B1FA2D5620245E9300351BB7 /* OrdersShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D5520245E9300351BB7 /* OrdersShow.storyboard */; };
 		B1FA2D5920245ED600351BB7 /* AboutShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D5820245ED600351BB7 /* AboutShow.storyboard */; };
-		B1FA2D6020245EE900351BB7 /* AboutShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D5A20245EE900351BB7 /* AboutShowPresenter.swift */; };
-		B1FA2D6120245EE900351BB7 /* AboutShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D5B20245EE900351BB7 /* AboutShowWorker.swift */; };
-		B1FA2D6220245EE900351BB7 /* AboutShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D5C20245EE900351BB7 /* AboutShowRouter.swift */; };
-		B1FA2D6320245EE900351BB7 /* AboutShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D5D20245EE900351BB7 /* AboutShowModels.swift */; };
 		B1FA2D6420245EE900351BB7 /* AboutShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D5E20245EE900351BB7 /* AboutShowViewController.swift */; };
-		B1FA2D6520245EE900351BB7 /* AboutShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D5F20245EE900351BB7 /* AboutShowInteractor.swift */; };
 		B1FA2D6D20245F4B00351BB7 /* WriteUsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6720245F4B00351BB7 /* WriteUsShowPresenter.swift */; };
 		B1FA2D6E20245F4B00351BB7 /* WriteUsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6820245F4B00351BB7 /* WriteUsShowWorker.swift */; };
 		B1FA2D6F20245F4B00351BB7 /* WriteUsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6920245F4B00351BB7 /* WriteUsShowRouter.swift */; };
@@ -213,12 +208,7 @@
 		B1FA2D4E20245E8900351BB7 /* OrdersShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D5520245E9300351BB7 /* OrdersShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrdersShow.storyboard; sourceTree = "<group>"; };
 		B1FA2D5820245ED600351BB7 /* AboutShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutShow.storyboard; sourceTree = "<group>"; };
-		B1FA2D5A20245EE900351BB7 /* AboutShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2D5B20245EE900351BB7 /* AboutShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShowWorker.swift; sourceTree = "<group>"; };
-		B1FA2D5C20245EE900351BB7 /* AboutShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShowRouter.swift; sourceTree = "<group>"; };
-		B1FA2D5D20245EE900351BB7 /* AboutShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShowModels.swift; sourceTree = "<group>"; };
 		B1FA2D5E20245EE900351BB7 /* AboutShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShowViewController.swift; sourceTree = "<group>"; };
-		B1FA2D5F20245EE900351BB7 /* AboutShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D6720245F4B00351BB7 /* WriteUsShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowPresenter.swift; sourceTree = "<group>"; };
 		B1FA2D6820245F4B00351BB7 /* WriteUsShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowWorker.swift; sourceTree = "<group>"; };
 		B1FA2D6920245F4B00351BB7 /* WriteUsShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowRouter.swift; sourceTree = "<group>"; };
@@ -533,12 +523,7 @@
 		B1FA2D5720245ECF00351BB7 /* AboutShow */ = {
 			isa = PBXGroup;
 			children = (
-				B1FA2D5F20245EE900351BB7 /* AboutShowInteractor.swift */,
-				B1FA2D5D20245EE900351BB7 /* AboutShowModels.swift */,
-				B1FA2D5A20245EE900351BB7 /* AboutShowPresenter.swift */,
-				B1FA2D5C20245EE900351BB7 /* AboutShowRouter.swift */,
 				B1FA2D5E20245EE900351BB7 /* AboutShowViewController.swift */,
-				B1FA2D5B20245EE900351BB7 /* AboutShowWorker.swift */,
 			);
 			path = AboutShow;
 			sourceTree = "<group>";
@@ -795,10 +780,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1DBDF03202998E100127ECB /* DepartmentItem+CoreDataProperties.swift in Sources */,
-				B1FA2D6320245EE900351BB7 /* AboutShowModels.swift in Sources */,
 				B1FA2D072024500000351BB7 /* SignInShowInteractor.swift in Sources */,
 				B1FA2D3820245DDF00351BB7 /* OrderCreateInteractor.swift in Sources */,
-				B1FA2D6520245EE900351BB7 /* AboutShowInteractor.swift in Sources */,
 				B1FA2D6420245EE900351BB7 /* AboutShowViewController.swift in Sources */,
 				B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */,
 				B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */,
@@ -810,7 +793,6 @@
 				B1DBDF00202998E100127ECB /* Department+CoreDataClass.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,
 				B1FA2D6D20245F4B00351BB7 /* WriteUsShowPresenter.swift in Sources */,
-				B1FA2D6120245EE900351BB7 /* AboutShowWorker.swift in Sources */,
 				B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */,
 				B1FA2D032024500000351BB7 /* SignInShowWorker.swift in Sources */,
 				B1FA2D8120245FC000351BB7 /* PriceListShowInteractor.swift in Sources */,
@@ -832,7 +814,6 @@
 				B1FA2D3520245DDF00351BB7 /* OrderCreateRouter.swift in Sources */,
 				B1FA2DA32024914900351BB7 /* CleanCaseModel.xcdatamodeld in Sources */,
 				B1FA2D2520245D5F00351BB7 /* OrderShowWorker.swift in Sources */,
-				B1FA2D6220245EE900351BB7 /* AboutShowRouter.swift in Sources */,
 				B1FA2D3420245DDF00351BB7 /* OrderCreateWorker.swift in Sources */,
 				B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */,
 				B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */,
@@ -890,7 +871,6 @@
 				B1DBDF062029DA9400127ECB /* OnboardShowViewController.swift in Sources */,
 				B19DA3F82028993900E9F7D6 /* String+Extensions.swift in Sources */,
 				B1FA2D7220245F4B00351BB7 /* WriteUsShowInteractor.swift in Sources */,
-				B1FA2D6020245EE900351BB7 /* AboutShowPresenter.swift in Sources */,
 				B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */,
 				B1FA2D14202458E400351BB7 /* MainShowWorker.swift in Sources */,
 				B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */,
