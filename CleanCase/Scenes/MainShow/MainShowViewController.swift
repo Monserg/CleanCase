@@ -18,32 +18,8 @@ class MainShowViewController: UIViewController {
     // MARK: - Properties
     fileprivate var sideMenuManager: SideMenuManager!
 
-//    private var activeViewController: UIViewController? {
-//        didSet {
-//            self.removeInactiveViewController(oldValue)
-//            self.updateActiveViewController()
-//
-//            if let ordersControlVC = activeViewController as? OrdersControlViewController {
-//                ordersControlVC.handlerPassButtonTagCompletion = { [unowned self] buttonTag in
-//                    SwiftSpinner.show("Loading App data...".localized(), animated: true)
-//
-//                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
-//                        if (buttonTag as! Int) == 0 {
-//                            self.activeViewController = self.nextViewController(fromStoryboardName: "OrderCreate")
-//                        }
-//
-//                        else {
-//                            self.activeViewController = self.nextViewController(fromStoryboardName: "OrderShow")
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
     
     // MARK: - IBOutlets
-//    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var basketBarButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var createOrderView: UIView! {
@@ -90,7 +66,6 @@ class MainShowViewController: UIViewController {
         self.addNavigationBarShadow()
         self.viewSettingsDidLoad()
         self.setupSideMenu()
-//        self.activeViewController = self.nextViewController(fromStoryboardName: "OrdersControl")
     }
         
     
@@ -118,8 +93,6 @@ class MainShowViewController: UIViewController {
         
         // Handler left side menu item select
         leftSideMenuShowVC.handlerMenuItemSelectCompletion = { [unowned self] (scene) in
-//            SwiftSpinner.show("Loading App data...".localized(), animated: true)
-
             if let nextScene = scene as? LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem  {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
                     leftSideMenuNC.dismiss(animated: true, completion: {})
@@ -131,9 +104,7 @@ class MainShowViewController: UIViewController {
                         }
                             
                         else if nextScene.storyboardName != "XXX" {
-//                            self.activeViewController = self.nextViewController(fromStoryboardName: nextScene.storyboardName)
                             self.show(self.nextViewController(fromStoryboardName: nextScene.storyboardName), sender: nil)
-//                            self.basketBarButtonItem.image = (nextScene.hasShoppingBasketIcon) ? UIImage.init(named: "icon-shopping-basket-empty") : nil
                         }
                         
                         // FIXME: - DELETE AFTER CREATE 'WORKING HOURS SCENE'
@@ -145,35 +116,6 @@ class MainShowViewController: UIViewController {
             }
         }
     }
-    
-//    private func removeInactiveViewController(_ inactiveViewController: UIViewController?) {
-//        if let inActiveVC = inactiveViewController {
-//            // call before removing child view controller's view from hierarchy
-//            inActiveVC.willMove(toParentViewController: nil)
-//
-//            inActiveVC.view.removeFromSuperview()
-//
-//            // call after removing child view controller's view from hierarchy
-//            inActiveVC.removeFromParentViewController()
-//        }
-//    }
-//
-//    private func updateActiveViewController() {
-//        if let activeVC = activeViewController {
-//            // call before adding child view controller's view as subview
-//            addChildViewController(activeVC)
-//
-//            activeVC.view.frame = containerView.bounds
-//            containerView.addSubview(activeVC.view)
-//
-//            // call before adding child view controller's view as subview
-//            activeVC.didMove(toParentViewController: self)
-//        }
-//
-//        guard (self.activeViewController as? AboutShowViewController) == nil else { return }
-//
-//        SwiftSpinner.hide()
-//    }
     
     fileprivate func nextViewController(fromStoryboardName storyboardName: String) -> UIViewController {
         return UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardName + "VC")
@@ -188,6 +130,12 @@ class MainShowViewController: UIViewController {
     
     @IBAction func handlerOrderButtonTapped(_ sender: UIButton) {
         self.show(self.nextViewController(fromStoryboardName: (sender.tag == 0) ? "OrderCreate" : "OrderShow"), sender: nil)
+    }
+    
+    
+    // FIXME: - DELETE AFTER TEST
+    @IBAction func deliveryButtonTapped(_ sender: Any) {
+        self.createPopover(withName: "DeliveryTermsShow")
     }
 }
 

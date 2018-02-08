@@ -90,10 +90,10 @@ final class RestAPIManager {
         components.path!.append(parameters.path)
 
         // Parameters
-//        if let params = parameters.parameters, parameters.body == nil {
-//            components.path!.append(String(format: "%@", params.values.first! as! CVarArg))
-//        }
-//        
+        if let params = parameters.parameters, parameters.body == nil {
+            components.path!.append("\(params.values.first!)")
+        }
+        
 //        // Body
 //        else {
 //            // TODO: - ADD REQUEST BODY PARAMETERS

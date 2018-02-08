@@ -78,11 +78,20 @@
                                     <constraint firstAttribute="height" constant="170" id="uQF-Lk-2hh"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp2-pz-Q4K">
+                                <rect key="frame" x="248" y="74" width="56" height="30"/>
+                                <state key="normal" title="Delivery"/>
+                                <connections>
+                                    <action selector="deliveryButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="Fw6-O0-aWC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZDv-Kz-pDu" firstAttribute="centerX" secondItem="bmp-rR-Be3" secondAttribute="centerX" id="Os9-7s-tJM"/>
                             <constraint firstItem="ZDv-Kz-pDu" firstAttribute="centerY" secondItem="bmp-rR-Be3" secondAttribute="centerY" id="RIN-HH-FXd"/>
+                            <constraint firstItem="gp2-pz-Q4K" firstAttribute="top" secondItem="Z4C-WB-W2N" secondAttribute="top" constant="10" id="gDl-KQ-R3M"/>
+                            <constraint firstItem="Z4C-WB-W2N" firstAttribute="trailing" secondItem="gp2-pz-Q4K" secondAttribute="trailing" constant="16" id="xs4-Sb-3pf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z4C-WB-W2N"/>
                     </view>

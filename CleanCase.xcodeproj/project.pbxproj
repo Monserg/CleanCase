@@ -16,6 +16,12 @@
 		B148E906202C418B0007D79B /* ChatShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E900202C418B0007D79B /* ChatShowModels.swift */; };
 		B148E907202C418B0007D79B /* ChatShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E901202C418B0007D79B /* ChatShowViewController.swift */; };
 		B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E902202C418B0007D79B /* ChatShowInteractor.swift */; };
+		B148E910202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E90A202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift */; };
+		B148E913202C9C3F0007D79B /* DeliveryTermsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E90D202C9C3F0007D79B /* DeliveryTermsShowModels.swift */; };
+		B148E914202C9C3F0007D79B /* DeliveryTermsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E90E202C9C3F0007D79B /* DeliveryTermsShowViewController.swift */; };
+		B148E915202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E90F202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift */; };
+		B148E917202C9C530007D79B /* DeliveryTermsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B148E916202C9C530007D79B /* DeliveryTermsShow.storyboard */; };
+		B148E919202CA61E0007D79B /* DeliveryTermsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E918202CA61E0007D79B /* DeliveryTermsShowRouter.swift */; };
 		B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF34E202B5139002B170F /* ToolBarPickerView.swift */; };
 		B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF350202B5563002B170F /* UITextField+Extension.swift */; };
 		B179409F2026076A00A9B675 /* LaundryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179409E2026076A00A9B675 /* LaundryView.swift */; };
@@ -138,6 +144,12 @@
 		B148E900202C418B0007D79B /* ChatShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowModels.swift; sourceTree = "<group>"; };
 		B148E901202C418B0007D79B /* ChatShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowViewController.swift; sourceTree = "<group>"; };
 		B148E902202C418B0007D79B /* ChatShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowInteractor.swift; sourceTree = "<group>"; };
+		B148E90A202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowPresenter.swift; sourceTree = "<group>"; };
+		B148E90D202C9C3F0007D79B /* DeliveryTermsShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowModels.swift; sourceTree = "<group>"; };
+		B148E90E202C9C3F0007D79B /* DeliveryTermsShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowViewController.swift; sourceTree = "<group>"; };
+		B148E90F202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowInteractor.swift; sourceTree = "<group>"; };
+		B148E916202C9C530007D79B /* DeliveryTermsShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeliveryTermsShow.storyboard; sourceTree = "<group>"; };
+		B148E918202CA61E0007D79B /* DeliveryTermsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowRouter.swift; sourceTree = "<group>"; };
 		B15AF34E202B5139002B170F /* ToolBarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerView.swift; sourceTree = "<group>"; };
 		B15AF350202B5563002B170F /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B179409E2026076A00A9B675 /* LaundryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaundryView.swift; sourceTree = "<group>"; };
@@ -291,6 +303,18 @@
 			path = ChatShow;
 			sourceTree = "<group>";
 		};
+		B148E909202C9BE70007D79B /* DeliveryTermsShow */ = {
+			isa = PBXGroup;
+			children = (
+				B148E90F202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift */,
+				B148E90D202C9C3F0007D79B /* DeliveryTermsShowModels.swift */,
+				B148E90A202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift */,
+				B148E918202CA61E0007D79B /* DeliveryTermsShowRouter.swift */,
+				B148E90E202C9C3F0007D79B /* DeliveryTermsShowViewController.swift */,
+			);
+			path = DeliveryTermsShow;
+			sourceTree = "<group>";
+		};
 		B179409D2026074E00A9B675 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +377,7 @@
 				B1FA2D5820245ED600351BB7 /* AboutShow.storyboard */,
 				B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */,
 				B148E8FA202C410C0007D79B /* ChatShow.storyboard */,
+				B148E916202C9C530007D79B /* DeliveryTermsShow.storyboard */,
 				B1FA2CF920244DDD00351BB7 /* FlowControlShow.storyboard */,
 				B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */,
 				B1FA2D19202458F200351BB7 /* MainShow.storyboard */,
@@ -374,6 +399,7 @@
 				B1FA2D5720245ECF00351BB7 /* AboutShow */,
 				B19DA3CC202852BE00E9F7D6 /* AgreementShow */,
 				B148E8FC202C41750007D79B /* ChatShow */,
+				B148E909202C9BE70007D79B /* DeliveryTermsShow */,
 				B1FA2CEC20244D9700351BB7 /* FlowControlShow */,
 				B1FA2D8820246D1400351BB7 /* LeftSideMenuShow */,
 				B1FA2D0C202458D300351BB7 /* MainShow */,
@@ -695,6 +721,7 @@
 				B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */,
 				B1FA2D4720245E3700351BB7 /* PersonalDataShow.storyboard in Resources */,
 				B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */,
+				B148E917202C9C530007D79B /* DeliveryTermsShow.storyboard in Resources */,
 				B1DBDF082029DAC400127ECB /* OnboardShow.storyboard in Resources */,
 				B1FA2D7420245F5700351BB7 /* WriteUsShow.storyboard in Resources */,
 				B1FA2D5620245E9300351BB7 /* OrdersShow.storyboard in Resources */,
@@ -797,6 +824,7 @@
 				B1FA2D6420245EE900351BB7 /* AboutShowViewController.swift in Sources */,
 				B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */,
 				B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */,
+				B148E910202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift in Sources */,
 				B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */,
 				B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */,
 				B19DA3FB2028B0B000E9F7D6 /* Laundry+CoreDataClass.swift in Sources */,
@@ -805,6 +833,7 @@
 				B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */,
 				B1DBDF00202998E100127ECB /* Department+CoreDataClass.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,
+				B148E914202C9C3F0007D79B /* DeliveryTermsShowViewController.swift in Sources */,
 				B1FA2D6D20245F4B00351BB7 /* WriteUsShowPresenter.swift in Sources */,
 				B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */,
 				B1FA2D032024500000351BB7 /* SignInShowWorker.swift in Sources */,
@@ -816,6 +845,7 @@
 				B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */,
 				B1FA2D7E20245FC000351BB7 /* PriceListShowRouter.swift in Sources */,
 				B1FA2D4420245E2B00351BB7 /* PersonalDataShowViewController.swift in Sources */,
+				B148E915202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift in Sources */,
 				B1FA2DA7202492E300351BB7 /* ResponseAPI.swift in Sources */,
 				B1FA2D7020245F4B00351BB7 /* WriteUsShowModels.swift in Sources */,
 				B1FA2D2420245D5F00351BB7 /* OrderShowPresenter.swift in Sources */,
@@ -845,6 +875,7 @@
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
 				B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */,
 				B1DBDF01202998E100127ECB /* Department+CoreDataProperties.swift in Sources */,
+				B148E919202CA61E0007D79B /* DeliveryTermsShowRouter.swift in Sources */,
 				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
 				B148E907202C418B0007D79B /* ChatShowViewController.swift in Sources */,
 				B1FA2D5420245E8900351BB7 /* OrdersShowInteractor.swift in Sources */,
@@ -882,6 +913,7 @@
 				B1FA2D3320245DDF00351BB7 /* OrderCreatePresenter.swift in Sources */,
 				B19DA3FC2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift in Sources */,
 				B1DBDF062029DA9400127ECB /* OnboardShowViewController.swift in Sources */,
+				B148E913202C9C3F0007D79B /* DeliveryTermsShowModels.swift in Sources */,
 				B19DA3F82028993900E9F7D6 /* String+Extensions.swift in Sources */,
 				B1FA2D7220245F4B00351BB7 /* WriteUsShowInteractor.swift in Sources */,
 				B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */,

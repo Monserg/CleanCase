@@ -28,6 +28,8 @@
 "Agreement Content"                         =   "Agreement Content";
 "Loading App data..."                       =   "Application\n downloads data...";
 "Initialization..."                         =   "Initialization...";
+"Delivery Title"                            =   "Delivery Title";
+"Delivery Caption"                          =   "Delivery Caption";
 
 
 // Titles
@@ -94,8 +96,11 @@
 "Please, enter email..."                    =   "Please, \nenter email...";
 "Message sent"                              =   "Message sent";
 
+
 // TextField Placeholders
 "Select City"                               =   "Select City";
+"Select Delivery Date"                      =   "Select Delivery Date";
+"Select Delivery Time"                      =   "Select Delivery Time";
 "Code"                                      =   "Code";
 "Enter Phone Number"                        =   "Enter Phone Number";
 "Enter First Name"                          =   "Enter First Name";
@@ -105,6 +110,7 @@
 "Accept Agreement"                          =   "Accept Agreement";
 "Read Agreement"                            =   "Read Agreement";
 "Enter message"                             =   "Enter message";
+"Enter comment"                             =   "Enter comment";
 
 
 // Request Errors

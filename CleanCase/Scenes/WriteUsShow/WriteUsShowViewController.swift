@@ -149,7 +149,7 @@ extension WriteUsShowViewController: WriteUsShowDisplayLogic {
 }
 
 
-// MARK: -
+// MARK: - UITextViewDelegate
 extension WriteUsShowViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         loadTextViewPlaceholder((textView.text == "Enter message".localized()) ? nil : textView.text)

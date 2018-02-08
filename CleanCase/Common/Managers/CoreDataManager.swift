@@ -96,7 +96,10 @@ class CoreDataManager {
     
     // MARK: - CRUD
     // Create
-    
+    fileprivate func createEntity(_ name: String) -> NSManagedObject {
+        return NSEntityDescription.insertNewObject(forEntityName: name, into: managedObjectContext)
+    }
+
     
     // Read
     func readEntity(withName name: String, andPredicateParameters predicate: NSPredicate?) -> NSManagedObject? {
@@ -115,7 +118,7 @@ class CoreDataManager {
         }
     }
     
-    func entitiesRead(withName name: String, andPredicateParameters predicate: NSPredicate?) -> [NSManagedObject]? {
+    func readEntities(withName name: String, andPredicateParameters predicate: NSPredicate?) -> [NSManagedObject]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
 
         if predicate != nil {
@@ -131,6 +134,7 @@ class CoreDataManager {
         }
     }
     
+   
     // Update
     func updateEntity(withData data: EntityUpdateTuple) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: data.name)
@@ -174,9 +178,8 @@ class CoreDataManager {
 
         self.contextSave()
     }
-
-    // Create
-    fileprivate func createEntity(_ name: String) -> NSManagedObject {
-        return NSEntityDescription.insertNewObject(forEntityName: name, into: managedObjectContext)
-    }
+    
+    
+    // Delete
+    
 }

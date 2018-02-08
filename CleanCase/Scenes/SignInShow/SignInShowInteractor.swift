@@ -116,11 +116,13 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDeliveryDatesList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIDeliveryDatesResult {
                 for model in result.GetDeliveryDatesResult {
-                    let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == \(model.Type) AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
-                    
-                    CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "DeliveryDate",
-                                                                                      predicate:  predicate,
-                                                                                      model:      model))
+                    if model.Type == 2 {
+                        let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == 2 AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
+                        
+                        CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "DeliveryDate",
+                                                                                          predicate:  predicate,
+                                                                                          model:      model))
+                    }
                 }
             }
             
@@ -136,11 +138,13 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCollectionDatesList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPICollectionDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICollectionDatesResult {
                 for model in result.GetCollectionDatesResult {
-                    let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == \(model.Type) AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
-                    
-                    CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "CollectionDate",
-                                                                                      predicate:  predicate,
-                                                                                      model:      model))
+                    if model.Type == 1 {
+                        let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == 1 AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
+                        
+                        CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "CollectionDate",
+                                                                                          predicate:  predicate,
+                                                                                          model:      model))
+                    }
                 }
             }
             
