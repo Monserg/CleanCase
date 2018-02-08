@@ -24,6 +24,27 @@ class WriteUsShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
+    @IBOutlet weak var sendMessageButton: UIButton! {
+        didSet {
+            sendMessageButton.isEnabled = false
+        }
+    }
+
+    @IBOutlet weak var charactersCountLabel: UILabel! {
+        didSet {
+            charactersCountLabel.text = "0/200"
+        }
+    }
+    
+    @IBOutlet weak var textView: UITextView! {
+        didSet {
+            textView.text = "Enter message".localized()
+            textView.layer.borderColor = UIColor.black.cgColor
+            textView.layer.borderWidth = 1
+            textView.layer.cornerRadius = 4
+            textView.delegate = self
+        }
+    }
     
     
     // MARK: - Class Initialization
@@ -85,6 +106,30 @@ class WriteUsShowViewController: UIViewController {
         let requestModel = WriteUsShowModels.Something.RequestModel()
         interactor?.doSomething(withRequestModel: requestModel)
     }
+    
+    fileprivate func loadTextViewPlaceholder(_ text: String?) {
+        if (text == nil) {
+            textView.text = ""
+//            textView.font = UIFont.ubuntuLight12
+            textView.textColor = UIColor.black
+            sendMessageButton.isEnabled = false
+        } else if (text == "Enter message".localized() || text!.isEmpty) {
+            textView.text = "Enter message".localized()
+//            textView.font = UIFont.ubuntuLightItalic12
+            textView.textColor = UIColor.green
+            sendMessageButton.isEnabled = false
+        } else {
+//            commentTextView.font = UIFont.ubuntuLight12
+            textView.textColor = UIColor.blue
+            sendMessageButton.isEnabled = true
+        }
+    }
+    
+    
+    // MARK: - Gestures
+    @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
+        textView.resignFirstResponder()
+    }
 }
 
 
@@ -92,6 +137,26 @@ class WriteUsShowViewController: UIViewController {
 extension WriteUsShowViewController: WriteUsShowDisplayLogic {
     func displaySomething(fromViewModel viewModel: WriteUsShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+
+    }
+}
+
+
+// MARK: -
+extension WriteUsShowViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        loadTextViewPlaceholder((textView.text == "Enter message".localized()) ? nil : textView.text)
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        loadTextViewPlaceholder(textView.text)
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        charactersCountLabel.text = "\(textView.text!.count + text.count)/200"
+        
+        return (textView.text!.count + text.count) < 200
     }
 }

@@ -18,24 +18,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WriteUsShow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Je2-g6-MwZ">
-                                <rect key="frame" x="135.5" y="323" width="103.5" height="21"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roZ-xz-f8G">
+                                <rect key="frame" x="317" y="91" width="42" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="kqW-qu-qTv">
+                                <rect key="frame" x="16" y="120" width="343" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="osZ-Xn-dUm"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mK3-q7-RU2" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="603" width="375" height="64"/>
+                                <subviews>
+                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysn-ew-LIn" userLabel="Send message Button">
+                                        <rect key="frame" x="123" y="0.0" width="128" height="64"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="yLe-2g-J0h"/>
+                                        </constraints>
+                                        <state key="normal" title="Send message" backgroundImage="button-blue">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="disabled" backgroundImage="button-gray"/>
+                                        <state key="highlighted" backgroundImage="button-cyan"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ysn-ew-LIn" firstAttribute="centerY" secondItem="mK3-q7-RU2" secondAttribute="centerY" id="5NF-CM-4GX"/>
+                                    <constraint firstAttribute="height" constant="64" id="RXY-RW-B1z"/>
+                                    <constraint firstItem="Ysn-ew-LIn" firstAttribute="centerX" secondItem="mK3-q7-RU2" secondAttribute="centerX" id="ozE-UB-Oi7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Je2-g6-MwZ" firstAttribute="centerY" secondItem="Fn3-Yd-NqY" secondAttribute="centerY" id="tEF-pf-Waf"/>
-                            <constraint firstItem="Je2-g6-MwZ" firstAttribute="centerX" secondItem="Fn3-Yd-NqY" secondAttribute="centerX" id="usF-R6-XEp"/>
+                            <constraint firstItem="kqW-qu-qTv" firstAttribute="top" secondItem="X1k-h0-CJf" secondAttribute="top" constant="100" id="ODJ-y9-mFx"/>
+                            <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="mK3-q7-RU2" secondAttribute="trailing" id="ZoN-FY-fab"/>
+                            <constraint firstItem="kqW-qu-qTv" firstAttribute="leading" secondItem="X1k-h0-CJf" secondAttribute="leading" constant="16" id="cNw-7F-oXk"/>
+                            <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="roZ-xz-f8G" secondAttribute="trailing" constant="16" id="csg-1V-Duz"/>
+                            <constraint firstItem="mK3-q7-RU2" firstAttribute="leading" secondItem="X1k-h0-CJf" secondAttribute="leading" id="jN5-pv-WIb"/>
+                            <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="kqW-qu-qTv" secondAttribute="trailing" constant="16" id="jUJ-pf-W3k"/>
+                            <constraint firstItem="kqW-qu-qTv" firstAttribute="top" secondItem="roZ-xz-f8G" secondAttribute="bottom" constant="8" id="lg6-S7-tiD"/>
+                            <constraint firstItem="mK3-q7-RU2" firstAttribute="bottom" secondItem="X1k-h0-CJf" secondAttribute="bottom" id="o4c-DO-i6d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X1k-h0-CJf"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="v83-NH-jpb" appends="YES" id="wx8-E1-dwn"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="charactersCountLabel" destination="roZ-xz-f8G" id="4z9-sY-drA"/>
+                        <outlet property="sendMessageButton" destination="Ysn-ew-LIn" id="c9D-aJ-AH7"/>
+                        <outlet property="textView" destination="kqW-qu-qTv" id="j0Q-WB-81g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Alq-iW-fKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="v83-NH-jpb">
+                    <connections>
+                        <action selector="handlerTapGestureRecognizer:" destination="iwb-qP-K8K" id="0cH-ge-gQx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-7" y="76"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button-blue" width="128" height="128"/>
+        <image name="button-cyan" width="128" height="128"/>
+        <image name="button-gray" width="128" height="128"/>
+    </resources>
 </document>
