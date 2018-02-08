@@ -10,6 +10,7 @@ import UIKit
 
 class OrdersControlViewController: UIViewController {
     // MARK: - Properties
+    var handlerPassButtonTagCompletion: HandlerPassDataCompletion?
     
     
     // MARK: - IBOutlets
@@ -64,13 +65,10 @@ class OrdersControlViewController: UIViewController {
     
     
     // MARK: - Actions
-    @IBAction func handlerCreateOrderButtonTapped(_ sender: Any) {
-        print("Create Order button tapped...")
+    @IBAction func handlerOrderButtonTapped(_ sender: UIButton) {
+        handlerPassButtonTagCompletion!(sender.tag)
     }
     
-    @IBAction func handlerMyOrderButtonTapped(_ sender: Any) {
-        print("My Order button tapped...")
-    }
     
     // FIXME: - DELETE AFTER TEST
     @IBAction func handlerPopoverButtonTapped(_ sender: Any) {

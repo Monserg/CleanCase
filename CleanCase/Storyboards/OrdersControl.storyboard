@@ -36,7 +36,7 @@
                                                 </state>
                                                 <state key="highlighted" backgroundImage="button-cyan"/>
                                                 <connections>
-                                                    <action selector="handlerCreateOrderButtonTapped:" destination="JY4-o0-JYR" eventType="touchUpInside" id="FCE-48-2BW"/>
+                                                    <action selector="handlerOrderButtonTapped:" destination="JY4-o0-JYR" eventType="touchUpInside" id="Qay-Nj-qom"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -49,7 +49,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5x-ke-mr7" userLabel="My Order View">
                                         <rect key="frame" x="0.0" y="85" width="200" height="85"/>
                                         <subviews>
-                                            <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRB-3b-Efi" userLabel="My Order Button">
+                                            <button clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRB-3b-Efi" userLabel="My Order Button">
                                                 <rect key="frame" x="25" y="-17.5" width="150" height="120"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -61,7 +61,7 @@
                                                 </state>
                                                 <state key="highlighted" backgroundImage="button-cyan"/>
                                                 <connections>
-                                                    <action selector="handlerMyOrderButtonTapped:" destination="JY4-o0-JYR" eventType="touchUpInside" id="sDk-B6-bKs"/>
+                                                    <action selector="handlerOrderButtonTapped:" destination="JY4-o0-JYR" eventType="touchUpInside" id="Z2J-rJ-SdO"/>
                                                 </connections>
                                             </button>
                                         </subviews>

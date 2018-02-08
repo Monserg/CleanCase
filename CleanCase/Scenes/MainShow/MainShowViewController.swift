@@ -22,6 +22,22 @@ class MainShowViewController: UIViewController {
         didSet {
             self.removeInactiveViewController(oldValue)
             self.updateActiveViewController()
+            
+            if let ordersControlVC = activeViewController as? OrdersControlViewController {
+                ordersControlVC.handlerPassButtonTagCompletion = { [unowned self] buttonTag in
+                    SwiftSpinner.show("Loading App data...".localized(), animated: true)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
+                        if (buttonTag as! Int) == 0 {
+                            self.activeViewController = self.nextViewController(fromStoryboardName: "OrderCreate")
+                        }
+                            
+                        else {
+                            self.activeViewController = self.nextViewController(fromStoryboardName: "OrderShow")
+                        }
+                    }
+                }
+            }
         }
     }
     
