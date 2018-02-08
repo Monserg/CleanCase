@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol WriteUsShowPresentationLogic {
-    func presentSomething(fromResponseModel responseModel: WriteUsShowModels.Something.ResponseModel)
+    func presentSendMessage(fromResponseModel responseModel: WriteUsShowModels.Data.ResponseModel)
 }
 
 class WriteUsShowPresenter: WriteUsShowPresentationLogic {
@@ -23,8 +23,8 @@ class WriteUsShowPresenter: WriteUsShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentSomething(fromResponseModel responseModel: WriteUsShowModels.Something.ResponseModel) {
-        let viewModel = WriteUsShowModels.Something.ViewModel()
-        viewController?.displaySomething(fromViewModel: viewModel)
+    func presentSendMessage(fromResponseModel responseModel: WriteUsShowModels.Data.ResponseModel) {
+        let viewModel = WriteUsShowModels.Data.ViewModel(error: responseModel.error)
+        viewController?.displaySendMessage(fromViewModel: viewModel)
     }
 }

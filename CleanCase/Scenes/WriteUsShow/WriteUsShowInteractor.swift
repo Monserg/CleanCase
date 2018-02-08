@@ -11,31 +11,30 @@
 //
 
 import UIKit
+import Alamofire
 
 // MARK: - Business Logic protocols
 protocol WriteUsShowBusinessLogic {
-    func doSomething(withRequestModel requestModel: WriteUsShowModels.Something.RequestModel)
+    func sendMessage(withRequestModel requestModel: WriteUsShowModels.Data.RequestModel)
 }
 
 protocol WriteUsShowDataStore {
-//     var name: String { get set }
 }
 
-class WriteUsShowInteractor: WriteUsShowBusinessLogic, WriteUsShowDataStore {
+class WriteUsShowInteractor: ShareInteractor, WriteUsShowBusinessLogic, WriteUsShowDataStore {
     // MARK: - Properties
     var presenter: WriteUsShowPresentationLogic?
-    var worker: WriteUsShowWorker?
-    
-    // ... protocol implementation
-//    var name: String = ""
     
     
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: WriteUsShowModels.Something.RequestModel) {
-        worker = WriteUsShowWorker()
-        worker?.doSomeWork()
+    func sendMessage(withRequestModel requestModel: WriteUsShowModels.Data.RequestModel) {
+        // Prepare request body parameters
+        let bodyParams: [String: Any] = [ "message": [ "ClientId": 1537, "LaundryId": Laundry.codeID, "Data": "XXXX" ] ]
         
-        let responseModel = WriteUsShowModels.Something.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .sendMessage(bodyParams, true), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] response in
+            let responseModel = WriteUsShowModels.Data.ResponseModel(error: response.error)
+            self.presenter?.presentSendMessage(fromResponseModel: responseModel)
+        })
     }
 }

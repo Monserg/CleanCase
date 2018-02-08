@@ -92,7 +92,7 @@
 "Please, enter last name..."                =   "Please, \nenter last name...";
 "Please, enter address..."                  =   "Please, \nenter address...";
 "Please, enter email..."                    =   "Please, \nenter email...";
-
+"Message sent"                              =   "Message sent";
 
 // TextField Placeholders
 "Select City"                               =   "Select City";

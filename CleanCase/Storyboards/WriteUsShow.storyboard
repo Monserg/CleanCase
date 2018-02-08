@@ -49,6 +49,9 @@
                                         </state>
                                         <state key="disabled" backgroundImage="button-gray"/>
                                         <state key="highlighted" backgroundImage="button-cyan"/>
+                                        <connections>
+                                            <action selector="handlerSendMessageButtonTapped:" destination="iwb-qP-K8K" eventType="touchUpInside" id="Nz3-mX-feh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

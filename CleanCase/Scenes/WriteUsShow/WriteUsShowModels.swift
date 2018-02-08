@@ -15,14 +15,17 @@ import UIKit
 // MARK: - Data models
 enum WriteUsShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum Data {
         struct RequestModel {
+            let message: String
         }
         
         struct ResponseModel {
+            let error: Error?
         }
         
         struct ViewModel {
+            let error: Error?
         }
     }
 }

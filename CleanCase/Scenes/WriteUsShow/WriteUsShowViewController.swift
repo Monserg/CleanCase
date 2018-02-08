@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol WriteUsShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: WriteUsShowModels.Something.ViewModel)
+    func displaySendMessage(fromViewModel viewModel: WriteUsShowModels.Data.ViewModel)
 }
 
 class WriteUsShowViewController: UIViewController {
@@ -64,7 +64,7 @@ class WriteUsShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   WriteUsShowInteractor()
+        let interactor              =   WriteUsShowInteractor(AppDependency())
         let presenter               =   WriteUsShowPresenter()
         let router                  =   WriteUsShowRouter()
         
@@ -96,17 +96,10 @@ class WriteUsShowViewController: UIViewController {
         self.addBackBarButtonItem()
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
-
-        viewSettingsDidLoad()
     }
     
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
-        let requestModel = WriteUsShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
-    }
-    
     fileprivate func loadTextViewPlaceholder(_ text: String?) {
         if (text == nil) {
             textView.text = ""
@@ -130,14 +123,28 @@ class WriteUsShowViewController: UIViewController {
     @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         textView.resignFirstResponder()
     }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerSendMessageButtonTapped(_ sender: UIButton) {
+        let requestModel = WriteUsShowModels.Data.RequestModel(message: textView.text)
+        interactor?.sendMessage(withRequestModel: requestModel)
+    }
 }
 
 
 // MARK: - WriteUsShowDisplayLogic
 extension WriteUsShowViewController: WriteUsShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: WriteUsShowModels.Something.ViewModel) {
+    func displaySendMessage(fromViewModel viewModel: WriteUsShowModels.Data.ViewModel) {
         // NOTE: Display the result from the Presenter
-
+        guard viewModel.error == nil else {
+            self.showAlertView(withTitle: "Errord", andMessage: viewModel.error!.localizedDescription, needCancel: false, completion: { _ in })
+            return
+        }
+        
+        self.showAlertView(withTitle: "Info", andMessage: "Message sent", needCancel: false, completion: { [unowned self] success in
+            self.navigationController?.popViewController(animated: true)
+        })
     }
 }
 

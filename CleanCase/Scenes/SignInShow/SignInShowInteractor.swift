@@ -76,7 +76,6 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCitiesList(nil, false), andResponseType: ResponseAPICities.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICities {
-                
                 for model in result.GetCitiesResult {
                     self.appDependency.coreDataManager.updateEntity(withData: EntityUpdateTuple(name:       "City",
                                                                                                 predicate:  NSPredicate.init(format: "iD = \(model.ID)"),

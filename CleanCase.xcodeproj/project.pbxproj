@@ -89,7 +89,6 @@
 		B1FA2D5920245ED600351BB7 /* AboutShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D5820245ED600351BB7 /* AboutShow.storyboard */; };
 		B1FA2D6420245EE900351BB7 /* AboutShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D5E20245EE900351BB7 /* AboutShowViewController.swift */; };
 		B1FA2D6D20245F4B00351BB7 /* WriteUsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6720245F4B00351BB7 /* WriteUsShowPresenter.swift */; };
-		B1FA2D6E20245F4B00351BB7 /* WriteUsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6820245F4B00351BB7 /* WriteUsShowWorker.swift */; };
 		B1FA2D6F20245F4B00351BB7 /* WriteUsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6920245F4B00351BB7 /* WriteUsShowRouter.swift */; };
 		B1FA2D7020245F4B00351BB7 /* WriteUsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6A20245F4B00351BB7 /* WriteUsShowModels.swift */; };
 		B1FA2D7120245F4B00351BB7 /* WriteUsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6B20245F4B00351BB7 /* WriteUsShowViewController.swift */; };
@@ -214,7 +213,6 @@
 		B1FA2D5820245ED600351BB7 /* AboutShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutShow.storyboard; sourceTree = "<group>"; };
 		B1FA2D5E20245EE900351BB7 /* AboutShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2D6720245F4B00351BB7 /* WriteUsShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2D6820245F4B00351BB7 /* WriteUsShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowWorker.swift; sourceTree = "<group>"; };
 		B1FA2D6920245F4B00351BB7 /* WriteUsShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowRouter.swift; sourceTree = "<group>"; };
 		B1FA2D6A20245F4B00351BB7 /* WriteUsShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowModels.swift; sourceTree = "<group>"; };
 		B1FA2D6B20245F4B00351BB7 /* WriteUsShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowViewController.swift; sourceTree = "<group>"; };
@@ -550,7 +548,6 @@
 				B1FA2D6720245F4B00351BB7 /* WriteUsShowPresenter.swift */,
 				B1FA2D6920245F4B00351BB7 /* WriteUsShowRouter.swift */,
 				B1FA2D6B20245F4B00351BB7 /* WriteUsShowViewController.swift */,
-				B1FA2D6820245F4B00351BB7 /* WriteUsShowWorker.swift */,
 			);
 			path = WriteUsShow;
 			sourceTree = "<group>";
@@ -823,7 +820,6 @@
 				B1FA2D7020245F4B00351BB7 /* WriteUsShowModels.swift in Sources */,
 				B1FA2D2420245D5F00351BB7 /* OrderShowPresenter.swift in Sources */,
 				B1FA2D4020245E2B00351BB7 /* PersonalDataShowPresenter.swift in Sources */,
-				B1FA2D6E20245F4B00351BB7 /* WriteUsShowWorker.swift in Sources */,
 				B1FA2D2820245D5F00351BB7 /* OrderShowViewController.swift in Sources */,
 				B1FA2D3720245DDF00351BB7 /* OrderCreateViewController.swift in Sources */,
 				B1FA2DB1202498C500351BB7 /* City+CoreDataProperties.swift in Sources */,

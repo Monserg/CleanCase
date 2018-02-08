@@ -10,19 +10,21 @@ import UIKit
 import Alamofire
 
 typealias ResponseAPI = (model: Decodable?, error: Error?)
-typealias RequestParametersType = (method: HTTPMethod, path: String, body: [String: Any]?, parameters: [String: String]?)
+typealias RequestParametersType = (method: HTTPMethod, path: String, body: [String: Any]?, parameters: [String: Any]?)
 
 enum RequestType {
     // GET
-    case getCitiesList([String: String]?, Bool)
-    case getLaundryInfo([String: String]?, Bool)
-    case getDepartmentsList([String: String]?, Bool)
-    case getDeliveryDatesList([String: String]?, Bool)
-    case getCollectionDatesList([String: String]?, Bool)
-    case getCurrentAppWorkingVersion([String: String]?, Bool)
+    case getCitiesList([String: Any]?, Bool)
+    case getLaundryInfo([String: Any]?, Bool)
+    case getDepartmentsList([String: Any]?, Bool)
+    case getDeliveryDatesList([String: Any]?, Bool)
+    case getCollectionDatesList([String: Any]?, Bool)
+    case getCurrentAppWorkingVersion([String: Any]?, Bool)
 
-    // POST
     
+    // POST
+    case sendMessage([String: Any]?, Bool)
+
     
     // MARK: - Custom functions
     func introduced() -> RequestParametersType {
@@ -59,6 +61,12 @@ enum RequestType {
                                                                                         body:           (isBodyParams ? params : nil),
                                                                                         parameters:     (isBodyParams ? nil : params))
             
+        
+        // POST
+        case .sendMessage(let params, let isBodyParams):        return (method:         .post,
+                                                                        path:           "/AddChatMessage",
+                                                                        body:           (isBodyParams ? params : nil),
+                                                                        parameters:     (isBodyParams ? nil : params))
 
         }
     }
@@ -82,15 +90,15 @@ final class RestAPIManager {
         components.path!.append(parameters.path)
 
         // Parameters
-        if let params = parameters.parameters, parameters.body == nil {
-            components.path!.append(params.values.first!)
-        }
-        
-        // Body
-        else {
-            // TODO: - ADD REQUEST BODY PARAMETERS
-        
-        }
+//        if let params = parameters.parameters, parameters.body == nil {
+//            components.path!.append(String(format: "%@", params.values.first! as! CVarArg))
+//        }
+//        
+//        // Body
+//        else {
+//            // TODO: - ADD REQUEST BODY PARAMETERS
+//        
+//        }
         
         return components
     }
@@ -100,17 +108,29 @@ final class RestAPIManager {
         let requestParameters   =   requestType.introduced()
         let components          =   createURLComponents(withParameters: requestType.introduced())
         
-        Alamofire.request(components.url!,
-                          method:       requestParameters.method,
-                          parameters:   nil,
-                          encoding:     JSONEncoding.default,
-                          headers:      headers).responseJSON { response in
-                            do {
-                                let responseAPI = try JSONDecoder().decode(responseType, from: response.data!)
-                                completionHandler((model: responseAPI, error: response.error))
-                            } catch {
-                                completionHandler((model: nil, error: error))
-                            }
+        if let body = requestParameters.body {
+            Alamofire.request(components.url!,
+                              method:       requestParameters.method,
+                              parameters:   body,
+                              encoding:     JSONEncoding.default,
+                              headers:      headers).response(completionHandler: { response in
+                                completionHandler((model: nil, error: response.error))
+                              })
+        }
+        
+        else {
+            Alamofire.request(components.url!,
+                              method:       requestParameters.method,
+                              parameters:   nil,
+                              encoding:     JSONEncoding.default,
+                              headers:      headers).responseJSON { response in
+                                do {
+                                    let responseAPI = try JSONDecoder().decode(responseType, from: response.data!)
+                                    completionHandler((model: responseAPI, error: response.error))
+                                } catch {
+                                    completionHandler((model: nil, error: error))
+                                }
+            }
         }
     }
 }
