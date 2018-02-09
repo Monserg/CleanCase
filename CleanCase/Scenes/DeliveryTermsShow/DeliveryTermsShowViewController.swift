@@ -15,6 +15,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol DeliveryTermsShowDisplayLogic: class {
     func displayData(fromViewModel viewModel: DeliveryTermsShowModels.Dates.ViewModel)
+    func displayConfirmDeliveryTerms(fromViewModel viewModel: DeliveryTermsShowModels.Item.ViewModel)
 }
 
 class DeliveryTermsShowViewController: UIViewController {
@@ -138,11 +139,11 @@ class DeliveryTermsShowViewController: UIViewController {
         }
             
         else {
-//            self.view.isUserInteractionEnabled = false
+            self.view.isUserInteractionEnabled = false
             
             DispatchQueue.main.async(execute: {
-//                let requestModel = DeliveryTermsShowModels.Dates.RequestModel()
-//                self.interactor?.fetchDates(withRequestModel: requestModel)
+                let requestModel = DeliveryTermsShowModels.Item.RequestModel(comment: self.textView.text)
+                self.interactor?.confirmDeliveryTerms(withRequestModel: requestModel)
             })
         }
     }
@@ -190,6 +191,19 @@ extension DeliveryTermsShowViewController: DeliveryTermsShowDisplayLogic {
         // NOTE: Display the result from the Presenter
         
     }
+    
+    func displayConfirmDeliveryTerms(fromViewModel viewModel: DeliveryTermsShowModels.Item.ViewModel) {
+        // NOTE: Display the result from the Presenter
+        guard viewModel.error == nil else {
+            self.showAlertView(withTitle: "Error", andMessage: viewModel.error!.localizedDescription, needCancel: false, completion: { _ in })
+            self.view.isUserInteractionEnabled = false
+            return
+        }
+        
+        self.showAlertView(withTitle: "Info", andMessage: "Order confirmed", needCancel: false, completion: { [unowned self] success in
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
 }
 
 
@@ -197,14 +211,14 @@ extension DeliveryTermsShowViewController: DeliveryTermsShowDisplayLogic {
 extension DeliveryTermsShowViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField.tag == 0 {
-            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.dates, andSelectedItem: router!.dataStore!.selectedDateRow, { [unowned self] date in
-                if let selectedDate = date as? PickerViewSupport {
-                    textField.text = selectedDate.title
-                    self.interactor?.saveSelectedDateRow(Int(selectedDate.id)!)
+            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.dates, andSelectedItem: router!.dataStore!.selectedDateRow, { [unowned self] row in
+                if let selectedRow = row as? Int {
+                    self.interactor?.saveSelectedDate(byRow: selectedRow)
+                    textField.text = self.router!.dataStore!.dates[selectedRow].title
 
                     self.saveButton.isEnabled = false
                     self.textFieldsCollection.first(where: { $0.tag == 1 }).map({ $0.text = nil })
-                    self.interactor?.saveSelectedTimeRow(0)
+                    self.interactor?.saveSelectedTime(byRow: 0)
                 }
                 
                 textField.resignFirstResponder()
@@ -212,10 +226,10 @@ extension DeliveryTermsShowViewController: UITextFieldDelegate {
         }
             
         else if textField.tag == 1 {
-            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.times, andSelectedItem: router!.dataStore!.selectedTimeRow, { [unowned self] time in
-                if let selectedTime = time as? PickerViewSupport {
-                    textField.text = selectedTime.title
-                    self.interactor?.saveSelectedTimeRow(Int(selectedTime.id)!)
+            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.times, andSelectedItem: router!.dataStore!.selectedTimeRow, { [unowned self] row in
+                if let selectedRow = row as? Int {
+                    self.interactor?.saveSelectedTime(byRow: selectedRow)
+                    textField.text = self.router!.dataStore!.times[selectedRow].title
 
                     self.saveButton.isEnabled = true
                 }

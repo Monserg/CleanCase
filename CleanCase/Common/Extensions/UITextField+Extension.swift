@@ -23,7 +23,7 @@ extension UITextField {
         
         // Create Done button
         let doneButton = UIBarButtonItem(title: "Done".localized(), style: .done) { sender in
-            completion(dataSource[pickerView.selectedRow(inComponent: 0)])
+            completion(pickerView.selectedRow(inComponent: 0))
         }
                     
 //        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.setupBy("Calibri", withStyle: .Bold, andSize: 20.0),

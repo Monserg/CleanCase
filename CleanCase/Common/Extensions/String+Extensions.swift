@@ -47,4 +47,12 @@ extension String {
         
         return dateFormatter.string(from: nextDate)
     }
+    
+    static func createDateString(fromComponents components: DateComponents) -> String {
+        let dateFormatter               =   DateFormatter()
+        dateFormatter.locale            =   NSLocale.current
+        dateFormatter.dateFormat        =   "dd/MM/yyyy"
+
+        return dateFormatter.string(from: Calendar.current.date(from: components)!)
+    }
 }

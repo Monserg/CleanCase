@@ -14,9 +14,10 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol DeliveryTermsShowBusinessLogic {
-    func saveSelectedDateRow(_ value: Int)
-    func saveSelectedTimeRow(_ value: Int)
+    func saveSelectedDate(byRow row: Int)
+    func saveSelectedTime(byRow row: Int)
     func fetchDates(withRequestModel requestModel: DeliveryTermsShowModels.Dates.RequestModel)
+    func confirmDeliveryTerms(withRequestModel requestModel: DeliveryTermsShowModels.Item.RequestModel)
 }
 
 protocol DeliveryTermsShowDataStore {
@@ -49,62 +50,94 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
 
     
     // MARK: - Business logic implementation
-    func saveSelectedDateRow(_ value: Int) {
-        self.selectedDateRow = value
-        self.times = [PickerViewSupport]()
-
-        // Fetch Delivery Times
-        let selectedWeekDay = (dates[value] as! DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView).weekDay
-        
-        let timesFiltered = self.dateEntitiesFiltered.filter({
-            $0.weekDay == selectedWeekDay
-        })
-        
-        for (index, date) in timesFiltered.enumerated() {
-            times.append(DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView(id:           "\(index)",
-                                                                                      title:        "\(date.fromDate.getTime())-\(date.toDate.getTime())",
-                                                                                      weekDay:      date.weekDay,
-                                                                                      fromTime:     date.fromDate,
-                                                                                      toTime:       date.toDate))
-        }
+    func saveSelectedDate(byRow row: Int) {
+        self.selectedDateRow = row
+        self.times = (dates[row] as! DeliveryTermsShowModels.Dates.RequestModel.DateForPickerView).times
     }
 
-    func saveSelectedTimeRow(_ value: Int) {
-        self.selectedTimeRow = value
+    func saveSelectedTime(byRow row: Int) {
+        self.selectedTimeRow = row
     }
 
     func fetchDates(withRequestModel requestModel: DeliveryTermsShowModels.Dates.RequestModel) {
         // CoreData: Fetch data
-        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: Date())
-        if let dateEntities = appDependency.coreDataManager.readEntities(withName: "DeliveryDate", andPredicateParameters: nil), dateEntities.count > 0 {
-            
-            self.dateEntitiesFiltered = (dateEntities as! [DeliveryDate]).filter({
-                $0.weekDay > dateComponents.weekday! ||
-                ($0.weekDay == dateComponents.weekday! && $0.fromDate.convertToFloat() >= (Float(dateComponents.hour! + 1) + Float(dateComponents.minute!) / 100))
-            })
-            
-//            dateEntitiesFiltered.sort(by: { date1, date2 in
-//                return date1.weekDay < date2.weekDay && date1.fromDate < date2.fromDate
-//            })
-            
-            print(self.dateEntitiesFiltered)
-            let uniqueEntities = self.dateEntitiesFiltered.unique(map: { $0.weekDay })
-            print(uniqueEntities)
+        for i in 1...7 {
+            let date = (i == 1) ? Date() : Date().addingTimeInterval(TimeInterval(i * 24 * 60 * 60))
+            let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: date)
 
-            for (index, entity) in uniqueEntities.enumerated() {
-                let weekDate = (entity.weekDay == dateComponents.weekday!) ?
-                    ("\(dateComponents.day!)".addZero() + "/" + "\(dateComponents.month!)".addZero() + "/\(dateComponents.year!)") :
-                    (String.getNextDate(withDiff: Int(entity.weekDay) - dateComponents.weekday!))
+            if dateComponents.weekday! != 7 {
+                if let dateEntities = appDependency.coreDataManager.readEntities(withName: "DeliveryDate",
+                                                                                 andPredicateParameters: NSPredicate.init(format: "weekDay == \(dateComponents.weekday!)")) as? [DeliveryDate] {
+                    // Times
+                    let dateEntity = dateEntities.first!
+                    var dateTimes = [PickerViewSupport]()
+                    let weekDate = String.createDateString(fromComponents: dateComponents)
+
+                    // Check times for current date
+                    for (index, dateEntity) in dateEntities.enumerated() {
+                        if (i == 1 && dateEntity.fromDate.convertToFloat() >= (Float(dateComponents.hour! + 1) + Float(dateComponents.minute!) / 100)) || i != 1 {
+                            dateTimes.append(DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView(id:          Int16(index),
+                                                                                                          title:       "\(dateEntity.fromDate.getTime())-\(dateEntity.toDate.getTime())",
+                                                                                                          bodyDate:    weekDate,
+                                                                                                          bodyTime:    dateEntity.fromDate.getTime()))
+                        }
+                    }
                     
-                dates.append(DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView(id:           "\(index)",
-                                                                                          title:        "\(entity.name!) " + weekDate,
-                                                                                          weekDay:      entity.weekDay,
-                                                                                          fromTime:     entity.fromDate,
-                                                                                          toTime:       entity.toDate))
+                    if dateTimes.count > 0 {
+                        self.dates.append(DeliveryTermsShowModels.Dates.RequestModel.DateForPickerView(id:      dateEntity.weekDay,
+                                                                                                       title:   "\(dateEntity.name!) " + weekDate,
+                                                                                                       times:   dateTimes))
+                    }
+                }
             }
         }
-                
+//
+//        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: Date())
+//        if let dateEntities = appDependency.coreDataManager.readEntities(withName: "DeliveryDate", andPredicateParameters: nil), dateEntities.count > 0 {
+//
+//            self.dateEntitiesFiltered = (dateEntities as! [DeliveryDate]).filter({
+//                $0.weekDay > dateComponents.weekday! ||
+//                ($0.weekDay == dateComponents.weekday! && $0.fromDate.convertToFloat() >= (Float(dateComponents.hour! + 1) + Float(dateComponents.minute!) / 100))
+//            })
+//
+////            dateEntitiesFiltered.sort(by: { date1, date2 in
+////                return date1.weekDay < date2.weekDay && date1.fromDate < date2.fromDate
+////            })
+//
+//            print(self.dateEntitiesFiltered)
+//            let uniqueEntities = self.dateEntitiesFiltered.unique(map: { $0.weekDay })
+//            print(uniqueEntities)
+//
+//            for (index, entity) in uniqueEntities.enumerated() {
+//                let weekDate = (entity.weekDay == dateComponents.weekday!) ?
+//                    ("\(dateComponents.day!)".addZero() + "/" + "\(dateComponents.month!)".addZero() + "/\(dateComponents.year!)") :
+//                    (String.getNextDate(withDiff: Int(entity.weekDay) - dateComponents.weekday!))
+//
+//                dates.append(DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView(id:           "\(index)",
+//                                                                                          title:        "\(entity.name!) " + weekDate,
+//                                                                                          weekDay:      entity.weekDay,
+//                                                                                          fromTime:     entity.fromDate,
+//                                                                                          toTime:       entity.toDate,
+//                                                                                          bodyDate:     weekDate,
+//                                                                                          bodyTimeFrom: entity.fromDate.getTime()))
+//            }
+//        }
+        
         let responseModel = DeliveryTermsShowModels.Dates.ResponseModel()
         presenter?.presentData(fromResponseModel: responseModel)
+    }
+    
+    func confirmDeliveryTerms(withRequestModel requestModel: DeliveryTermsShowModels.Item.RequestModel) {
+        // Prepare request body parameters
+        let selectedDate    =   (times[selectedTimeRow] as! DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView).bodyDate
+        let selectedTime    =   (times[selectedTimeRow] as! DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView).bodyTime
+
+        let bodyParams: [String: Any] = [ "orderId": "326", "delivery": "\(selectedDate) \(selectedTime)", "remarks": requestModel.comment ?? "" ]
+        
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .setDelivery(bodyParams, true), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] response in
+            let responseModel = DeliveryTermsShowModels.Item.ResponseModel(error: response.error)
+            self.presenter?.presentConfirmDeliveryTerms(fromResponseModel: responseModel)
+        })
     }
 }

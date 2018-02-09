@@ -95,6 +95,7 @@
 "Please, enter address..."                  =   "Please, \nenter address...";
 "Please, enter email..."                    =   "Please, \nenter email...";
 "Message sent"                              =   "Message sent";
+"Order confirmed"                           =   "Order confirmed";
 
 
 // TextField Placeholders

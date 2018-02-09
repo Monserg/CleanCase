@@ -15,6 +15,7 @@ import UIKit
 // MARK: - Presentation Logic protocols
 protocol DeliveryTermsShowPresentationLogic {
     func presentData(fromResponseModel responseModel: DeliveryTermsShowModels.Dates.ResponseModel)
+    func presentConfirmDeliveryTerms(fromResponseModel responseModel: DeliveryTermsShowModels.Item.ResponseModel)
 }
 
 class DeliveryTermsShowPresenter: DeliveryTermsShowPresentationLogic {
@@ -26,5 +27,10 @@ class DeliveryTermsShowPresenter: DeliveryTermsShowPresentationLogic {
     func presentData(fromResponseModel responseModel: DeliveryTermsShowModels.Dates.ResponseModel) {
         let viewModel = DeliveryTermsShowModels.Dates.ViewModel()
         viewController?.displayData(fromViewModel: viewModel)
+    }
+    
+    func presentConfirmDeliveryTerms(fromResponseModel responseModel: DeliveryTermsShowModels.Item.ResponseModel) {
+        let viewModel = DeliveryTermsShowModels.Item.ViewModel(error: responseModel.error)
+        viewController?.displayConfirmDeliveryTerms(fromViewModel: viewModel)
     }
 }

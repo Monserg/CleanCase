@@ -24,6 +24,7 @@ enum RequestType {
     
     // POST
     case sendMessage([String: Any]?, Bool)
+    case setDelivery([String: Any]?, Bool)
 
     
     // MARK: - Custom functions
@@ -67,6 +68,12 @@ enum RequestType {
                                                                         path:           "/AddChatMessage",
                                                                         body:           (isBodyParams ? params : nil),
                                                                         parameters:     (isBodyParams ? nil : params))
+
+        case .setDelivery(let params, let isBodyParams):        return (method:         .post,
+                                                                        path:           "/SetDelivery",
+                                                                        body:           (isBodyParams ? params : nil),
+                                                                        parameters:     (isBodyParams ? nil : params))
+            
 
         }
     }

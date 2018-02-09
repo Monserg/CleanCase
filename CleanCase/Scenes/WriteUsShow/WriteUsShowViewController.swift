@@ -138,7 +138,7 @@ extension WriteUsShowViewController: WriteUsShowDisplayLogic {
     func displaySendMessage(fromViewModel viewModel: WriteUsShowModels.Data.ViewModel) {
         // NOTE: Display the result from the Presenter
         guard viewModel.error == nil else {
-            self.showAlertView(withTitle: "Errord", andMessage: viewModel.error!.localizedDescription, needCancel: false, completion: { _ in })
+            self.showAlertView(withTitle: "Error", andMessage: viewModel.error!.localizedDescription, needCancel: false, completion: { _ in })
             return
         }
         

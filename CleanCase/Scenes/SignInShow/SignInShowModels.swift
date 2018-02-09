@@ -22,7 +22,7 @@ enum SignInShowModels {
         struct ResponseModel {
             struct ItemForPickerView: PickerViewSupport {
                 // PickerViewSupport protocol implementation
-                var id: String
+                var id: Int16
                 var title: String
             }
         }

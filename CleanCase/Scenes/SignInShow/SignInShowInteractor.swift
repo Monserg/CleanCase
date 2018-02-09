@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol SignInShowBusinessLogic {
-    func saveSelectedCityID(_ value: String)
+    func saveSelectedCity(byRow row: Int)
     func saveSelectedCodeTitle(_ value: String)
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel)
     func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel)
@@ -58,8 +58,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     
     
     // MARK: - Business logic implementation
-    func saveSelectedCityID(_ value: String) {
-        self.selectedCityID = value
+    func saveSelectedCity(byRow row: Int) {
+        self.selectedCityID = "\(cities[row].id)"
     }
     
     func saveSelectedCodeTitle(_ value: String) {
@@ -70,7 +70,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         worker = SignInShowWorker()
         
         for i in 0...4 {
-            codes.append(SignInShowModels.City.ResponseModel.ItemForPickerView(id: "\(i)", title: operatorCode[i]))
+            codes.append(SignInShowModels.City.ResponseModel.ItemForPickerView(id: Int16(i), title: operatorCode[i]))
         }
         
         // API: Fetch request data
@@ -81,7 +81,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                                                                                                 predicate:  NSPredicate.init(format: "iD = \(model.ID)"),
                                                                                                 model:      model))
                     
-                    self.cities.append(SignInShowModels.City.ResponseModel.ItemForPickerView(id: "\(model.ID)", title: model.CityName))
+                    self.cities.append(SignInShowModels.City.ResponseModel.ItemForPickerView(id: model.ID, title: model.CityName))
                 }
             }
             

@@ -18,7 +18,7 @@ protocol InitCellParameters {
 }
 
 protocol PickerViewSupport {
-    var id: String { get set }
+    var id: Int16 { get set }
     var title: String { get set }
 }
 

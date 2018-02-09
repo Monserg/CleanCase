@@ -17,14 +17,21 @@ enum DeliveryTermsShowModels {
     // MARK: - Use cases
     enum Dates {
         struct RequestModel {
-            struct ItemForPickerView: PickerViewSupport {
+            struct DateForPickerView: PickerViewSupport {
                 // PickerViewSupport protocol implementation
-                var id: String
+                var id: Int16
                 var title: String
                 
-                var weekDay: Int16
-                var fromTime: String
-                var toTime: String
+                var times: [PickerViewSupport]
+            }
+
+            struct TimeForPickerView: PickerViewSupport {
+                // PickerViewSupport protocol implementation
+                var id: Int16
+                var title: String
+                
+                var bodyDate: String
+                var bodyTime: String
             }
         }
         
@@ -32,6 +39,20 @@ enum DeliveryTermsShowModels {
         }
         
         struct ViewModel {
+        }
+    }
+    
+    enum Item {
+        struct RequestModel {
+            let comment: String?
+        }
+        
+        struct ResponseModel {
+            let error: Error?
+        }
+        
+        struct ViewModel {
+            let error: Error?
         }
     }
 }
