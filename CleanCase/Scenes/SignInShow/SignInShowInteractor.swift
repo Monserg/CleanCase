@@ -99,9 +99,9 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                 let model = result.GetLaundryByCityResult
                 self.laundryID = "\(model.ID)"
                 
-                CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Laundry",
-                                                                                  predicate:  NSPredicate.init(format: "iD == %@", self.laundryID),
-                                                                                  model:      model))
+                self.appDependency.coreDataManager.updateEntity(withData: EntityUpdateTuple(name:       "Laundry",
+                                                                                            predicate:  NSPredicate.init(format: "iD == %@", self.laundryID),
+                                                                                            model:      model))
             }
             
             let responseModel = SignInShowModels.Laundry.ResponseModel()
@@ -119,9 +119,9 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                     if model.Type == 2 {
                         let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == 2 AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
                         
-                        CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "DeliveryDate",
-                                                                                          predicate:  predicate,
-                                                                                          model:      model))
+                        self.appDependency.coreDataManager.updateEntity(withData: EntityUpdateTuple(name:       "DeliveryDate",
+                                                                                                    predicate:  predicate,
+                                                                                                    model:      model))
                     }
                 }
             }
@@ -141,9 +141,9 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                     if model.Type == 1 {
                         let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == 1 AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
                         
-                        CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "CollectionDate",
-                                                                                          predicate:  predicate,
-                                                                                          model:      model))
+                        self.appDependency.coreDataManager.updateEntity(withData: EntityUpdateTuple(name:       "CollectionDate",
+                                                                                                    predicate:  predicate,
+                                                                                                    model:      model))
                     }
                 }
             }
@@ -162,9 +162,9 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                 for model in result.GetDepartmentsResult {
                     let predicate = NSPredicate.init(format: "departmentId == \(model.DepartmentId)")
                     
-                    CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Department",
-                                                                                      predicate:  predicate,
-                                                                                      model:      model))
+                    self.appDependency.coreDataManager.updateEntity(withData: EntityUpdateTuple(name:       "Department",
+                                                                                                predicate:  predicate,
+                                                                                                model:      model))
                 }
             }
             

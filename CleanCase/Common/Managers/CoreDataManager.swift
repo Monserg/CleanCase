@@ -110,7 +110,7 @@ class CoreDataManager {
         }
 
         do {
-            return try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest).first as? NSManagedObject
+            return try self.managedObjectContext.fetch(fetchRequest).first as? NSManagedObject
         } catch {
             print(error)
             
@@ -126,7 +126,7 @@ class CoreDataManager {
         }
 
         do {
-            return try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
+            return try self.managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
         } catch {
             print(error)
             
