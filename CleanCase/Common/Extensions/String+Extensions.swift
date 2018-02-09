@@ -38,4 +38,13 @@ extension String {
     func getTime() -> String {
         return self.components(separatedBy: " ").last!
     }
+    
+    static func getNextDate(withDiff diff: Int) -> String {
+        let nextDate                    =   Date().addingTimeInterval(TimeInterval(diff * 24 * 60 * 60))
+        let dateFormatter               =   DateFormatter()
+        dateFormatter.locale            =   NSLocale.current
+        dateFormatter.dateFormat        =   "dd/MM/yyyy"
+        
+        return dateFormatter.string(from: nextDate)
+    }
 }

@@ -20,6 +20,7 @@ protocol DeliveryTermsShowBusinessLogic {
 }
 
 protocol DeliveryTermsShowDataStore {
+    var dateEntitiesFiltered: [DeliveryDate]! { get set }
     var dates: [PickerViewSupport]! { get set }
     var times: [PickerViewSupport]! { get set }
     var selectedDateRow: Int { get set }
@@ -42,6 +43,7 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
         (placeholder: "Select Delivery Time".localized(), errorText: "Please, select delivery time...".localized())
     ]
 
+    var dateEntitiesFiltered: [DeliveryDate]!
     var dates: [PickerViewSupport]! = [PickerViewSupport]()
     var times: [PickerViewSupport]!
 
@@ -54,16 +56,16 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
         // Fetch Delivery Times
         let selectedWeekDay = (dates[value] as! DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView).weekDay
         
-        let timesFiltered = (dates as! [DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView]).filter({
-            $0.weekDay >= selectedWeekDay
+        let timesFiltered = self.dateEntitiesFiltered.filter({
+            $0.weekDay == selectedWeekDay
         })
         
         for (index, date) in timesFiltered.enumerated() {
             times.append(DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView(id:           "\(index)",
-                                                                                      title:        "\(date.fromTime.getTime())-\(date.toTime.getTime())",
+                                                                                      title:        "\(date.fromDate.getTime())-\(date.toDate.getTime())",
                                                                                       weekDay:      date.weekDay,
-                                                                                      fromTime:     date.fromTime,
-                                                                                      toTime:       date.toTime))
+                                                                                      fromTime:     date.fromDate,
+                                                                                      toTime:       date.toDate))
         }
     }
 
@@ -73,22 +75,26 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
 
     func fetchDates(withRequestModel requestModel: DeliveryTermsShowModels.Dates.RequestModel) {
         // CoreData: Fetch data
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: Date())
         if let dateEntities = appDependency.coreDataManager.readEntities(withName: "DeliveryDate", andPredicateParameters: nil), dateEntities.count > 0 {
-            let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: Date())
             
-            let dateEntitiesFiltered = (dateEntities as! [DeliveryDate]).filter({
+            self.dateEntitiesFiltered = (dateEntities as! [DeliveryDate]).filter({
                 $0.weekDay > dateComponents.weekday! ||
-                ($0.weekDay == dateComponents.weekday! && $0.fromDate.convertToFloat() >= (Float(dateComponents.hour!) + Float(dateComponents.minute!) / 100))
+                ($0.weekDay == dateComponents.weekday! && $0.fromDate.convertToFloat() >= (Float(dateComponents.hour! + 1) + Float(dateComponents.minute!) / 100))
             })
             
 //            dateEntitiesFiltered.sort(by: { date1, date2 in
 //                return date1.weekDay < date2.weekDay && date1.fromDate < date2.fromDate
 //            })
             
-            print(dateEntitiesFiltered)
-            
-            for (index, entity) in dateEntitiesFiltered.enumerated() {
-                let weekDate = (entity.weekDay != dateComponents.weekday!) ? ("\(dateComponents.day!)".addZero() + "/" + "\(dateComponents.month!)".addZero() + "/\(dateComponents.year!)") : "ff"
+            print(self.dateEntitiesFiltered)
+            let uniqueEntities = self.dateEntitiesFiltered.unique(map: { $0.weekDay })
+            print(uniqueEntities)
+
+            for (index, entity) in uniqueEntities.enumerated() {
+                let weekDate = (entity.weekDay == dateComponents.weekday!) ?
+                    ("\(dateComponents.day!)".addZero() + "/" + "\(dateComponents.month!)".addZero() + "/\(dateComponents.year!)") :
+                    (String.getNextDate(withDiff: Int(entity.weekDay) - dateComponents.weekday!))
                     
                 dates.append(DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView(id:           "\(index)",
                                                                                           title:        "\(entity.name!) " + weekDate,
