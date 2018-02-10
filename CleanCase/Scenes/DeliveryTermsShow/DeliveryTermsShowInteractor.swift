@@ -131,8 +131,9 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
         // Prepare request body parameters
         let selectedDate    =   (times[selectedTimeRow] as! DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView).bodyDate
         let selectedTime    =   (times[selectedTimeRow] as! DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView).bodyTime
-
-        let bodyParams: [String: Any] = [ "orderId": "326", "delivery": "\(selectedDate) \(selectedTime)", "remarks": requestModel.comment ?? "" ]
+        let comment         =   (requestModel.comment == "Enter comment".localized()) ? "" : requestModel.comment
+        
+        let bodyParams: [String: Any] = [ "orderId": "326", "delivery": "\(selectedDate) \(selectedTime)", "remarks": comment ?? "" ]
         
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .setDelivery(bodyParams, true), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] response in
