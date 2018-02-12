@@ -23,6 +23,7 @@ enum RequestType {
 
     
     // POST
+    case addClient([String: Any]?, Bool)
     case sendMessage([String: Any]?, Bool)
     case setDelivery([String: Any]?, Bool)
 
@@ -64,6 +65,11 @@ enum RequestType {
             
         
         // POST
+        case .addClient(let params, let isBodyParams):          return (method:         .post,
+                                                                        path:           "/AddClient",
+                                                                        body:           (isBodyParams ? params : nil),
+                                                                        parameters:     (isBodyParams ? nil : params))
+            
         case .sendMessage(let params, let isBodyParams):        return (method:         .post,
                                                                         path:           "/AddChatMessage",
                                                                         body:           (isBodyParams ? params : nil),
@@ -115,7 +121,7 @@ final class RestAPIManager {
         let requestParameters   =   requestType.introduced()
         let components          =   createURLComponents(withParameters: requestType.introduced())
         
-        if let body = requestParameters.body {
+        if let body = requestParameters.body, responseType != ResponseAPIClientResult.self {
             Alamofire.request(components.url!,
                               method:       requestParameters.method,
                               parameters:   body,
@@ -128,7 +134,7 @@ final class RestAPIManager {
         else {
             Alamofire.request(components.url!,
                               method:       requestParameters.method,
-                              parameters:   nil,
+                              parameters:   requestParameters.body,
                               encoding:     JSONEncoding.default,
                               headers:      headers).responseJSON { response in
                                 do {

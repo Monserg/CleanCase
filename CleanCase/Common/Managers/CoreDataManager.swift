@@ -96,7 +96,7 @@ class CoreDataManager {
     
     // MARK: - CRUD
     // Create
-    fileprivate func createEntity(_ name: String) -> NSManagedObject {
+    func createEntity(_ name: String) -> NSManagedObject {
         return NSEntityDescription.insertNewObject(forEntityName: name, into: managedObjectContext)
     }
 

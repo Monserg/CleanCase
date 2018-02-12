@@ -15,7 +15,8 @@ import UIKit
 // MARK: - Business Logic protocols
 protocol SignInShowBusinessLogic {
     func saveSelectedCity(byRow row: Int)
-    func saveSelectedCodeTitle(_ value: String)
+    func saveSelectedPhoneCode(byRow row: Int)
+    func addClient(withRequestModel requestModel: SignInShowModels.User.RequestModel)
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel)
     func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel)
     func fetchDeliveryDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel)
@@ -28,21 +29,20 @@ protocol SignInShowDataStore {
     var codes: [PickerViewSupport]! { get set }
     var laundryID: String! { get set }
     var selectedCityID: String? { get set }
+    var selectedPhoneCode: String? { get set }
     var textFieldsTexts: [ (placeholder: String, errorText: String) ] { get set }
-    var selectedCodeTitle: String? { get set }
 }
 
 class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShowDataStore {
     // MARK: - Properties
     var presenter: SignInShowPresentationLogic?
-    var worker: SignInShowWorker?
     
     let operatorCode = [ "050", "052", "053", "054", "055" ]
 
     // SignInShowDataStore protocol implementation
     var laundryID: String! = "0"
     var selectedCityID: String?
-    var selectedCodeTitle: String?
+    var selectedPhoneCode: String?
     var codes: [PickerViewSupport]! = [PickerViewSupport]()
     var cities: [PickerViewSupport]! = [PickerViewSupport]()
 
@@ -62,13 +62,44 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
         self.selectedCityID = "\(cities[row].id)"
     }
     
-    func saveSelectedCodeTitle(_ value: String) {
-        self.selectedCodeTitle = value
+    func saveSelectedPhoneCode(byRow row: Int) {
+        self.selectedPhoneCode = codes[row].title
+    }
+    
+    func addClient(withRequestModel requestModel: SignInShowModels.User.RequestModel) {
+        let bodyParams: [String: Any] = [ "client": [
+                                                        "ClientId":         0,
+                                                        "LaundryId":        Laundry.codeID,
+                                                        "FirstName":        requestModel.params.firstName,
+                                                        "LastName":         requestModel.params.lastName,
+                                                        "MobilePhone":      self.selectedPhoneCode! + requestModel.params.phone,
+                                                        "Email":            requestModel.params.email,
+                                                        "CityId":           self.selectedCityID!,
+                                                        "AddressLine1":     requestModel.params.address,
+                                                        "AddressLine2":     "",
+                                                        "PostCode":         "",
+                                                        "CardNumber":       "",
+                                                        "CardCVV":          "",
+                                                        "CardExpired":      "",
+                                                        "Adv":              "1"
+                                                    ]
+                                        ]
+
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .addClient(bodyParams, true), andResponseType: ResponseAPIClientResult.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? ResponseAPIClientResult {
+                var personalDataJSON = bodyParams["client"] as! [String: Any]
+                personalDataJSON["ClientId"] = Int16(result.AddClientResult)
+                
+                PersonalData().updateEntity(fromJSON: personalDataJSON)
+            }
+            
+            let responseModel = SignInShowModels.User.ResponseModel()
+            self.presenter?.presentClient(fromResponseModel: responseModel)
+        })
     }
     
     func fetchCities(withRequestModel requestModel: SignInShowModels.City.RequestModel) {
-        worker = SignInShowWorker()
-        
         for i in 0...4 {
             codes.append(SignInShowModels.City.ResponseModel.ItemForPickerView(id: Int16(i), title: operatorCode[i]))
         }
@@ -91,8 +122,6 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     }
     
     func fetchLaundry(withRequestModel requestModel: SignInShowModels.Laundry.RequestModel) {
-        worker = SignInShowWorker()
-        
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getLaundryInfo([ "city_id": self.selectedCityID! ], false), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPILaundryResult {
@@ -110,8 +139,6 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     }
     
     func fetchDeliveryDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel) {
-        worker = SignInShowWorker()
-        
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDeliveryDatesList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIDeliveryDatesResult {
@@ -132,8 +159,6 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     }
 
     func fetchCollectionDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel) {
-        worker = SignInShowWorker()
-        
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCollectionDatesList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPICollectionDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICollectionDatesResult {
@@ -154,8 +179,6 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     }
     
     func fetchDepartments(withRequestModel requestModel: SignInShowModels.Department.RequestModel) {
-        worker = SignInShowWorker()
-        
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDepartmentsList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIDepartmentsResult {

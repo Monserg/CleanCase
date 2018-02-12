@@ -62,16 +62,33 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="PersonalData" representedClassName="PersonalData" syncable="YES">
+        <attribute name="addressLine1" attributeType="String" syncable="YES"/>
+        <attribute name="addressLine2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adv" attributeType="String" defaultValueString="&quot;1&quot;" syncable="YES"/>
+        <attribute name="cardCVV" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cardExpired" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cardNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityId" attributeType="String" syncable="YES"/>
+        <attribute name="clientId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="email" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" attributeType="String" syncable="YES"/>
+        <attribute name="laundryId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mobilePhone" attributeType="String" syncable="YES"/>
+        <attribute name="postCode" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Version" representedClassName="Version" syncable="YES">
         <attribute name="getVerResult" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="City" positionX="-54" positionY="-9" width="128" height="75"/>
         <element name="CollectionDate" positionX="-45" positionY="63" width="128" height="165"/>
-        <element name="Laundry" positionX="-45" positionY="18" width="128" height="165"/>
-        <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
         <element name="DeliveryDate" positionX="-45" positionY="90" width="128" height="165"/>
         <element name="Department" positionX="-36" positionY="108" width="128" height="30"/>
         <element name="DepartmentItem" positionX="-27" positionY="126" width="128" height="30"/>
+        <element name="Laundry" positionX="-45" positionY="18" width="128" height="165"/>
+        <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
+        <element name="PersonalData" positionX="-36" positionY="126" width="128" height="255"/>
     </elements>
 </model>

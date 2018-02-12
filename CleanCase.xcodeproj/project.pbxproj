@@ -23,6 +23,8 @@
 		B148E915202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E90F202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift */; };
 		B148E917202C9C530007D79B /* DeliveryTermsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B148E916202C9C530007D79B /* DeliveryTermsShow.storyboard */; };
 		B148E919202CA61E0007D79B /* DeliveryTermsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E918202CA61E0007D79B /* DeliveryTermsShowRouter.swift */; };
+		B1597D18203189FD00C75966 /* PersonalData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */; };
+		B1597D19203189FD00C75966 /* PersonalData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */; };
 		B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF34E202B5139002B170F /* ToolBarPickerView.swift */; };
 		B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF350202B5563002B170F /* UITextField+Extension.swift */; };
 		B179409F2026076A00A9B675 /* LaundryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179409E2026076A00A9B675 /* LaundryView.swift */; };
@@ -56,7 +58,6 @@
 		B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */; };
 		B1FA2CFA20244DDD00351BB7 /* FlowControlShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2CF920244DDD00351BB7 /* FlowControlShow.storyboard */; };
 		B1FA2D022024500000351BB7 /* SignInShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CFC2024500000351BB7 /* SignInShowPresenter.swift */; };
-		B1FA2D032024500000351BB7 /* SignInShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CFD2024500000351BB7 /* SignInShowWorker.swift */; };
 		B1FA2D042024500000351BB7 /* SignInShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CFE2024500000351BB7 /* SignInShowRouter.swift */; };
 		B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CFF2024500000351BB7 /* SignInShowModels.swift */; };
 		B1FA2D062024500000351BB7 /* SignInShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D002024500000351BB7 /* SignInShowViewController.swift */; };
@@ -152,6 +153,8 @@
 		B148E90F202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowInteractor.swift; sourceTree = "<group>"; };
 		B148E916202C9C530007D79B /* DeliveryTermsShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeliveryTermsShow.storyboard; sourceTree = "<group>"; };
 		B148E918202CA61E0007D79B /* DeliveryTermsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowRouter.swift; sourceTree = "<group>"; };
+		B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B15AF34E202B5139002B170F /* ToolBarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerView.swift; sourceTree = "<group>"; };
 		B15AF350202B5563002B170F /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B179409E2026076A00A9B675 /* LaundryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaundryView.swift; sourceTree = "<group>"; };
@@ -187,7 +190,6 @@
 		B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2CF920244DDD00351BB7 /* FlowControlShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlowControlShow.storyboard; sourceTree = "<group>"; };
 		B1FA2CFC2024500000351BB7 /* SignInShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2CFD2024500000351BB7 /* SignInShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowWorker.swift; sourceTree = "<group>"; };
 		B1FA2CFE2024500000351BB7 /* SignInShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowRouter.swift; sourceTree = "<group>"; };
 		B1FA2CFF2024500000351BB7 /* SignInShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowModels.swift; sourceTree = "<group>"; };
 		B1FA2D002024500000351BB7 /* SignInShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInShowViewController.swift; sourceTree = "<group>"; };
@@ -496,7 +498,6 @@
 				B1FA2CFC2024500000351BB7 /* SignInShowPresenter.swift */,
 				B1FA2CFE2024500000351BB7 /* SignInShowRouter.swift */,
 				B1FA2D002024500000351BB7 /* SignInShowViewController.swift */,
-				B1FA2CFD2024500000351BB7 /* SignInShowWorker.swift */,
 			);
 			path = SignInShow;
 			sourceTree = "<group>";
@@ -632,6 +633,8 @@
 				B1DBDEFF202998E100127ECB /* DepartmentItem+CoreDataProperties.swift */,
 				B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */,
 				B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */,
+				B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */,
+				B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */,
 				B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */,
 				B1FA2DAF202498C500351BB7 /* Version+CoreDataProperties.swift */,
 			);
@@ -830,6 +833,7 @@
 				B148E910202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift in Sources */,
 				B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */,
 				B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */,
+				B1597D19203189FD00C75966 /* PersonalData+CoreDataProperties.swift in Sources */,
 				B19DA3FB2028B0B000E9F7D6 /* Laundry+CoreDataClass.swift in Sources */,
 				B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */,
 				B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */,
@@ -839,7 +843,6 @@
 				B148E914202C9C3F0007D79B /* DeliveryTermsShowViewController.swift in Sources */,
 				B1FA2D6D20245F4B00351BB7 /* WriteUsShowPresenter.swift in Sources */,
 				B1FA2D17202458E400351BB7 /* MainShowViewController.swift in Sources */,
-				B1FA2D032024500000351BB7 /* SignInShowWorker.swift in Sources */,
 				B1FA2D8120245FC000351BB7 /* PriceListShowInteractor.swift in Sources */,
 				B1FA2D9A2024735D00351BB7 /* LeftMenuItemCell.swift in Sources */,
 				B1FA2D4520245E2B00351BB7 /* PersonalDataShowInteractor.swift in Sources */,
@@ -871,6 +874,7 @@
 				B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
+				B1597D18203189FD00C75966 /* PersonalData+CoreDataClass.swift in Sources */,
 				B1FA2DB3202498C500351BB7 /* Version+CoreDataProperties.swift in Sources */,
 				B148E905202C418B0007D79B /* ChatShowRouter.swift in Sources */,
 				B1FA2D9120246D2100351BB7 /* LeftSideMenuShowRouter.swift in Sources */,

@@ -14,6 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol SignInShowPresentationLogic {
+    func presentClient(fromResponseModel responseModel: SignInShowModels.User.ResponseModel)
     func presentCities(fromResponseModel responseModel: SignInShowModels.City.ResponseModel)
     func presentLaundry(fromResponseModel responseModel: SignInShowModels.Laundry.ResponseModel)
     func presentDeliveryDates(fromResponseModel responseModel: SignInShowModels.Date.ResponseModel)
@@ -27,6 +28,11 @@ class SignInShowPresenter: SignInShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
+    func presentClient(fromResponseModel responseModel: SignInShowModels.User.ResponseModel) {
+        let viewModel = SignInShowModels.User.ViewModel()
+        viewController?.displayClient(fromViewModel: viewModel)
+    }
+
     func presentCities(fromResponseModel responseModel: SignInShowModels.City.ResponseModel) {
         let viewModel = SignInShowModels.City.ViewModel()
         viewController?.displayCities(fromViewModel: viewModel)

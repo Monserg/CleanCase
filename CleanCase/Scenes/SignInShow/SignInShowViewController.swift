@@ -17,6 +17,7 @@ import ADEmailAndPassword
 
 // MARK: - Input & Output protocols
 protocol SignInShowDisplayLogic: class {
+    func displayClient(fromViewModel viewModel: SignInShowModels.User.ViewModel)
     func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel)
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel)
     func initializationDeliveryDates(fromViewModel viewModel: SignInShowModels.Date.ViewModel)
@@ -168,6 +169,11 @@ class SignInShowViewController: UIViewController {
 
 // MARK: - SignInShowDisplayLogic
 extension SignInShowViewController: SignInShowDisplayLogic {
+    func displayClient(fromViewModel viewModel: SignInShowModels.User.ViewModel) {
+        // NOTE: Display the result from the Presenter
+        self.displayOnboardScene()
+    }
+    
     func displayCities(fromViewModel viewModel: SignInShowModels.City.ViewModel) {
         // NOTE: Display the result from the Presenter
         self.displayLaundryInfo(withName: "My Laundry", andPhoneNumber: nil)
@@ -203,7 +209,15 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     
     func initializationDepartments(fromViewModel viewModel: SignInShowModels.Department.ViewModel) {
         // NOTE: Display the result from the Presenter
-        self.displayOnboardScene()
+        DispatchQueue.main.async(execute: {
+            let requestModel = SignInShowModels.User.RequestModel(params: (firstName:   self.textFieldsCollection.first(where: { $0.tag == 3})!.text!,
+                                                                           lastName:    self.textFieldsCollection.first(where: { $0.tag == 4})!.text!,
+                                                                           address:     self.textFieldsCollection.first(where: { $0.tag == 5})!.text!,
+                                                                           email:       self.textFieldsCollection.first(where: { $0.tag == 6})!.text!,
+                                                                           phone:       self.textFieldsCollection.first(where: { $0.tag == 2})!.text!))
+            
+            self.interactor?.addClient(withRequestModel: requestModel)
+        })
     }
 }
 
@@ -226,12 +240,12 @@ extension SignInShowViewController: UITextFieldDelegate {
             }
 
             else if textField.tag == 1 {
-                let selectedCodeRow = (router?.dataStore?.selectedCodeTitle == nil) ? 0 : router!.dataStore!.codes.index(where: { $0.title == router!.dataStore!.selectedCodeTitle })
+                let selectedCodeRow = (router?.dataStore?.selectedPhoneCode == nil) ? 0 : router!.dataStore!.codes.index(where: { $0.title == router!.dataStore!.selectedPhoneCode })
                 
-                textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.codes, andSelectedItem: selectedCodeRow!, { [unowned self] code in
-                    if let selectedCode = code as? PickerViewSupport {
-                        textField.text = selectedCode.title
-                        self.interactor?.saveSelectedCodeTitle(selectedCode.title)
+                textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.codes, andSelectedItem: selectedCodeRow!, { [unowned self] row in
+                    if let selectedRow = row as? Int {
+                        self.interactor?.saveSelectedPhoneCode(byRow: selectedRow)
+                        textField.text = self.router!.dataStore!.codes[selectedRow].title
                     }
                     
                     textField.resignFirstResponder()

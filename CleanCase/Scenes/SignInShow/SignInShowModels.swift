@@ -63,4 +63,16 @@ enum SignInShowModels {
         struct ViewModel {
         }
     }
+
+    enum User {
+        struct RequestModel {
+            let params: (firstName: String, lastName: String, address: String, email: String, phone: String)
+        }
+        
+        struct ResponseModel {
+        }
+        
+        struct ViewModel {
+        }
+    }
 }

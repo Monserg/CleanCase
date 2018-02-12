@@ -99,3 +99,8 @@ struct ResponseAPIDepartmentItem: Decodable {
     let Name: String
     let Price: Float
 }
+
+struct ResponseAPIClientResult: Decodable {
+    // MARK: - Properties
+    let AddClientResult: String
+}
