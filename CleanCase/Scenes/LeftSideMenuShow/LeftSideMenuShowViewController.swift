@@ -11,8 +11,8 @@
 //
 
 import UIKit
-import Device_swift
 import SideMenu
+import Device_swift
 import DynamicColor
 
 // MARK: - Input & Output protocols
@@ -98,12 +98,12 @@ class LeftSideMenuShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
+        loadViewSettings()
     }
     
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
+    func loadViewSettings() {
         self.loadMenuItems()
     }
     

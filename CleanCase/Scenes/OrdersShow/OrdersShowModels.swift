@@ -15,8 +15,18 @@ import UIKit
 // MARK: - Data models
 enum OrdersShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum OrderItem {
         struct RequestModel {
+            struct DisplayedOrder {
+                let createdDate: String
+                let status: Int16
+                let orderID: Int16
+                let price: Float
+                let collectionFrom: String
+                let collectionTo: String
+                let deliveryFrom: String?
+                let deliveryTo: String?
+            }
         }
         
         struct ResponseModel {

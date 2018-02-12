@@ -25,35 +25,40 @@
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke9-7h-Cg9" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ahu-ZX-nnk" userLabel="Phone Text Field">
+                                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ahu-ZX-nnk" userLabel="Phone Text Field">
                                                 <rect key="frame" x="16" y="48" width="343.5" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRm-rB-m5S" userLabel="First Name Text Field">
+                                            <textField clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FRm-rB-m5S" userLabel="First Name Text Field">
                                                 <rect key="frame" x="16" y="94" width="343" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EMr-H1-QPL" userLabel="Last Name Text Field">
+                                            <textField clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EMr-H1-QPL" userLabel="Last Name Text Field">
                                                 <rect key="frame" x="16" y="140" width="343" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="family-name"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7yk-BH-3Fp" userLabel="Address Text Field">
+                                            <textField clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7yk-BH-3Fp" userLabel="Address Text Field">
                                                 <rect key="frame" x="16" y="186" width="343" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="address-line1"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ODJ-Yg-woA" userLabel="Email Text Field">
+                                            <textField clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ODJ-Yg-woA" userLabel="Email Text Field">
                                                 <rect key="frame" x="16" y="232" width="343" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                                             </textField>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efH-gn-xGH" userLabel="Credit Card Label">
                                                 <rect key="frame" x="317" y="270" width="42" height="21"/>
@@ -62,38 +67,43 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxi-uD-kVw" userLabel="Creadit Card Number Text Field">
+                                            <textField clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rxi-uD-kVw" userLabel="Creadit Card Number Text Field">
                                                 <rect key="frame" x="16" y="299" width="343" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQN-Eg-A9q" userLabel="Credit Card CVV Text Field">
+                                            <textField clipsSubviews="YES" tag="6" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lQN-Eg-A9q" userLabel="Credit Card CVV Text Field">
                                                 <rect key="frame" x="295.5" y="345" width="63.5" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxn-07-mzW" userLabel="Credit Card CVV Label">
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxn-07-mzW" userLabel="Credit Card CVV Label">
                                                 <rect key="frame" x="235.5" y="349.5" width="44" height="21"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Q3-7t-56X" userLabel="Credit Card Year Text Field">
+                                            <textField clipsSubviews="YES" tag="7" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0Q3-7t-56X" userLabel="Credit Card Year Text Field">
                                                 <rect key="frame" x="126" y="345" width="93.5" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X7S-ag-iSK" userLabel="Credit Card Month Text Field">
+                                            <textField clipsSubviews="YES" tag="8" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="X7S-ag-iSK" userLabel="Credit Card Month Text Field">
                                                 <rect key="frame" x="16" y="345" width="94" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="94" id="lDA-1E-xIF"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvN-Mz-YIp" userLabel="Button View">
                                                 <rect key="frame" x="0.0" y="603" width="375" height="44"/>
@@ -108,6 +118,9 @@
                                                         </state>
                                                         <state key="disabled" backgroundImage="button-gray"/>
                                                         <state key="highlighted" backgroundImage="button-cyan"/>
+                                                        <connections>
+                                                            <action selector="handlerSaveButtonTapped:" destination="tBj-YC-c90" eventType="touchUpInside" id="XUP-s3-iC7"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -153,6 +166,9 @@
                                             <constraint firstItem="7yk-BH-3Fp" firstAttribute="leading" secondItem="ke9-7h-Cg9" secondAttribute="leading" constant="16" id="vwn-H4-k5o"/>
                                             <constraint firstItem="0Q3-7t-56X" firstAttribute="centerY" secondItem="X7S-ag-iSK" secondAttribute="centerY" id="wA6-ct-fW5"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="dYb-rZ-aQs" appends="YES" id="8Ye-Fq-ZAv"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -177,10 +193,39 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MRb-cl-2a7"/>
                     </view>
+                    <connections>
+                        <outlet property="creditCardCVVLabel" destination="nxn-07-mzW" id="ODd-xI-PWy"/>
+                        <outlet property="creditCardLabel" destination="efH-gn-xGH" id="HkU-jS-EkA"/>
+                        <outlet property="saveButton" destination="RYQ-ed-iiF" id="m8P-xr-qhF"/>
+                        <outletCollection property="textFieldsCollection" destination="Ahu-ZX-nnk" collectionClass="NSMutableArray" id="8AV-QC-EyT"/>
+                        <outletCollection property="textFieldsCollection" destination="FRm-rB-m5S" collectionClass="NSMutableArray" id="57p-lk-e2v"/>
+                        <outletCollection property="textFieldsCollection" destination="EMr-H1-QPL" collectionClass="NSMutableArray" id="Adh-Ca-Y0B"/>
+                        <outletCollection property="textFieldsCollection" destination="7yk-BH-3Fp" collectionClass="NSMutableArray" id="XHG-Xs-J5y"/>
+                        <outletCollection property="textFieldsCollection" destination="ODJ-Yg-woA" collectionClass="NSMutableArray" id="21h-zd-zZZ"/>
+                        <outletCollection property="textFieldsCollection" destination="rxi-uD-kVw" collectionClass="NSMutableArray" id="bb7-2R-hRq"/>
+                        <outletCollection property="textFieldsCollection" destination="lQN-Eg-A9q" collectionClass="NSMutableArray" id="dzN-VO-JTx"/>
+                        <outletCollection property="textFieldsCollection" destination="0Q3-7t-56X" collectionClass="NSMutableArray" id="y0v-q5-3R7"/>
+                        <outletCollection property="textFieldsCollection" destination="X7S-ag-iSK" collectionClass="NSMutableArray" id="jCI-8q-p6I"/>
+                        <segue destination="Zpw-O2-CFa" kind="show" identifier="OrderShowSegue" id="9SI-Yh-I7f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGe-Oq-tsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dYb-rZ-aQs">
+                    <connections>
+                        <action selector="handlerTapGestureRecognizer:" destination="tBj-YC-c90" id="0Se-FC-gGX"/>
+                        <outlet property="delegate" destination="IJ5-oC-7ia" id="V1S-m9-p4E"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="21.600000000000001" y="79.610194902548727"/>
+        </scene>
+        <!--OrderShowVC-->
+        <scene sceneID="Ioj-Xt-qay">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OrderShow" referencedIdentifier="OrderShowVC" id="Zpw-O2-CFa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yvv-vR-fAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="754" y="79"/>
         </scene>
     </scenes>
     <resources>

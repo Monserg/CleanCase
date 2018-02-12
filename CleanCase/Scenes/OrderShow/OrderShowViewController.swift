@@ -22,10 +22,11 @@ class OrderShowViewController: UIViewController {
     var interactor: OrderShowBusinessLogic?
     var router: (NSObjectProtocol & OrderShowRoutingLogic & OrderShowDataPassing)?
     
+    var routeFrom: ShowMode = .FromSideMenu
+    
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
-    
+
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -77,12 +78,22 @@ class OrderShowViewController: UIViewController {
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
 
-        viewSettingsDidLoad()
+        loadViewSettings()
     }
     
+    override func handlerBackButtonTapped(_ sender: UIBarButtonItem) {
+        if routeFrom == .FromOrderCreate {
+            self.navigationController?.popToRootViewController(animated: true)
+            self.showAlertView(withTitle: "Info", andMessage: "Order accepted", needCancel: false, completion: { _ in })
+        }
+        
+        else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
+    func loadViewSettings() {
         let requestModel = OrderShowModels.Something.RequestModel()
         interactor?.doSomething(withRequestModel: requestModel)
     }

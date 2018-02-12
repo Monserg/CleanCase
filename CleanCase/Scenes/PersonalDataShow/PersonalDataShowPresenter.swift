@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol PersonalDataShowPresentationLogic {
-    func presentSomething(fromResponseModel responseModel: PersonalDataShowModels.Something.ResponseModel)
+    func presentUpdatePersonalData(fromResponseModel responseModel: PersonalDataShowModels.Client.ResponseModel)
 }
 
 class PersonalDataShowPresenter: PersonalDataShowPresentationLogic {
@@ -23,8 +23,8 @@ class PersonalDataShowPresenter: PersonalDataShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentSomething(fromResponseModel responseModel: PersonalDataShowModels.Something.ResponseModel) {
-        let viewModel = PersonalDataShowModels.Something.ViewModel()
-        viewController?.displaySomething(fromViewModel: viewModel)
+    func presentUpdatePersonalData(fromResponseModel responseModel: PersonalDataShowModels.Client.ResponseModel) {
+        let viewModel = PersonalDataShowModels.Client.ViewModel(error: responseModel.error)
+        viewController?.displayUpdatePersonalData(fromViewModel: viewModel)
     }
 }

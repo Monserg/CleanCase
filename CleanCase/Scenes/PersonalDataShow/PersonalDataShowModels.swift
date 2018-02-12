@@ -15,14 +15,17 @@ import UIKit
 // MARK: - Data models
 enum PersonalDataShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum Client {
         struct RequestModel {
+            let params: [String: Any]
         }
         
         struct ResponseModel {
+            let error: Error?
         }
         
         struct ViewModel {
+            let error: Error?
         }
     }
 }

@@ -18,17 +18,27 @@ protocol OrderCreateBusinessLogic {
 }
 
 protocol OrderCreateDataStore {
-//     var name: String { get set }
+    var textFieldsTexts: [ (placeholder: String, errorText: String) ] { get set }
 }
 
-class OrderCreateInteractor: OrderCreateBusinessLogic, OrderCreateDataStore {
+class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCreateDataStore {
     // MARK: - Properties
     var presenter: OrderCreatePresentationLogic?
     var worker: OrderCreateWorker?
     
-    // ... protocol implementation
-//    var name: String = ""
-    
+    // OrderCreateDataStore protocol implementation
+    var textFieldsTexts: [ (placeholder: String, errorText: String) ] = [
+        (placeholder: "Enter Phone Number".localized(), errorText: "Please, enter phone number...".localized()),
+        (placeholder: "Enter First Name".localized(), errorText: "Please, enter first name...".localized()),
+        (placeholder: "Enter Last Name".localized(), errorText: "Please, enter last name...".localized()),
+        (placeholder: "Enter Address".localized(), errorText: "Please, enter address...".localized()),
+        (placeholder: "Enter Email".localized(), errorText: "Please, enter email...".localized()),
+        (placeholder: "Enter Credit Card Number".localized(), errorText: "Please, enter credit card number...".localized()),
+        (placeholder: "Enter Credit Card CVV".localized(), errorText: "Please, enter credit card CVV...".localized()),
+        (placeholder: "Enter Credit Card Year".localized(), errorText: "Please, enter credit card year...".localized()),
+        (placeholder: "Enter Credit Card Month".localized(), errorText: "Please, enter credit card month...".localized())
+    ]
+
     
     // MARK: - Business logic implementation
     func doSomething(withRequestModel requestModel: OrderCreateModels.Something.RequestModel) {

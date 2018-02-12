@@ -25,6 +25,9 @@
 		B148E919202CA61E0007D79B /* DeliveryTermsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E918202CA61E0007D79B /* DeliveryTermsShowRouter.swift */; };
 		B1597D18203189FD00C75966 /* PersonalData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */; };
 		B1597D19203189FD00C75966 /* PersonalData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */; };
+		B1597D1C2031E55E00C75966 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D1B2031E55E00C75966 /* OrderTableViewCell.swift */; };
+		B1597D1F203207ED00C75966 /* Orders+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D1D203207ED00C75966 /* Orders+CoreDataClass.swift */; };
+		B1597D20203207ED00C75966 /* Orders+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D1E203207ED00C75966 /* Orders+CoreDataProperties.swift */; };
 		B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF34E202B5139002B170F /* ToolBarPickerView.swift */; };
 		B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF350202B5563002B170F /* UITextField+Extension.swift */; };
 		B179409F2026076A00A9B675 /* LaundryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179409E2026076A00A9B675 /* LaundryView.swift */; };
@@ -81,14 +84,12 @@
 		B1FA2D3720245DDF00351BB7 /* OrderCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3120245DDF00351BB7 /* OrderCreateViewController.swift */; };
 		B1FA2D3820245DDF00351BB7 /* OrderCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3220245DDF00351BB7 /* OrderCreateInteractor.swift */; };
 		B1FA2D4020245E2B00351BB7 /* PersonalDataShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3A20245E2B00351BB7 /* PersonalDataShowPresenter.swift */; };
-		B1FA2D4120245E2B00351BB7 /* PersonalDataShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3B20245E2B00351BB7 /* PersonalDataShowWorker.swift */; };
 		B1FA2D4220245E2B00351BB7 /* PersonalDataShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3C20245E2B00351BB7 /* PersonalDataShowRouter.swift */; };
 		B1FA2D4320245E2B00351BB7 /* PersonalDataShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3D20245E2B00351BB7 /* PersonalDataShowModels.swift */; };
 		B1FA2D4420245E2B00351BB7 /* PersonalDataShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3E20245E2B00351BB7 /* PersonalDataShowViewController.swift */; };
 		B1FA2D4520245E2B00351BB7 /* PersonalDataShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3F20245E2B00351BB7 /* PersonalDataShowInteractor.swift */; };
 		B1FA2D4720245E3700351BB7 /* PersonalDataShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D4620245E3700351BB7 /* PersonalDataShow.storyboard */; };
 		B1FA2D4F20245E8900351BB7 /* OrdersShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D4920245E8900351BB7 /* OrdersShowPresenter.swift */; };
-		B1FA2D5020245E8900351BB7 /* OrdersShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D4A20245E8900351BB7 /* OrdersShowWorker.swift */; };
 		B1FA2D5120245E8900351BB7 /* OrdersShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D4B20245E8900351BB7 /* OrdersShowRouter.swift */; };
 		B1FA2D5220245E8900351BB7 /* OrdersShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D4C20245E8900351BB7 /* OrdersShowModels.swift */; };
 		B1FA2D5320245E8900351BB7 /* OrdersShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D4D20245E8900351BB7 /* OrdersShowViewController.swift */; };
@@ -155,6 +156,9 @@
 		B148E918202CA61E0007D79B /* DeliveryTermsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowRouter.swift; sourceTree = "<group>"; };
 		B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1597D1B2031E55E00C75966 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		B1597D1D203207ED00C75966 /* Orders+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Orders+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1597D1E203207ED00C75966 /* Orders+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Orders+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B15AF34E202B5139002B170F /* ToolBarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerView.swift; sourceTree = "<group>"; };
 		B15AF350202B5563002B170F /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B179409E2026076A00A9B675 /* LaundryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaundryView.swift; sourceTree = "<group>"; };
@@ -213,14 +217,12 @@
 		B1FA2D3120245DDF00351BB7 /* OrderCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateViewController.swift; sourceTree = "<group>"; };
 		B1FA2D3220245DDF00351BB7 /* OrderCreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D3A20245E2B00351BB7 /* PersonalDataShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2D3B20245E2B00351BB7 /* PersonalDataShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataShowWorker.swift; sourceTree = "<group>"; };
 		B1FA2D3C20245E2B00351BB7 /* PersonalDataShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataShowRouter.swift; sourceTree = "<group>"; };
 		B1FA2D3D20245E2B00351BB7 /* PersonalDataShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataShowModels.swift; sourceTree = "<group>"; };
 		B1FA2D3E20245E2B00351BB7 /* PersonalDataShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2D3F20245E2B00351BB7 /* PersonalDataShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDataShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D4620245E3700351BB7 /* PersonalDataShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalDataShow.storyboard; sourceTree = "<group>"; };
 		B1FA2D4920245E8900351BB7 /* OrdersShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2D4A20245E8900351BB7 /* OrdersShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersShowWorker.swift; sourceTree = "<group>"; };
 		B1FA2D4B20245E8900351BB7 /* OrdersShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersShowRouter.swift; sourceTree = "<group>"; };
 		B1FA2D4C20245E8900351BB7 /* OrdersShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersShowModels.swift; sourceTree = "<group>"; };
 		B1FA2D4D20245E8900351BB7 /* OrdersShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersShowViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +319,14 @@
 				B148E90E202C9C3F0007D79B /* DeliveryTermsShowViewController.swift */,
 			);
 			path = DeliveryTermsShow;
+			sourceTree = "<group>";
+		};
+		B1597D1A2031E54200C75966 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1597D1B2031E55E00C75966 /* OrderTableViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B179409D2026074E00A9B675 /* UIViews */ = {
@@ -544,7 +554,6 @@
 				B1FA2D3A20245E2B00351BB7 /* PersonalDataShowPresenter.swift */,
 				B1FA2D3C20245E2B00351BB7 /* PersonalDataShowRouter.swift */,
 				B1FA2D3E20245E2B00351BB7 /* PersonalDataShowViewController.swift */,
-				B1FA2D3B20245E2B00351BB7 /* PersonalDataShowWorker.swift */,
 			);
 			path = PersonalDataShow;
 			sourceTree = "<group>";
@@ -552,12 +561,12 @@
 		B1FA2D4820245E7900351BB7 /* OrdersShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1597D1A2031E54200C75966 /* Models */,
 				B1FA2D4E20245E8900351BB7 /* OrdersShowInteractor.swift */,
 				B1FA2D4C20245E8900351BB7 /* OrdersShowModels.swift */,
 				B1FA2D4920245E8900351BB7 /* OrdersShowPresenter.swift */,
 				B1FA2D4B20245E8900351BB7 /* OrdersShowRouter.swift */,
 				B1FA2D4D20245E8900351BB7 /* OrdersShowViewController.swift */,
-				B1FA2D4A20245E8900351BB7 /* OrdersShowWorker.swift */,
 			);
 			path = OrdersShow;
 			sourceTree = "<group>";
@@ -633,6 +642,8 @@
 				B1DBDEFF202998E100127ECB /* DepartmentItem+CoreDataProperties.swift */,
 				B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */,
 				B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */,
+				B1597D1D203207ED00C75966 /* Orders+CoreDataClass.swift */,
+				B1597D1E203207ED00C75966 /* Orders+CoreDataProperties.swift */,
 				B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */,
 				B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */,
 				B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */,
@@ -872,14 +883,15 @@
 				B1FA2DB620249B2F00351BB7 /* ShareInteractor.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
 				B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */,
+				B1597D20203207ED00C75966 /* Orders+CoreDataProperties.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
 				B1597D18203189FD00C75966 /* PersonalData+CoreDataClass.swift in Sources */,
 				B1FA2DB3202498C500351BB7 /* Version+CoreDataProperties.swift in Sources */,
 				B148E905202C418B0007D79B /* ChatShowRouter.swift in Sources */,
 				B1FA2D9120246D2100351BB7 /* LeftSideMenuShowRouter.swift in Sources */,
+				B1597D1C2031E55E00C75966 /* OrderTableViewCell.swift in Sources */,
 				B1FA2DA92024948400351BB7 /* RestAPIManager.swift in Sources */,
-				B1FA2D5020245E8900351BB7 /* OrdersShowWorker.swift in Sources */,
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
 				B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */,
 				B1DBDF01202998E100127ECB /* Department+CoreDataProperties.swift in Sources */,
@@ -911,7 +923,6 @@
 				B1FA2D2920245D5F00351BB7 /* OrderShowInteractor.swift in Sources */,
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
 				B1FA2D6F20245F4B00351BB7 /* WriteUsShowRouter.swift in Sources */,
-				B1FA2D4120245E2B00351BB7 /* PersonalDataShowWorker.swift in Sources */,
 				B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */,
 				B1FA2D9020246D2100351BB7 /* LeftSideMenuShowWorker.swift in Sources */,
 				B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */,
@@ -919,6 +930,7 @@
 				B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */,
 				B1FA2D4220245E2B00351BB7 /* PersonalDataShowRouter.swift in Sources */,
 				B1FA2D3320245DDF00351BB7 /* OrderCreatePresenter.swift in Sources */,
+				B1597D1F203207ED00C75966 /* Orders+CoreDataClass.swift in Sources */,
 				B19DA3FC2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift in Sources */,
 				B1DBDF062029DA9400127ECB /* OnboardShowViewController.swift in Sources */,
 				B148E913202C9C3F0007D79B /* DeliveryTermsShowModels.swift in Sources */,

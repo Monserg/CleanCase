@@ -62,6 +62,21 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="Orders" representedClassName="Orders" syncable="YES">
+        <attribute name="address1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cleaningInstructions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="collectionFrom" attributeType="String" defaultValueString="&quot;10:00&quot;" syncable="YES"/>
+        <attribute name="collectionTo" attributeType="String" defaultValueString="&quot;12:00&quot;" syncable="YES"/>
+        <attribute name="createdDate" attributeType="String" syncable="YES"/>
+        <attribute name="deliveryFrom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deliveryNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deliveryTo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="discount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderStatus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="PersonalData" representedClassName="PersonalData" syncable="YES">
         <attribute name="addressLine1" attributeType="String" syncable="YES"/>
         <attribute name="addressLine2" optional="YES" attributeType="String" syncable="YES"/>
@@ -88,7 +103,8 @@
         <element name="Department" positionX="-36" positionY="108" width="128" height="30"/>
         <element name="DepartmentItem" positionX="-27" positionY="126" width="128" height="30"/>
         <element name="Laundry" positionX="-45" positionY="18" width="128" height="165"/>
-        <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
         <element name="PersonalData" positionX="-36" positionY="126" width="128" height="255"/>
+        <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
+        <element name="Orders" positionX="-27" positionY="153" width="128" height="240"/>
     </elements>
 </model>

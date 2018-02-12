@@ -44,7 +44,6 @@ class SignInShowViewController: UIViewController {
         }
     }
     
-    
     @IBOutlet weak var acceptAgreementLabel: UILabel!
     @IBOutlet weak var readAgreementButton: UIButton!
     
@@ -108,7 +107,7 @@ class SignInShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
+        loadViewSettings()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -119,7 +118,7 @@ class SignInShowViewController: UIViewController {
 
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
+    func loadViewSettings() {
         let requestModel = SignInShowModels.City.RequestModel()
         interactor?.fetchCities(withRequestModel: requestModel)
     }

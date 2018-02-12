@@ -67,7 +67,8 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
 
             if dateComponents.weekday! != 7 {
                 if let dateEntities = appDependency.coreDataManager.readEntities(withName: "DeliveryDate",
-                                                                                 andPredicateParameters: NSPredicate.init(format: "weekDay == \(dateComponents.weekday!)")) as? [DeliveryDate] {
+                                                                                 withPredicateParameters: NSPredicate.init(format: "weekDay == \(dateComponents.weekday!)"),
+                                                                                 andSortDescriptor: nil) as? [DeliveryDate] {
                     // Times
                     let dateEntity = dateEntities.first!
                     var dateTimes = [PickerViewSupport]()

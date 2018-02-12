@@ -50,7 +50,6 @@ class AgreementShowViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
     
     
     // MARK: - Gestures

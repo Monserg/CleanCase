@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrdersShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: OrdersShowModels.Something.ViewModel)
+    func displayOrders(fromViewModel viewModel: OrdersShowModels.OrderItem.ViewModel)
 }
 
 class OrdersShowViewController: UIViewController {
@@ -22,8 +22,14 @@ class OrdersShowViewController: UIViewController {
     var interactor: OrdersShowBusinessLogic?
     var router: (NSObjectProtocol & OrdersShowRoutingLogic & OrdersShowDataPassing)?
     
-    
+
     // MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
     
     
     // MARK: - Class Initialization
@@ -43,7 +49,7 @@ class OrdersShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   OrdersShowInteractor()
+        let interactor              =   OrdersShowInteractor(AppDependency())
         let presenter               =   OrdersShowPresenter()
         let router                  =   OrdersShowRouter()
         
@@ -76,22 +82,80 @@ class OrdersShowViewController: UIViewController {
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
 
-        viewSettingsDidLoad()
+        loadViewSettings()
     }
     
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
-        let requestModel = OrdersShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
+    func loadViewSettings() {
+        let requestModel = OrdersShowModels.OrderItem.RequestModel()
+        self.interactor?.fetchOrders(withRequestModel: requestModel)
     }
 }
 
 
 // MARK: - OrdersShowDisplayLogic
 extension OrdersShowViewController: OrdersShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: OrdersShowModels.Something.ViewModel) {
+    func displayOrders(fromViewModel viewModel: OrdersShowModels.OrderItem.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+        if let orders = self.router?.dataStore?.orders, orders.count > 0 {
+            DispatchQueue.main.async(execute: {
+                self.tableView.reloadData()
+            })
+        }
     }
 }
+
+
+// MARK: - UITableViewDataSource
+extension OrdersShowViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        var numberOfSections: NSInteger = 0
+        
+        if let orders = self.router?.dataStore?.orders, orders.count > 0 {
+            self.tableView.backgroundView = nil
+            numberOfSections = 1
+        }
+        
+        else {
+            let emptyLabel = UILabel(frame: CGRect.init(origin: .zero, size: self.tableView.bounds.size))
+            emptyLabel.text = "Orders List is Empty".localized()
+            emptyLabel.textAlignment = .center
+            self.tableView.backgroundView = emptyLabel
+        }
+        
+        return numberOfSections
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (self.router?.dataStore?.orders == nil) ? 0 : self.router!.dataStore!.orders!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "OrderCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OrderTableViewCell
+        let order = self.router!.dataStore!.orders[indexPath.row]
+        
+        cell.setup(withItem: order, andIndexPath: indexPath)
+        
+        return cell
+    }
+}
+
+
+
+// MARK: - UITableViewDelegate
+extension OrdersShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 54.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+    }
+}
+

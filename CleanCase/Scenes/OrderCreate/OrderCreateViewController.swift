@@ -24,7 +24,23 @@ class OrderCreateViewController: UIViewController {
     
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet var textFieldsCollection: [UITextField]! {
+        didSet {
+            _ = textFieldsCollection.map({
+                $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
+                $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
+                $0.backgroundColor = .red
+                $0.delegate = self
+            })
+        }
+    }
+
+    @IBOutlet weak var saveButton: UIButton! {
+        didSet {
+//            saveButton.isEnabled = false
+        }
+    }
+    
     
     
     // MARK: - Class Initialization
@@ -44,7 +60,7 @@ class OrderCreateViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   OrderCreateInteractor()
+        let interactor              =   OrderCreateInteractor(AppDependency())
         let presenter               =   OrderCreatePresenter()
         let router                  =   OrderCreateRouter()
         
@@ -59,13 +75,17 @@ class OrderCreateViewController: UIViewController {
     
     // MARK: - Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
+        if segue.identifier == "PersonalDataShowSegue" {
+            let destinationVC = segue.destination as! PersonalDataShowViewController
+            destinationVC.routeFrom = .FromOrderCreate
         }
+        
+        else if segue.identifier == "OrderShowSegue" {
+            let destinationVC = segue.destination as! OrderShowViewController
+            destinationVC.routeFrom = .FromOrderCreate
+        }
+
+        self.view.isUserInteractionEnabled = true
     }
     
     
@@ -76,14 +96,36 @@ class OrderCreateViewController: UIViewController {
         self.addBackBarButtonItem()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
-        viewSettingsDidLoad()
+        loadVewSettings()
     }
     
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
+    func loadVewSettings() {
         let requestModel = OrderCreateModels.Something.RequestModel()
         interactor?.doSomething(withRequestModel: requestModel)
+    }
+    
+    fileprivate func startDataValidation() {
+//        if let textField = textFieldsCollection.first(where: { ($0.text?.isEmpty)! }) {
+//            self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
+//        }
+        
+        if let personalDataEntity = PersonalData.current, personalDataEntity.cardNumber!.isEmpty {
+            self.view.isUserInteractionEnabled = false
+            self.performSegue(withIdentifier: "PersonalDataShowSegue", sender: nil)
+        }
+        
+        else {
+            self.view.isUserInteractionEnabled = false
+            self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
+        }
+    }
+
+    
+    // MARK: - Actions
+    @IBAction func handlerSaveButtonTapped(_ sender: UIButton) {
+        self.startDataValidation()
     }
 }
 
@@ -92,6 +134,53 @@ class OrderCreateViewController: UIViewController {
 extension OrderCreateViewController: OrderCreateDisplayLogic {
     func displaySomething(fromViewModel viewModel: OrderCreateModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension OrderCreateViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    // Clear button tap
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    // Hide keyboard
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    // TextField editing
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField.tag {
+        case 2:
+            guard !string.isEmpty else { return true }
+            return (textField.text!.count + string.count) < 8 && CharacterSet.decimalDigits.contains(Unicode.Scalar(string)!)
+            
+        case 3, 4:
+            return (textField.text!.count + string.count) < 21
+            
+        case 5, 6:
+            return (textField.text!.count + string.count) < 51
+            
+        default:
+            return true
+        }
+    }
+    
+    // Return button tap
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 6 {
+            textField.resignFirstResponder()
+        } else {
+            textFieldsCollection.first(where: { $0.tag == textField.tag + 1 })?.becomeFirstResponder()
+        }
+        
+        return true
     }
 }

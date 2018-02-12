@@ -11,10 +11,16 @@
 //
 
 import UIKit
+import ADEmailAndPassword
 
 // MARK: - Input & Output protocols
 protocol PersonalDataShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: PersonalDataShowModels.Something.ViewModel)
+    func displayUpdatePersonalData(fromViewModel viewModel: PersonalDataShowModels.Client.ViewModel)
+}
+
+enum ShowMode {
+    case FromSideMenu
+    case FromOrderCreate
 }
 
 class PersonalDataShowViewController: UIViewController {
@@ -22,8 +28,34 @@ class PersonalDataShowViewController: UIViewController {
     var interactor: PersonalDataShowBusinessLogic?
     var router: (NSObjectProtocol & PersonalDataShowRoutingLogic & PersonalDataShowDataPassing)?
     
+    var routeFrom: ShowMode = .FromSideMenu
+    
     
     // MARK: - IBOutlets
+    @IBOutlet var textFieldsCollection: [UITextField]! {
+        didSet {
+            _ = textFieldsCollection.map({
+                $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
+                $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
+                $0.backgroundColor = .red
+                $0.delegate = self
+            })
+        }
+    }
+    
+    @IBOutlet weak var creditCardLabel: UILabel! {
+        didSet {
+            creditCardLabel.text = "Credit Card Title".localized()
+        }
+    }
+    
+    @IBOutlet weak var creditCardCVVLabel: UILabel! {
+        didSet {
+            creditCardCVVLabel.text = "Credit Card CVV".localized()
+        }
+    }
+    
+    @IBOutlet weak var saveButton: UIButton!
     
     
     // MARK: - Class Initialization
@@ -43,7 +75,7 @@ class PersonalDataShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   PersonalDataShowInteractor()
+        let interactor              =   PersonalDataShowInteractor(AppDependency())
         let presenter               =   PersonalDataShowPresenter()
         let router                  =   PersonalDataShowRouter()
         
@@ -58,12 +90,9 @@ class PersonalDataShowViewController: UIViewController {
     
     // MARK: - Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
+        if segue.identifier == "OrderShowSegue" {
+            let destinationVC = segue.destination as! OrderShowViewController
+            destinationVC.routeFrom = .FromOrderCreate
         }
     }
     
@@ -74,23 +103,177 @@ class PersonalDataShowViewController: UIViewController {
         
         self.addBackBarButtonItem()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
-
-        viewSettingsDidLoad()
+        
+        loadViewSettings()
     }
     
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
-        let requestModel = PersonalDataShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
+    func loadViewSettings() {
+        if let personalDataEntity = PersonalData.current {
+            _ = textFieldsCollection.map({
+                switch $0.tag {
+                case 0:
+                    $0.text = personalDataEntity.mobilePhone
+                    
+                case 1:
+                    $0.text = personalDataEntity.firstName
+                    
+                case 2:
+                    $0.text = personalDataEntity.lastName
+                    
+                case 3:
+                    $0.text = personalDataEntity.addressLine1
+                    
+                case 4:
+                    $0.text = personalDataEntity.email
+                    
+                case 5:
+                    $0.text = personalDataEntity.cardNumber
+                    
+                case 6:
+                    $0.text = personalDataEntity.cardCVV
+                    
+                case 7:
+                    if let cardExpired = personalDataEntity.cardExpired {
+                        $0.text = String(cardExpired.suffix(2))
+                    } else {
+                        $0.text = nil
+                    }
+                    
+                case 8:
+                    if let cardExpired = personalDataEntity.cardExpired {
+                        $0.text = String(cardExpired.prefix(2))
+                    } else {
+                        $0.text = nil
+                    }
+                    
+                default:
+                    break
+                }
+            })
+        }
+    }
+    
+    fileprivate func startDataValidation() {
+        if let textField = textFieldsCollection.first(where: { ($0.text?.isEmpty)! }) {
+            self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
+        }
+            
+        else {
+            self.view.isUserInteractionEnabled = false
+            
+            DispatchQueue.main.async(execute: {
+                let requestModel = PersonalDataShowModels.Client.RequestModel(params: [
+                                                                                            "ClientId":         PersonalData.current!.clientId,
+                                                                                            "LaundryId":        Laundry.codeID,
+                                                                                            "FirstName":        self.textFieldsCollection.first(where: { $0.tag == 1 })!.text!,
+                                                                                            "LastName":         self.textFieldsCollection.first(where: { $0.tag == 2 })!.text!,
+                                                                                            "MobilePhone":      self.textFieldsCollection.first(where: { $0.tag == 0 })!.text!,
+                                                                                            "Email":            self.textFieldsCollection.first(where: { $0.tag == 4 })!.text!,
+                                                                                            "CityId":           PersonalData.current!.cityId,
+                                                                                            "AddressLine1":     self.textFieldsCollection.first(where: { $0.tag == 3 })!.text!,
+                                                                                            "AddressLine2":     "",
+                                                                                            "PostCode":         "",
+                                                                                            "CardNumber":       self.textFieldsCollection.first(where: { $0.tag == 5 })!.text!,
+                                                                                            "CardCVV":          self.textFieldsCollection.first(where: { $0.tag == 6 })!.text!,
+                                                                                            "CardExpired":      self.textFieldsCollection.first(where: { $0.tag == 8})!.text! +
+                                                                                                                self.textFieldsCollection.first(where: { $0.tag == 7})!.text!,
+                                                                                            "Adv":              "1"
+                                                                                        ])
+                self.interactor?.updatePersonalData(withRequestModel: requestModel)
+            })
+        }
+    }
+    
+    
+    // MARK: - Gesture
+    @IBAction func handlerTapGestureRecognizer(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerSaveButtonTapped(_ sender: UIButton) {
+        self.startDataValidation()
     }
 }
 
 
 // MARK: - PersonalDataShowDisplayLogic
 extension PersonalDataShowViewController: PersonalDataShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: PersonalDataShowModels.Something.ViewModel) {
+    func displayUpdatePersonalData(fromViewModel viewModel: PersonalDataShowModels.Client.ViewModel) {
         // NOTE: Display the result from the Presenter
-
+        guard viewModel.error == nil else {
+            self.showAlertView(withTitle: "Error", andMessage: viewModel.error!.localizedDescription, needCancel: false, completion: {_ in})
+            return
+        }
+        
+        if self.routeFrom == .FromSideMenu {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        else {
+            self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
+        }
     }
 }
+
+
+// MARK: - UITextFieldDelegate
+extension PersonalDataShowViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    // Clear button tap
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    // Hide keyboard
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.tag == 4 {
+            if let email = textField.text, !email.isEmpty {
+                guard ADEmailAndPassword.validateEmail(emailId: email) else {
+                    self.showAlertView(withTitle: "Error", andMessage: "Please, enter correct email...", needCancel: false, completion: { _ in })
+                    return false
+                }
+                
+                return true
+            }
+        }
+        
+        return true
+    }
+    
+    // TextField editing
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField.tag {
+        case 2:
+            guard !string.isEmpty else { return true }
+            return (textField.text!.count + string.count) < 8 && CharacterSet.decimalDigits.contains(Unicode.Scalar(string)!)
+            
+        case 3, 4:
+            return (textField.text!.count + string.count) < 21
+            
+        case 5, 6:
+            return (textField.text!.count + string.count) < 51
+            
+        default:
+            return true
+        }
+    }
+    
+    // Return button tap
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 6 {
+            textField.resignFirstResponder()
+        } else {
+            textFieldsCollection.first(where: { $0.tag == textField.tag + 1 })?.becomeFirstResponder()
+        }
+        
+        return true
+    }
+}
+

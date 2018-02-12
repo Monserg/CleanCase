@@ -64,13 +64,13 @@ class MainShowViewController: UIViewController {
         super.viewDidLoad()
         
         self.addNavigationBarShadow()
-        self.viewSettingsDidLoad()
+        self.loadViewSettings()
         self.setupSideMenu()
     }
         
     
     // MARK: - Custom Functions
-    fileprivate func viewSettingsDidLoad() {
+    fileprivate func loadViewSettings() {
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
     }
     

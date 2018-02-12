@@ -14,28 +14,41 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol PersonalDataShowBusinessLogic {
-    func doSomething(withRequestModel requestModel: PersonalDataShowModels.Something.RequestModel)
+    func updatePersonalData(withRequestModel requestModel: PersonalDataShowModels.Client.RequestModel)
 }
 
 protocol PersonalDataShowDataStore {
-//     var name: String { get set }
+    var textFieldsTexts: [ (placeholder: String, errorText: String) ] { get set }
 }
 
-class PersonalDataShowInteractor: PersonalDataShowBusinessLogic, PersonalDataShowDataStore {
+class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic, PersonalDataShowDataStore {
     // MARK: - Properties
     var presenter: PersonalDataShowPresentationLogic?
-    var worker: PersonalDataShowWorker?
     
-    // ... protocol implementation
-//    var name: String = ""
-    
+    // PersonalDataShowDataStore protocol implementation
+    var textFieldsTexts: [ (placeholder: String, errorText: String) ] = [
+        (placeholder: "Enter Phone Number".localized(), errorText: "Please, enter phone number...".localized()),
+        (placeholder: "Enter First Name".localized(), errorText: "Please, enter first name...".localized()),
+        (placeholder: "Enter Last Name".localized(), errorText: "Please, enter last name...".localized()),
+        (placeholder: "Enter Address".localized(), errorText: "Please, enter address...".localized()),
+        (placeholder: "Enter Email".localized(), errorText: "Please, enter email...".localized()),
+        (placeholder: "Enter Credit Card Number".localized(), errorText: "Please, enter credit card number...".localized()),
+        (placeholder: "Enter Credit Card CVV".localized(), errorText: "Please, enter credit card CVV...".localized()),
+        (placeholder: "Enter Credit Card Year".localized(), errorText: "Please, enter credit card year...".localized()),
+        (placeholder: "Enter Credit Card Month".localized(), errorText: "Please, enter credit card month...".localized())
+    ]
+
     
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: PersonalDataShowModels.Something.RequestModel) {
-        worker = PersonalDataShowWorker()
-        worker?.doSomeWork()
-        
-        let responseModel = PersonalDataShowModels.Something.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+    func updatePersonalData(withRequestModel requestModel: PersonalDataShowModels.Client.RequestModel) {
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .addClient([ "client": requestModel.params ], true), andResponseType: ResponseAPIClientResult.self, completionHandler: { [unowned self] responseAPI in
+            if (responseAPI.model as? ResponseAPIClientResult) != nil {
+                PersonalData().updateEntity(fromJSON: requestModel.params)
+            }
+            
+            let responseModel = PersonalDataShowModels.Client.ResponseModel(error: responseAPI.error)
+            self.presenter?.presentUpdatePersonalData(fromResponseModel: responseModel)
+        })
     }
 }

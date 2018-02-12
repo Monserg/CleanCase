@@ -118,11 +118,16 @@ class CoreDataManager {
         }
     }
     
-    func readEntities(withName name: String, andPredicateParameters predicate: NSPredicate?) -> [NSManagedObject]? {
+    func readEntities(withName name: String, withPredicateParameters predicate: NSPredicate?, andSortDescriptor sortDescriptor: NSSortDescriptor?) -> [NSManagedObject]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
 
         if predicate != nil {
             fetchRequest.predicate = predicate!
+        }
+        
+        if sortDescriptor != nil {
+            fetchRequest.sortDescriptors = [ sortDescriptor! ]
+            fetchRequest.fetchLimit = 20
         }
 
         do {

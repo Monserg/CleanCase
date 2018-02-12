@@ -30,6 +30,9 @@
 "Initialization..."                         =   "Initialization...";
 "Delivery Title"                            =   "Delivery Title";
 "Delivery Caption"                          =   "Delivery Caption";
+"Credit Card Title"                         =   "Credit Card Title";
+"Credit Card CVV"                           =   "Credit Card CVV";
+"Currency"                                  =   "uah";
 
 
 // Titles
@@ -39,6 +42,7 @@
 "TitleForPage2"                             =   "TitleForPage2";
 "TitleForPage3"                             =   "TitleForPage3";
 "TitleForPage4"                             =   "TitleForPage4";
+"Orders List is Empty"                      =   "Orders List is Empty";
 
 
 // Buttons
@@ -96,6 +100,11 @@
 "Please, enter email..."                    =   "Please, \nenter email...";
 "Message sent"                              =   "Message sent";
 "Order confirmed"                           =   "Order confirmed";
+"Order accepted"                            =   "Order accepted";
+"Please, enter credit card number..."       =   "Please, \nenter credit card number...";
+"Please, enter credit card CVV..."          =   "Please, \nenter credit card CVV...";
+"Please, enter credit card year..."         =   "Please, \nenter credit card year...";
+"Please, enter credit card month..."        =   "Please, \nenter credit card month...";
 
 
 // TextField Placeholders
@@ -112,6 +121,10 @@
 "Read Agreement"                            =   "Read Agreement";
 "Enter message"                             =   "Enter message";
 "Enter comment"                             =   "Enter comment";
+"Enter Credit Card Number"                  =   "Enter Credit Card number";
+"Enter Credit Card CVV"                     =   "CVV";
+"Enter Credit Card Year"                    =   "Year";
+"Enter Credit Card Month"                   =   "Month";
 
 
 // Request Errors
