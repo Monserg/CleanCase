@@ -23,6 +23,7 @@ enum RequestType {
 
     
     // POST
+    case addOrder([String: Any]?, Bool)
     case addClient([String: Any]?, Bool)
     case sendMessage([String: Any]?, Bool)
     case setDelivery([String: Any]?, Bool)
@@ -65,6 +66,11 @@ enum RequestType {
             
         
         // POST
+        case .addOrder(let params, let isBodyParams):           return (method:         .post,
+                                                                        path:           "/AddOrder",
+                                                                        body:           (isBodyParams ? params : nil),
+                                                                        parameters:     (isBodyParams ? nil : params))
+            
         case .addClient(let params, let isBodyParams):          return (method:         .post,
                                                                         path:           "/AddClient",
                                                                         body:           (isBodyParams ? params : nil),
