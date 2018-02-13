@@ -93,15 +93,17 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
                     // Times
                     let dateEntity = dateEntities.first!
                     var dateTimes = [PickerViewSupport]()
-                    let weekDate = String.createDateString(fromComponents: dateComponents)
-                    
+                    let weekDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "dd/MM/yyyy")
+                    let bodyDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "yyyy-MM-dd")
+
                     // Check times for current date
                     for (index, dateEntity) in dateEntities.enumerated() {
                         if (i == 1 && dateEntity.fromDate.convertToFloat() >= (Float(dateComponents.hour! + 1) + Float(dateComponents.minute!) / 100)) || i != 1 {
-                            dateTimes.append(OrderCreateModels.Dates.RequestModel.TimeForPickerView(id:          Int16(index),
-                                                                                                    title:       "\(dateEntity.fromDate.getTime())-\(dateEntity.toDate.getTime())",
-                                bodyDate:    weekDate,
-                                bodyTime:    dateEntity.fromDate.getTime()))
+                            dateTimes.append(OrderCreateModels.Dates.RequestModel.TimeForPickerView(id:             Int16(index),
+                                                                                                    title:          "\(dateEntity.fromDate.getTime())-\(dateEntity.toDate.getTime())",
+                                                                                                    bodyDate:       bodyDate,
+                                                                                                    bodyTimeFrom:   dateEntity.fromDate.getTime(),
+                                                                                                    bodyTimeTo:     dateEntity.toDate.getTime()))
                         }
                     }
                     

@@ -175,25 +175,29 @@ class OrderCreateViewController: UIViewController {
     fileprivate func prepareBodyParameters(_ forAPI: Bool) -> [ String: Any ] {
         var comments = textViewCollection.first(where: { $0.tag == 0 })?.text
         var instructions = textViewCollection.first(where: { $0.tag == 1 })?.text
-        let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + $1.name + ", " }
+        let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + ", " + $1.name }
 
-        if comments == nil {
+        if comments == "Enter comment".localized() {
             comments = selectedDepartments
         } else {
             comments! += ", " + selectedDepartments
         }
 
-        if instructions == nil {
+        if instructions == "Enter cleaning instructions".localized() {
             instructions = selectedDepartments
         } else {
             instructions! += ", " + selectedDepartments
         }
 
+        let collectionTimeFrom  =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyTimeFrom
+        let collectionTimeTo    =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyTimeTo
+        let createdDate         =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyDate
+
         var bodyParams: [ String: Any ] =   [
                                                 "ClientId":                 PersonalData.current!.clientId,
                                                 "CleaningInstructions":     instructions!,
                                                 "Remarks":                  comments!,
-                                                "CollectionFrom":           "FFF",
+                                                "CollectionFrom":           createdDate + " " + collectionTimeFrom,
                                                 "Price":                    0
                                             ]
         guard forAPI == false else {
@@ -205,9 +209,9 @@ class OrderCreateViewController: UIViewController {
         bodyParams["Address1"]          =   textFieldsCollection.first(where: { $0.tag == 0 })!.text!
 
 
-        bodyParams["CollectionFrom"]    =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyTime
-        bodyParams["CollectionTo"]      =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyTime
-        bodyParams["CreatedDate"]       =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyDate
+        bodyParams["CollectionFrom"]    =   collectionTimeFrom
+        bodyParams["CollectionTo"]      =   collectionTimeTo
+        bodyParams["CreatedDate"]       =   createdDate
 
         return bodyParams
     }

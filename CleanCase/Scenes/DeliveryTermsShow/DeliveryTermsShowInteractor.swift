@@ -71,7 +71,7 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
                     // Times
                     let dateEntity = dateEntities.first!
                     var dateTimes = [PickerViewSupport]()
-                    let weekDate = String.createDateString(fromComponents: dateComponents)
+                    let weekDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "dd/MM/yyyy")
 
                     // Check times for current date
                     for (index, dateEntity) in dateEntities.enumerated() {

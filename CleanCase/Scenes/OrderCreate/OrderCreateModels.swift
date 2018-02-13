@@ -31,7 +31,8 @@ enum OrderCreateModels {
                 var title: String
                 
                 var bodyDate: String
-                var bodyTime: String
+                var bodyTimeFrom: String
+                var bodyTimeTo: String
             }
         }
         

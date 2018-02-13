@@ -125,7 +125,7 @@ final class RestAPIManager {
         let requestParameters   =   requestType.introduced()
         let components          =   createURLComponents(withParameters: requestType.introduced())
         
-        if let body = requestParameters.body, responseType != ResponseAPIClientResult.self {
+        if let body = requestParameters.body, responseType != ResponseAPIClientResult.self, responseType != ResponseAPIAddOrderResult.self {
             Alamofire.request(components.url!,
                               method:       requestParameters.method,
                               parameters:   body,
