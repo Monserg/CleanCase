@@ -336,6 +336,12 @@ extension OrderCreateViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return (textView.text!.count + text.count) < 100
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.hasPrefix("\n") {
+            textView.text = String(textView.text.filter({ !"\n".contains($0) }))
+        }
+    }
 }
 
 
@@ -397,10 +403,6 @@ extension OrderCreateViewController: UITableViewDelegate {
             self.interactor?.updateDepartment(selectedState: cell.accessoryType, byRow: indexPath.row)
             self.saveButton.isEnabled = self.router!.dataStore!.departments.filter({ $0.isSelected == true }).count > 0
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
     }
 }
 
