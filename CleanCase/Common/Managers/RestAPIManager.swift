@@ -85,8 +85,6 @@ enum RequestType {
                                                                         path:           "/SetDelivery",
                                                                         body:           (isBodyParams ? params : nil),
                                                                         parameters:     (isBodyParams ? nil : params))
-            
-
         }
     }
 }

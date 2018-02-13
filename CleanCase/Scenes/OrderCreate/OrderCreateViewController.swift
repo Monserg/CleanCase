@@ -15,6 +15,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol OrderCreateDisplayLogic: class {
     func displayDates(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel)
+    func displayAddOrder(fromViewModel viewModel: OrderCreateModels.Order.ViewModel)
     func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel)
 }
 
@@ -116,6 +117,7 @@ class OrderCreateViewController: UIViewController {
     
     // MARK: - Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Prepare body parameters of API 'Add Order'
         if segue.identifier == "PersonalDataShowSegue" {
             let destinationVC = segue.destination as! PersonalDataShowViewController
             destinationVC.routeFrom = .FromOrderCreate
@@ -163,15 +165,51 @@ class OrderCreateViewController: UIViewController {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
         }
         
-        if let personalDataEntity = PersonalData.current, personalDataEntity.cardNumber!.isEmpty {
+        DispatchQueue.main.async(execute: {
             self.view.isUserInteractionEnabled = false
-            self.performSegue(withIdentifier: "PersonalDataShowSegue", sender: nil)
+            let requestModel = OrderCreateModels.Order.RequestModel(bodyParams: self.prepareBodyParameters(true) as! [String : [String : Any]])
+            self.interactor?.addOrder(withRequestModel: requestModel)
+        })
+    }
+    
+    fileprivate func prepareBodyParameters(_ forAPI: Bool) -> [ String: Any ] {
+        var comments = textViewCollection.first(where: { $0.tag == 0 })?.text
+        var instructions = textViewCollection.first(where: { $0.tag == 1 })?.text
+        let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + $1.name + ", " }
+
+        if comments == nil {
+            comments = selectedDepartments
+        } else {
+            comments! += ", " + selectedDepartments
+        }
+
+        if instructions == nil {
+            instructions = selectedDepartments
+        } else {
+            instructions! += ", " + selectedDepartments
+        }
+
+        var bodyParams: [ String: Any ] =   [
+                                                "ClientId":                 PersonalData.current!.clientId,
+                                                "CleaningInstructions":     instructions!,
+                                                "Remarks":                  comments!,
+                                                "CollectionFrom":           "FFF",
+                                                "Price":                    0
+                                            ]
+        guard forAPI == false else {
+            return [ "order": bodyParams ]
         }
         
-        else {
-            self.view.isUserInteractionEnabled = false
-            self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
-        }
+        bodyParams["OrderID"]           =   self.router!.dataStore!.orderID
+        bodyParams["OrderStatus"]       =   0
+        bodyParams["Address1"]          =   textFieldsCollection.first(where: { $0.tag == 0 })!.text!
+
+
+        bodyParams["CollectionFrom"]    =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyTime
+        bodyParams["CollectionTo"]      =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyTime
+        bodyParams["CreatedDate"]       =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyDate
+
+        return bodyParams
     }
     
     fileprivate func loadTextViewPlaceholder(_ text: String?, _ tag: Int) {
@@ -233,6 +271,26 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
     func displayDates(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel) {
         // NOTE: Display the result from the Presenter
         
+    }
+
+    func displayAddOrder(fromViewModel viewModel: OrderCreateModels.Order.ViewModel) {
+        // NOTE: Display the result from the Presenter
+        self.view.isUserInteractionEnabled = true
+
+        guard viewModel.error == nil else {
+            self.showAlertView(withTitle: "Error", andMessage: (viewModel.error! as NSError).domain, needCancel: false, completion: {_ in})
+            return
+        }
+        
+        DispatchQueue.main.async(execute: {
+            if let personalDataEntity = PersonalData.current, personalDataEntity.cardNumber!.isEmpty {
+                self.performSegue(withIdentifier: "PersonalDataShowSegue", sender: nil)
+            }
+                
+            else {
+                self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
+            }
+        })
     }
 
     func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel) {

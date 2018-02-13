@@ -57,4 +57,18 @@ enum OrderCreateModels {
         struct ViewModel {
         }
     }
+    
+    enum Order {
+        struct RequestModel {
+            let bodyParams: [ String: Any ]
+        }
+        
+        struct ResponseModel {
+            let error: Error?
+        }
+        
+        struct ViewModel {
+            let error: Error?
+        }
+    }
 }

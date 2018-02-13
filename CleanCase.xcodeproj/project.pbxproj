@@ -36,6 +36,7 @@
 		B1798D332032C31400381584 /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D2F2032C31400381584 /* Order+CoreDataClass.swift */; };
 		B1798D342032C31400381584 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D302032C31400381584 /* Order+CoreDataProperties.swift */; };
 		B1798D39203305EE00381584 /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */; };
+		B1798D3B20336B9600381584 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D3A20336B9600381584 /* Date+Extensions.swift */; };
 		B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */; };
 		B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */; };
 		B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */; };
@@ -169,6 +170,7 @@
 		B1798D2F2032C31400381584 /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1798D302032C31400381584 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
+		B1798D3A20336B9600381584 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementShow.storyboard; sourceTree = "<group>"; };
 		B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementShowViewController.swift; sourceTree = "<group>"; };
 		B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
@@ -486,8 +488,10 @@
 		B1F4D1052024495E0086E25F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B12295A9202C312B00E3D750 /* Array+Extensions.swift */,
 				B1EEED8020257B6200F257AA /* Bundle+Extensions.swift */,
 				B1FA2D9520246FF700351BB7 /* Constants.swift */,
+				B1798D3A20336B9600381584 /* Date+Extensions.swift */,
 				B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */,
 				B1FA2D9C2024748E00351BB7 /* Protocols.swift */,
 				B19DA3F72028993900E9F7D6 /* String+Extensions.swift */,
@@ -495,7 +499,6 @@
 				B15AF350202B5563002B170F /* UITextField+Extension.swift */,
 				B1DBDF092029EF6A00127ECB /* UIView+Extensions.swift */,
 				B17940A520261BA100A9B675 /* UIViewController+Extensions.swift */,
-				B12295A9202C312B00E3D750 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				B1FA2D8120245FC000351BB7 /* PriceListShowInteractor.swift in Sources */,
 				B1FA2D9A2024735D00351BB7 /* LeftMenuItemCell.swift in Sources */,
 				B1FA2D4520245E2B00351BB7 /* PersonalDataShowInteractor.swift in Sources */,
+				B1798D3B20336B9600381584 /* Date+Extensions.swift in Sources */,
 				B148E904202C418B0007D79B /* ChatShowWorker.swift in Sources */,
 				B1FA2D4320245E2B00351BB7 /* PersonalDataShowModels.swift in Sources */,
 				B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */,

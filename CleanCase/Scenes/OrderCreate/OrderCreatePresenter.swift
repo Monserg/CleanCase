@@ -15,6 +15,7 @@ import UIKit
 // MARK: - Presentation Logic protocols
 protocol OrderCreatePresentationLogic {
     func presentDates(fromResponseModel responseModel: OrderCreateModels.Dates.ResponseModel)
+    func presentAddOrder(fromResponseModel responseModel: OrderCreateModels.Order.ResponseModel)
     func presentDepartments(fromResponseModel responseModel: OrderCreateModels.Departments.ResponseModel)
 }
 
@@ -27,6 +28,11 @@ class OrderCreatePresenter: OrderCreatePresentationLogic {
     func presentDates(fromResponseModel responseModel: OrderCreateModels.Dates.ResponseModel) {
         let viewModel = OrderCreateModels.Dates.ViewModel()
         viewController?.displayDates(fromViewModel: viewModel)
+    }
+    
+    func presentAddOrder(fromResponseModel responseModel: OrderCreateModels.Order.ResponseModel) {
+        let viewModel = OrderCreateModels.Order.ViewModel(error: responseModel.error)
+        viewController?.displayAddOrder(fromViewModel: viewModel)
     }
     
     func presentDepartments(fromResponseModel responseModel: OrderCreateModels.Departments.ResponseModel) {

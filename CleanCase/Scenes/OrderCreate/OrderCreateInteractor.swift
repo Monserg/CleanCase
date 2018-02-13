@@ -17,12 +17,13 @@ protocol OrderCreateBusinessLogic {
     func saveSelectedDate(byRow row: Int)
     func saveSelectedTime(byRow row: Int)
     func updateDepartment(selectedState state: UITableViewCellAccessoryType, byRow row: Int)
+    func addOrder(withRequestModel requestModel: OrderCreateModels.Order.RequestModel)
     func fetchDates(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel)
     func fetchDepartments(withRequestModel requestModel: OrderCreateModels.Departments.RequestModel)
-    func doSomething(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel)
 }
 
 protocol OrderCreateDataStore {
+    var orderID: String? { get set }
     var dateEntitiesFiltered: [DeliveryDate]! { get set }
     var dates: [PickerViewSupport]! { get set }
     var times: [PickerViewSupport]! { get set }
@@ -37,6 +38,7 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
     var presenter: OrderCreatePresentationLogic?
     
     // OrderCreateDataStore protocol implementation
+    var orderID: String?
     var selectedDateRow: Int = 0
     var selectedTimeRow: Int = 0
 
@@ -66,10 +68,22 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         departments[row].isSelected = (state == .none) ? false : true
     }
     
+    func addOrder(withRequestModel requestModel: OrderCreateModels.Order.RequestModel) {
+        // API: Fetch request data
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .addOrder(requestModel.bodyParams, true), andResponseType: ResponseAPIAddOrderResult.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? ResponseAPIAddOrderResult {
+                self.orderID = result.AddOrderResult
+            }
+            
+            let responseModel = OrderCreateModels.Order.ResponseModel(error: (self.orderID == nil) ? NSError.init(domain: "BAD_REQUEST_400", code: 400, userInfo: nil) : nil )
+            self.presenter?.presentAddOrder(fromResponseModel: responseModel)
+        })
+    }
+    
     func fetchDates(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel) {
         // CoreData: Fetch data
-        for i in 1...7 {
-            let date = (i == 1) ? Date() : Date().addingTimeInterval(TimeInterval(i * 24 * 60 * 60))
+        for i in 1...8 {
+            let date = (i == 1) ? Date().globalTime() : Date().globalTime().addingTimeInterval(TimeInterval((i - 1) * 24 * 60 * 60))
             let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: date)
             
             if dateComponents.weekday! != 7 {
@@ -118,10 +132,5 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         
         let responseModel = OrderCreateModels.Departments.ResponseModel()
         presenter?.presentDepartments(fromResponseModel: responseModel)
-    }
-    
-    func doSomething(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel) {
-        let responseModel = OrderCreateModels.Dates.ResponseModel()
-        presenter?.presentDates(fromResponseModel: responseModel)
     }
 }

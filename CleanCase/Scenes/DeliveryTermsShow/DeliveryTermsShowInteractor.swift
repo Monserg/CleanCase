@@ -60,8 +60,8 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
 
     func fetchDates(withRequestModel requestModel: DeliveryTermsShowModels.Dates.RequestModel) {
         // CoreData: Fetch data
-        for i in 1...7 {
-            let date = (i == 1) ? Date() : Date().addingTimeInterval(TimeInterval(i * 24 * 60 * 60))
+        for i in 1...8 {
+            let date = (i == 1) ? Date() : Date().addingTimeInterval(TimeInterval((i - 1) * 24 * 60 * 60))
             let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: date)
 
             if dateComponents.weekday! != 7 {
