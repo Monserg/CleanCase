@@ -20,6 +20,22 @@
 "Sign out"                                  =   "Sign out";
 
 
+// Order status
+"None"                                      =   "None";
+"Opened"                                    =   "Opened";
+"Closed"                                    =   "Closed";
+"Ready"                                     =   "Ready";
+"InWayToLaundry"                            =   "InWayToLaundry";
+"Supplied"                                  =   "Supplied";
+"Cancel"                                    =   "Cancel";
+"InProcess"                                 =   "InProcess";
+"InWayToClient"                             =   "InWayToClient";
+"PackagesInOffice"                          =   "PackagesInOffice";
+"LockerOrderChanged"                        =   "LockerOrderChanged";
+"Paid"                                      =   "Paid";
+"RequestForPaid"                            =   "RequestForPaid";
+
+
 // Labels
 "Please, restart App"                       =   "Please, restart App";
 "Application is closing..."                 =   "Application\n is closing...";

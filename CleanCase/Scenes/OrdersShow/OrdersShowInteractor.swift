@@ -31,9 +31,9 @@ class OrdersShowInteractor: ShareInteractor, OrdersShowBusinessLogic, OrdersShow
     
     // MARK: - Business logic implementation
     func fetchOrders(withRequestModel requestModel: OrdersShowModels.OrderItem.RequestModel) {
-        if let ordersList = self.appDependency.coreDataManager.readEntities(withName: "Orders",
+        if let ordersList = self.appDependency.coreDataManager.readEntities(withName: "Order",
                                                                             withPredicateParameters: nil,
-                                                                            andSortDescriptor: NSSortDescriptor.init(key: "createdDate", ascending: true)) as? [Orders],
+                                                                            andSortDescriptor: NSSortDescriptor.init(key: "createdDate", ascending: true)) as? [Order],
             ordersList.count > 0 {
             self.orders = [OrdersShowModels.OrderItem.RequestModel.DisplayedOrder]()
             

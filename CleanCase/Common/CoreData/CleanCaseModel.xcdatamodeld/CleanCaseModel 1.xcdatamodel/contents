@@ -36,6 +36,11 @@
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="laundryId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DepartmentItem" inverseName="department" inverseEntity="DepartmentItem" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="departmentId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="DepartmentItem" representedClassName="DepartmentItem" syncable="YES">
         <attribute name="departmentId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -62,7 +67,7 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="Orders" representedClassName="Orders" syncable="YES">
+    <entity name="Order" representedClassName="Order" syncable="YES">
         <attribute name="address1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cleaningInstructions" optional="YES" attributeType="String" syncable="YES"/>
@@ -76,6 +81,20 @@
         <attribute name="orderID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="orderStatus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderItems" inverseName="order" inverseEntity="OrderItems" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="orderID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="OrderItems" representedClassName="OrderItems" syncable="YES">
+        <attribute name="itemID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="orderID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="items" inverseEntity="Order" syncable="YES"/>
     </entity>
     <entity name="PersonalData" representedClassName="PersonalData" syncable="YES">
         <attribute name="addressLine1" attributeType="String" syncable="YES"/>
@@ -100,11 +119,12 @@
         <element name="City" positionX="-54" positionY="-9" width="128" height="75"/>
         <element name="CollectionDate" positionX="-45" positionY="63" width="128" height="165"/>
         <element name="DeliveryDate" positionX="-45" positionY="90" width="128" height="165"/>
-        <element name="Department" positionX="-36" positionY="108" width="128" height="30"/>
-        <element name="DepartmentItem" positionX="-27" positionY="126" width="128" height="30"/>
+        <element name="Department" positionX="-36" positionY="108" width="128" height="135"/>
+        <element name="DepartmentItem" positionX="-27" positionY="126" width="128" height="165"/>
         <element name="Laundry" positionX="-45" positionY="18" width="128" height="165"/>
+        <element name="Order" positionX="-27" positionY="153" width="128" height="255"/>
         <element name="PersonalData" positionX="-36" positionY="126" width="128" height="255"/>
         <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
-        <element name="Orders" positionX="-27" positionY="153" width="128" height="240"/>
+        <element name="OrderItems" positionX="-36" positionY="144" width="128" height="135"/>
     </elements>
 </model>

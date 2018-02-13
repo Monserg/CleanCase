@@ -26,13 +26,15 @@
 		B1597D18203189FD00C75966 /* PersonalData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */; };
 		B1597D19203189FD00C75966 /* PersonalData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */; };
 		B1597D1C2031E55E00C75966 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D1B2031E55E00C75966 /* OrderTableViewCell.swift */; };
-		B1597D1F203207ED00C75966 /* Orders+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D1D203207ED00C75966 /* Orders+CoreDataClass.swift */; };
-		B1597D20203207ED00C75966 /* Orders+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597D1E203207ED00C75966 /* Orders+CoreDataProperties.swift */; };
 		B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF34E202B5139002B170F /* ToolBarPickerView.swift */; };
 		B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15AF350202B5563002B170F /* UITextField+Extension.swift */; };
 		B179409F2026076A00A9B675 /* LaundryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179409E2026076A00A9B675 /* LaundryView.swift */; };
 		B17940A12026077300A9B675 /* LaundryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17940A02026077300A9B675 /* LaundryView.xib */; };
 		B17940A620261BA100A9B675 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17940A520261BA100A9B675 /* UIViewController+Extensions.swift */; };
+		B1798D312032C31400381584 /* OrderItems+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D2D2032C31400381584 /* OrderItems+CoreDataClass.swift */; };
+		B1798D322032C31400381584 /* OrderItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D2E2032C31400381584 /* OrderItems+CoreDataProperties.swift */; };
+		B1798D332032C31400381584 /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D2F2032C31400381584 /* Order+CoreDataClass.swift */; };
+		B1798D342032C31400381584 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D302032C31400381584 /* Order+CoreDataProperties.swift */; };
 		B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */; };
 		B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */; };
 		B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */; };
@@ -157,13 +159,15 @@
 		B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1597D1B2031E55E00C75966 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
-		B1597D1D203207ED00C75966 /* Orders+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Orders+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B1597D1E203207ED00C75966 /* Orders+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Orders+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B15AF34E202B5139002B170F /* ToolBarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerView.swift; sourceTree = "<group>"; };
 		B15AF350202B5563002B170F /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B179409E2026076A00A9B675 /* LaundryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaundryView.swift; sourceTree = "<group>"; };
 		B17940A02026077300A9B675 /* LaundryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaundryView.xib; sourceTree = "<group>"; };
 		B17940A520261BA100A9B675 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		B1798D2D2032C31400381584 /* OrderItems+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderItems+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1798D2E2032C31400381584 /* OrderItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1798D2F2032C31400381584 /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1798D302032C31400381584 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementShow.storyboard; sourceTree = "<group>"; };
 		B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementShowViewController.swift; sourceTree = "<group>"; };
 		B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
@@ -642,8 +646,10 @@
 				B1DBDEFF202998E100127ECB /* DepartmentItem+CoreDataProperties.swift */,
 				B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */,
 				B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */,
-				B1597D1D203207ED00C75966 /* Orders+CoreDataClass.swift */,
-				B1597D1E203207ED00C75966 /* Orders+CoreDataProperties.swift */,
+				B1798D2F2032C31400381584 /* Order+CoreDataClass.swift */,
+				B1798D302032C31400381584 /* Order+CoreDataProperties.swift */,
+				B1798D2D2032C31400381584 /* OrderItems+CoreDataClass.swift */,
+				B1798D2E2032C31400381584 /* OrderItems+CoreDataProperties.swift */,
 				B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */,
 				B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */,
 				B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */,
@@ -861,6 +867,7 @@
 				B1FA2D4320245E2B00351BB7 /* PersonalDataShowModels.swift in Sources */,
 				B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */,
 				B1FA2D7E20245FC000351BB7 /* PriceListShowRouter.swift in Sources */,
+				B1798D332032C31400381584 /* Order+CoreDataClass.swift in Sources */,
 				B1FA2D4420245E2B00351BB7 /* PersonalDataShowViewController.swift in Sources */,
 				B12295AA202C312B00E3D750 /* Array+Extensions.swift in Sources */,
 				B148E915202C9C3F0007D79B /* DeliveryTermsShowInteractor.swift in Sources */,
@@ -871,6 +878,7 @@
 				B1FA2D2820245D5F00351BB7 /* OrderShowViewController.swift in Sources */,
 				B1FA2D3720245DDF00351BB7 /* OrderCreateViewController.swift in Sources */,
 				B1FA2DB1202498C500351BB7 /* City+CoreDataProperties.swift in Sources */,
+				B1798D322032C31400381584 /* OrderItems+CoreDataProperties.swift in Sources */,
 				B1DBDF02202998E100127ECB /* DepartmentItem+CoreDataClass.swift in Sources */,
 				B1FA2D3520245DDF00351BB7 /* OrderCreateRouter.swift in Sources */,
 				B1FA2DA32024914900351BB7 /* CleanCaseModel.xcdatamodeld in Sources */,
@@ -883,7 +891,6 @@
 				B1FA2DB620249B2F00351BB7 /* ShareInteractor.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
 				B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */,
-				B1597D20203207ED00C75966 /* Orders+CoreDataProperties.swift in Sources */,
 				B1F4D0EE202447D50086E25F /* AppDelegate.swift in Sources */,
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
 				B1597D18203189FD00C75966 /* PersonalData+CoreDataClass.swift in Sources */,
@@ -910,6 +917,7 @@
 				B1FA2DB2202498C500351BB7 /* Version+CoreDataClass.swift in Sources */,
 				B1FA2D5220245E8900351BB7 /* OrdersShowModels.swift in Sources */,
 				B1FA2DB0202498C500351BB7 /* City+CoreDataClass.swift in Sources */,
+				B1798D312032C31400381584 /* OrderItems+CoreDataClass.swift in Sources */,
 				B1DBDEFB2029879B00127ECB /* DeliveryDate+CoreDataProperties.swift in Sources */,
 				B1DBDF0A2029EF6A00127ECB /* UIView+Extensions.swift in Sources */,
 				B1FA2D7120245F4B00351BB7 /* WriteUsShowViewController.swift in Sources */,
@@ -930,7 +938,7 @@
 				B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */,
 				B1FA2D4220245E2B00351BB7 /* PersonalDataShowRouter.swift in Sources */,
 				B1FA2D3320245DDF00351BB7 /* OrderCreatePresenter.swift in Sources */,
-				B1597D1F203207ED00C75966 /* Orders+CoreDataClass.swift in Sources */,
+				B1798D342032C31400381584 /* Order+CoreDataProperties.swift in Sources */,
 				B19DA3FC2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift in Sources */,
 				B1DBDF062029DA9400127ECB /* OnboardShowViewController.swift in Sources */,
 				B148E913202C9C3F0007D79B /* DeliveryTermsShowModels.swift in Sources */,
