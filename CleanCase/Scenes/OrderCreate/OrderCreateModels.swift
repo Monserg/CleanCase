@@ -41,4 +41,20 @@ enum OrderCreateModels {
         struct ViewModel {
         }
     }
+
+    enum Departments {
+        struct RequestModel {
+            struct DisplayedDepartment {
+                var id: Int16
+                var name: String
+                var isSelected: Bool
+            }
+        }
+        
+        struct ResponseModel {
+        }
+        
+        struct ViewModel {
+        }
+    }
 }

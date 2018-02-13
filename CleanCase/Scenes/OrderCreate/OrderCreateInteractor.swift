@@ -16,7 +16,9 @@ import UIKit
 protocol OrderCreateBusinessLogic {
     func saveSelectedDate(byRow row: Int)
     func saveSelectedTime(byRow row: Int)
+    func updateDepartment(selectedState state: UITableViewCellAccessoryType, byRow row: Int)
     func fetchDates(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel)
+    func fetchDepartments(withRequestModel requestModel: OrderCreateModels.Departments.RequestModel)
     func doSomething(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel)
 }
 
@@ -24,6 +26,7 @@ protocol OrderCreateDataStore {
     var dateEntitiesFiltered: [DeliveryDate]! { get set }
     var dates: [PickerViewSupport]! { get set }
     var times: [PickerViewSupport]! { get set }
+    var departments: [OrderCreateModels.Departments.RequestModel.DisplayedDepartment]! { get set }
     var selectedDateRow: Int { get set }
     var selectedTimeRow: Int { get set }
     var textFieldsTexts: [ (placeholder: String, errorText: String) ] { get set }
@@ -46,6 +49,7 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
     var dateEntitiesFiltered: [DeliveryDate]!
     var dates: [PickerViewSupport]! = [PickerViewSupport]()
     var times: [PickerViewSupport]!
+    var departments: [OrderCreateModels.Departments.RequestModel.DisplayedDepartment]! = [OrderCreateModels.Departments.RequestModel.DisplayedDepartment]()
 
     
     // MARK: - Business logic implementation
@@ -58,6 +62,10 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         self.selectedTimeRow = row
     }
 
+    func updateDepartment(selectedState state: UITableViewCellAccessoryType, byRow row: Int) {
+        departments[row].isSelected = (state == .none) ? false : true
+    }
+    
     func fetchDates(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel) {
         // CoreData: Fetch data
         for i in 1...7 {
@@ -91,10 +99,29 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
                 }
             }
         }
+        
+        let responseModel = OrderCreateModels.Dates.ResponseModel()
+        presenter?.presentDates(fromResponseModel: responseModel)
+    }
+    
+    func fetchDepartments(withRequestModel requestModel: OrderCreateModels.Departments.RequestModel) {
+        // CoreData: Fetch data
+        if let departmentsEntities = appDependency.coreDataManager.readEntities(withName: "Department",
+                                                                         withPredicateParameters: nil, //NSPredicate.init(format: "laundryId == \(Laundry.codeID)"),
+                                                                         andSortDescriptor: nil) as? [Department], departmentsEntities.count > 0 {
+            for department in departmentsEntities {
+                self.departments.append(OrderCreateModels.Departments.RequestModel.DisplayedDepartment(id:          department.departmentId,
+                                                                                                       name:        department.departmentName,
+                                                                                                       isSelected:  false))
+            }
+        }
+        
+        let responseModel = OrderCreateModels.Departments.ResponseModel()
+        presenter?.presentDepartments(fromResponseModel: responseModel)
     }
     
     func doSomething(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel) {
         let responseModel = OrderCreateModels.Dates.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+        presenter?.presentDates(fromResponseModel: responseModel)
     }
 }

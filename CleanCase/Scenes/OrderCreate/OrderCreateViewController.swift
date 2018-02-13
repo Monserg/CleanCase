@@ -14,8 +14,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrderCreateDisplayLogic: class {
-    func displayData(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel)
-    func displaySomething(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel)
+    func displayDates(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel)
+    func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel)
 }
 
 class OrderCreateViewController: UIViewController {
@@ -23,8 +23,21 @@ class OrderCreateViewController: UIViewController {
     var interactor: OrderCreateBusinessLogic?
     var router: (NSObjectProtocol & OrderCreateRoutingLogic & OrderCreateDataPassing)?
     
+    var firstResponder: UITextInput!
+    
     
     // MARK: - IBOutlets
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet var labelsCollection: [UILabel]! {
+        didSet {
+            _ = labelsCollection.map({
+                $0.text = $0.text?.localized()
+                $0.textAlignment = .right
+            })
+        }
+    }
+    
     @IBOutlet var textFieldsCollection: [UITextField]! {
         didSet {
             _ = textFieldsCollection.map({
@@ -55,6 +68,31 @@ class OrderCreateViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var departmentsTableView: UITableView! {
+        didSet {
+            departmentsTableView.delegate = self
+            departmentsTableView.dataSource = self
+        }
+    }
+    
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer! {
+        didSet {
+            tapGestureRecognizer.cancelsTouchesInView = false
+        }
+    }
+    
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint! {
+        didSet {
+            // Cleaning Instructions Caption
+            _ = labelsCollection.first(where: { $0.tag == 4}).map({
+                $0.numberOfLines = 2
+                $0.sizeToFit()
+                self.contentViewHeightConstraint.constant += $0.frame.height
+            })
+        }
+    }
+    
+    @IBOutlet weak var departmentsTableViewHeightConstraint: NSLayoutConstraint!
     
     
     // MARK: - Class Initialization
@@ -116,6 +154,15 @@ class OrderCreateViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadVewSettings() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        DispatchQueue.main.async(execute: {
+            let requestModel = OrderCreateModels.Departments.RequestModel()
+            self.interactor?.fetchDepartments(withRequestModel: requestModel)
+        })
+
         DispatchQueue.main.async(execute: {
             let requestModel = OrderCreateModels.Dates.RequestModel()
             self.interactor?.fetchDates(withRequestModel: requestModel)
@@ -145,13 +192,13 @@ class OrderCreateViewController: UIViewController {
 //            textView.font = UIFont.ubuntuLight12
                 $0.textColor = UIColor.black
             })
-        } else if (text == "Enter comment".localized() || text!.isEmpty) {
+        } else if (text == "Enter comment".localized() || (text!.isEmpty && tag == 0)) {
             _ = textViewCollection.first(where: { $0.tag == 0 }).map({
                 $0.text = "Enter comment".localized()
 //            textView.font = UIFont.ubuntuLightItalic12
                 $0.textColor = UIColor.green
             })
-        } else if (text == "Enter cleaning instructions".localized() || text!.isEmpty) {
+        } else if (text == "Enter cleaning instructions".localized() || (text!.isEmpty && tag == 1)) {
             _ = textViewCollection.first(where: { $0.tag == 1 }).map({
                 $0.text = "Enter cleaning instructions".localized()
 //            textView.font = UIFont.ubuntuLightItalic12
@@ -176,19 +223,36 @@ class OrderCreateViewController: UIViewController {
     @IBAction func handlerSaveButtonTapped(_ sender: UIButton) {
         self.startDataValidation()
     }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            self.scrollView.contentInset = UIEdgeInsets.zero
+        } else {
+            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+    }
 }
 
 
 // MARK: - OrderCreateDisplayLogic
 extension OrderCreateViewController: OrderCreateDisplayLogic {
-    func displayData(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel) {
+    func displayDates(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel) {
         // NOTE: Display the result from the Presenter
         
     }
 
-    func displaySomething(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel) {
+    func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel) {
         // NOTE: Display the result from the Presenter
-
+        DispatchQueue.main.async(execute: {
+            self.contentViewHeightConstraint.constant += CGFloat(self.router!.dataStore!.departments.count - 1) * 54.0 + 4.0
+            self.departmentsTableViewHeightConstraint.constant += CGFloat(self.router!.dataStore!.departments.count - 1) * 54.0 + 4.0
+            self.departmentsTableView.reloadData()
+        })
     }
 }
 
@@ -262,6 +326,8 @@ extension OrderCreateViewController: UITextFieldDelegate {
 // MARK: - UITextViewDelegate
 extension OrderCreateViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        self.firstResponder = textView
+        
         if textView.tag == 0 {
             loadTextViewPlaceholder((textView.text == "Enter comment".localized()) ? nil : textView.text, 0)
         }
@@ -281,6 +347,72 @@ extension OrderCreateViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         return (textView.text!.count + text.count) < 100
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+extension OrderCreateViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let dataSource = self.router?.dataStore?.departments else {
+            return 0
+        }
+        
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "DepartmentCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! DepartmentTableViewCell
+        let department = self.router!.dataStore!.departments[indexPath.row]
+        
+        cell.setup(withItem: department, andIndexPath: indexPath)
+        
+        return cell
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+extension OrderCreateViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 54.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 4.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.bounds.width, height: 4.0)))
+        footerView.backgroundColor = UIColor.lightGray
+        
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.accessoryType == .checkmark {
+                cell.accessoryType = .none
+            }
+                
+            else {
+                cell.accessoryType = .checkmark
+            }
+            
+            self.interactor?.updateDepartment(selectedState: cell.accessoryType, byRow: indexPath.row)
+            self.saveButton.isEnabled = self.router!.dataStore!.departments.filter({ $0.isSelected == true }).count > 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
     }
 }
 

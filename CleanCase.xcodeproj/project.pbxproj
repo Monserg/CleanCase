@@ -35,6 +35,7 @@
 		B1798D322032C31400381584 /* OrderItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D2E2032C31400381584 /* OrderItems+CoreDataProperties.swift */; };
 		B1798D332032C31400381584 /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D2F2032C31400381584 /* Order+CoreDataClass.swift */; };
 		B1798D342032C31400381584 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D302032C31400381584 /* Order+CoreDataProperties.swift */; };
+		B1798D39203305EE00381584 /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */; };
 		B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */; };
 		B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */; };
 		B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */; };
@@ -167,6 +168,7 @@
 		B1798D2E2032C31400381584 /* OrderItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1798D2F2032C31400381584 /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1798D302032C31400381584 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
 		B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementShow.storyboard; sourceTree = "<group>"; };
 		B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementShowViewController.swift; sourceTree = "<group>"; };
 		B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
@@ -339,6 +341,14 @@
 				B15AF34E202B5139002B170F /* ToolBarPickerView.swift */,
 			);
 			path = UIViews;
+			sourceTree = "<group>";
+		};
+		B1798D37203305CB00381584 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B19DA3CC202852BE00E9F7D6 /* AgreementShow */ = {
@@ -538,6 +548,7 @@
 		B1FA2D2C20245DCF00351BB7 /* OrderCreate */ = {
 			isa = PBXGroup;
 			children = (
+				B1798D37203305CB00381584 /* Models */,
 				B1FA2D3220245DDF00351BB7 /* OrderCreateInteractor.swift */,
 				B1FA2D3020245DDF00351BB7 /* OrderCreateModels.swift */,
 				B1FA2D2D20245DDF00351BB7 /* OrderCreatePresenter.swift */,
@@ -850,6 +861,7 @@
 				B1597D19203189FD00C75966 /* PersonalData+CoreDataProperties.swift in Sources */,
 				B19DA3FB2028B0B000E9F7D6 /* Laundry+CoreDataClass.swift in Sources */,
 				B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */,
+				B1798D39203305EE00381584 /* DepartmentTableViewCell.swift in Sources */,
 				B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */,
 				B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */,
 				B1DBDF00202998E100127ECB /* Department+CoreDataClass.swift in Sources */,
