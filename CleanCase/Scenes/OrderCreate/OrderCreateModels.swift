@@ -15,8 +15,24 @@ import UIKit
 // MARK: - Data models
 enum OrderCreateModels {
     // MARK: - Use cases
-    enum Something {
+    enum Dates {
         struct RequestModel {
+            struct DateForPickerView: PickerViewSupport {
+                // PickerViewSupport protocol implementation
+                var id: Int16
+                var title: String
+                
+                var times: [PickerViewSupport]
+            }
+            
+            struct TimeForPickerView: PickerViewSupport {
+                // PickerViewSupport protocol implementation
+                var id: Int16
+                var title: String
+                
+                var bodyDate: String
+                var bodyTime: String
+            }
         }
         
         struct ResponseModel {

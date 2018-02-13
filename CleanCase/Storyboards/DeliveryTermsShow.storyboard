@@ -39,9 +39,6 @@
                                             <constraint firstAttribute="height" constant="64" id="tUj-BZ-Wzm"/>
                                             <constraint firstAttribute="trailing" secondItem="Fa8-ol-7Ff" secondAttribute="trailing" constant="16" id="u6o-DB-bVC"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="QGN-C4-5Xj" appends="YES" id="x8S-2y-GW2"/>
-                                        </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zab-76-qZc" userLabel="Line View">
                                         <rect key="frame" x="0.0" y="64" width="337.5" height="2"/>
@@ -66,7 +63,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWB-bu-UBZ" userLabel="Delivery Time Text Field">
+                                            <textField clipsSubviews="YES" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LWB-bu-UBZ" userLabel="Delivery Time Text Field">
                                                 <rect key="frame" x="16" y="131" width="306" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
@@ -137,9 +134,6 @@
                                             <constraint firstItem="A5s-3t-MWc" firstAttribute="leading" secondItem="2um-eX-egb" secondAttribute="leading" constant="16" id="w9K-jv-cuJ"/>
                                             <constraint firstAttribute="trailing" secondItem="JLx-YL-JvI" secondAttribute="trailing" constant="16" id="whc-Ce-igt"/>
                                         </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="QGN-C4-5Xj" appends="YES" id="gew-3S-4lT"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,11 +176,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpA-jR-Jt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="q3U-eK-Qgb" userLabel="Dismiss Tap Gesture Recognizer"/>
-                <tapGestureRecognizer id="QGN-C4-5Xj" userLabel="Hide Keyboard Tap Gesture Recognizer">
+                <tapGestureRecognizer id="q3U-eK-Qgb" userLabel="Dismiss Tap Gesture Recognizer">
                     <connections>
-                        <action selector="hideKeyboard:" destination="abg-B3-dvr" id="iWK-7K-Uiw"/>
-                        <outlet property="delegate" destination="vb0-uQ-Aa7" id="48S-dZ-vfu"/>
+                        <outlet property="delegate" destination="vb0-uQ-Aa7" id="ulR-0U-btj"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

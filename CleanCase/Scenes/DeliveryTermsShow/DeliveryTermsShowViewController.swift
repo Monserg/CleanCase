@@ -57,7 +57,7 @@ class DeliveryTermsShowViewController: UIViewController {
             charactersCountLabel.text = "0/100"
         }
     }
-
+    
     @IBOutlet weak var textView: UITextView! {
         didSet {
             textView.text = "Enter comment".localized()
@@ -120,7 +120,7 @@ class DeliveryTermsShowViewController: UIViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-             
+        
         loadViewSettings()
     }
     
@@ -132,7 +132,7 @@ class DeliveryTermsShowViewController: UIViewController {
             self.interactor?.fetchDates(withRequestModel: requestModel)
         })
     }
-
+    
     fileprivate func startDataValidation() {
         if let textField = textFieldsCollection.first(where: { ($0.text?.isEmpty)! }) {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
@@ -151,18 +151,18 @@ class DeliveryTermsShowViewController: UIViewController {
     fileprivate func loadTextViewPlaceholder(_ text: String?) {
         if (text == nil) {
             textView.text = ""
-//            textView.font = UIFont.ubuntuLight12
+            //            textView.font = UIFont.ubuntuLight12
             textView.textColor = UIColor.black
         } else if (text == "Enter comment".localized() || text!.isEmpty) {
             textView.text = "Enter comment".localized()
-//            textView.font = UIFont.ubuntuLightItalic12
+            //            textView.font = UIFont.ubuntuLightItalic12
             textView.textColor = UIColor.green
         } else {
-//            commentTextView.font = UIFont.ubuntuLight12
+            //            commentTextView.font = UIFont.ubuntuLight12
             textView.textColor = UIColor.blue
         }
     }
-
+    
     
     // MARK: - Gestures
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -170,11 +170,11 @@ class DeliveryTermsShowViewController: UIViewController {
             if (touch.view == self.view) {
                 self.dismiss(animated: true, completion: nil)
             }
+                
+            else {
+                self.textView.resignFirstResponder()
+            }
         }
-    }
-
-    @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
-        self.textView.resignFirstResponder()
     }
     
     
@@ -215,9 +215,13 @@ extension DeliveryTermsShowViewController: UITextFieldDelegate {
                 if let selectedRow = row as? Int {
                     self.interactor?.saveSelectedDate(byRow: selectedRow)
                     textField.text = self.router!.dataStore!.dates[selectedRow].title
-
+                    
                     self.saveButton.isEnabled = false
-                    self.textFieldsCollection.first(where: { $0.tag == 1 }).map({ $0.text = nil })
+                    self.textFieldsCollection.first(where: { $0.tag == 1 }).map({
+                        $0.text = nil
+                        $0.isEnabled = true
+                    })
+                    
                     self.interactor?.saveSelectedTime(byRow: 0)
                 }
                 
@@ -230,7 +234,7 @@ extension DeliveryTermsShowViewController: UITextFieldDelegate {
                 if let selectedRow = row as? Int {
                     self.interactor?.saveSelectedTime(byRow: selectedRow)
                     textField.text = self.router!.dataStore!.times[selectedRow].title
-
+                    
                     self.saveButton.isEnabled = true
                 }
                 

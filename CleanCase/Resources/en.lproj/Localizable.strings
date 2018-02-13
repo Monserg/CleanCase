@@ -121,12 +121,18 @@
 "Please, enter credit card CVV..."          =   "Please, \nenter credit card CVV...";
 "Please, enter credit card year..."         =   "Please, \nenter credit card year...";
 "Please, enter credit card month..."        =   "Please, \nenter credit card month...";
+"Please, select collection date..."         =   "Please, \nselect collection date...";
+"Please, select collection time..."         =   "Please, \nselect collection time...";
+"Please, select delivery date..."           =   "Please, \nselect delivery date...";
+"Please, select delivery time..."           =   "Please, \nselect delivery time...";
 
 
 // TextField Placeholders
 "Select City"                               =   "Select City";
 "Select Delivery Date"                      =   "Select Delivery Date";
 "Select Delivery Time"                      =   "Select Delivery Time";
+"Select Collection Date"                    =   "Select Collection Date";
+"Select Collection Time"                    =   "Select Collection Time";
 "Code"                                      =   "Code";
 "Enter Phone Number"                        =   "Enter Phone Number";
 "Enter First Name"                          =   "Enter First Name";
@@ -137,6 +143,7 @@
 "Read Agreement"                            =   "Read Agreement";
 "Enter message"                             =   "Enter message";
 "Enter comment"                             =   "Enter comment";
+"Enter cleaning instructions"               =   "Enter cleaning instructions";
 "Enter Credit Card Number"                  =   "Enter Credit Card number";
 "Enter Credit Card CVV"                     =   "CVV";
 "Enter Credit Card Year"                    =   "Year";

@@ -26,7 +26,6 @@ protocol DeliveryTermsShowDataStore {
     var times: [PickerViewSupport]! { get set }
     var selectedDateRow: Int { get set }
     var selectedTimeRow: Int { get set }
-
     var textFieldsTexts: [ (placeholder: String, errorText: String) ] { get set }
 }
 
@@ -92,38 +91,7 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
                 }
             }
         }
-//
-//        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: Date())
-//        if let dateEntities = appDependency.coreDataManager.readEntities(withName: "DeliveryDate", andPredicateParameters: nil), dateEntities.count > 0 {
-//
-//            self.dateEntitiesFiltered = (dateEntities as! [DeliveryDate]).filter({
-//                $0.weekDay > dateComponents.weekday! ||
-//                ($0.weekDay == dateComponents.weekday! && $0.fromDate.convertToFloat() >= (Float(dateComponents.hour! + 1) + Float(dateComponents.minute!) / 100))
-//            })
-//
-////            dateEntitiesFiltered.sort(by: { date1, date2 in
-////                return date1.weekDay < date2.weekDay && date1.fromDate < date2.fromDate
-////            })
-//
-//            print(self.dateEntitiesFiltered)
-//            let uniqueEntities = self.dateEntitiesFiltered.unique(map: { $0.weekDay })
-//            print(uniqueEntities)
-//
-//            for (index, entity) in uniqueEntities.enumerated() {
-//                let weekDate = (entity.weekDay == dateComponents.weekday!) ?
-//                    ("\(dateComponents.day!)".addZero() + "/" + "\(dateComponents.month!)".addZero() + "/\(dateComponents.year!)") :
-//                    (String.getNextDate(withDiff: Int(entity.weekDay) - dateComponents.weekday!))
-//
-//                dates.append(DeliveryTermsShowModels.Dates.RequestModel.ItemForPickerView(id:           "\(index)",
-//                                                                                          title:        "\(entity.name!) " + weekDate,
-//                                                                                          weekDay:      entity.weekDay,
-//                                                                                          fromTime:     entity.fromDate,
-//                                                                                          toTime:       entity.toDate,
-//                                                                                          bodyDate:     weekDate,
-//                                                                                          bodyTimeFrom: entity.fromDate.getTime()))
-//            }
-//        }
-        
+
         let responseModel = DeliveryTermsShowModels.Dates.ResponseModel()
         presenter?.presentData(fromResponseModel: responseModel)
     }

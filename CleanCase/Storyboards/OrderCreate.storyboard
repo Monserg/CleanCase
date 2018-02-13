@@ -38,48 +38,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="h5c-74-NmF" userLabel="Comment Text View">
-                                                <rect key="frame" x="16" y="99" width="342" height="80"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Enter comment" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="h5c-74-NmF" userLabel="Comment Text View">
+                                                <rect key="frame" x="16" y="99" width="342" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="Ejt-f7-EKL"/>
-                                                </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oya-Tp-CID" userLabel="Terms Label">
-                                                <rect key="frame" x="316" y="187" width="42" height="21"/>
+                                                <rect key="frame" x="316" y="140" width="42" height="21"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tMN-16-0fc" userLabel="Dates Text Field">
-                                                <rect key="frame" x="16" y="216" width="342" height="30"/>
+                                            <textField clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tMN-16-0fc" userLabel="Dates Text Field">
+                                                <rect key="frame" x="16" y="169" width="342" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <textField clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iY-K5-q9S" userLabel="Times Text Field">
-                                                <rect key="frame" x="16" y="262" width="342" height="30"/>
+                                            <textField clipsSubviews="YES" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iY-K5-q9S" userLabel="Times Text Field">
+                                                <rect key="frame" x="16" y="215" width="342" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jMV-OQ-Tvg" userLabel="Departments Table View">
-                                                <rect key="frame" x="16" y="308" width="342" height="243"/>
+                                                <rect key="frame" x="16" y="261" width="342" height="337"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="hee-sn-7tL" userLabel="Info Text View">
-                                                <rect key="frame" x="16" y="567" width="342" height="80"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Enter cleaning instructions" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="hee-sn-7tL" userLabel="Info Text View">
+                                                <rect key="frame" x="16" y="614" width="342" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="iBv-SV-Gxb"/>
-                                                </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
@@ -121,6 +113,9 @@
                                             <constraint firstItem="jMV-OQ-Tvg" firstAttribute="leading" secondItem="CNa-hC-3tZ" secondAttribute="leading" constant="16" id="wdN-aJ-4si"/>
                                             <constraint firstItem="oya-Tp-CID" firstAttribute="top" secondItem="h5c-74-NmF" secondAttribute="bottom" constant="8" id="xzY-p7-8oV"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Xn1-Ey-V9X" appends="YES" id="koG-aL-1eU"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -171,11 +166,21 @@
                     </view>
                     <connections>
                         <outlet property="saveButton" destination="B6Q-Nj-XfO" id="0bd-KU-Bds"/>
+                        <outletCollection property="textFieldsCollection" destination="eO7-Eg-ikJ" collectionClass="NSMutableArray" id="0tj-Zt-qBX"/>
+                        <outletCollection property="textFieldsCollection" destination="tMN-16-0fc" collectionClass="NSMutableArray" id="8ah-u5-4Ss"/>
+                        <outletCollection property="textFieldsCollection" destination="4iY-K5-q9S" collectionClass="NSMutableArray" id="rGg-Zy-27x"/>
+                        <outletCollection property="textViewCollection" destination="h5c-74-NmF" collectionClass="NSMutableArray" id="drZ-NH-lfc"/>
+                        <outletCollection property="textViewCollection" destination="hee-sn-7tL" collectionClass="NSMutableArray" id="QLY-Zx-yKM"/>
                         <segue destination="0qz-sx-5vg" kind="show" identifier="PersonalDataShowSegue" id="DKv-X9-KbS"/>
                         <segue destination="b0N-Q7-wVC" kind="show" identifier="OrderShowSegue" id="2xg-Ib-G2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqz-Oy-5cK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Xn1-Ey-V9X">
+                    <connections>
+                        <action selector="handlerTapGestureRecognizer:" destination="ltv-sE-fer" id="ozL-FT-ElN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="186.65667166416793"/>
         </scene>

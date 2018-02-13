@@ -14,38 +14,87 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol OrderCreateBusinessLogic {
-    func doSomething(withRequestModel requestModel: OrderCreateModels.Something.RequestModel)
+    func saveSelectedDate(byRow row: Int)
+    func saveSelectedTime(byRow row: Int)
+    func fetchDates(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel)
+    func doSomething(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel)
 }
 
 protocol OrderCreateDataStore {
+    var dateEntitiesFiltered: [DeliveryDate]! { get set }
+    var dates: [PickerViewSupport]! { get set }
+    var times: [PickerViewSupport]! { get set }
+    var selectedDateRow: Int { get set }
+    var selectedTimeRow: Int { get set }
     var textFieldsTexts: [ (placeholder: String, errorText: String) ] { get set }
 }
 
 class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCreateDataStore {
     // MARK: - Properties
     var presenter: OrderCreatePresentationLogic?
-    var worker: OrderCreateWorker?
     
     // OrderCreateDataStore protocol implementation
+    var selectedDateRow: Int = 0
+    var selectedTimeRow: Int = 0
+
     var textFieldsTexts: [ (placeholder: String, errorText: String) ] = [
-        (placeholder: "Enter Phone Number".localized(), errorText: "Please, enter phone number...".localized()),
-        (placeholder: "Enter First Name".localized(), errorText: "Please, enter first name...".localized()),
-        (placeholder: "Enter Last Name".localized(), errorText: "Please, enter last name...".localized()),
         (placeholder: "Enter Address".localized(), errorText: "Please, enter address...".localized()),
-        (placeholder: "Enter Email".localized(), errorText: "Please, enter email...".localized()),
-        (placeholder: "Enter Credit Card Number".localized(), errorText: "Please, enter credit card number...".localized()),
-        (placeholder: "Enter Credit Card CVV".localized(), errorText: "Please, enter credit card CVV...".localized()),
-        (placeholder: "Enter Credit Card Year".localized(), errorText: "Please, enter credit card year...".localized()),
-        (placeholder: "Enter Credit Card Month".localized(), errorText: "Please, enter credit card month...".localized())
+        (placeholder: "Select Collection Date".localized(), errorText: "Please, select collection date...".localized()),
+        (placeholder: "Select Collection Time".localized(), errorText: "Please, select collection time...".localized())
     ]
+
+    var dateEntitiesFiltered: [DeliveryDate]!
+    var dates: [PickerViewSupport]! = [PickerViewSupport]()
+    var times: [PickerViewSupport]!
 
     
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: OrderCreateModels.Something.RequestModel) {
-        worker = OrderCreateWorker()
-        worker?.doSomeWork()
-        
-        let responseModel = OrderCreateModels.Something.ResponseModel()
+    func saveSelectedDate(byRow row: Int) {
+        self.selectedDateRow = row
+        self.times = (dates[row] as! OrderCreateModels.Dates.RequestModel.DateForPickerView).times
+    }
+    
+    func saveSelectedTime(byRow row: Int) {
+        self.selectedTimeRow = row
+    }
+
+    func fetchDates(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel) {
+        // CoreData: Fetch data
+        for i in 1...7 {
+            let date = (i == 1) ? Date() : Date().addingTimeInterval(TimeInterval(i * 24 * 60 * 60))
+            let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .weekday, .hour, .minute], from: date)
+            
+            if dateComponents.weekday! != 7 {
+                if let dateEntities = appDependency.coreDataManager.readEntities(withName: "CollectionDate",
+                                                                                 withPredicateParameters: NSPredicate.init(format: "weekDay == \(dateComponents.weekday!)"),
+                                                                                 andSortDescriptor: nil) as? [CollectionDate] {
+                    // Times
+                    let dateEntity = dateEntities.first!
+                    var dateTimes = [PickerViewSupport]()
+                    let weekDate = String.createDateString(fromComponents: dateComponents)
+                    
+                    // Check times for current date
+                    for (index, dateEntity) in dateEntities.enumerated() {
+                        if (i == 1 && dateEntity.fromDate.convertToFloat() >= (Float(dateComponents.hour! + 1) + Float(dateComponents.minute!) / 100)) || i != 1 {
+                            dateTimes.append(OrderCreateModels.Dates.RequestModel.TimeForPickerView(id:          Int16(index),
+                                                                                                    title:       "\(dateEntity.fromDate.getTime())-\(dateEntity.toDate.getTime())",
+                                bodyDate:    weekDate,
+                                bodyTime:    dateEntity.fromDate.getTime()))
+                        }
+                    }
+                    
+                    if dateTimes.count > 0 {
+                        self.dates.append(OrderCreateModels.Dates.RequestModel.DateForPickerView(id:      dateEntity.weekDay,
+                                                                                                 title:   "\(dateEntity.name!) " + weekDate,
+                                                                                                 times:   dateTimes))
+                    }
+                }
+            }
+        }
+    }
+    
+    func doSomething(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel) {
+        let responseModel = OrderCreateModels.Dates.ResponseModel()
         presenter?.presentSomething(fromResponseModel: responseModel)
     }
 }

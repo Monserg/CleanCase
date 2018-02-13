@@ -80,7 +80,6 @@
 		B1FA2D2920245D5F00351BB7 /* OrderShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D2320245D5F00351BB7 /* OrderShowInteractor.swift */; };
 		B1FA2D2B20245DC600351BB7 /* OrderCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D2A20245DC600351BB7 /* OrderCreate.storyboard */; };
 		B1FA2D3320245DDF00351BB7 /* OrderCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D2D20245DDF00351BB7 /* OrderCreatePresenter.swift */; };
-		B1FA2D3420245DDF00351BB7 /* OrderCreateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D2E20245DDF00351BB7 /* OrderCreateWorker.swift */; };
 		B1FA2D3520245DDF00351BB7 /* OrderCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D2F20245DDF00351BB7 /* OrderCreateRouter.swift */; };
 		B1FA2D3620245DDF00351BB7 /* OrderCreateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3020245DDF00351BB7 /* OrderCreateModels.swift */; };
 		B1FA2D3720245DDF00351BB7 /* OrderCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D3120245DDF00351BB7 /* OrderCreateViewController.swift */; };
@@ -215,7 +214,6 @@
 		B1FA2D2320245D5F00351BB7 /* OrderShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D2A20245DC600351BB7 /* OrderCreate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderCreate.storyboard; sourceTree = "<group>"; };
 		B1FA2D2D20245DDF00351BB7 /* OrderCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreatePresenter.swift; sourceTree = "<group>"; };
-		B1FA2D2E20245DDF00351BB7 /* OrderCreateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateWorker.swift; sourceTree = "<group>"; };
 		B1FA2D2F20245DDF00351BB7 /* OrderCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateRouter.swift; sourceTree = "<group>"; };
 		B1FA2D3020245DDF00351BB7 /* OrderCreateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateModels.swift; sourceTree = "<group>"; };
 		B1FA2D3120245DDF00351BB7 /* OrderCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreateViewController.swift; sourceTree = "<group>"; };
@@ -545,7 +543,6 @@
 				B1FA2D2D20245DDF00351BB7 /* OrderCreatePresenter.swift */,
 				B1FA2D2F20245DDF00351BB7 /* OrderCreateRouter.swift */,
 				B1FA2D3120245DDF00351BB7 /* OrderCreateViewController.swift */,
-				B1FA2D2E20245DDF00351BB7 /* OrderCreateWorker.swift */,
 			);
 			path = OrderCreate;
 			sourceTree = "<group>";
@@ -883,7 +880,6 @@
 				B1FA2D3520245DDF00351BB7 /* OrderCreateRouter.swift in Sources */,
 				B1FA2DA32024914900351BB7 /* CleanCaseModel.xcdatamodeld in Sources */,
 				B1FA2D2520245D5F00351BB7 /* OrderShowWorker.swift in Sources */,
-				B1FA2D3420245DDF00351BB7 /* OrderCreateWorker.swift in Sources */,
 				B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */,
 				B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */,
 				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
