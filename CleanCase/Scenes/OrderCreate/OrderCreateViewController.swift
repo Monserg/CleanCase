@@ -81,17 +81,6 @@ class OrderCreateViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint! {
-        didSet {
-            // Cleaning Instructions Caption
-            _ = labelsCollection.first(where: { $0.tag == 4}).map({
-                $0.numberOfLines = 2
-                $0.sizeToFit()
-                self.contentViewHeightConstraint.constant += $0.frame.height
-            })
-        }
-    }
-    
     @IBOutlet weak var departmentsTableViewHeightConstraint: NSLayoutConstraint!
     
     
@@ -249,7 +238,6 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
     func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel) {
         // NOTE: Display the result from the Presenter
         DispatchQueue.main.async(execute: {
-            self.contentViewHeightConstraint.constant += CGFloat(self.router!.dataStore!.departments.count - 1) * 54.0 + 4.0
             self.departmentsTableViewHeightConstraint.constant += CGFloat(self.router!.dataStore!.departments.count - 1) * 54.0 + 4.0
             self.departmentsTableView.reloadData()
         })
