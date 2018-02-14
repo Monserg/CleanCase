@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 // MARK: - Input & Output protocols
 protocol OrderCreateDisplayLogic: class {
@@ -165,11 +166,15 @@ class OrderCreateViewController: UIViewController {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
         }
         
-        DispatchQueue.main.async(execute: {
-            self.view.isUserInteractionEnabled = false
-            let requestModel = OrderCreateModels.Order.RequestModel(bodyParams: self.prepareBodyParameters(true) as! [String : [String : Any]])
-            self.interactor?.addOrder(withRequestModel: requestModel)
-        })
+        else {
+            SwiftSpinner.show("Add Order...".localized(), animated: true)
+
+            DispatchQueue.main.async(execute: {
+                self.view.isUserInteractionEnabled = false
+                let requestModel = OrderCreateModels.Order.RequestModel(bodyParams: self.prepareBodyParameters(true) as! [String : [String : Any]])
+                self.interactor?.addOrder(withRequestModel: requestModel)
+            })
+        }
     }
     
     fileprivate func prepareBodyParameters(_ forAPI: Bool) -> [ String: Any ] {
@@ -281,20 +286,24 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
         // NOTE: Display the result from the Presenter
         self.view.isUserInteractionEnabled = true
 
-        guard viewModel.error == nil else {
-            self.showAlertView(withTitle: "Error", andMessage: (viewModel.error! as NSError).domain, needCancel: false, completion: {_ in})
-            return
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
+            SwiftSpinner.hide()
+            
+            guard viewModel.error == nil else {
+                self.showAlertView(withTitle: "Error", andMessage: (viewModel.error! as NSError).domain, needCancel: false, completion: {_ in})
+                return
+            }
+
+            self.showAlertView(withTitle: "Info", andMessage: "Order added", needCancel: false, completion: {_ in
+                if let personalDataEntity = PersonalData.current, personalDataEntity.cardNumber!.isEmpty {
+                    self.performSegue(withIdentifier: "PersonalDataShowSegue", sender: nil)
+                }
+                    
+                else {
+                    self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
+                }
+            })
         }
-        
-        DispatchQueue.main.async(execute: {
-            if let personalDataEntity = PersonalData.current, personalDataEntity.cardNumber!.isEmpty {
-                self.performSegue(withIdentifier: "PersonalDataShowSegue", sender: nil)
-            }
-                
-            else {
-                self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
-            }
-        })
     }
 
     func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel) {

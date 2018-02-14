@@ -53,6 +53,7 @@
 "Cleaning Instructions Caption"             =   "Cleaning Instructions Caption";
 "Terms Caption"                             =   "Terms Caption";
 "Departments Caption"                       =   "Departments Caption";
+"Add Order..."                              =   "Add Order...";
 
 
 // Titles
@@ -121,6 +122,7 @@
 "Message sent"                              =   "Message sent";
 "Order confirmed"                           =   "Order confirmed";
 "Order accepted"                            =   "Order accepted";
+"Order added"                               =   "Order added";
 "Please, enter credit card number..."       =   "Please, \nenter credit card number...";
 "Please, enter credit card CVV..."          =   "Please, \nenter credit card CVV...";
 "Please, enter credit card year..."         =   "Please, \nenter credit card year...";
