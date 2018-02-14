@@ -20,6 +20,7 @@ extension Order {
     @NSManaged public var address1: String?
     @NSManaged public var address2: String?
     @NSManaged public var cleaningInstructions: String?
+    @NSManaged public var clientID: Int16
     @NSManaged public var collectionFrom: String
     @NSManaged public var collectionTo: String
     @NSManaged public var createdDate: String
@@ -30,6 +31,8 @@ extension Order {
     @NSManaged public var orderID: Int16
     @NSManaged public var orderStatus: Int16
     @NSManaged public var price: Float
+    @NSManaged public var remarks: String?
+
     @NSManaged public var items: NSSet?
 
 }

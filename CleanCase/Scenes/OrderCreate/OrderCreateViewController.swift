@@ -180,18 +180,18 @@ class OrderCreateViewController: UIViewController {
     fileprivate func prepareBodyParameters(_ forAPI: Bool) -> [ String: Any ] {
         var comments = textViewCollection.first(where: { $0.tag == 0 })?.text
         var instructions = textViewCollection.first(where: { $0.tag == 1 })?.text
-        let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + ", " + $1.name }
+        let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + $1.name }
 
         if comments == "Enter comment".localized() {
             comments = selectedDepartments
         } else {
-            comments! += ", " + selectedDepartments
+            comments! += selectedDepartments
         }
 
         if instructions == "Enter cleaning instructions".localized() {
             instructions = selectedDepartments
         } else {
-            instructions! += ", " + selectedDepartments
+            instructions! += selectedDepartments
         }
 
         let collectionTimeFrom  =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyTimeFrom
@@ -203,7 +203,7 @@ class OrderCreateViewController: UIViewController {
                                                 "CleaningInstructions":     instructions!,
                                                 "Remarks":                  comments!,
                                                 "CollectionFrom":           createdDate + " " + collectionTimeFrom,
-                                                "Price":                    0
+                                                "Price":                    Float(0)
                                             ]
         guard forAPI == false else {
             return [ "order": bodyParams ]
@@ -294,6 +294,8 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
                 return
             }
 
+            self.interactor?.saveOrder(fromJSON: self.prepareBodyParameters(false))
+            
             self.showAlertView(withTitle: "Info", andMessage: "Order added", needCancel: false, completion: {_ in
                 if let personalDataEntity = PersonalData.current, personalDataEntity.cardNumber!.isEmpty {
                     self.performSegue(withIdentifier: "PersonalDataShowSegue", sender: nil)
