@@ -115,6 +115,7 @@
 "Please, select city..."                    =   "Please, \nselect city...";
 "Please, select code..."                    =   "Please, \nselect code...";
 "Please, enter phone number..."             =   "Please, \nenter phone number...";
+"Please, enter correct phone number..."     =   "Please, \nenter correct phone number...";
 "Please, enter first name..."               =   "Please, \nenter first name...";
 "Please, enter last name..."                =   "Please, \nenter last name...";
 "Please, enter address..."                  =   "Please, \nenter address...";
@@ -123,7 +124,9 @@
 "Order confirmed"                           =   "Order confirmed";
 "Order accepted"                            =   "Order accepted";
 "Order added"                               =   "Order added";
+"Your Personal Data updated"                =   "Your Personal Data updated";
 "Please, enter credit card number..."       =   "Please, \nenter credit card number...";
+"Please, enter correct credit card..."      =   "Please, \nenter correct credit card number...";
 "Please, enter credit card CVV..."          =   "Please, \nenter credit card CVV...";
 "Please, enter credit card year..."         =   "Please, \nenter credit card year...";
 "Please, enter credit card month..."        =   "Please, \nenter credit card month...";

@@ -14,10 +14,17 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol PersonalDataShowBusinessLogic {
+    func saveSelectedYear(byRow row: Int)
+    func saveSelectedMonth(byRow row: Int)
+    func fetchTerms(withRequestModel requestModel: PersonalDataShowModels.Client.RequestModel)
     func updatePersonalData(withRequestModel requestModel: PersonalDataShowModels.Client.RequestModel)
 }
 
 protocol PersonalDataShowDataStore {
+    var selectedYearRow: Int { get set }
+    var selectedMonthRow: Int { get set }
+    var years: [PickerViewSupport]! { get set }
+    var months: [PickerViewSupport]! { get set }
     var textFieldsTexts: [ (placeholder: String, errorText: String) ] { get set }
 }
 
@@ -26,6 +33,12 @@ class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic
     var presenter: PersonalDataShowPresentationLogic?
     
     // PersonalDataShowDataStore protocol implementation
+    var selectedYearRow: Int = 0
+    var selectedMonthRow: Int = 0
+
+    var years: [PickerViewSupport]! = [PickerViewSupport]()
+    var months: [PickerViewSupport]! = [PickerViewSupport]()
+    
     var textFieldsTexts: [ (placeholder: String, errorText: String) ] = [
         (placeholder: "Enter Phone Number".localized(), errorText: "Please, enter phone number...".localized()),
         (placeholder: "Enter First Name".localized(), errorText: "Please, enter first name...".localized()),
@@ -40,11 +53,31 @@ class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic
 
     
     // MARK: - Business logic implementation
+    func saveSelectedYear(byRow row: Int) {
+        self.selectedYearRow = row
+    }
+    
+    func saveSelectedMonth(byRow row: Int) {
+        self.selectedMonthRow = row
+    }
+    
+    func fetchTerms(withRequestModel requestModel: PersonalDataShowModels.Client.RequestModel) {
+        // Prepare PickerView data
+        for i in 1...12 {
+            let currentYear = Date.getYear(fromDate: Date()) - 1 + i
+            self.months.append(PersonalDataShowModels.Client.RequestModel.ItemForPickerView(id: Int16(i), title: "\(i)".addZero()))
+            self.years.append(PersonalDataShowModels.Client.RequestModel.ItemForPickerView(id: Int16(currentYear), title: "\(currentYear)"))
+        }
+        
+        let responseModel = PersonalDataShowModels.Client.ResponseModel(error: nil)
+        self.presenter?.presentTerms(fromResponseModel: responseModel)
+    }
+    
     func updatePersonalData(withRequestModel requestModel: PersonalDataShowModels.Client.RequestModel) {
         // API: Fetch request data
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .addClient([ "client": requestModel.params ], true), andResponseType: ResponseAPIClientResult.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .addClient([ "client": requestModel.params! ], true), andResponseType: ResponseAPIClientResult.self, completionHandler: { [unowned self] responseAPI in
             if (responseAPI.model as? ResponseAPIClientResult) != nil {
-                PersonalData().updateEntity(fromJSON: requestModel.params)
+                PersonalData().updateEntity(fromJSON: requestModel.params!)
             }
             
             let responseModel = PersonalDataShowModels.Client.ResponseModel(error: responseAPI.error)

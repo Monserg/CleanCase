@@ -15,4 +15,12 @@ extension Date {
         
         return Date(timeInterval: seconds, since: self)
     }
+    
+    static func getYear(fromDate date: Date) -> Int {
+        let dateFormatter               =   DateFormatter()
+        dateFormatter.locale            =   NSLocale.current
+        dateFormatter.dateFormat        =   "yy"          // "dd.MM.yyyy"
+        
+        return Int(dateFormatter.string(from: date).addZero())!
+    }
 }

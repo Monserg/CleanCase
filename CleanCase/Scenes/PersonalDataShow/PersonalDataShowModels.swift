@@ -17,7 +17,13 @@ enum PersonalDataShowModels {
     // MARK: - Use cases
     enum Client {
         struct RequestModel {
-            let params: [String: Any]
+            struct ItemForPickerView: PickerViewSupport {
+                // PickerViewSupport protocol implementation
+                var id: Int16
+                var title: String
+            }
+
+            let params: [String: Any]?
         }
         
         struct ResponseModel {

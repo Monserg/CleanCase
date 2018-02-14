@@ -15,6 +15,7 @@ import ADEmailAndPassword
 
 // MARK: - Input & Output protocols
 protocol PersonalDataShowDisplayLogic: class {
+    func displayTerms(fromViewModel viewModel: PersonalDataShowModels.Client.ViewModel)
     func displayUpdatePersonalData(fromViewModel viewModel: PersonalDataShowModels.Client.ViewModel)
 }
 
@@ -114,6 +115,9 @@ class PersonalDataShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadViewSettings() {
+        let requestModel = PersonalDataShowModels.Client.RequestModel(params: nil)
+        interactor?.fetchTerms(withRequestModel: requestModel)
+        
         if let personalDataEntity = PersonalData.current {
             _ = textFieldsCollection.map({
                 switch $0.tag {
@@ -163,7 +167,11 @@ class PersonalDataShowViewController: UIViewController {
         if let textField = textFieldsCollection.first(where: { ($0.text?.isEmpty)! }) {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
         }
-            
+
+        else if let textField = textFieldsCollection.first(where: { ($0.tag == 0 || $0.tag == 5) && $0.text!.count < 10 }) {
+            self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
+        }
+
         else {
             self.view.isUserInteractionEnabled = false
             
@@ -206,6 +214,10 @@ class PersonalDataShowViewController: UIViewController {
 
 // MARK: - PersonalDataShowDisplayLogic
 extension PersonalDataShowViewController: PersonalDataShowDisplayLogic {
+    func displayTerms(fromViewModel viewModel: PersonalDataShowModels.Client.ViewModel) {
+        // NOTE: Display the result from the Presenter
+    }
+    
     func displayUpdatePersonalData(fromViewModel viewModel: PersonalDataShowModels.Client.ViewModel) {
         // NOTE: Display the result from the Presenter
         guard viewModel.error == nil else {
@@ -213,13 +225,15 @@ extension PersonalDataShowViewController: PersonalDataShowDisplayLogic {
             return
         }
         
-        if self.routeFrom == .FromSideMenu {
-            self.navigationController?.popViewController(animated: true)
-        }
-        
-        else {
-            self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
-        }
+        self.showAlertView(withTitle: "Info", andMessage: "Your Personal Data updated", needCancel: false, completion: { _ in
+            if self.routeFrom == .FromSideMenu {
+                self.navigationController?.popViewController(animated: true)
+            }
+                
+            else {
+                self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
+            }
+        })
     }
 }
 
@@ -227,6 +241,30 @@ extension PersonalDataShowViewController: PersonalDataShowDisplayLogic {
 // MARK: - UITextFieldDelegate
 extension PersonalDataShowViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        // Years
+        if textField.tag == 7 {
+            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.years, andSelectedItem: router!.dataStore!.selectedYearRow, { [unowned self] row in
+                if let selectedRow = row as? Int {
+                    self.interactor?.saveSelectedYear(byRow: selectedRow)
+                    textField.text = self.router!.dataStore!.years[selectedRow].title
+                }
+                
+                textField.resignFirstResponder()
+            })
+        }
+            
+        // Months
+        else if textField.tag == 8 {
+            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.months, andSelectedItem: router!.dataStore!.selectedMonthRow, { [unowned self] row in
+                if let selectedRow = row as? Int {
+                    self.interactor?.saveSelectedMonth(byRow: selectedRow)
+                    textField.text = self.router!.dataStore!.months[selectedRow].title
+                }
+                
+                textField.resignFirstResponder()
+            })
+        }
+        
         return true
     }
     
@@ -237,6 +275,20 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
     
     // Hide keyboard
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.tag == 0 {
+            if let phoneNumber = textField.text, phoneNumber.count < 10 {
+                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct phone number...", needCancel: false, completion: {_ in})
+                return false
+            }
+        }
+        
+        if textField.tag == 5 {
+            if let phoneNumber = textField.text, phoneNumber.count < 10 {
+                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct credit card...", needCancel: false, completion: {_ in})
+                return false
+            }
+        }
+
         if textField.tag == 4 {
             if let email = textField.text, !email.isEmpty {
                 guard ADEmailAndPassword.validateEmail(emailId: email) else {
@@ -254,15 +306,24 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
     // TextField editing
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField.tag {
-        case 2:
+        // Phone Number & Credit Card Number
+        case 0, 5:
             guard !string.isEmpty else { return true }
-            return (textField.text!.count + string.count) < 8 && CharacterSet.decimalDigits.contains(Unicode.Scalar(string)!)
-            
-        case 3, 4:
+            return (textField.text!.count + string.count) < 11 && CharacterSet.decimalDigits.contains(Unicode.Scalar(string)!)
+        
+        // First & Last Names
+        case 1, 2:
             return (textField.text!.count + string.count) < 21
-            
-        case 5, 6:
+        
+        // Address & Email
+        case 3, 4:
             return (textField.text!.count + string.count) < 51
+            
+        // Credit Card CVV
+        case 6:
+            textField.textAlignment = .center
+            guard !string.isEmpty else { return true }
+            return (textField.text!.count + string.count) < 4 && CharacterSet.decimalDigits.contains(Unicode.Scalar(string)!)
             
         default:
             return true
