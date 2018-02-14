@@ -107,6 +107,10 @@ class PersonalDataShowViewController: UIViewController {
         loadViewSettings()
     }
     
+    override func handlerBackButtonTapped(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     
     // MARK: - Custom Functions
     func loadViewSettings() {
