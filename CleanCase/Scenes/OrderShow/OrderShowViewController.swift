@@ -126,11 +126,17 @@ class OrderShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadViewSettings() {
-        _ = valuesLabelsCollection.first(where: { $0.tag == 2 }).map({ $0.text = self.router!.dataStore!.order.createdDate + " " + self.router!.dataStore!.order.collectionFrom })
-        _ = valuesLabelsCollection.first(where: { $0.tag == 3 }).map({ $0.text = OrderStatus(rawValue: self.router!.dataStore!.order.orderStatus)!.name })
-        
-//        let requestModel = OrderShowModels.Order.RequestModel()
-//        interactor?.loadOrder(withRequestModel: requestModel)
+        if let order = self.router?.dataStore?.order {
+            _ = valuesLabelsCollection.first(where: { $0.tag == 2 }).map({ $0.text = order.createdDate + " " + order.collectionFrom })
+            _ = valuesLabelsCollection.first(where: { $0.tag == 3 }).map({ $0.text = OrderStatus(rawValue: order.orderStatus)!.name })
+            
+            if order.orderStatus == 0 {
+                self.cancelButton.isHidden = false
+            }
+            
+            //        let requestModel = OrderShowModels.Order.RequestModel()
+            //        interactor?.loadOrder(withRequestModel: requestModel)
+        }
     }
     
     
