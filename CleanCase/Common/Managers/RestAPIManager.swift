@@ -27,6 +27,7 @@ enum RequestType {
     case addClient([String: Any]?, Bool)
     case sendMessage([String: Any]?, Bool)
     case setDelivery([String: Any]?, Bool)
+    case updateOrderStatus([String: Any]?, Bool)
 
     
     // MARK: - Custom functions
@@ -85,6 +86,11 @@ enum RequestType {
                                                                         path:           "/SetDelivery",
                                                                         body:           (isBodyParams ? params : nil),
                                                                         parameters:     (isBodyParams ? nil : params))
+
+        case .updateOrderStatus(let params, let isBodyParams):  return (method:         .post,
+                                                                        path:           "/UpdateStatus",
+                                                                        body:           (isBodyParams ? params : nil),
+                                                                        parameters:     (isBodyParams ? nil : params))
         }
     }
 }
@@ -111,12 +117,6 @@ final class RestAPIManager {
             components.path!.append("\(params.values.first!)")
         }
         
-//        // Body
-//        else {
-//            // TODO: - ADD REQUEST BODY PARAMETERS
-//        
-//        }
-        
         return components
     }
     
@@ -125,7 +125,10 @@ final class RestAPIManager {
         let requestParameters   =   requestType.introduced()
         let components          =   createURLComponents(withParameters: requestType.introduced())
         
-        if let body = requestParameters.body, responseType != ResponseAPIClientResult.self, responseType != ResponseAPIAddOrderResult.self {
+        if let body = requestParameters.body,
+            responseType != ResponseAPIClientResult.self,
+            responseType != ResponseAPIAddOrderResult.self,
+            responseType != ResponseAPIUpdateStatusResult.self {
             Alamofire.request(components.url!,
                               method:       requestParameters.method,
                               parameters:   body,

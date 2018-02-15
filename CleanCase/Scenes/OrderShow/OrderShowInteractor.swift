@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol OrderShowBusinessLogic {
-    func loadOrder(withRequestModel requestModel: OrderShowModels.Order.RequestModel)
+    func updateOrderStatus(withRequestModel requestModel: OrderShowModels.Order.RequestModel)
 }
 
 protocol OrderShowDataStore {
@@ -38,9 +38,24 @@ class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDat
     
     
     // MARK: - Business logic implementation
-    func loadOrder(withRequestModel requestModel: OrderShowModels.Order.RequestModel) {
+    func updateOrderStatus(withRequestModel requestModel: OrderShowModels.Order.RequestModel) {
+        // API: Fetch request data
+        let bodyParams: [ String: Any ] = [ "orderId": self.orderID, "status": 6 ]
+       
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .updateOrderStatus(bodyParams, true), andResponseType: ResponseAPIUpdateStatusResult.self, completionHandler: { [unowned self] responseAPI in
+            var error: Error?
+            
+            if let result = responseAPI.model as? ResponseAPIUpdateStatusResult, result.UpdateStatusResult == "1" {
+                self.order.orderStatus = 6
+                self.appDependency.coreDataManager.contextSave()
+            }
+            
+            else {
+                error = NSError.init(domain: "BAD_REQUEST_400", code: 400, userInfo: nil)
+            }
 
-        let responseModel = OrderShowModels.Order.ResponseModel()
-        presenter?.presentOrder(fromResponseModel: responseModel)
+            let responseModel = OrderShowModels.Order.ResponseModel(error: error)
+            self.presenter?.presentUpdateOrderStatus(fromResponseModel: responseModel)
+        })
     }
 }

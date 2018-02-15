@@ -129,6 +129,7 @@
 "Order confirmed"                           =   "Order confirmed";
 "Order accepted"                            =   "Order accepted";
 "Order added"                               =   "Order added";
+"Order status updated"                      =   "Order status updated";
 "Your Personal Data updated"                =   "Your Personal Data updated";
 "Please, enter credit card number..."       =   "Please, \nenter credit card number...";
 "Please, enter correct credit card..."      =   "Please, \nenter correct credit card number...";
@@ -139,6 +140,7 @@
 "Please, select collection time..."         =   "Please, \nselect collection time...";
 "Please, select delivery date..."           =   "Please, \nselect delivery date...";
 "Please, select delivery time..."           =   "Please, \nselect delivery time...";
+"Are you sure?"                             =   "Are you sure?";
 
 
 // TextField Placeholders

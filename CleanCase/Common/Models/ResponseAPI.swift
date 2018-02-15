@@ -109,3 +109,8 @@ struct ResponseAPIAddOrderResult: Decodable {
     // MARK: - Properties
     let AddOrderResult: String
 }
+
+struct ResponseAPIUpdateStatusResult: Decodable {
+    // MARK: - Properties
+    let UpdateStatusResult: String
+}

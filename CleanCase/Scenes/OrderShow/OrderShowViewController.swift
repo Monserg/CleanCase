@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrderShowDisplayLogic: class {
-    func displayOrder(fromViewModel viewModel: OrderShowModels.Order.ViewModel)
+    func displayUpdateOrderStatus(fromViewModel viewModel: OrderShowModels.Order.ViewModel)
 }
 
 class OrderShowViewController: UIViewController {
@@ -133,24 +133,33 @@ class OrderShowViewController: UIViewController {
             if order.orderStatus == 0 {
                 self.cancelButton.isHidden = false
             }
-            
-            //        let requestModel = OrderShowModels.Order.RequestModel()
-            //        interactor?.loadOrder(withRequestModel: requestModel)
         }
     }
     
     
     // MARK: - Actions
     @IBAction func handlerCancelButtonTapped(_ sender: UIButton) {
-    
+        self.showAlertView(withTitle: "Info", andMessage: "Are you sure?".localized(), needCancel: true, completion: { [unowned self] success in
+            if success {
+                let requestModel = OrderShowModels.Order.RequestModel()
+                self.interactor?.updateOrderStatus(withRequestModel: requestModel)
+            }
+        })
     }
 }
 
 
 // MARK: - OrderShowDisplayLogic
 extension OrderShowViewController: OrderShowDisplayLogic {
-    func displayOrder(fromViewModel viewModel: OrderShowModels.Order.ViewModel) {
+    func displayUpdateOrderStatus(fromViewModel viewModel: OrderShowModels.Order.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+        guard viewModel.error == nil else {
+            self.showAlertView(withTitle: "Error", andMessage: (viewModel.error! as NSError).domain, needCancel: false, completion: {_ in})
+            return
+        }
+        
+        self.showAlertView(withTitle: "Info", andMessage: "Order status updated".localized(), needCancel: false, completion: { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+        })
     }
 }

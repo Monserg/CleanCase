@@ -20,9 +20,11 @@ enum OrderShowModels {
         }
         
         struct ResponseModel {
+            let error: Error?
         }
         
         struct ViewModel {
+            let error: Error?
         }
     }
 }
