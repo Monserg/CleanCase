@@ -65,4 +65,8 @@ public class Order: NSManagedObject {
             CoreDataManager.instance.contextSave()
         }
     }
+    
+    func getItems() {
+        
+    }
 }

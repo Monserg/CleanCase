@@ -9,6 +9,20 @@
 import UIKit
 
 extension UIViewController {
+    func checkNetworkConnection(_ completion: @escaping ((_ success: Bool) -> Void)) {
+        guard isNetworkAvailable else {
+            self.showAlertView(withTitle: "Error", andMessage: "Disconnected from Network", needCancel: false, completion: { _ in
+                completion(false)
+            })
+            
+            return
+        }
+        
+        completion(true)
+    }
+
+    
+    
     func showAlertView(withTitle title: String, andMessage message: String, needCancel cancel: Bool, completion: @escaping ((Bool) -> ())) {
         let alertViewController = UIAlertController.init(title: title.localized(), message: message.localized(), preferredStyle: .alert)
         

@@ -127,8 +127,12 @@ class WriteUsShowViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func handlerSendMessageButtonTapped(_ sender: UIButton) {
-        let requestModel = WriteUsShowModels.Data.RequestModel(message: textView.text)
-        interactor?.sendMessage(withRequestModel: requestModel)
+        checkNetworkConnection({ [unowned self] success in
+            if success {
+                let requestModel = WriteUsShowModels.Data.RequestModel(message: self.textView.text)
+                self.interactor?.sendMessage(withRequestModel: requestModel)
+            }
+        })
     }
 }
 

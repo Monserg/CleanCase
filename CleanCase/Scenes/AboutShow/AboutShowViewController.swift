@@ -20,6 +20,16 @@ class AboutShowViewController: UIViewController {
     var webView: WKWebView!
 
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var emptySceneLabel: UILabel! {
+        didSet {
+            emptySceneLabel.isHidden = true
+            emptySceneLabel.text!.localize()
+            emptySceneLabel.numberOfLines = 0
+        }
+    }
+    
+    
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -31,26 +41,34 @@ class AboutShowViewController: UIViewController {
     
     
     // MARK: - Class Functions
-    override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        
-        view = webView
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SwiftSpinner.show("Loading App data...".localized(), animated: true)
         self.addBackBarButtonItem()
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
-
-        let myURL = URL(string: "http://www.okyanuscleaners.co.il/%25d7%2590%25d7%2595%25d7%2593%25d7%2595%25d7%25aa/")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+        
+        checkNetworkConnection({ [unowned self] success in
+            if success {
+                SwiftSpinner.show("Loading App data...".localized(), animated: true)
+                
+                // Add WKWebView
+                let webConfiguration = WKWebViewConfiguration()
+                self.webView = WKWebView(frame: .zero, configuration: webConfiguration)
+                self.webView.uiDelegate = self
+                self.webView.navigationDelegate = self
+                self.view = self.webView
+                
+                let myURL = URL(string: "http://www.okyanuscleaners.co.il/%25d7%2590%25d7%2595%25d7%2593%25d7%2595%25d7%25aa/")
+                let myRequest = URLRequest(url: myURL!)
+                self.webView.load(myRequest)
+            }
+                
+            else {
+                self.emptySceneLabel.fadeTransition(0.9)
+                self.emptySceneLabel.isHidden = false
+            }
+        })
     }
     
     override func handlerBasketButtonTapped(_ sender: UIBarButtonItem) {

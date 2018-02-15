@@ -26,6 +26,10 @@ extension String {
         return first.uppercased() + String(dropFirst())
     }
     
+    mutating func localize() {
+        self = self.localized()
+    }
+    
     func addZero() -> String {
         return self.count == 1 ? "0" + self : self
     }

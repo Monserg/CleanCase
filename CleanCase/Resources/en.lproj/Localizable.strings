@@ -73,6 +73,7 @@
 "TitleForPage3"                             =   "TitleForPage3";
 "TitleForPage4"                             =   "TitleForPage4";
 "Orders List is Empty"                      =   "Orders List is Empty";
+"About App is empty"                        =   "Content of About us\nis empty";
 
 
 // Buttons
@@ -145,6 +146,7 @@
 "Please, select delivery date..."           =   "Please, \nselect delivery date...";
 "Please, select delivery time..."           =   "Please, \nselect delivery time...";
 "Are you sure?"                             =   "Are you sure?";
+"Disconnected from Network"                 =   "Disconnected from Network";
 
 
 // TextField Placeholders
