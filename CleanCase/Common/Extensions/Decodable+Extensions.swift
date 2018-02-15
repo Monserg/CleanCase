@@ -43,7 +43,11 @@ extension Decodable {
             else if let laundryModel = self as? ResponseAPILaundryInfo {
                 return laundryModel.ID
             }
-        
+
+            else if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.ID
+            }
+
         case "id":
             if let departmentModel = self as? ResponseAPIDepartment {
                 return departmentModel.Id
@@ -81,6 +85,11 @@ extension Decodable {
             else if let departmentItemModel = self as? ResponseAPIDepartmentItem {
                 return departmentItemModel.Name
             }
+            
+            else if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.Name
+            }
+
 
         case "telephone":
             return (self as! ResponseAPILaundryInfo).Telephone
@@ -152,9 +161,19 @@ extension Decodable {
                 return departmentItemModel.DepartmentId
             }
             
+        case "departmentID":
+            if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.DepartmentID
+            }
+
         case "departmentItemId":
             if let departmentItemModel = self as? ResponseAPIDepartmentItem {
                 return departmentItemModel.DepartmentItemId
+            }
+            
+        case "departmentItemID":
+            if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.DepartmentItemID
             }
             
         case "departmentName":
@@ -176,7 +195,38 @@ extension Decodable {
             }
             
         case "price":
-            return (self as! ResponseAPIDepartmentItem).Price
+            if let departmentItemModel = self as? ResponseAPIDepartmentItem {
+                return departmentItemModel.Price
+            }
+
+            else if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.Price
+            }
+
+        case "height":
+            if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.Height
+            }
+
+        case "orderID":
+            if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.OrderID
+            }
+
+        case "qty":
+            if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.Qty
+            }
+            
+        case "width":
+            if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.Width
+            }
+            
+        case "status":
+            if let orderItemModel = self as? ResponseAPIOrderItem {
+                return orderItemModel.Status
+            }
 
         default:
             fatalError("Wrong property name")

@@ -67,6 +67,22 @@ public class Order: NSManagedObject {
     }
     
     func getItems() {
-        
+        // API
+        RestAPIManager().fetchRequest(withRequestType: RequestType.getOrderItemsList([ "order_id": 251 /*self.orderID*/ ], false), andResponseType: ResponseAPIOrderItemsResult.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? ResponseAPIOrderItemsResult, let orderItemsList = result.GetItemsResult, orderItemsList.count > 0 {
+                for orderItem in orderItemsList {
+                    let predicate = NSPredicate.init(format: "iD == \(orderItem.ID) AND orderID == \(orderItem.OrderID) AND departmentID == \(orderItem.DepartmentID) AND departmentItemID == \(orderItem.DepartmentItemID)")
+                    
+                    CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:         "OrderItem",
+                                                                                      predicate:    predicate,
+                                                                                      model:        orderItem))
+                    
+                    self.addToItems(CoreDataManager.instance.readEntity(withName:                   "OrderItem",
+                                                                        andPredicateParameters:     predicate) as! OrderItem)
+                }
+            }
+            
+            CoreDataManager.instance.contextSave()
+        })
     }
 }

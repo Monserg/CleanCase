@@ -85,12 +85,21 @@
                                     <action selector="deliveryButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="Fw6-O0-aWC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ek-LC-nzy">
+                                <rect key="frame" x="226" y="112" width="78" height="30"/>
+                                <state key="normal" title="OrderItems"/>
+                                <connections>
+                                    <action selector="orderItemsButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="R6b-Cx-aTu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="8Ek-LC-nzy" firstAttribute="top" secondItem="gp2-pz-Q4K" secondAttribute="bottom" constant="8" id="ObD-Eg-kgU"/>
                             <constraint firstItem="ZDv-Kz-pDu" firstAttribute="centerX" secondItem="bmp-rR-Be3" secondAttribute="centerX" id="Os9-7s-tJM"/>
                             <constraint firstItem="ZDv-Kz-pDu" firstAttribute="centerY" secondItem="bmp-rR-Be3" secondAttribute="centerY" id="RIN-HH-FXd"/>
                             <constraint firstItem="gp2-pz-Q4K" firstAttribute="top" secondItem="Z4C-WB-W2N" secondAttribute="top" constant="10" id="gDl-KQ-R3M"/>
+                            <constraint firstItem="Z4C-WB-W2N" firstAttribute="trailing" secondItem="8Ek-LC-nzy" secondAttribute="trailing" constant="16" id="tzn-OS-xEk"/>
                             <constraint firstItem="Z4C-WB-W2N" firstAttribute="trailing" secondItem="gp2-pz-Q4K" secondAttribute="trailing" constant="16" id="xs4-Sb-3pf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z4C-WB-W2N"/>

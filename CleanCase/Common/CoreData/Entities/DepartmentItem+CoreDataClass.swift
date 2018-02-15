@@ -12,5 +12,5 @@ import CoreData
 
 @objc(DepartmentItem)
 public class DepartmentItem: NSManagedObject {
-
+    
 }

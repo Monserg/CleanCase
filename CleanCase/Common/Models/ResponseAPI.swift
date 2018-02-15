@@ -124,13 +124,13 @@ struct ResponseAPIOrderItem: Decodable {
     // MARK: - Properties
     let DepartmentID: Int16
     let DepartmentItemID: Int16
-    let Height: Int16
+    let Height: Float
     let ID: Int16
     let Name: String
     let OrderID: Int16
     let Price: Float
     let Qty: Int16
-    let Width: Int16
+    let Width: Float
     
     let Status: ResponseAPIOrderItemStatus
 }

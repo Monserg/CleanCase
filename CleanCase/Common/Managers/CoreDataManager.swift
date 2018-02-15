@@ -161,19 +161,24 @@ class CoreDataManager {
             
             else if propertyName == "Items" {
                 if let model = data.model as? ResponseAPIDepartment, let items = model.Items, items.count > 0 {
-                    let department = readEntity(withName: "Department", andPredicateParameters: NSPredicate.init(format: "departmentId = \(model.DepartmentId)")) as! Department
+                    let department = readEntity(withName:                   "Department",
+                                                andPredicateParameters:     NSPredicate.init(format: "departmentId = \(model.DepartmentId)")) as! Department
 
                     for item in items {
                         let predicate = NSPredicate.init(format: "departmentId == \(item.DepartmentId) AND departmentItemId == \(item.DepartmentItemId)")
                         
-                        self.updateEntity(withData: EntityUpdateTuple(name:       "DepartmentItem",
-                                                                      predicate:  predicate,
-                                                                      model:      item))
+                        self.updateEntity(withData: EntityUpdateTuple(name:             "DepartmentItem",
+                                                                      predicate:        predicate,
+                                                                      model:            item))
                         
-                        department.addToItems(self.readEntity(withName: "DepartmentItem",
-                                                              andPredicateParameters: predicate) as! DepartmentItem)
+                        department.addToItems(self.readEntity(withName:                 "DepartmentItem",
+                                                              andPredicateParameters:   predicate) as! DepartmentItem)
                     }
                 }
+            }
+                
+            else if propertyName == "Status" {
+                print("status...")
             }
                 
             else {

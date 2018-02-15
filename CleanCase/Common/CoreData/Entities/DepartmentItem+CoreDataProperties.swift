@@ -24,6 +24,7 @@ extension DepartmentItem {
     @NSManaged public var name: String
     @NSManaged public var price: Float
     @NSManaged public var descriptionItem: String?
+    
     @NSManaged public var department: Department?
 
 }

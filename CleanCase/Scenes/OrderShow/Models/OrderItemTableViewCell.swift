@@ -35,13 +35,13 @@ class OrderItemTableViewCell: UITableViewCell {
     func setup(withItem item: OrderItem, withOrderStatus orderStatus: Int16, andIndexPath indexPath: IndexPath) {
         let orderItem = item
         
-        self.nameLabel.text         =   item.name ?? ""
+        self.nameLabel.text         =   item.name
         self.priceLabel.text        =   String(format: "%@ %.2f", orderItem.price, "Currency".localized())
         
         // Price display when status is "Ready"(3), "Closed"(2) or "InWayToClient"(8)
         self.priceLabel.isHidden    =   (orderStatus == 2 || orderStatus == 3 || orderStatus == 8) ? true : false
         
-        self.quantityLabel.text     =   "\(orderItem.quantity)"
+        self.quantityLabel.text     =   "\(orderItem.qty)"
         
         selectionStyle              =   .none
     }
