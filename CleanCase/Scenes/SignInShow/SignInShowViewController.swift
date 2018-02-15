@@ -119,8 +119,13 @@ class SignInShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadViewSettings() {
-        let requestModel = SignInShowModels.City.RequestModel()
-        interactor?.fetchCities(withRequestModel: requestModel)
+        // API
+        checkNetworkConnection({ [unowned self] success in
+            if success {
+                let requestModel = SignInShowModels.City.RequestModel()
+                self.interactor?.fetchCities(withRequestModel: requestModel)
+            }
+        })
     }
     
     fileprivate func startDataValidation() {
@@ -129,11 +134,16 @@ class SignInShowViewController: UIViewController {
         }
         
         else {
-            self.view.isUserInteractionEnabled = false
-            
-            DispatchQueue.main.async(execute: {
-                let requestModel = SignInShowModels.Laundry.RequestModel()
-                self.interactor?.fetchLaundry(withRequestModel: requestModel)
+            // API
+            checkNetworkConnection({ [unowned self] success in
+                if success {
+                    self.view.isUserInteractionEnabled = false
+                    
+                    DispatchQueue.main.async(execute: {
+                        let requestModel = SignInShowModels.Laundry.RequestModel()
+                        self.interactor?.fetchLaundry(withRequestModel: requestModel)
+                    })
+                }
             })
         }
     }
@@ -179,22 +189,26 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     }
     
     func initializationLaundryInfo(fromViewModel viewModel: SignInShowModels.Laundry.ViewModel) {
-        // NOTE: Display the result from the Presenter
-        DispatchQueue.main.async(execute: {
-            SwiftSpinner.show("Initialization...".localized(), animated: true)
-
-            let requestModel = SignInShowModels.Date.RequestModel()
-            self.interactor?.fetchCollectionDates(withRequestModel: requestModel)
-        })
-
-        DispatchQueue.main.async(execute: {
-            let requestModel = SignInShowModels.Date.RequestModel()
-            self.interactor?.fetchDeliveryDates(withRequestModel: requestModel)
-        })
-        
-        DispatchQueue.main.async(execute: {
-            let requestModel = SignInShowModels.Department.RequestModel()
-            self.interactor?.fetchDepartments(withRequestModel: requestModel)
+        // API
+        checkNetworkConnection({ [unowned self] success in
+            if success {
+                DispatchQueue.main.async(execute: {
+                    SwiftSpinner.show("Initialization...".localized(), animated: true)
+                    
+                    let requestModel = SignInShowModels.Date.RequestModel()
+                    self.interactor?.fetchCollectionDates(withRequestModel: requestModel)
+                })
+                
+                DispatchQueue.main.async(execute: {
+                    let requestModel = SignInShowModels.Date.RequestModel()
+                    self.interactor?.fetchDeliveryDates(withRequestModel: requestModel)
+                })
+                
+                DispatchQueue.main.async(execute: {
+                    let requestModel = SignInShowModels.Department.RequestModel()
+                    self.interactor?.fetchDepartments(withRequestModel: requestModel)
+                })
+            }
         })
     }
     
@@ -207,15 +221,19 @@ extension SignInShowViewController: SignInShowDisplayLogic {
     }
     
     func initializationDepartments(fromViewModel viewModel: SignInShowModels.Department.ViewModel) {
-        // NOTE: Display the result from the Presenter
-        DispatchQueue.main.async(execute: {
-            let requestModel = SignInShowModels.User.RequestModel(params: (firstName:   self.textFieldsCollection.first(where: { $0.tag == 3})!.text!,
-                                                                           lastName:    self.textFieldsCollection.first(where: { $0.tag == 4})!.text!,
-                                                                           address:     self.textFieldsCollection.first(where: { $0.tag == 5})!.text!,
-                                                                           email:       self.textFieldsCollection.first(where: { $0.tag == 6})!.text!,
-                                                                           phone:       self.textFieldsCollection.first(where: { $0.tag == 2})!.text!))
-            
-            self.interactor?.addClient(withRequestModel: requestModel)
+        // API
+        checkNetworkConnection({ [unowned self] success in
+            if success {
+                DispatchQueue.main.async(execute: {
+                    let requestModel = SignInShowModels.User.RequestModel(params: (firstName:   self.textFieldsCollection.first(where: { $0.tag == 3})!.text!,
+                                                                                   lastName:    self.textFieldsCollection.first(where: { $0.tag == 4})!.text!,
+                                                                                   address:     self.textFieldsCollection.first(where: { $0.tag == 5})!.text!,
+                                                                                   email:       self.textFieldsCollection.first(where: { $0.tag == 6})!.text!,
+                                                                                   phone:       self.textFieldsCollection.first(where: { $0.tag == 2})!.text!))
+                    
+                    self.interactor?.addClient(withRequestModel: requestModel)
+                })
+            }
         })
     }
 }

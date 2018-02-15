@@ -62,7 +62,6 @@
 		B1F4D0F5202447D50086E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F4202447D50086E25F /* Assets.xcassets */; };
 		B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F4D0F6202447D50086E25F /* LaunchScreen.storyboard */; };
 		B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CED20244DC200351BB7 /* FlowControlShowPresenter.swift */; };
-		B1FA2CF420244DC200351BB7 /* FlowControlShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CEE20244DC200351BB7 /* FlowControlShowWorker.swift */; };
 		B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF020244DC200351BB7 /* FlowControlShowModels.swift */; };
 		B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF120244DC200351BB7 /* FlowControlShowViewController.swift */; };
 		B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */; };
@@ -109,14 +108,12 @@
 		B1FA2D7220245F4B00351BB7 /* WriteUsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D6C20245F4B00351BB7 /* WriteUsShowInteractor.swift */; };
 		B1FA2D7420245F5700351BB7 /* WriteUsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D7320245F5700351BB7 /* WriteUsShow.storyboard */; };
 		B1FA2D7C20245FC000351BB7 /* PriceListShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D7620245FC000351BB7 /* PriceListShowPresenter.swift */; };
-		B1FA2D7D20245FC000351BB7 /* PriceListShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D7720245FC000351BB7 /* PriceListShowWorker.swift */; };
 		B1FA2D7E20245FC000351BB7 /* PriceListShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D7820245FC000351BB7 /* PriceListShowRouter.swift */; };
 		B1FA2D7F20245FC000351BB7 /* PriceListShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D7920245FC000351BB7 /* PriceListShowModels.swift */; };
 		B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D7A20245FC000351BB7 /* PriceListShowViewController.swift */; };
 		B1FA2D8120245FC000351BB7 /* PriceListShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D7B20245FC000351BB7 /* PriceListShowInteractor.swift */; };
 		B1FA2D8320245FCB00351BB7 /* PriceListShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA2D8220245FCB00351BB7 /* PriceListShow.storyboard */; };
 		B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8920246D2100351BB7 /* LeftSideMenuShowPresenter.swift */; };
-		B1FA2D9020246D2100351BB7 /* LeftSideMenuShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8A20246D2100351BB7 /* LeftSideMenuShowWorker.swift */; };
 		B1FA2D9120246D2100351BB7 /* LeftSideMenuShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8B20246D2100351BB7 /* LeftSideMenuShowRouter.swift */; };
 		B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8C20246D2100351BB7 /* LeftSideMenuShowModels.swift */; };
 		B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA2D8D20246D2100351BB7 /* LeftSideMenuShowViewController.swift */; };
@@ -200,7 +197,6 @@
 		B1F4D0F7202447D50086E25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1F4D0F9202447D50086E25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1FA2CED20244DC200351BB7 /* FlowControlShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2CEE20244DC200351BB7 /* FlowControlShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowWorker.swift; sourceTree = "<group>"; };
 		B1FA2CF020244DC200351BB7 /* FlowControlShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowModels.swift; sourceTree = "<group>"; };
 		B1FA2CF120244DC200351BB7 /* FlowControlShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2CF220244DC200351BB7 /* FlowControlShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlShowInteractor.swift; sourceTree = "<group>"; };
@@ -247,14 +243,12 @@
 		B1FA2D6C20245F4B00351BB7 /* WriteUsShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUsShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D7320245F5700351BB7 /* WriteUsShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WriteUsShow.storyboard; sourceTree = "<group>"; };
 		B1FA2D7620245FC000351BB7 /* PriceListShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2D7720245FC000351BB7 /* PriceListShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListShowWorker.swift; sourceTree = "<group>"; };
 		B1FA2D7820245FC000351BB7 /* PriceListShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListShowRouter.swift; sourceTree = "<group>"; };
 		B1FA2D7920245FC000351BB7 /* PriceListShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListShowModels.swift; sourceTree = "<group>"; };
 		B1FA2D7A20245FC000351BB7 /* PriceListShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListShowViewController.swift; sourceTree = "<group>"; };
 		B1FA2D7B20245FC000351BB7 /* PriceListShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceListShowInteractor.swift; sourceTree = "<group>"; };
 		B1FA2D8220245FCB00351BB7 /* PriceListShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PriceListShow.storyboard; sourceTree = "<group>"; };
 		B1FA2D8920246D2100351BB7 /* LeftSideMenuShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowPresenter.swift; sourceTree = "<group>"; };
-		B1FA2D8A20246D2100351BB7 /* LeftSideMenuShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowWorker.swift; sourceTree = "<group>"; };
 		B1FA2D8B20246D2100351BB7 /* LeftSideMenuShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowRouter.swift; sourceTree = "<group>"; };
 		B1FA2D8C20246D2100351BB7 /* LeftSideMenuShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowModels.swift; sourceTree = "<group>"; };
 		B1FA2D8D20246D2100351BB7 /* LeftSideMenuShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuShowViewController.swift; sourceTree = "<group>"; };
@@ -531,7 +525,6 @@
 				B1FA2CF020244DC200351BB7 /* FlowControlShowModels.swift */,
 				B1FA2CED20244DC200351BB7 /* FlowControlShowPresenter.swift */,
 				B1FA2CF120244DC200351BB7 /* FlowControlShowViewController.swift */,
-				B1FA2CEE20244DC200351BB7 /* FlowControlShowWorker.swift */,
 			);
 			path = FlowControlShow;
 			sourceTree = "<group>";
@@ -636,7 +629,6 @@
 				B1FA2D7620245FC000351BB7 /* PriceListShowPresenter.swift */,
 				B1FA2D7820245FC000351BB7 /* PriceListShowRouter.swift */,
 				B1FA2D7A20245FC000351BB7 /* PriceListShowViewController.swift */,
-				B1FA2D7720245FC000351BB7 /* PriceListShowWorker.swift */,
 			);
 			path = PriceListShow;
 			sourceTree = "<group>";
@@ -650,7 +642,6 @@
 				B1FA2D8920246D2100351BB7 /* LeftSideMenuShowPresenter.swift */,
 				B1FA2D8B20246D2100351BB7 /* LeftSideMenuShowRouter.swift */,
 				B1FA2D8D20246D2100351BB7 /* LeftSideMenuShowViewController.swift */,
-				B1FA2D8A20246D2100351BB7 /* LeftSideMenuShowWorker.swift */,
 			);
 			path = LeftSideMenuShow;
 			sourceTree = "<group>";
@@ -958,7 +949,6 @@
 				B1DBDF0A2029EF6A00127ECB /* UIView+Extensions.swift in Sources */,
 				B1FA2D7120245F4B00351BB7 /* WriteUsShowViewController.swift in Sources */,
 				B1FA2D042024500000351BB7 /* SignInShowRouter.swift in Sources */,
-				B1FA2CF420244DC200351BB7 /* FlowControlShowWorker.swift in Sources */,
 				B1FA2D4F20245E8900351BB7 /* OrdersShowPresenter.swift in Sources */,
 				B1FA2D7C20245FC000351BB7 /* PriceListShowPresenter.swift in Sources */,
 				B1FA2D022024500000351BB7 /* SignInShowPresenter.swift in Sources */,
@@ -968,9 +958,7 @@
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
 				B1FA2D6F20245F4B00351BB7 /* WriteUsShowRouter.swift in Sources */,
 				B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */,
-				B1FA2D9020246D2100351BB7 /* LeftSideMenuShowWorker.swift in Sources */,
 				B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */,
-				B1FA2D7D20245FC000351BB7 /* PriceListShowWorker.swift in Sources */,
 				B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */,
 				B1FA2D4220245E2B00351BB7 /* PersonalDataShowRouter.swift in Sources */,
 				B1FA2D3320245DDF00351BB7 /* OrderCreatePresenter.swift in Sources */,

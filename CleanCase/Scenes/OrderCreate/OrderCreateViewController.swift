@@ -151,14 +151,19 @@ class OrderCreateViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         
-        DispatchQueue.main.async(execute: {
-            let requestModel = OrderCreateModels.Departments.RequestModel()
-            self.interactor?.fetchDepartments(withRequestModel: requestModel)
-        })
-
-        DispatchQueue.main.async(execute: {
-            let requestModel = OrderCreateModels.Dates.RequestModel()
-            self.interactor?.fetchDates(withRequestModel: requestModel)
+        // API
+        checkNetworkConnection({ [unowned self] success in
+            if success {
+                DispatchQueue.main.async(execute: {
+                    let requestModel = OrderCreateModels.Departments.RequestModel()
+                    self.interactor?.fetchDepartments(withRequestModel: requestModel)
+                })
+                
+                DispatchQueue.main.async(execute: {
+                    let requestModel = OrderCreateModels.Dates.RequestModel()
+                    self.interactor?.fetchDates(withRequestModel: requestModel)
+                })
+            }
         })
     }
     
@@ -168,12 +173,17 @@ class OrderCreateViewController: UIViewController {
         }
         
         else {
-            SwiftSpinner.show("Add Order...".localized(), animated: true)
-
-            DispatchQueue.main.async(execute: {
-                self.view.isUserInteractionEnabled = false
-                let requestModel = OrderCreateModels.Order.RequestModel(bodyParams: self.prepareBodyParameters(true) as! [String : [String : Any]])
-                self.interactor?.addOrder(withRequestModel: requestModel)
+            // API
+            checkNetworkConnection({ [unowned self] success in
+                if success {
+                    SwiftSpinner.show("Add Order...".localized(), animated: true)
+                    
+                    DispatchQueue.main.async(execute: {
+                        self.view.isUserInteractionEnabled = false
+                        let requestModel = OrderCreateModels.Order.RequestModel(bodyParams: self.prepareBodyParameters(true) as! [String : [String : Any]])
+                        self.interactor?.addOrder(withRequestModel: requestModel)
+                    })
+                }
             })
         }
     }

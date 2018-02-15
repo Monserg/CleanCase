@@ -24,17 +24,13 @@ protocol PriceListShowDataStore {
 class PriceListShowInteractor: PriceListShowBusinessLogic, PriceListShowDataStore {
     // MARK: - Properties
     var presenter: PriceListShowPresentationLogic?
-    var worker: PriceListShowWorker?
-    
+
     // ... protocol implementation
 //    var name: String = ""
     
     
     // MARK: - Business logic implementation
     func doSomething(withRequestModel requestModel: PriceListShowModels.Something.RequestModel) {
-        worker = PriceListShowWorker()
-        worker?.doSomeWork()
-        
         let responseModel = PriceListShowModels.Something.ResponseModel()
         presenter?.presentSomething(fromResponseModel: responseModel)
     }

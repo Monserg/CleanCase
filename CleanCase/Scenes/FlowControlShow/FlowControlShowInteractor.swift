@@ -23,15 +23,12 @@ protocol FlowControlShowDataStore {
 class FlowControlShowInteractor: ShareInteractor, FlowControlShowBusinessLogic, FlowControlShowDataStore {
     // MARK: - Properties
     var presenter: FlowControlShowPresentationLogic?
-    var worker: FlowControlShowWorker?
     
     var isEqual: Bool = true
     
     
     // MARK: - Business logic implementation
     func fetchAppWorkingVersion(withRequestModel requestModel: FlowControlShowModels.Version.RequestModel) {
-        worker = FlowControlShowWorker()
-
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCurrentAppWorkingVersion(nil, false), andResponseType: ResponseAPIVersion.self, completionHandler: { [unowned self] responseAPI in
             if let model = responseAPI.model as? ResponseAPIVersion {

@@ -173,27 +173,33 @@ class PersonalDataShowViewController: UIViewController {
         }
 
         else {
-            self.view.isUserInteractionEnabled = false
-            
-            DispatchQueue.main.async(execute: {
-                let requestModel = PersonalDataShowModels.Client.RequestModel(params: [
-                                                                                            "ClientId":         PersonalData.current!.clientId,
-                                                                                            "LaundryId":        Laundry.codeID,
-                                                                                            "FirstName":        self.textFieldsCollection.first(where: { $0.tag == 1 })!.text!,
-                                                                                            "LastName":         self.textFieldsCollection.first(where: { $0.tag == 2 })!.text!,
-                                                                                            "MobilePhone":      self.textFieldsCollection.first(where: { $0.tag == 0 })!.text!,
-                                                                                            "Email":            self.textFieldsCollection.first(where: { $0.tag == 4 })!.text!,
-                                                                                            "CityId":           PersonalData.current!.cityId,
-                                                                                            "AddressLine1":     self.textFieldsCollection.first(where: { $0.tag == 3 })!.text!,
-                                                                                            "AddressLine2":     "",
-                                                                                            "PostCode":         "",
-                                                                                            "CardNumber":       self.textFieldsCollection.first(where: { $0.tag == 5 })!.text!,
-                                                                                            "CardCVV":          self.textFieldsCollection.first(where: { $0.tag == 6 })!.text!,
-                                                                                            "CardExpired":      self.textFieldsCollection.first(where: { $0.tag == 8})!.text! +
-                                                                                                                self.textFieldsCollection.first(where: { $0.tag == 7})!.text!,
-                                                                                            "Adv":              "1"
-                                                                                        ])
-                self.interactor?.updatePersonalData(withRequestModel: requestModel)
+            // API
+            checkNetworkConnection({ [unowned self] success in
+                if success {
+                    self.view.isUserInteractionEnabled = false
+                    
+                    DispatchQueue.main.async(execute: {
+                        let requestModel = PersonalDataShowModels.Client.RequestModel(params: [
+                                "ClientId":         PersonalData.current!.clientId,
+                                "LaundryId":        Laundry.codeID,
+                                "FirstName":        self.textFieldsCollection.first(where: { $0.tag == 1 })!.text!,
+                                "LastName":         self.textFieldsCollection.first(where: { $0.tag == 2 })!.text!,
+                                "MobilePhone":      self.textFieldsCollection.first(where: { $0.tag == 0 })!.text!,
+                                "Email":            self.textFieldsCollection.first(where: { $0.tag == 4 })!.text!,
+                                "CityId":           PersonalData.current!.cityId,
+                                "AddressLine1":     self.textFieldsCollection.first(where: { $0.tag == 3 })!.text!,
+                                "AddressLine2":     "",
+                                "PostCode":         "",
+                                "CardNumber":       self.textFieldsCollection.first(where: { $0.tag == 5 })!.text!,
+                                "CardCVV":          self.textFieldsCollection.first(where: { $0.tag == 6 })!.text!,
+                                "CardExpired":      self.textFieldsCollection.first(where: { $0.tag == 8})!.text! +
+                                                    self.textFieldsCollection.first(where: { $0.tag == 7})!.text!,
+                                "Adv":              "1"
+                            ])
+                        
+                        self.interactor?.updatePersonalData(withRequestModel: requestModel)
+                    })
+                }
             })
         }
     }

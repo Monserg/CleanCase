@@ -150,10 +150,15 @@ class OrderShowViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func handlerCancelButtonTapped(_ sender: UIButton) {
-        self.showAlertView(withTitle: "Info", andMessage: "Are you sure?".localized(), needCancel: true, completion: { [unowned self] success in
+        // API
+        checkNetworkConnection({ [unowned self] success in
             if success {
-                let requestModel = OrderShowModels.Order.RequestModel()
-                self.interactor?.updateOrderStatus(withRequestModel: requestModel)
+                self.showAlertView(withTitle: "Info", andMessage: "Are you sure?".localized(), needCancel: true, completion: { [unowned self] success in
+                    if success {
+                        let requestModel = OrderShowModels.Order.RequestModel()
+                        self.interactor?.updateOrderStatus(withRequestModel: requestModel)
+                    }
+                })
             }
         })
     }

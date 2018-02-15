@@ -127,9 +127,14 @@ class DeliveryTermsShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadViewSettings() {
-        DispatchQueue.main.async(execute: {
-            let requestModel = DeliveryTermsShowModels.Dates.RequestModel()
-            self.interactor?.fetchDates(withRequestModel: requestModel)
+        // API
+        checkNetworkConnection({ [unowned self] success in
+            if success {
+                DispatchQueue.main.async(execute: {
+                    let requestModel = DeliveryTermsShowModels.Dates.RequestModel()
+                    self.interactor?.fetchDates(withRequestModel: requestModel)
+                })
+            }
         })
     }
     
@@ -141,9 +146,14 @@ class DeliveryTermsShowViewController: UIViewController {
         else {
             self.view.isUserInteractionEnabled = false
             
-            DispatchQueue.main.async(execute: {
-                let requestModel = DeliveryTermsShowModels.Item.RequestModel(comment: self.textView.text)
-                self.interactor?.confirmDeliveryTerms(withRequestModel: requestModel)
+            // API
+            checkNetworkConnection({ [unowned self] success in
+                if success {
+                    DispatchQueue.main.async(execute: {
+                        let requestModel = DeliveryTermsShowModels.Item.RequestModel(comment: self.textView.text)
+                        self.interactor?.confirmDeliveryTerms(withRequestModel: requestModel)
+                    })
+                }
             })
         }
     }
@@ -151,14 +161,14 @@ class DeliveryTermsShowViewController: UIViewController {
     fileprivate func loadTextViewPlaceholder(_ text: String?) {
         if (text == nil) {
             textView.text = ""
-            //            textView.font = UIFont.ubuntuLight12
+//            textView.font = UIFont.ubuntuLight12
             textView.textColor = UIColor.black
         } else if (text == "Enter comment".localized() || text!.isEmpty) {
             textView.text = "Enter comment".localized()
-            //            textView.font = UIFont.ubuntuLightItalic12
+//            textView.font = UIFont.ubuntuLightItalic12
             textView.textColor = UIColor.green
         } else {
-            //            commentTextView.font = UIFont.ubuntuLight12
+//            commentTextView.font = UIFont.ubuntuLight12
             textView.textColor = UIColor.blue
         }
     }

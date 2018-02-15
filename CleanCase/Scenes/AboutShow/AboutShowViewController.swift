@@ -48,6 +48,7 @@ class AboutShowViewController: UIViewController {
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
+        // Network
         checkNetworkConnection({ [unowned self] success in
             if success {
                 SwiftSpinner.show("Loading App data...".localized(), animated: true)

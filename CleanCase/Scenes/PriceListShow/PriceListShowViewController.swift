@@ -82,8 +82,13 @@ class PriceListShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        let requestModel = PriceListShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
+        // API
+        checkNetworkConnection({ [unowned self] success in
+            if success {
+                let requestModel = PriceListShowModels.Something.RequestModel()
+                self.interactor?.doSomething(withRequestModel: requestModel)
+            }
+        })
     }
 }
 

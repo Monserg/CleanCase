@@ -25,7 +25,6 @@ protocol LeftSideMenuShowDataStore {
 class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuShowDataStore {
     // MARK: - Properties
     var presenter: LeftSideMenuShowPresentationLogic?
-    var worker: LeftSideMenuShowWorker?
     
     // LeftSideMenuShowDataStore protocol implementation
     var menuItems: [LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem]!
@@ -33,7 +32,6 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
     
     // MARK: - Business logic implementation
     func loadMenuItems(withRequestModel requestModel: LeftSideMenuShowModels.MenuItems.RequestModel) {
-        worker = LeftSideMenuShowWorker()
         menuItems = [LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem]()
         
         let itemsTitles = [

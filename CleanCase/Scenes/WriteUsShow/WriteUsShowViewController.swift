@@ -127,6 +127,7 @@ class WriteUsShowViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func handlerSendMessageButtonTapped(_ sender: UIButton) {
+        // API
         checkNetworkConnection({ [unowned self] success in
             if success {
                 let requestModel = WriteUsShowModels.Data.RequestModel(message: self.textView.text)

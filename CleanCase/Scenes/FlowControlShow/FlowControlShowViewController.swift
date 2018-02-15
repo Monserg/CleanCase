@@ -89,10 +89,18 @@ class FlowControlShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        SwiftSpinner.show("Loading App data...".localized(), animated: true)
-        
-        let requestModel = FlowControlShowModels.Version.RequestModel()
-        self.interactor?.fetchAppWorkingVersion(withRequestModel: requestModel)
+        checkNetworkConnection({ [unowned self] success in
+            SwiftSpinner.show("Loading App data...".localized(), animated: true)
+
+            if success {
+                let requestModel = FlowControlShowModels.Version.RequestModel()
+                self.interactor?.fetchAppWorkingVersion(withRequestModel: requestModel)
+            }
+            
+            else {
+                self.routeToNextScene()
+            }
+        })
     }
     
     fileprivate func routeToNextScene() {
