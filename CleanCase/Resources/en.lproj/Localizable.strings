@@ -40,25 +40,29 @@
 "Please, restart App"                       =   "Please, restart App";
 "Application is closing..."                 =   "Application\n is closing...";
 "Agreement Title"                           =   "Agreement Title";
-"Agreement Caption"                         =   "Agreement Caption";
+"Agreement Caption"                         =   "Agreement";
 "Agreement Content"                         =   "Agreement Content";
 "Loading App data..."                       =   "Application\n downloads data...";
 "Initialization..."                         =   "Initialization...";
 "Delivery Title"                            =   "Delivery Title";
-"Delivery Caption"                          =   "Delivery Caption";
+"Delivery Caption"                          =   "Delivery";
 "Credit Card Title"                         =   "Credit Card Title";
 "Credit Card CVV"                           =   "Credit Card CVV";
 "Currency"                                  =   "uah";
-"Comment Caption"                           =   "Comment Caption";
-"Cleaning Instructions Caption"             =   "Cleaning Instructions Caption";
-"Terms Caption"                             =   "Terms Caption";
-"Departments Caption"                       =   "Departments Caption";
+"Comment Caption"                           =   "Comment";
+"Cleaning Instructions Caption"             =   "Cleaning Instructions";
+"Terms Caption"                             =   "Terms";
+"Departments Caption"                       =   "Departments";
 "Add Order..."                              =   "Add Order...";
 "Collection Date Caption"                   =   "Collection Date";
 "Order Status Caption"                      =   "Order Status";
 "Name Caption"                              =   "Name";
 "Price Caption"                             =   "Price";
 "Quantity Caption"                          =   "Quantity";
+"Delivery Date Caption"                     =   "Delivery Date";
+"Total Price Caption"                       =   "Total Price";
+"Total Caption"                             =   "Total";
+"Delivery Date Note"                        =   "Not definitely";
 
 
 // Titles

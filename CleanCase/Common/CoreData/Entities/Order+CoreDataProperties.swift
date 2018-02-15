@@ -41,10 +41,10 @@ extension Order {
 extension Order {
 
     @objc(addItemsObject:)
-    @NSManaged public func addToItems(_ value: OrderItems)
+    @NSManaged public func addToItems(_ value: OrderItem)
 
     @objc(removeItemsObject:)
-    @NSManaged public func removeFromItems(_ value: OrderItems)
+    @NSManaged public func removeFromItems(_ value: OrderItem)
 
     @objc(addItems:)
     @NSManaged public func addToItems(_ values: NSSet)

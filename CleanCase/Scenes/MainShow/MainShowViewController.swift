@@ -125,7 +125,13 @@ class MainShowViewController: UIViewController {
     }
     
     fileprivate func nextViewController(fromStoryboardName storyboardName: String) -> UIViewController {
-        return UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardName + "VC")
+        let destinationVC = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardName + "VC")
+        
+        if storyboardName == "OrderShow" {
+            (destinationVC as! OrderShowViewController).saveOrderID(self.order!.orderID)
+        }
+        
+        return destinationVC
     }
 
     

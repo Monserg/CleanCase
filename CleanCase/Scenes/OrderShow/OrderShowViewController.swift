@@ -59,6 +59,13 @@ class OrderShowViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
+    
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -124,6 +131,7 @@ class OrderShowViewController: UIViewController {
         }
     }
     
+    
     // MARK: - Custom Functions
     func loadViewSettings() {
         if let order = self.router?.dataStore?.order {
@@ -136,6 +144,9 @@ class OrderShowViewController: UIViewController {
         }
     }
     
+    func saveOrderID(_ orderID: Int16) {
+        interactor?.saveOrderID(orderID)
+    }
     
     // MARK: - Actions
     @IBAction func handlerCancelButtonTapped(_ sender: UIButton) {
@@ -161,5 +172,57 @@ extension OrderShowViewController: OrderShowDisplayLogic {
         self.showAlertView(withTitle: "Info", andMessage: "Order status updated".localized(), needCancel: false, completion: { _ in
             self.navigationController?.popToRootViewController(animated: true)
         })
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+extension OrderShowViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let dataSource = self.router?.dataStore?.orderItems else {
+            return 0
+        }
+        
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "OrderItemCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OrderItemTableViewCell
+        let orderItem = self.router!.dataStore!.orderItems![indexPath.row]
+        
+        cell.setup(withItem: orderItem, withOrderStatus: self.router!.dataStore!.order.orderStatus, andIndexPath: indexPath)
+        
+        return cell
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+extension OrderShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 54.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 89.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        // Register the Nib footer section views
+        self.tableView.register(UINib(nibName: "OrderItemsTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "FooterCell")
+        let footerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "FooterCell") as! OrderItemsTableViewFooterView
+        
+        footerView.setup(withOrderStatus: self.router!.dataStore!.order.orderStatus)
+        
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
     }
 }

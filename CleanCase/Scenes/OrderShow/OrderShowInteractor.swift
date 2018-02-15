@@ -14,12 +14,14 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol OrderShowBusinessLogic {
+    func saveOrderID(_ orderID: Int16)
     func updateOrderStatus(withRequestModel requestModel: OrderShowModels.Order.RequestModel)
 }
 
 protocol OrderShowDataStore {
     var order: Order! { get set }
     var orderID: Int16! { get set }
+    var orderItems: [OrderItem]? { get set }
 }
 
 class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDataStore {
@@ -33,11 +35,21 @@ class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDat
         didSet {
             order = self.appDependency.coreDataManager.readEntity(withName: "Order",
                                                                   andPredicateParameters: NSPredicate.init(format: "orderID == \(orderID!)")) as! Order
+            
+            if let itemsSet = order.items, itemsSet.count > 0 {
+                self.orderItems = Array(itemsSet) as? [OrderItem]
+            }
         }
     }
     
+    var orderItems: [OrderItem]?
+    
     
     // MARK: - Business logic implementation
+    func saveOrderID(_ orderID: Int16) {
+        self.orderID = orderID
+    }
+    
     func updateOrderStatus(withRequestModel requestModel: OrderShowModels.Order.RequestModel) {
         // API: Fetch request data
         let bodyParams: [ String: Any ] = [ "orderId": self.orderID, "status": 6 ]

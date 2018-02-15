@@ -43,7 +43,7 @@ public class Order: NSManagedObject {
         get {
             return (CoreDataManager.instance.readEntities(withName: "Order",
                                                           withPredicateParameters: NSPredicate.init(format: "orderStatus != 2 AND orderStatus != 6"),
-                                                          andSortDescriptor: NSSortDescriptor.init(key: "orderID", ascending: true))?.last) as? Order
+                                                          andSortDescriptor: NSSortDescriptor.init(key: "orderID", ascending: false))?.first) as? Order
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  OrderItems+CoreDataClass.swift
+//  OrderItem+CoreDataClass.swift
 //  CleanCase
 //
 //  Created by msm72 on 13.02.2018.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(OrderItems)
-public class OrderItems: NSManagedObject {
+@objc(OrderItem)
+public class OrderItem: NSManagedObject {
 
 }

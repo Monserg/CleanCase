@@ -33,7 +33,7 @@ class OrdersShowInteractor: ShareInteractor, OrdersShowBusinessLogic, OrdersShow
     func fetchOrders(withRequestModel requestModel: OrdersShowModels.OrderItem.RequestModel) {
         if let ordersList = self.appDependency.coreDataManager.readEntities(withName: "Order",
                                                                             withPredicateParameters: nil,
-                                                                            andSortDescriptor: NSSortDescriptor.init(key: "createdDate", ascending: true)) as? [Order],
+                                                                            andSortDescriptor: NSSortDescriptor.init(key: "orderID", ascending: false)) as? [Order],
             ordersList.count > 0 {
             self.orders = [OrdersShowModels.OrderItem.RequestModel.DisplayedOrder]()
             

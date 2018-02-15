@@ -83,14 +83,14 @@
         <attribute name="orderStatus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderItems" inverseName="order" inverseEntity="OrderItems" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderItem" inverseName="order" inverseEntity="OrderItem" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="orderID"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="OrderItems" representedClassName="OrderItems" syncable="YES">
+    <entity name="OrderItem" representedClassName="OrderItem" syncable="YES">
         <attribute name="itemID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="orderID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -125,7 +125,7 @@
         <element name="DepartmentItem" positionX="-27" positionY="126" width="128" height="165"/>
         <element name="Laundry" positionX="-45" positionY="18" width="128" height="165"/>
         <element name="Order" positionX="-27" positionY="153" width="128" height="285"/>
-        <element name="OrderItems" positionX="-36" positionY="144" width="128" height="135"/>
+        <element name="OrderItem" positionX="-36" positionY="144" width="128" height="135"/>
         <element name="PersonalData" positionX="-36" positionY="126" width="128" height="255"/>
         <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
     </elements>

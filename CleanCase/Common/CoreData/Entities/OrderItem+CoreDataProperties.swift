@@ -1,5 +1,5 @@
 //
-//  OrderItems+CoreDataProperties.swift
+//  OrderItem+CoreDataProperties.swift
 //  CleanCase
 //
 //  Created by msm72 on 13.02.2018.
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension OrderItems {
+extension OrderItem {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<OrderItems> {
-        return NSFetchRequest<OrderItems>(entityName: "OrderItems")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<OrderItem> {
+        return NSFetchRequest<OrderItem>(entityName: "OrderItem")
     }
 
     @NSManaged public var orderID: Int16

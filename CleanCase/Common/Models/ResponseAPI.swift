@@ -114,3 +114,31 @@ struct ResponseAPIUpdateStatusResult: Decodable {
     // MARK: - Properties
     let UpdateStatusResult: String
 }
+
+struct ResponseAPIOrderItemsResult: Decodable {
+    // MARK: - Properties
+    let GetItemsResult: [ResponseAPIOrderItem]?
+}
+
+struct ResponseAPIOrderItem: Decodable {
+    // MARK: - Properties
+    let DepartmentID: Int16
+    let DepartmentItemID: Int16
+    let Height: Int16
+    let ID: Int16
+    let Name: String
+    let OrderID: Int16
+    let Price: Float
+    let Qty: Int16
+    let Width: Int16
+    
+    let Status: ResponseAPIOrderItemStatus
+}
+
+struct ResponseAPIOrderItemStatus: Decodable {
+    // MARK: - Properties
+    let Color: Float?
+    let ID: Int16
+    let Path: String?
+    let StatusName: String?
+}

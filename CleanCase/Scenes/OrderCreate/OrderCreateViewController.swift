@@ -127,6 +127,7 @@ class OrderCreateViewController: UIViewController {
         else if segue.identifier == "OrderShowSegue" {
             let destinationVC = segue.destination as! OrderShowViewController
             destinationVC.routeFrom = .FromOrderCreate
+            destinationVC.saveOrderID(Int16(self.router!.dataStore!.orderID!)!)
         }
 
         self.view.isUserInteractionEnabled = true
