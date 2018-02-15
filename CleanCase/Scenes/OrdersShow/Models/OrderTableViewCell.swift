@@ -31,8 +31,8 @@ class OrderTableViewCell: UITableViewCell {
     func setup(withItem item: OrdersShowModels.OrderItem.RequestModel.DisplayedOrder, andIndexPath indexPath: IndexPath) {
         let order = item
        
-        self.collectedLabel.text    =   order.collectionFrom
-        self.statusLabel.text       =   "\(order.status)"
+        self.collectedLabel.text    =   order.createdDate + " " + order.collectionFrom
+        self.statusLabel.text       =   OrderStatus(rawValue: order.status)!.name
         self.deliveryLabel.text     =   order.deliveryFrom
         self.priceLabel.text        =   String(format: "%@ %.2f", order.price, "Currency".localized())
             

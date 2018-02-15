@@ -18,31 +18,6 @@ typealias HandlerPassDataCompletion     =   ((_ data: Any?) -> Void)
 
 
 // Enums
-enum OrderStatus: Int16 {
-    case None                   =   0
-    case Opened                 =   1
-    case Closed                 =   2
-    case Ready                  =   3
-    case InWayToLaundry         =   4
-    case Supplied               =   5
-    case Cancel                 =   6
-    case InProcess              =   7
-    case InWayToClient          =   8
-    case PackagesInOffice       =   9
-    case LockerOrderChanged     =   10
-    case Paid                   =   11
-    case RequestForPaid         =   12
-    
-    var name: String {
-        get {
-            return String(describing: self)
-        }
-    }
-    
-    // Example
-//    let state = OrderStatus.Closed
-//    print(state.name)
-}
 
 
 // Constants

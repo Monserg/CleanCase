@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrderShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: OrderShowModels.Something.ViewModel)
+    func displayOrder(fromViewModel viewModel: OrderShowModels.Order.ViewModel)
 }
 
 class OrderShowViewController: UIViewController {
@@ -26,7 +26,39 @@ class OrderShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
-
+    @IBOutlet weak var cancelButton: UIButton! {
+        didSet {
+            cancelButton.isHidden = true
+            cancelButton.setTitle(cancelButton.titleLabel!.text!.localized(), for: .normal)
+        }
+    }
+    
+    @IBOutlet var captionLabelsCollection: [UILabel]! {
+        didSet {
+            _ = captionLabelsCollection.map({
+                $0.textAlignment = .right
+                $0.text = $0.text!.localized()
+            })
+        }
+    }
+    
+    @IBOutlet var valuesLabelsCollection: [UILabel]! {
+        didSet {
+            _ = valuesLabelsCollection.map({
+                $0.textAlignment = .center
+            })
+        }
+    }
+    
+    @IBOutlet var headerCaptionLabelsCollection: [UILabel]! {
+        didSet {
+            _ = headerCaptionLabelsCollection.map({
+                $0.textAlignment = .center
+                $0.text = $0.text!.localized()
+            })
+        }
+    }
+    
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -45,7 +77,7 @@ class OrderShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   OrderShowInteractor()
+        let interactor              =   OrderShowInteractor(AppDependency())
         let presenter               =   OrderShowPresenter()
         let router                  =   OrderShowRouter()
         
@@ -94,15 +126,24 @@ class OrderShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadViewSettings() {
-        let requestModel = OrderShowModels.Something.RequestModel()
-        interactor?.doSomething(withRequestModel: requestModel)
+        _ = valuesLabelsCollection.first(where: { $0.tag == 2 }).map({ $0.text = self.router!.dataStore!.order.createdDate + " " + self.router!.dataStore!.order.collectionFrom })
+        _ = valuesLabelsCollection.first(where: { $0.tag == 3 }).map({ $0.text = OrderStatus(rawValue: self.router!.dataStore!.order.orderStatus)!.name })
+        
+//        let requestModel = OrderShowModels.Order.RequestModel()
+//        interactor?.loadOrder(withRequestModel: requestModel)
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerCancelButtonTapped(_ sender: UIButton) {
+    
     }
 }
 
 
 // MARK: - OrderShowDisplayLogic
 extension OrderShowViewController: OrderShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: OrderShowModels.Something.ViewModel) {
+    func displayOrder(fromViewModel viewModel: OrderShowModels.Order.ViewModel) {
         // NOTE: Display the result from the Presenter
 //         nameTextField.text = viewModel.name
     }

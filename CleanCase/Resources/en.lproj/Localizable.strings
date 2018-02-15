@@ -54,6 +54,11 @@
 "Terms Caption"                             =   "Terms Caption";
 "Departments Caption"                       =   "Departments Caption";
 "Add Order..."                              =   "Add Order...";
+"Collection Date Caption"                   =   "Collection Date";
+"Order Status Caption"                      =   "Order Status";
+"Name Caption"                              =   "Name";
+"Price Caption"                             =   "Price";
+"Quantity Caption"                          =   "Quantity";
 
 
 // Titles

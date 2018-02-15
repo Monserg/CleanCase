@@ -18,22 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Er4-Bh-JVp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Er4-Bh-JVp">
                                 <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrderCell" rowHeight="54" id="Jjx-5J-LKe" customClass="OrderTableViewCell" customModule="CleanCase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="1" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jjx-5J-LKe" id="I1S-Tu-bWz">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Je1-pw-aVR">
-                                                    <rect key="frame" x="4" y="4" width="367" height="46"/>
+                                                    <rect key="frame" x="4" y="4" width="367" height="50"/>
                                                     <subviews>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atd-6k-XpN" userLabel="Collected Label">
-                                                            <rect key="frame" x="321" y="0.0" width="42" height="21"/>
+                                                            <rect key="frame" x="321" y="4" width="42" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -46,18 +46,15 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVe-HX-OS9" userLabel="Delivery Label">
-                                                            <rect key="frame" x="263" y="0.0" width="42" height="21"/>
+                                                            <rect key="frame" x="263" y="4" width="42" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8K-1J-mib" userLabel="Price Label">
-                                                            <rect key="frame" x="32" y="0.0" width="40" height="21"/>
+                                                            <rect key="frame" x="16" y="4" width="42" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="uDw-Nn-een"/>
-                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -67,9 +64,9 @@
                                                     <constraints>
                                                         <constraint firstItem="atd-6k-XpN" firstAttribute="trailing" secondItem="H4U-JS-n8n" secondAttribute="trailing" id="8TH-VQ-mb1"/>
                                                         <constraint firstItem="atd-6k-XpN" firstAttribute="centerY" secondItem="V8K-1J-mib" secondAttribute="centerY" id="ERy-nU-ArN"/>
-                                                        <constraint firstItem="atd-6k-XpN" firstAttribute="top" secondItem="Je1-pw-aVR" secondAttribute="top" id="Iqx-rL-o5A"/>
-                                                        <constraint firstAttribute="bottom" secondItem="H4U-JS-n8n" secondAttribute="bottom" id="Myf-p2-U0h"/>
-                                                        <constraint firstItem="V8K-1J-mib" firstAttribute="leading" secondItem="Je1-pw-aVR" secondAttribute="leading" constant="32" id="RYV-MV-nFY"/>
+                                                        <constraint firstItem="atd-6k-XpN" firstAttribute="top" secondItem="Je1-pw-aVR" secondAttribute="top" constant="4" id="Iqx-rL-o5A"/>
+                                                        <constraint firstAttribute="bottom" secondItem="H4U-JS-n8n" secondAttribute="bottom" constant="4" id="Myf-p2-U0h"/>
+                                                        <constraint firstItem="V8K-1J-mib" firstAttribute="leading" secondItem="Je1-pw-aVR" secondAttribute="leading" constant="16" id="RYV-MV-nFY"/>
                                                         <constraint firstItem="atd-6k-XpN" firstAttribute="leading" secondItem="SVe-HX-OS9" secondAttribute="trailing" constant="16" id="gB4-EX-ubz"/>
                                                         <constraint firstItem="SVe-HX-OS9" firstAttribute="centerY" secondItem="V8K-1J-mib" secondAttribute="centerY" id="hvM-Q0-wgE"/>
                                                         <constraint firstAttribute="trailing" secondItem="atd-6k-XpN" secondAttribute="trailing" constant="4" id="mdV-M0-6LI"/>
@@ -82,7 +79,7 @@
                                                 <constraint firstItem="Je1-pw-aVR" firstAttribute="top" secondItem="I1S-Tu-bWz" secondAttribute="top" constant="4" id="Jf0-ib-v5Q"/>
                                                 <constraint firstItem="Je1-pw-aVR" firstAttribute="leading" secondItem="I1S-Tu-bWz" secondAttribute="leading" constant="4" id="STw-FZ-Uv3"/>
                                                 <constraint firstAttribute="trailing" secondItem="Je1-pw-aVR" secondAttribute="trailing" constant="4" id="XpK-DM-Pw4"/>
-                                                <constraint firstAttribute="bottom" secondItem="Je1-pw-aVR" secondAttribute="bottom" constant="4" id="di6-q0-wLh"/>
+                                                <constraint firstAttribute="bottom" secondItem="Je1-pw-aVR" secondAttribute="bottom" id="di6-q0-wLh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

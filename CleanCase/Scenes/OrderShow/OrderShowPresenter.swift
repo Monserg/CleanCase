@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol OrderShowPresentationLogic {
-    func presentSomething(fromResponseModel responseModel: OrderShowModels.Something.ResponseModel)
+    func presentOrder(fromResponseModel responseModel: OrderShowModels.Order.ResponseModel)
 }
 
 class OrderShowPresenter: OrderShowPresentationLogic {
@@ -23,8 +23,8 @@ class OrderShowPresenter: OrderShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentSomething(fromResponseModel responseModel: OrderShowModels.Something.ResponseModel) {
-        let viewModel = OrderShowModels.Something.ViewModel()
-        viewController?.displaySomething(fromViewModel: viewModel)
+    func presentOrder(fromResponseModel responseModel: OrderShowModels.Order.ResponseModel) {
+        let viewModel = OrderShowModels.Order.ViewModel()
+        viewController?.displayOrder(fromViewModel: viewModel)
     }
 }

@@ -189,7 +189,6 @@ class DeliveryTermsShowViewController: UIViewController {
 extension DeliveryTermsShowViewController: DeliveryTermsShowDisplayLogic {
     func displayData(fromViewModel viewModel: DeliveryTermsShowModels.Dates.ViewModel) {
         // NOTE: Display the result from the Presenter
-        
     }
     
     func displayConfirmDeliveryTerms(fromViewModel viewModel: DeliveryTermsShowModels.Item.ViewModel) {

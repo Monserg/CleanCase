@@ -15,7 +15,7 @@ import UIKit
 // MARK: - Data models
 enum OrderShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum Order {
         struct RequestModel {
         }
         

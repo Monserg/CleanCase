@@ -14,28 +14,33 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol OrderShowBusinessLogic {
-    func doSomething(withRequestModel requestModel: OrderShowModels.Something.RequestModel)
+    func loadOrder(withRequestModel requestModel: OrderShowModels.Order.RequestModel)
 }
 
 protocol OrderShowDataStore {
-//     var name: String { get set }
+    var order: Order! { get set }
+    var orderID: Int16! { get set }
 }
 
-class OrderShowInteractor: OrderShowBusinessLogic, OrderShowDataStore {
+class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDataStore {
     // MARK: - Properties
     var presenter: OrderShowPresentationLogic?
-    var worker: OrderShowWorker?
     
-    // ... protocol implementation
-//    var name: String = ""
+    // OrderShowDataStore protocol implementation
+    var order: Order!
+
+    var orderID: Int16! {
+        didSet {
+            order = self.appDependency.coreDataManager.readEntity(withName: "Order",
+                                                                  andPredicateParameters: NSPredicate.init(format: "orderID == \(orderID!)")) as! Order
+        }
+    }
     
     
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: OrderShowModels.Something.RequestModel) {
-        worker = OrderShowWorker()
-        worker?.doSomeWork()
-        
-        let responseModel = OrderShowModels.Something.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+    func loadOrder(withRequestModel requestModel: OrderShowModels.Order.RequestModel) {
+
+        let responseModel = OrderShowModels.Order.ResponseModel()
+        presenter?.presentOrder(fromResponseModel: responseModel)
     }
 }

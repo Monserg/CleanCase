@@ -17,7 +17,8 @@ import SwiftSpinner
 class MainShowViewController: UIViewController {
     // MARK: - Properties
     fileprivate var sideMenuManager: SideMenuManager!
-
+    fileprivate var order: Order?
+    
     
     // MARK: - IBOutlets
     @IBOutlet weak var basketBarButtonItem: UIBarButtonItem!
@@ -71,7 +72,13 @@ class MainShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     fileprivate func loadViewSettings() {
+        self.loadOrder()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
+    }
+    
+    fileprivate func loadOrder() {
+        self.order = Order.last
+        self.myOrderView.isHidden = (self.order == nil) ? true : false
     }
     
     fileprivate func setupSideMenu() {

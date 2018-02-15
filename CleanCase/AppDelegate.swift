@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor           =   UIColor.blue        // Navbar background color
         UINavigationBar.appearance().tintColor              =   .white              // Navbar items color
         
-        //        UITabBar.appearance().barTintColor                 =   UIColor.veryDarkGrayishBlue
-        //        UITabBar.appearance().tintColor                     =   UIColor.white
+//        UITabBar.appearance().barTintColor                 =   UIColor.veryDarkGrayishBlue
+//        UITabBar.appearance().tintColor                     =   UIColor.white
         
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black

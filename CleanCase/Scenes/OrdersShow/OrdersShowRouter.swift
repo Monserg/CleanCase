@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 @objc protocol OrdersShowRoutingLogic {
-//    func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToOrderShowScene()
 }
 
 protocol OrdersShowDataPassing {
@@ -28,29 +28,25 @@ class OrdersShowRouter: NSObject, OrdersShowRoutingLogic, OrdersShowDataPassing 
     
     
     // MARK: - Routing
-//    func routeToSomewhere(segue: UIStoryboardSegue?) {
-//        if let segue = segue {
-//            let destinationVC = segue.destination as! SomewhereViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//            navigateToSomewhere(source: viewController!, destination: destinationVC)
-//        }
-//    }
+    func routeToOrderShowScene() {
+        let storyboard = UIStoryboard(name: "OrderShow", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "OrderShowVC") as! OrderShowViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        
+        passDataToOrderShowScene(source: dataStore!, destination: &destinationDS)
+        navigateToOrderShowScene(source: viewController!, destination: destinationVC)
+    }
     
     
     // MARK: - Navigation
-//    func navigateToSomewhere(source: OrdersShowViewController, destination: SomewhereViewController) {
-//        source.show(destination, sender: nil)
-//    }
+    func navigateToOrderShowScene(source: OrdersShowViewController, destination: OrderShowViewController) {
+        source.show(destination, sender: nil)
+    }
     
     
     // MARK: - Passing data
-//    func passDataToSomewhere(source: OrdersShowDataStore, destination: inout SomewhereDataStore) {
-//        destination.name = source.name
-//    }
+    func passDataToOrderShowScene(source: OrdersShowDataStore, destination: inout OrderShowDataStore) {
+        let selectedRow = viewController?.tableView.indexPathForSelectedRow?.row
+        destination.orderID = source.orders?[selectedRow!].orderID
+    }
 }
