@@ -15,8 +15,20 @@ import UIKit
 // MARK: - Data models
 enum PriceListShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum Department {
         struct RequestModel {
+        }
+        
+        struct ResponseModel {
+        }
+        
+        struct ViewModel {
+        }
+    }
+
+    enum DepartmentItems {
+        struct RequestModel {
+            let selectedDepartmentRow: Int
         }
         
         struct ResponseModel {

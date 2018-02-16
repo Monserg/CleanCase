@@ -14,7 +14,8 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol PriceListShowPresentationLogic {
-    func presentSomething(fromResponseModel responseModel: PriceListShowModels.Something.ResponseModel)
+    func presentDepartments(fromResponseModel responseModel: PriceListShowModels.Department.ResponseModel)
+    func presentDepartmentItems(fromResponseModel responseModel: PriceListShowModels.DepartmentItems.ResponseModel)
 }
 
 class PriceListShowPresenter: PriceListShowPresentationLogic {
@@ -23,8 +24,13 @@ class PriceListShowPresenter: PriceListShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentSomething(fromResponseModel responseModel: PriceListShowModels.Something.ResponseModel) {
-        let viewModel = PriceListShowModels.Something.ViewModel()
-        viewController?.displaySomething(fromViewModel: viewModel)
+    func presentDepartments(fromResponseModel responseModel: PriceListShowModels.Department.ResponseModel) {
+        let viewModel = PriceListShowModels.Department.ViewModel()
+        viewController?.displayDepartments(fromViewModel: viewModel)
+    }
+    
+    func presentDepartmentItems(fromResponseModel responseModel: PriceListShowModels.DepartmentItems.ResponseModel) {
+        let viewModel = PriceListShowModels.DepartmentItems.ViewModel()
+        viewController?.displayDepartmentItems(fromViewModel: viewModel)
     }
 }

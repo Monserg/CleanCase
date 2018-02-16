@@ -14,24 +14,42 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol PriceListShowBusinessLogic {
-    func doSomething(withRequestModel requestModel: PriceListShowModels.Something.RequestModel)
+    func loadDepartments(withRequestModel requestModel: PriceListShowModels.Department.RequestModel)
+    func loadDepartmentItems(withRequestModel requestModel: PriceListShowModels.DepartmentItems.RequestModel)
 }
 
 protocol PriceListShowDataStore {
-//     var name: String { get set }
+    var departments: [Department]! { get set }
+    var departmentItems: [DepartmentItem]! { get set }
 }
 
-class PriceListShowInteractor: PriceListShowBusinessLogic, PriceListShowDataStore {
+class PriceListShowInteractor: ShareInteractor, PriceListShowBusinessLogic, PriceListShowDataStore {
     // MARK: - Properties
     var presenter: PriceListShowPresentationLogic?
 
-    // ... protocol implementation
-//    var name: String = ""
-    
+    // PriceListShowDataStore protocol implementation
+    var departments: [Department]!
+    var departmentItems: [DepartmentItem]!
     
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: PriceListShowModels.Something.RequestModel) {
-        let responseModel = PriceListShowModels.Something.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+    func loadDepartments(withRequestModel requestModel: PriceListShowModels.Department.RequestModel) {
+        // CoreData
+        self.departments = self.appDependency.coreDataManager.readEntities(withName:                    "Department",
+                                                                           withPredicateParameters:     nil,    // NSPredicate.init(format: "laundryId == \(Laundry.codeID)"),
+                                                                           andSortDescriptor:           NSSortDescriptor.init(key: "departmentName", ascending: true)) as! [Department]
+        
+        let responseModel = PriceListShowModels.Department.ResponseModel()
+        presenter?.presentDepartments(fromResponseModel: responseModel)
+    }
+    
+    func loadDepartmentItems(withRequestModel requestModel: PriceListShowModels.DepartmentItems.RequestModel) {
+        let selectedDepartment = self.departments[requestModel.selectedDepartmentRow]
+
+        if let itemsSet = selectedDepartment.items {
+            self.departmentItems = Array(itemsSet) as! [DepartmentItem]
+        }
+        
+        let responseModel = PriceListShowModels.DepartmentItems.ResponseModel()
+        presenter?.presentDepartmentItems(fromResponseModel: responseModel)
     }
 }

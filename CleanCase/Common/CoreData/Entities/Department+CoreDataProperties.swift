@@ -22,6 +22,7 @@ extension Department {
     @NSManaged public var descriptionItem: String?
     @NSManaged public var id: Int16
     @NSManaged public var laundryId: Int16
+    
     @NSManaged public var items: NSSet?
 
 }

@@ -78,14 +78,14 @@
                                     <constraint firstAttribute="height" constant="170" id="uQF-Lk-2hh"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp2-pz-Q4K">
+                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp2-pz-Q4K">
                                 <rect key="frame" x="248" y="74" width="56" height="30"/>
                                 <state key="normal" title="Delivery"/>
                                 <connections>
                                     <action selector="deliveryButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="Fw6-O0-aWC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ek-LC-nzy">
+                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ek-LC-nzy">
                                 <rect key="frame" x="226" y="112" width="78" height="30"/>
                                 <state key="normal" title="OrderItems"/>
                                 <connections>

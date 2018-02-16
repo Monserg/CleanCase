@@ -40,6 +40,9 @@
 		B1798D342032C31400381584 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D302032C31400381584 /* Order+CoreDataProperties.swift */; };
 		B1798D39203305EE00381584 /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */; };
 		B1798D3B20336B9600381584 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D3A20336B9600381584 /* Date+Extensions.swift */; };
+		B1847C642036B8BD0052DC18 /* DepartmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */; };
+		B1847C662036B9330052DC18 /* DepartmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */; };
+		B1847C682036BF200052DC18 /* DepartmentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */; };
 		B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */; };
 		B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */; };
 		B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */; };
@@ -173,6 +176,9 @@
 		B1798D302032C31400381584 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
 		B1798D3A20336B9600381584 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentItemTableViewCell.swift; sourceTree = "<group>"; };
 		B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementShow.storyboard; sourceTree = "<group>"; };
 		B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementShowViewController.swift; sourceTree = "<group>"; };
 		B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
@@ -366,6 +372,16 @@
 				B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B1847C622036B8A20052DC18 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */,
+				B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */,
+				B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B19DA3CC202852BE00E9F7D6 /* AgreementShow */ = {
@@ -624,6 +640,7 @@
 		B1FA2D7520245FB100351BB7 /* PriceListShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1847C622036B8A20052DC18 /* Views */,
 				B1FA2D7B20245FC000351BB7 /* PriceListShowInteractor.swift */,
 				B1FA2D7920245FC000351BB7 /* PriceListShowModels.swift */,
 				B1FA2D7620245FC000351BB7 /* PriceListShowPresenter.swift */,
@@ -767,6 +784,7 @@
 				B1FA2D5920245ED600351BB7 /* AboutShow.storyboard in Resources */,
 				B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */,
 				B1FA2D4720245E3700351BB7 /* PersonalDataShow.storyboard in Resources */,
+				B1847C662036B9330052DC18 /* DepartmentCollectionViewCell.xib in Resources */,
 				B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */,
 				B148E917202C9C530007D79B /* DeliveryTermsShow.storyboard in Resources */,
 				B1413A8120358DAD00E62463 /* OrderItemsTableViewFooterView.xib in Resources */,
@@ -929,12 +947,14 @@
 				B1FA2D0B202455DE00351BB7 /* UIApplication+Extension.swift in Sources */,
 				B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */,
 				B1DBDF01202998E100127ECB /* Department+CoreDataProperties.swift in Sources */,
+				B1847C642036B8BD0052DC18 /* DepartmentCollectionViewCell.swift in Sources */,
 				B148E919202CA61E0007D79B /* DeliveryTermsShowRouter.swift in Sources */,
 				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
 				B148E907202C418B0007D79B /* ChatShowViewController.swift in Sources */,
 				B1FA2D5420245E8900351BB7 /* OrdersShowInteractor.swift in Sources */,
 				B1FA2D5120245E8900351BB7 /* OrdersShowRouter.swift in Sources */,
 				B148E906202C418B0007D79B /* ChatShowModels.swift in Sources */,
+				B1847C682036BF200052DC18 /* DepartmentItemTableViewCell.swift in Sources */,
 				B17940A620261BA100A9B675 /* UIViewController+Extensions.swift in Sources */,
 				B1FA2D5320245E8900351BB7 /* OrdersShowViewController.swift in Sources */,
 				B1FA2D7F20245FC000351BB7 /* PriceListShowModels.swift in Sources */,

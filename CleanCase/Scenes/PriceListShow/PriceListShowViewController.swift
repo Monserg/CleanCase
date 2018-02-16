@@ -14,7 +14,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol PriceListShowDisplayLogic: class {
-    func displaySomething(fromViewModel viewModel: PriceListShowModels.Something.ViewModel)
+    func displayDepartments(fromViewModel viewModel: PriceListShowModels.Department.ViewModel)
+    func displayDepartmentItems(fromViewModel viewModel: PriceListShowModels.DepartmentItems.ViewModel)
 }
 
 class PriceListShowViewController: UIViewController {
@@ -24,6 +25,21 @@ class PriceListShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
+    @IBOutlet weak var departmentItemsTableView: UITableView! {
+        didSet {
+            departmentItemsTableView.delegate = self
+            departmentItemsTableView.dataSource = self
+        }
+    }
+    
+    @IBOutlet weak var departmentsCollectionView: UICollectionView! {
+        didSet {
+            departmentsCollectionView.delegate = self
+            departmentsCollectionView.dataSource = self
+        }
+    }
+    
+    @IBOutlet weak var selectedView: UIView!
     
     
     // MARK: - Class Initialization
@@ -43,7 +59,7 @@ class PriceListShowViewController: UIViewController {
     // MARK: - Setup
     private func setup() {
         let viewController          =   self
-        let interactor              =   PriceListShowInteractor()
+        let interactor              =   PriceListShowInteractor(AppDependency())
         let presenter               =   PriceListShowPresenter()
         let router                  =   PriceListShowRouter()
         
@@ -69,6 +85,14 @@ class PriceListShowViewController: UIViewController {
     
     
     // MARK: - Class Functions
+    override func viewDidLayoutSubviews() {
+        let section         =   0
+        let lastItemIndex   =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
+        let indexPath       =   IndexPath(item: lastItemIndex, section: section)
+        
+        self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,8 +109,8 @@ class PriceListShowViewController: UIViewController {
         // API
         checkNetworkConnection({ [unowned self] success in
             if success {
-                let requestModel = PriceListShowModels.Something.RequestModel()
-                self.interactor?.doSomething(withRequestModel: requestModel)
+                let requestModel = PriceListShowModels.Department.RequestModel()
+                self.interactor?.loadDepartments(withRequestModel: requestModel)
             }
         })
     }
@@ -95,8 +119,129 @@ class PriceListShowViewController: UIViewController {
 
 // MARK: - PriceListShowDisplayLogic
 extension PriceListShowViewController: PriceListShowDisplayLogic {
-    func displaySomething(fromViewModel viewModel: PriceListShowModels.Something.ViewModel) {
+    func displayDepartments(fromViewModel viewModel: PriceListShowModels.Department.ViewModel) {
         // NOTE: Display the result from the Presenter
-//         nameTextField.text = viewModel.name
+        DispatchQueue.main.async(execute: {
+            let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: 0)
+            self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
+            
+            self.departmentsCollectionView.reloadData()
+        })
+    }
+    
+    func displayDepartmentItems(fromViewModel viewModel: PriceListShowModels.DepartmentItems.ViewModel) {
+        // NOTE: Display the result from the Presenter
+        DispatchQueue.main.async(execute: {
+            self.departmentItemsTableView.reloadData()
+        })
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+extension PriceListShowViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let dataSource = self.router?.dataStore?.departmentItems else {
+            return 0
+        }
+        
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "DepartmentItemCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! DepartmentItemTableViewCell
+        let departmentItem = self.router!.dataStore!.departmentItems[indexPath.row]
+        
+        cell.setup(withItem: departmentItem, andIndexPath: indexPath)
+        
+        return cell
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+extension PriceListShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 54.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 4.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.bounds.width, height: 4.0)))
+        footerView.backgroundColor = UIColor.lightGray
+        
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Select departmentItem...")
+    }
+}
+
+
+// MARK: - UICollectionViewDataSource
+extension PriceListShowViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // Return the number of sections
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // Return the number of items
+        guard let dataSource = self.router?.dataStore?.departments else {
+            return 0
+        }
+        
+        return dataSource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier  =   "DepartmentCell"
+        collectionView.register(UINib(nibName: "DepartmentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        let cell            =   collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! DepartmentCollectionViewCell
+        let department      =   self.router!.dataStore!.departments[indexPath.row]
+        
+        // Config cell
+        cell.setup(withItem: department, andIndexPath: indexPath)
+        
+        return cell
+    }
+}
+
+
+// MARK: - UICollectionViewDelegate
+extension PriceListShowViewController {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Reload departmentItems
+        let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: indexPath.row)
+        self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
+
+//        self.collectionView.deselectItem(at: indexPath, animated: true)
+//        handlerCellSelectCompletion!(indexPath.row)
+//        self.collectionView.deselectItem(at: indexPath, animated: true)
+    }
+}
+
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension PriceListShowViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: (collectionView.frame.width - 30.0) / 3, height: collectionView.frame.height)
     }
 }
