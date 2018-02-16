@@ -23,6 +23,9 @@ class PriceListShowViewController: UIViewController {
     var interactor: PriceListShowBusinessLogic?
     var router: (NSObjectProtocol & PriceListShowRoutingLogic & PriceListShowDataPassing)?
     
+    var widthDepartmentCell: CGFloat!
+    var selectedDepartmentRow: Int = 0
+    
     
     // MARK: - IBOutlets
     @IBOutlet weak var departmentItemsTableView: UITableView! {
@@ -34,6 +37,9 @@ class PriceListShowViewController: UIViewController {
     
     @IBOutlet weak var departmentsCollectionView: UICollectionView! {
         didSet {
+            departmentsCollectionView.register(UINib(nibName:               "DepartmentCollectionViewCell", bundle: nil),
+                                               forCellWithReuseIdentifier:  "DepartmentCell")
+            
             departmentsCollectionView.delegate = self
             departmentsCollectionView.dataSource = self
         }
@@ -86,11 +92,13 @@ class PriceListShowViewController: UIViewController {
     
     // MARK: - Class Functions
     override func viewDidLayoutSubviews() {
-        let section         =   0
-        let lastItemIndex   =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
-        let indexPath       =   IndexPath(item: lastItemIndex, section: section)
+        let section                 =   0
+        self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
+        let indexPath               =   IndexPath(item: self.selectedDepartmentRow, section: section)
         
-        self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+        self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: false)
+        print(self.departmentsCollectionView.contentOffset.x)
+        self.moveSelectedView()
     }
     
     override func viewDidLoad() {
@@ -103,6 +111,31 @@ class PriceListShowViewController: UIViewController {
         viewSettingsDidLoad()
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.tag == 0 {
+            self.moveSelectedView()
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if scrollView.tag == 0 {
+            self.moveSelectedView()
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.tag == 0 {
+            self.moveSelectedView()
+        }
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if scrollView.tag == 0 {
+            self.moveSelectedView()
+        }
+    }
+
+    
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
@@ -112,6 +145,15 @@ class PriceListShowViewController: UIViewController {
                 let requestModel = PriceListShowModels.Department.RequestModel()
                 self.interactor?.loadDepartments(withRequestModel: requestModel)
             }
+        })
+    }
+    
+    private func moveSelectedView() {
+        DispatchQueue.main.async(execute: {
+            UIView.animate(withDuration: 0.1, animations: {
+                self.selectedView.frame.origin = CGPoint.init(x: self.widthDepartmentCell * CGFloat(self.selectedDepartmentRow) - self.departmentsCollectionView.contentOffset.x,
+                                                              y: self.selectedView.frame.minY)
+            }, completion: nil)
         })
     }
 }
@@ -205,7 +247,6 @@ extension PriceListShowViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier  =   "DepartmentCell"
-        collectionView.register(UINib(nibName: "DepartmentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         let cell            =   collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! DepartmentCollectionViewCell
         let department      =   self.router!.dataStore!.departments[indexPath.row]
         
@@ -223,10 +264,9 @@ extension PriceListShowViewController {
         // Reload departmentItems
         let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: indexPath.row)
         self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
-
-//        self.collectionView.deselectItem(at: indexPath, animated: true)
-//        handlerCellSelectCompletion!(indexPath.row)
-//        self.collectionView.deselectItem(at: indexPath, animated: true)
+        self.selectedDepartmentRow = indexPath.row
+        
+        self.moveSelectedView()
     }
 }
 
@@ -242,6 +282,9 @@ extension PriceListShowViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: (collectionView.frame.width - 30.0) / 3, height: collectionView.frame.height)
+        self.widthDepartmentCell = (departmentsCollectionView.frame.width - 30.0) / 3
+        self.selectedView.frame.size = CGSize.init(width: widthDepartmentCell, height: 4.0)
+
+        return CGSize.init(width: self.widthDepartmentCell, height: collectionView.frame.height)
     }
 }
