@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black
+        
+        // Add Firebase
+        FirebaseApp.configure()
         
         // CoreData: update current App version
         CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:         "Version",

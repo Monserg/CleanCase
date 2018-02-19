@@ -18,4 +18,7 @@ target 'CleanCase' do
     pod 'ImageSlideshow', '~> 1.5'
     pod 'ADEmailAndPassword', '~> 1.0'
     
+    pod 'SKStyleKit'
+    pod 'Firebase/Core'
+    
 end
