@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         StyleKit.initStyleKit()
         
         // Set navbar & status bar color
-        let style = StyleKit.style(withName: "defaultBarTintColor")!
+        let style = StyleKit.style(withName: "defaultBarTintColorStyle")!
         
         UINavigationBar.appearance().shadowImage            =   UIImage()                   // NavBar bottom line
         UINavigationBar.appearance().barTintColor           =   style.backgroundColor!      // Navbar background color

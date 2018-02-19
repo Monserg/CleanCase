@@ -12,7 +12,7 @@ class AgreementShowViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            titleLabel.text = titleLabel.text!.localized()
+            titleLabel.text!.localize()
             titleLabel.numberOfLines = 1
             titleLabel.textAlignment = .right
         }
@@ -20,7 +20,7 @@ class AgreementShowViewController: UIViewController {
 
     @IBOutlet weak var captionLabel: UILabel! {
         didSet {
-            captionLabel.text = captionLabel.text!.localized()
+            captionLabel.text!.localize()
             captionLabel.numberOfLines = 0
             captionLabel.textAlignment = .left
         }
@@ -28,17 +28,13 @@ class AgreementShowViewController: UIViewController {
 
     @IBOutlet weak var contentLabel: UILabel! {
         didSet {
-            contentLabel.text = contentLabel.text!.localized()
+            contentLabel.text!.localize()
             contentLabel.numberOfLines = 0
             contentLabel.textAlignment = .right
         }
     }
     
-    @IBOutlet var colorViewsCollection: [UIView]! {
-        didSet {
-            _ = colorViewsCollection.map({ $0.backgroundColor = .red })
-        }
-    }
+    @IBOutlet var colorViewsCollection: [UIView]!
     
     
     // MARK: - Class Functions

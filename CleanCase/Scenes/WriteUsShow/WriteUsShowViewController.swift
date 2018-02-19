@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SKStyleKit
 
 // MARK: - Input & Output protocols
 protocol WriteUsShowDisplayLogic: class {
@@ -38,10 +39,8 @@ class WriteUsShowViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView! {
         didSet {
-            textView.text = "Enter message".localized()
-            textView.layer.borderColor = UIColor.black.cgColor
-            textView.layer.borderWidth = 1
-            textView.layer.cornerRadius = 4
+            textView.text.localize()
+            textView.textAlignment = .right
             textView.delegate = self
         }
     }
@@ -101,21 +100,25 @@ class WriteUsShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     fileprivate func loadTextViewPlaceholder(_ text: String?) {
+        var textViewStyle: SKStyle!
+
         if (text == nil) {
-            textView.text = ""
-//            textView.font = UIFont.ubuntuLight12
-            textView.textColor = UIColor.black
-            sendMessageButton.isEnabled = false
+            textView.text                   =   ""
+            sendMessageButton.isEnabled     =   false
+            
+            textViewStyle                   =   SKStyleKit.style(withName: "textViewPlaceholderStyle")!
         } else if (text == "Enter message".localized() || text!.isEmpty) {
-            textView.text = "Enter message".localized()
-//            textView.font = UIFont.ubuntuLightItalic12
-            textView.textColor = UIColor.green
-            sendMessageButton.isEnabled = false
+            textView.text                   =   "Enter message".localized()
+            sendMessageButton.isEnabled     =   false
+           
+            textViewStyle                   =   SKStyleKit.style(withName: "textViewPlaceholderStyle")!
         } else {
-//            commentTextView.font = UIFont.ubuntuLight12
-            textView.textColor = UIColor.blue
-            sendMessageButton.isEnabled = true
+            sendMessageButton.isEnabled     =   true
+
+            textViewStyle                   =   SKStyleKit.style(withName: "textViewTextStyle")!
         }
+        
+        textViewStyle.apply(view: textView)
     }
     
     
@@ -158,17 +161,20 @@ extension WriteUsShowViewController: WriteUsShowDisplayLogic {
 extension WriteUsShowViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         loadTextViewPlaceholder((textView.text == "Enter message".localized()) ? nil : textView.text)
+        
         return true
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         loadTextViewPlaceholder(textView.text)
+        
         return true
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         charactersCountLabel.text = "\(textView.text!.count + text.count)/200"
-        
+        loadTextViewPlaceholder(textView.text)
+
         return (textView.text!.count + text.count) < 200
     }
 }
