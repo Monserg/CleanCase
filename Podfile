@@ -20,5 +20,6 @@ target 'CleanCase' do
     
     pod 'SKStyleKit'
     pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
     
 end

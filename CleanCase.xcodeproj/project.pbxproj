@@ -50,7 +50,7 @@
 		B19DA3F82028993900E9F7D6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F72028993900E9F7D6 /* String+Extensions.swift */; };
 		B19DA3FB2028B0B000E9F7D6 /* Laundry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */; };
 		B19DA3FC2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */; };
-		B1AA526B2037103500CFB715 /* Style.json in Resources */ = {isa = PBXBuildFile; fileRef = B1AA526A2037103500CFB715 /* Style.json */; };
+		B1AA526B2037103500CFB715 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = B1AA526A2037103500CFB715 /* style.json */; };
 		B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */; };
 		B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */; };
 		B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */; };
@@ -188,7 +188,7 @@
 		B19DA3F72028993900E9F7D6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B19DA3F92028B0B000E9F7D6 /* Laundry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Laundry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Laundry+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B1AA526A2037103500CFB715 /* Style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Style.json; sourceTree = "<group>"; };
+		B1AA526A2037103500CFB715 /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryDate+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -485,7 +485,7 @@
 				B1F4D0F9202447D50086E25F /* Info.plist */,
 				B17E3F2E203AC8DE00401E6C /* GoogleService-Info.plist */,
 				B11B186C2025816D00EA29F7 /* Localizable.strings */,
-				B1AA526A2037103500CFB715 /* Style.json */,
+				B1AA526A2037103500CFB715 /* style.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -786,7 +786,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1FA2D1C20245D4A00351BB7 /* OrderShow.storyboard in Resources */,
-				B1AA526B2037103500CFB715 /* Style.json in Resources */,
+				B1AA526B2037103500CFB715 /* style.json in Resources */,
 				B1FA2D9B2024735D00351BB7 /* LeftMenuItemCell.xib in Resources */,
 				B1FA2D5920245ED600351BB7 /* AboutShow.storyboard in Resources */,
 				B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */,
@@ -831,6 +831,7 @@
 				"${BUILT_PRODUCTS_DIR}/LTHRadioButton/LTHRadioButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SKStyleKit/SKStyleKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
@@ -848,6 +849,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTHRadioButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKStyleKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",

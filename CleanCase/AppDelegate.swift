@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SKStyleKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,13 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Set navbar & status bar color
-        UINavigationBar.appearance().shadowImage            =   UIImage()           // NavBar bottom line
-        UINavigationBar.appearance().barTintColor           =   UIColor.blue        // Navbar background color
-        UINavigationBar.appearance().tintColor              =   .white              // Navbar items color
+        // Add SKStyleKit
+        StyleKit.initStyleKit()
         
-//        UITabBar.appearance().barTintColor                 =   UIColor.veryDarkGrayishBlue
-//        UITabBar.appearance().tintColor                     =   UIColor.white
+        // Set navbar & status bar color
+        let style = StyleKit.style(withName: "defaultBarTintColor")!
+        
+        UINavigationBar.appearance().shadowImage            =   UIImage()                   // NavBar bottom line
+        UINavigationBar.appearance().barTintColor           =   style.backgroundColor!      // Navbar background color
+        UINavigationBar.appearance().tintColor              =   .white                      // Navbar items color
         
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black

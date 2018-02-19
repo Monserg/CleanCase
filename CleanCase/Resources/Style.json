@@ -1,0 +1,51 @@
+{
+    "defaultBackgroundColor": {
+        "backgroundColor":      "veryPaleCyan"
+    },
+    
+    "defaultBarTintColor": {
+        "backgroundColor":      "brightBlue"
+    },
+
+    "defaultLabelStyle": {
+        "fontSize":             17.0,
+        "fontColor":            "black",
+        "borderWidth":          0,
+        "alpha":                1
+    },
+    
+    "barButtonTitleLabelStyle": {
+        "parent":               "defaultLabelStyle",
+        "fontSize":             15
+    },
+
+    "BarButton.normal": {
+        "parents":              [ "barButtonTitleLabelStyle" ],
+        "fontSize":             13
+    },
+    
+    "BarButton.highlighted": {
+        "fontColor":            "white",
+        "alpha":                0.8
+    },
+    
+    "BarButton.disabled": {
+        "fontColor":            "gray",
+    },
+
+    "ActionButton.normal": {
+        "parents":              [ "barButtonTitleLabelStyle" ],
+        "fontSize":             18,
+        "fontColor":            "white"
+    },
+
+    "ActionButton.highlighted": {
+        "fontColor":            "gray",
+        "alpha":                0.8
+    },
+    
+    "ActionButton.disabled": {
+        "fontColor":            "gray",
+    },
+
+}
