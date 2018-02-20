@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import SKStyleKit
 
 class ToolBarPickerView: UIPickerView {
     // MARK: - Properties
     var items: [PickerViewSupport]?
+    var style: SKStyle!
 
     
     // MARK: - Class Initialization
     init(withFrame frame: CGRect, andItems items: [PickerViewSupport]) {
         super.init(frame: frame)
         
+        self.style              =   SKStyleKit.style(withName: "toolBarPickerViewStyle")!
         self.items              =   items
-        self.backgroundColor    =   UIColor.lightGray
+//        self.backgroundColor    =   style.backgroundColor
         self.dataSource         =   self
         self.delegate           =   self
     }
@@ -44,6 +47,8 @@ extension ToolBarPickerView: UIPickerViewDataSource {
 // MARK: - UIPickerViewDelegate
 extension ToolBarPickerView: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        self.backgroundColor    =   style.backgroundColor
+
         return frame.width
     }
     
@@ -65,7 +70,7 @@ extension ToolBarPickerView: UIPickerViewDelegate {
         }
         
 //        label.font              =   UIFont.setupBy("Calibri", withStyle: .Regular, andSize: 20.0)
-        label.textColor         =   UIColor.blue
+        label.textColor         =   self.style.fontColor
         label.textAlignment     =   .center
         label.text              =   items![row].title
         

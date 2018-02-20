@@ -36,9 +36,9 @@
                                                 </state>
                                                 <state key="highlighted" backgroundImage="button-cyan"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="ActionButton.normal"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="ActionButton.highlighted"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="ActionButton.disabled"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="actionButton.normal"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="actionButton.highlighted"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="actionButton.disabled"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handlerOrderButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="ZqL-wK-dV7"/>
@@ -66,9 +66,9 @@
                                                 </state>
                                                 <state key="highlighted" backgroundImage="button-cyan"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="ActionButton.disabled"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="ActionButton.highlighted"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="ActionButton.normal"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="actionButton.disabled"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="actionButton.highlighted"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="actionButton.normal"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handlerOrderButtonTapped:" destination="s6c-Yv-o5R" eventType="touchUpInside" id="Cj3-ar-XBW"/>

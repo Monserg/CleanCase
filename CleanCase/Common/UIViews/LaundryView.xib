@@ -53,9 +53,9 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="BarButton.normal"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="BarButton.highlighted"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="BarButton.disabled"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="barButton.normal"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="barButton.highlighted"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="barButton.disabled"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="handlerLaundryPhoneButtonTapped:" destination="-1" eventType="touchUpInside" id="vNr-Rd-3LH"/>

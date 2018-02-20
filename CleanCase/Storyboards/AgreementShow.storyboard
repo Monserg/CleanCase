@@ -106,8 +106,8 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="CancelIconButton.normal"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="CancelIconButton.highlighted"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="cancelIconButton.normal"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="cancelIconButton.highlighted"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handlerCancelButtonTapped:" destination="LVx-mQ-ctg" eventType="touchUpInside" id="57Z-Sr-kWD"/>

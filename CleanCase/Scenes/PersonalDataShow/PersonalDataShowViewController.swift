@@ -38,7 +38,6 @@ class PersonalDataShowViewController: UIViewController {
             _ = textFieldsCollection.map({
                 $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
                 $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
-                $0.backgroundColor = .red
                 $0.delegate = self
             })
         }

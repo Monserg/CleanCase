@@ -56,9 +56,9 @@
                                         <state key="disabled" backgroundImage="button-gray"/>
                                         <state key="highlighted" backgroundImage="button-cyan"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="ActionButton.normal"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="ActionButton.highlighted"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="ActionButton.disabled"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="actionButton.normal"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="actionButton.highlighted"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="actionButton.disabled"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="handlerSendMessageButtonTapped:" destination="iwb-qP-K8K" eventType="touchUpInside" id="Nz3-mX-feh"/>

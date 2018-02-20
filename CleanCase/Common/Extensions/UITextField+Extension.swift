@@ -8,16 +8,19 @@
 
 import UIKit
 import ActionKit
+import SKStyleKit
 
 extension UITextField {
     // MARK: - Class Initialization
     func showToolBar(withPickerViewDataSource dataSource: [PickerViewSupport], andSelectedItem selectedRow: Int, _ completion: @escaping HandlerPassDataCompletion) {
+        let style               =   SKStyleKit.style(withName: "toolBarPickerViewStyle")!
+        
         let pickerView = ToolBarPickerView(withFrame: .zero, andItems: dataSource)
         pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
         
         let toolbar             =   UIToolbar()
         toolbar.barStyle        =   .default
-        toolbar.barTintColor    =   .black
+        toolbar.barTintColor    =   style.barTintColor
         toolbar.isTranslucent   =   false
         toolbar.sizeToFit()
         
@@ -25,25 +28,25 @@ extension UITextField {
         let doneButton = UIBarButtonItem(title: "Done".localized(), style: .done) { sender in
             completion(pickerView.selectedRow(inComponent: 0))
         }
-                    
-//        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.setupBy("Calibri", withStyle: .Bold, andSize: 20.0),
-//                                           NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
-//
-//        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.setupBy("Calibri", withStyle: .Bold, andSize: 20.0),
-//                                           NSAttributedStringKey.foregroundColor: UIColor.white.lighter(amount: 0.7)], for: .highlighted)
-
+        
+        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0),
+                                           NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
+        
+        doneButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0),
+                                           NSAttributedStringKey.foregroundColor: UIColor.white.lighter(amount: 0.8)], for: .highlighted)
+        
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         let cancelButton = UIBarButtonItem(title: "Cancel".localized(), style: .done) {
             completion(nil)
         }
 
-//        cancelButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.setupBy("Calibri", withStyle: .Bold, andSize: 20.0),
-//                                             NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
-//        
-//        cancelButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.setupBy("Calibri", withStyle: .Bold, andSize: 20.0),
-//                                             NSAttributedStringKey.foregroundColor: UIColor.white.lighter(amount: 0.7)], for: .highlighted)
+        cancelButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0),
+                                             NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
         
+        cancelButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0),
+                                             NSAttributedStringKey.foregroundColor: UIColor.white.lighter(amount: 0.8)], for: .highlighted)
+
         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolbar.isUserInteractionEnabled    =   true
         
