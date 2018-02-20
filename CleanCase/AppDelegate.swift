@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SKStyleKit
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,8 +32,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black
         
-        // Add Firebase
+        // Register for remote notifications
+        if #available(iOS 8.0, *) {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [ .alert, .badge, .sound], categories: nil)
+                application.registerUserNotificationSettings(settings)
+                application.registerForRemoteNotifications()
+        } else {
+            application.registerForRemoteNotifications(matching: [ .alert, .badge, .sound ])
+        }
+        
         FirebaseApp.configure()
+
+        // Add observer for InstanceID token refresh callback.
+        NotificationCenter.default.addObserver(self,
+                                               selector:    #selector(tokenRefreshNotification),
+                                               name:        NSNotification.Name.InstanceIDTokenRefresh,
+                                               object:      nil)
         
         // CoreData: update current App version
         CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:         "Version",
@@ -64,5 +80,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print(FirebaseMessaging.MessagingAPNSTokenType.self)
+//        InstanceID.instanceID().setAPNSToken(deviceToken, type: .sandbox)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print(userInfo)
+    }
+    
+    
+    // MARK: - Firebase
+    @objc func tokenRefreshNotification(_ notification: NSNotification) {
+        let refreshedToken = InstanceID.instanceID().token()!
+        print("InstanceID token: \(refreshedToken)")
+        
+        // Connect to FCM since connection may have failed when attempted before having a token.
+        connectToFcm()
+    }
+
+    func connectToFcm() {
+        if (Messaging.messaging().shouldEstablishDirectChannel) {
+            print("Connected to FCM.")
+        }
+            
+        else {
+            print("Unable to connect with FCM.")
+        }
     }
 }

@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SKStyleKit
 
 // MARK: - Input & Output protocols
 protocol DeliveryTermsShowDisplayLogic: class {
@@ -27,7 +28,7 @@ class DeliveryTermsShowViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            titleLabel.text = "Delivery Title".localized()
+            titleLabel.text!.localize()
             titleLabel.textAlignment = .right
             titleLabel.numberOfLines = 1
         }
@@ -35,7 +36,7 @@ class DeliveryTermsShowViewController: UIViewController {
     
     @IBOutlet weak var captionLabel: UILabel! {
         didSet {
-            captionLabel.text = "Delivery Caption".localized()
+            captionLabel.text!.localize()
             captionLabel.textAlignment = .center
             captionLabel.numberOfLines = 0
         }
@@ -46,7 +47,6 @@ class DeliveryTermsShowViewController: UIViewController {
             _ = textFieldsCollection.map({
                 $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
                 $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
-                $0.backgroundColor = .red
                 $0.delegate = self
             })
         }
@@ -60,10 +60,7 @@ class DeliveryTermsShowViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView! {
         didSet {
-            textView.text = "Enter comment".localized()
-            textView.layer.borderColor = UIColor.black.cgColor
-            textView.layer.borderWidth = 1
-            textView.layer.cornerRadius = 4
+            textView.text!.localize()
             textView.delegate = self
         }
     }
@@ -159,18 +156,19 @@ class DeliveryTermsShowViewController: UIViewController {
     }
     
     fileprivate func loadTextViewPlaceholder(_ text: String?) {
+        var textViewStyle: SKStyle!
+        
         if (text == nil) {
-            textView.text = ""
-//            textView.font = UIFont.ubuntuLight12
-            textView.textColor = UIColor.black
+            textView.text   =   ""
+            textViewStyle   =   SKStyleKit.style(withName: "defaultTextViewStyle")!
         } else if (text == "Enter comment".localized() || text!.isEmpty) {
-            textView.text = "Enter comment".localized()
-//            textView.font = UIFont.ubuntuLightItalic12
-            textView.textColor = UIColor.green
+            textView.text   =   "Enter comment".localized()
+            textViewStyle   =   SKStyleKit.style(withName: "defaultTextViewStyle")!
         } else {
-//            commentTextView.font = UIFont.ubuntuLight12
-            textView.textColor = UIColor.blue
+            textViewStyle   =   SKStyleKit.style(withName: "textViewTextStyle")!
         }
+        
+        textViewStyle.apply(view: textView)
     }
     
     
@@ -290,7 +288,7 @@ extension DeliveryTermsShowViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         charactersCountLabel.text = "\(textView.text!.count + text.count)/100"
-        
+
         return (textView.text!.count + text.count) < 100
     }
 }

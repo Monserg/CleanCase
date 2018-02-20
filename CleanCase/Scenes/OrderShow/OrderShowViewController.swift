@@ -218,13 +218,17 @@ extension OrderShowViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        // Register the Nib footer section views
-        self.tableView.register(UINib(nibName: "OrderItemsTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "FooterCell")
-        let footerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "FooterCell") as! OrderItemsTableViewFooterView
+        if let order = self.router?.dataStore?.order {
+            // Register the Nib footer section views
+            self.tableView.register(UINib(nibName: "OrderItemsTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "FooterCell")
+            let footerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "FooterCell") as! OrderItemsTableViewFooterView
+            
+            footerView.setup(withOrderStatus: order.orderStatus)
+            
+            return footerView
+        }
         
-        footerView.setup(withOrderStatus: self.router!.dataStore!.order.orderStatus)
-        
-        return footerView
+        return nil
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

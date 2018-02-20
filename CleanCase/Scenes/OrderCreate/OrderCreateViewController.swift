@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SKStyleKit
 import SwiftSpinner
 
 // MARK: - Input & Output protocols
@@ -34,7 +35,7 @@ class OrderCreateViewController: UIViewController {
     @IBOutlet var labelsCollection: [UILabel]! {
         didSet {
             _ = labelsCollection.map({
-                $0.text = $0.text?.localized()
+                $0.text?.localize()
                 $0.textAlignment = .right
             })
         }
@@ -45,7 +46,6 @@ class OrderCreateViewController: UIViewController {
             _ = textFieldsCollection.map({
                 $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
                 $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
-                $0.backgroundColor = .red
                 $0.delegate = self
             })
         }
@@ -467,8 +467,9 @@ extension OrderCreateViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.bounds.width, height: 4.0)))
-        footerView.backgroundColor = UIColor.lightGray
-        
+        let footerViewStyle = SKStyleKit.style(withName: "sideMenuStyle")!
+        footerView.backgroundColor = footerViewStyle.backgroundColor
+
         return footerView
     }
     

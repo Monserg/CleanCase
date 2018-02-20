@@ -14,7 +14,7 @@
         <scene sceneID="omN-dl-hSn">
             <objects>
                 <viewController storyboardIdentifier="ChatShowVC" id="oaO-vs-Yw4" customClass="ChatShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oIM-ea-WZP">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="oIM-ea-WZP" customClass="SKView" customModule="SKStyleKit">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -25,12 +25,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="311-NN-Nfu" firstAttribute="centerY" secondItem="oIM-ea-WZP" secondAttribute="centerY" id="4bi-ZF-vgg"/>
                             <constraint firstItem="311-NN-Nfu" firstAttribute="centerX" secondItem="oIM-ea-WZP" secondAttribute="centerX" id="EdY-OK-ZsV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ky1-yv-xif"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAq-GF-OKG" userLabel="First Responder" sceneMemberID="firstResponder"/>

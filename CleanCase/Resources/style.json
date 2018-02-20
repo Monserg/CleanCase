@@ -31,13 +31,18 @@
     },
     
     "departmentItemLabelStyle": {
-        "parent":               [ "defaultLabelStyle" ],
+        "parent":               "defaultLabelStyle",
         "fontStyle":            "medium",
         "textAlignment":        "center"
     },
     
+    "remarksLabelStyle": {
+        "parent":               "defaultLabelStyle",
+        "fontStyle":            "medium",
+    },
+    
     "sideMenuItemLabelStyle": {
-        "parent":               [ "defaultLabelStyle" ],
+        "parent":               "defaultLabelStyle",
         "textAlignment":        "right"
     },
     
@@ -46,18 +51,17 @@
         "borderWidth":          1,
         "cornerRadius":         4,
         "alpha":                1,
+        "borderColor":          "gray",
         "fontColor":            "gray",
-        "backgroundColor":      "veryLightCyan"
+        "backgroundColor":      "veryLightCyan",
+        "textAlignment":        "right"
     },
     
     "textViewTextStyle": {
-        "fontColor":            "black"
+        "fontColor":            "black",
+        "textColor":            "black"
     },
     
-    "textViewPlaceholderStyle": {
-        "fontColor":            "gray"
-    },
-
     "textFieldTextStyle": {
         "borderWidth":          1,
         "cornerRadius":         4,
@@ -80,68 +84,84 @@
         "backgroundColor":      "veryLightCyan"
     },
     
+    "textFieldTextRightGreenStyle": {
+        "parent":               "textFieldTextCenterGreenStyle",
+        "textAlignment":        "right"
+    },
+    
     "textFieldPlaceholderStyle": {
-        "parent":               [ "textFieldTextStyle" ],
+        "parent":               "textFieldTextStyle",
         "textAlignment":        "right",
         "fontColor":            "gray"
     },
     
     "captionLabelStyle": {
-        "parent":               [ "defaultLabelStyle" ],
+        "parent":               "defaultLabelStyle",
         "fontSize":             14.0,
         "fontColor":            "darkGreen"
     },
 
     "tableViewItemGreenStyle": {
-        "parent":               [ "defaultLabelStyle" ],
+        "parent":               "defaultLabelStyle",
         "fontSize":             17.0,
         "fontColor":            "darkGreen",
         "textAlignment":        "right"
     },
     
     "titleLabelStyle1": {
-        "parent":               [ "defaultLabelStyle" ],
+        "parent":               "defaultLabelStyle",
         "fontSize":             25.0,
         "fontColor":            "darkGreen"
     },
     
     "titleLabelStyle2": {
-        "parent":               [ "defaultLabelStyle" ],
+        "parent":               "defaultLabelStyle",
         "fontSize":             23.0,
         "fontColor":            "darkGreen"
     },
 
     "titleLabelStyle3": {
-        "parent":               [ "defaultLabelStyle" ],
+        "parent":               "defaultLabelStyle",
         "fontSize":             19.0,
         "fontColor":            "darkGreen"
     },
-    
-    "barButtonTitleLabelStyle": {
+
+    "titleLabelStyle4": {
+        "parent":               "defaultLabelStyle",
+        "fontSize":             19.0,
+        "textAlignment":        "center"
+    },
+
+    "laundryNameLabelStyle": {
         "parent":               "defaultLabelStyle",
         "fontSize":             15
     },
 
-    "barButton.normal": {
-        "parents":              [ "barButtonTitleLabelStyle" ],
+    "laundryPhoneButton.normal": {
+        "parent":               "laundryNameLabelStyle",
         "fontSize":             13
     },
     
-    "barButton.highlighted": {
+    "laundryPhoneButton.highlighted": {
         "fontColor":            "white",
         "alpha":                0.8
     },
     
-    "barButton.disabled": {
+    "laundryPhoneButton.disabled": {
         "fontColor":            "gray",
     },
 
     "actionButton.normal": {
-        "parents":              [ "barButtonTitleLabelStyle" ],
+        "parents":              "laundryNameLabelStyle",
         "fontSize":             18,
         "fontColor":            "white"
     },
 
+    "actionButtonGreen.normal": {
+        "parents":              "actionButton.normal",
+        "fontColor":            "darkGreen"
+    },
+    
     "actionButton.highlighted": {
         "fontColor":            "gray",
         "alpha":                0.8
@@ -166,7 +186,5 @@
         "fontColor":            "black",
         "barTintColor":         "brightBlue",
         "backgroundColor":      "veryPaleCyan",
-    },
-    
-
+    }
 }

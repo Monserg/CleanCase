@@ -52,7 +52,6 @@ class SignInShowViewController: UIViewController {
             _ = textFieldsCollection.map({
                 $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
                 $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
-                $0.backgroundColor = .red
                 $0.delegate = self
             })
         }
@@ -282,6 +281,14 @@ extension SignInShowViewController: UITextFieldDelegate {
     
     // Hide keyboard
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        // Phone number
+        if textField.tag == 2 {
+            if let phoneNumber = textField.text, phoneNumber.count < 7 {
+                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct phone number...", needCancel: false, completion: {_ in})
+                return false
+            }
+        }
+
         if textField.tag == 6 {
             if let email = textField.text, !email.isEmpty {
                 guard ADEmailAndPassword.validateEmail(emailId: email) else {

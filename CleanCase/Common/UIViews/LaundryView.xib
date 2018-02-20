@@ -42,7 +42,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="barButtonTitleLabelStyle"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="laundryNameLabelStyle"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-Jq-Bdk" userLabel="Laundry Phone Button" customClass="SKButton" customModule="SKStyleKit">
@@ -53,9 +53,9 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="barButton.normal"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="barButton.highlighted"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="barButton.disabled"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="laundryPhoneButton.normal"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="laundryPhoneButton.highlighted"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="disabledStyleName" value="laundryPhoneButton.disabled"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="handlerLaundryPhoneButtonTapped:" destination="-1" eventType="touchUpInside" id="vNr-Rd-3LH"/>

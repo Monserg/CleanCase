@@ -68,11 +68,15 @@ class MainShowViewController: UIViewController {
         self.loadViewSettings()
         self.setupSideMenu()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        self.loadOrder()
+    }
     
     // MARK: - Custom Functions
     fileprivate func loadViewSettings() {
-        self.loadOrder()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
     }
     
@@ -127,8 +131,8 @@ class MainShowViewController: UIViewController {
     fileprivate func nextViewController(fromStoryboardName storyboardName: String) -> UIViewController {
         let destinationVC = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardName + "VC")
         
-        if storyboardName == "OrderShow" {
-            (destinationVC as! OrderShowViewController).saveOrderID(self.order!.orderID)
+        if storyboardName == "OrderShow", let order = self.order {
+            (destinationVC as! OrderShowViewController).saveOrderID(order.orderID)
         }
         
         return destinationVC

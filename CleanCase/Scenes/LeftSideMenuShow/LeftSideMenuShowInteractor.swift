@@ -54,6 +54,10 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
                                                                                      cellIdentifier:    "LeftMenuItemCell"))
         }
         
+        if Order.last == nil {
+            menuItems.remove(at: 2)
+        }
+        
         let responseModel = LeftSideMenuShowModels.MenuItems.ResponseModel()
         presenter?.presentMenuItems(fromResponseModel: responseModel)
     }

@@ -99,14 +99,20 @@ class LeftSideMenuShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadViewSettings()
+//        loadViewSettings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.loadMenuItems()
     }
     
     
     // MARK: - Custom Functions
-    func loadViewSettings() {
-        self.loadMenuItems()
-    }
+//    func loadViewSettings() {
+//        self.loadMenuItems()
+//    }
     
     public func loadMenuItems() {
         let requestModel = LeftSideMenuShowModels.MenuItems.RequestModel()

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DynamicColor
 import SwiftSpinner
 import ImageSlideshow
 
@@ -65,8 +66,8 @@ class OnboardShowViewController: UIViewController {
         imageSlideShow.backgroundColor = UIColor.clear
         imageSlideShow.draggingEnabled = false
         imageSlideShow.pageControlPosition = .insideScrollView
-        imageSlideShow.pageControl.currentPageIndicatorTintColor = UIColor.red
-        imageSlideShow.pageControl.pageIndicatorTintColor = UIColor.blue
+        imageSlideShow.pageControl.currentPageIndicatorTintColor    =   DynamicColor(hexString: "#3D5B96")
+        imageSlideShow.pageControl.pageIndicatorTintColor           =   DynamicColor(hexString: "#88A7E4")
         imageSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
         
         imageSlideShow.currentPageChanged = { [unowned self] page in
