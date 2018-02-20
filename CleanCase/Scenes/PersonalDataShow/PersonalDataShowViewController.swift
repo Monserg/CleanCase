@@ -248,7 +248,7 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // Years
         if textField.tag == 7 {
-            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.years, andSelectedItem: router!.dataStore!.selectedYearRow, { [unowned self] row in
+            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.years, andSelectedItem: self.router!.dataStore!.selectedYearRow, { [unowned self] row in
                 if let selectedRow = row as? Int {
                     self.interactor?.saveSelectedYear(byRow: selectedRow)
                     textField.text = self.router!.dataStore!.years[selectedRow].title
@@ -260,7 +260,7 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
             
         // Months
         else if textField.tag == 8 {
-            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.months, andSelectedItem: router!.dataStore!.selectedMonthRow, { [unowned self] row in
+            textField.showToolBar(withPickerViewDataSource: self.router!.dataStore!.months, andSelectedItem: self.router!.dataStore!.selectedMonthRow, { [unowned self] row in
                 if let selectedRow = row as? Int {
                     self.interactor?.saveSelectedMonth(byRow: selectedRow)
                     textField.text = self.router!.dataStore!.months[selectedRow].title
