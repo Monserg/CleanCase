@@ -10,6 +10,7 @@
 		5C72E5D6EC9AF2FC9D0F5CD1 /* Pods_CleanCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */; };
 		B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B11B186C2025816D00EA29F7 /* Localizable.strings */; };
 		B12295AA202C312B00E3D750 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12295A9202C312B00E3D750 /* Array+Extensions.swift */; };
+		B122F0B8203C1A9500A1A712 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = B122F0B7203C1A9500A1A712 /* style.json */; };
 		B1413A7C2035856F00E62463 /* OrderItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1413A7B2035856F00E62463 /* OrderItemTableViewCell.swift */; };
 		B1413A7F20358D9100E62463 /* OrderItemsTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1413A7E20358D9100E62463 /* OrderItemsTableViewFooterView.swift */; };
 		B1413A8120358DAD00E62463 /* OrderItemsTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1413A8020358DAD00E62463 /* OrderItemsTableViewFooterView.xib */; };
@@ -147,6 +148,7 @@
 		B11B186F2025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B11B18702025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B12295A9202C312B00E3D750 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		B122F0B7203C1A9500A1A712 /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		B1413A7B2035856F00E62463 /* OrderItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemTableViewCell.swift; sourceTree = "<group>"; };
 		B1413A7E20358D9100E62463 /* OrderItemsTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableViewFooterView.swift; sourceTree = "<group>"; };
 		B1413A8020358DAD00E62463 /* OrderItemsTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemsTableViewFooterView.xib; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				B1F4D0F9202447D50086E25F /* Info.plist */,
 				B17E3F2E203AC8DE00401E6C /* GoogleService-Info.plist */,
 				B11B186C2025816D00EA29F7 /* Localizable.strings */,
+				B122F0B7203C1A9500A1A712 /* style.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				B1F4D0F8202447D50086E25F /* LaunchScreen.storyboard in Resources */,
 				B148E917202C9C530007D79B /* DeliveryTermsShow.storyboard in Resources */,
 				B1413A8120358DAD00E62463 /* OrderItemsTableViewFooterView.xib in Resources */,
+				B122F0B8203C1A9500A1A712 /* style.json in Resources */,
 				B1DBDF082029DAC400127ECB /* OnboardShow.storyboard in Resources */,
 				B1FA2D7420245F5700351BB7 /* WriteUsShow.storyboard in Resources */,
 				B1FA2D5620245E9300351BB7 /* OrdersShow.storyboard in Resources */,

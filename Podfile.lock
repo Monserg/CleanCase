@@ -1,0 +1,96 @@
+PODS:
+  - ActionKit (2.3.2)
+  - ADEmailAndPassword (1.0.15)
+  - Alamofire (4.6.0)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Device.swift (1.1)
+  - DynamicColor (4.0.2)
+  - Fabric (1.7.2)
+  - Firebase/Core (4.8.2):
+    - FirebaseAnalytics (= 4.0.9)
+    - FirebaseCore (= 4.0.14)
+  - Firebase/Messaging (4.8.2):
+    - Firebase/Core
+    - FirebaseMessaging (= 2.0.8)
+  - FirebaseAnalytics (4.0.9):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseCore (4.0.14):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (2.0.8):
+    - FirebaseCore (~> 4.0)
+  - FirebaseMessaging (2.0.8):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/Logger (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - ImageSlideshow (1.5.0):
+    - ImageSlideshow/Core (= 1.5.0)
+  - ImageSlideshow/Core (1.5.0)
+  - Localize-Swift (2.0.0)
+  - LTHRadioButton (1.2.0)
+  - M13Checkbox (3.2.2)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - Protobuf (3.5.0)
+  - SideMenu (3.1.5)
+  - SKStyleKit (1.0.17)
+  - SwiftSpinner (1.5.0)
+
+DEPENDENCIES:
+  - ActionKit (~> 2.3)
+  - ADEmailAndPassword (~> 1.0)
+  - Alamofire (~> 4.5)
+  - Crashlytics (~> 3.9)
+  - Device.swift (~> 1.1)
+  - DynamicColor (~> 4.0)
+  - Fabric (~> 1.7)
+  - Firebase/Core
+  - Firebase/Messaging
+  - ImageSlideshow (~> 1.5)
+  - Localize-Swift (~> 2.0)
+  - LTHRadioButton (~> 1.2)
+  - M13Checkbox (~> 3.2)
+  - SideMenu (~> 3.1)
+  - SKStyleKit
+  - SwiftSpinner (~> 1.5)
+
+SPEC CHECKSUMS:
+  ActionKit: cf7ca5781f4a43342384d872105fadd58985f416
+  ADEmailAndPassword: 8030215991923ddd82767742c01ab58325cfeb0a
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Device.swift: f90a2493ab5059da5aeca4907ed55da7b16006fb
+  DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Firebase: 7d3b8cd837ad9fcd391657734c0d56dab8e9a5a3
+  FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
+  FirebaseCore: 2e0b98fb2d64ca8140136beff15772bdd14d2dd7
+  FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
+  FirebaseMessaging: dfdcd307c2382290a1e297a81d0f18370f5b1bcd
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  ImageSlideshow: 1e136d06c7521111aac34956ffd525e8866b5fa8
+  Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
+  LTHRadioButton: bcd4b49a8e0af81b5140e67583a868d96e956557
+  M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
+  SKStyleKit: b943612f8c13759b7cd6968d12f0e8565eb56b47
+  SwiftSpinner: 4c058c7a1d6b444dd2e1d70988ead40783097133
+
+PODFILE CHECKSUM: 94dc6c31801cb33236afc2e3afde84b2812f2fb9
+
+COCOAPODS: 1.4.0

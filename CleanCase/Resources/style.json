@@ -1,0 +1,142 @@
+{
+    "defaultBackgroundColorStyle": {
+        "backgroundColor":      "veryPaleCyan"
+    },
+    
+    "defaultBarTintColorStyle": {
+        "backgroundColor":      "brightBlue"
+    },
+
+    "agreementBackgroundColorStyle": {
+        "backgroundColor":      "veryLightGray"
+    },
+    
+    "defaultLabelStyle": {
+        "fontSize":             17.0,
+        "fontColor":            "black",
+        "borderWidth":          0,
+        "alpha":                1
+    },
+    
+    "defaultTextViewStyle": {
+        "fontSize":             16.0,
+        "borderWidth":          1,
+        "cornerRadius":         4,
+        "alpha":                1,
+        "fontColor":            "gray",
+        "backgroundColor":      "veryLightCyan"
+    },
+    
+    "textViewTextStyle": {
+        "fontColor":            "black"
+    },
+    
+    "textViewPlaceholderStyle": {
+        "fontColor":            "gray"
+    },
+
+    "textFieldTextStyle": {
+        "borderWidth":          1,
+        "cornerRadius":         4,
+        "alpha":                1,
+        "fontSize":             16.0,
+        "fontColor":            "black",
+        "borderColor":          "gray",
+        "textAlignment":        "right",
+        "backgroundColor":      "veryLightCyan"
+    },
+
+    "textFieldTextCenterGreenStyle": {
+        "borderWidth":          1,
+        "cornerRadius":         4,
+        "alpha":                1,
+        "fontSize":             16.0,
+        "borderColor":          "gray",
+        "fontColor":            "darkGreen",
+        "textAlignment":        "center",
+        "backgroundColor":      "veryLightCyan"
+    },
+    
+    "textFieldPlaceholderStyle": {
+        "parent":               [ "textFieldTextStyle" ],
+        "textAlignment":        "right",
+        "fontColor":            "gray"
+    },
+    
+    "captionLabelStyle": {
+        "parent":               [ "defaultLabelStyle" ],
+        "fontSize":             14.0,
+        "fontColor":            "darkGreen"
+    },
+
+    "titleLabelStyle1": {
+        "parent":               [ "defaultLabelStyle" ],
+        "fontSize":             25.0,
+        "fontColor":            "darkGreen"
+    },
+    
+    "titleLabelStyle2": {
+        "parent":               [ "defaultLabelStyle" ],
+        "fontSize":             23.0,
+        "fontColor":            "darkGreen"
+    },
+
+    "titleLabelStyle3": {
+        "parent":               [ "defaultLabelStyle" ],
+        "fontSize":             19.0,
+        "fontColor":            "darkGreen"
+    },
+    
+    "barButtonTitleLabelStyle": {
+        "parent":               "defaultLabelStyle",
+        "fontSize":             15
+    },
+
+    "barButton.normal": {
+        "parents":              [ "barButtonTitleLabelStyle" ],
+        "fontSize":             13
+    },
+    
+    "barButton.highlighted": {
+        "fontColor":            "white",
+        "alpha":                0.8
+    },
+    
+    "barButton.disabled": {
+        "fontColor":            "gray",
+    },
+
+    "actionButton.normal": {
+        "parents":              [ "barButtonTitleLabelStyle" ],
+        "fontSize":             18,
+        "fontColor":            "white"
+    },
+
+    "actionButton.highlighted": {
+        "fontColor":            "gray",
+        "alpha":                0.8
+    },
+    
+    "actionButton.disabled": {
+        "fontColor":            "gray",
+    },
+
+    "cancelIconButton.normal": {
+        "fontColor":            "white",
+        "backgroundColor":      "moderateBlue"
+    },
+    
+    "cancelIconButton.highlighted": {
+        "fontColor":            "gray",
+        "alpha":                0.8
+    },
+
+    "toolBarPickerViewStyle": {
+        "fontSize":             18,
+        "fontColor":            "black",
+        "barTintColor":         "brightBlue",
+        "backgroundColor":      "veryPaleCyan",
+    },
+    
+
+}
