@@ -7,6 +7,14 @@
         "backgroundColor":      "brightBlue"
     },
 
+    "departmentsViewStyle": {
+        "backgroundColor":      "brightCyan"
+    },
+    
+    "selectedDepartmentLineViewStyle": {
+        "backgroundColor":      "brightBlue"
+    },
+
     "sideMenuStyle": {
         "backgroundColor":      "veryPaleBlue"
     },
@@ -20,6 +28,12 @@
         "fontColor":            "black",
         "borderWidth":          0,
         "alpha":                1
+    },
+    
+    "departmentItemLabelStyle": {
+        "parent":               [ "defaultLabelStyle" ],
+        "fontStyle":            "medium",
+        "textAlignment":        "center"
     },
     
     "sideMenuItemLabelStyle": {

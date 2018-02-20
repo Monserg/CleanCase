@@ -19,16 +19,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfO-Pa-rhm" userLabel="Name Label">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dET-qk-aW8" userLabel="Content View" customClass="SKView" customModule="SKStyleKit">
+                        <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="departmentsViewStyle"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfO-Pa-rhm" userLabel="Name Label" customClass="SKLabel" customModule="SKStyleKit">
                         <rect key="frame" x="9" y="15" width="278" height="21"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="departmentItemLabelStyle"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRg-aq-6EY" userLabel="Separator View">
-                        <rect key="frame" x="0.0" y="8" width="1" height="34"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="0.0" y="12" width="1" height="26"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="c3o-4s-MTx"/>
                         </constraints>
@@ -38,10 +48,14 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="yfO-Pa-rhm" firstAttribute="centerY" secondItem="txk-RZ-ywV" secondAttribute="centerY" id="DxV-yI-5YS"/>
-                <constraint firstItem="dRg-aq-6EY" firstAttribute="top" secondItem="txk-RZ-ywV" secondAttribute="top" constant="8" id="TnK-Vo-tmb"/>
-                <constraint firstAttribute="bottom" secondItem="dRg-aq-6EY" secondAttribute="bottom" constant="8" id="Xpm-Sy-NHF"/>
+                <constraint firstItem="dET-qk-aW8" firstAttribute="leading" secondItem="txk-RZ-ywV" secondAttribute="leading" id="SQM-XM-qVU"/>
+                <constraint firstItem="dRg-aq-6EY" firstAttribute="top" secondItem="txk-RZ-ywV" secondAttribute="top" constant="12" id="TnK-Vo-tmb"/>
+                <constraint firstAttribute="bottom" secondItem="dRg-aq-6EY" secondAttribute="bottom" constant="12" id="Xpm-Sy-NHF"/>
+                <constraint firstAttribute="trailing" secondItem="dET-qk-aW8" secondAttribute="trailing" id="dBS-bH-DsT"/>
+                <constraint firstItem="dET-qk-aW8" firstAttribute="top" secondItem="txk-RZ-ywV" secondAttribute="top" id="h32-sZ-G1a"/>
                 <constraint firstItem="dRg-aq-6EY" firstAttribute="leading" secondItem="txk-RZ-ywV" secondAttribute="leading" id="ip8-fF-HwY"/>
                 <constraint firstItem="yfO-Pa-rhm" firstAttribute="leading" secondItem="dRg-aq-6EY" secondAttribute="trailing" constant="8" id="qBi-Uu-juF"/>
+                <constraint firstAttribute="bottom" secondItem="dET-qk-aW8" secondAttribute="bottom" id="s6t-Fl-gAD"/>
                 <constraint firstAttribute="trailing" secondItem="yfO-Pa-rhm" secondAttribute="trailing" constant="8" id="sfs-aC-bCW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="FZH-gs-EPf"/>

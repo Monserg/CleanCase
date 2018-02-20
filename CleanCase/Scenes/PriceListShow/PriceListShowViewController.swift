@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SKStyleKit
 
 // MARK: - Input & Output protocols
 protocol PriceListShowDisplayLogic: class {
@@ -218,7 +219,8 @@ extension PriceListShowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.bounds.width, height: 4.0)))
-        footerView.backgroundColor = UIColor.lightGray
+        let footerViewStyle = SKStyleKit.style(withName: "sideMenuStyle")!
+        footerView.backgroundColor = footerViewStyle.backgroundColor
         
         return footerView
     }
