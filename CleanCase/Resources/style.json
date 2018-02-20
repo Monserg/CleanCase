@@ -7,6 +7,10 @@
         "backgroundColor":      "brightBlue"
     },
 
+    "sideMenuStyle": {
+        "backgroundColor":      "veryPaleBlue"
+    },
+    
     "agreementBackgroundColorStyle": {
         "backgroundColor":      "veryLightGray"
     },
@@ -16,6 +20,11 @@
         "fontColor":            "black",
         "borderWidth":          0,
         "alpha":                1
+    },
+    
+    "sideMenuItemLabelStyle": {
+        "parent":               [ "defaultLabelStyle" ],
+        "textAlignment":        "right"
     },
     
     "defaultTextViewStyle": {
@@ -69,6 +78,13 @@
         "fontColor":            "darkGreen"
     },
 
+    "tableViewItemGreenStyle": {
+        "parent":               [ "defaultLabelStyle" ],
+        "fontSize":             17.0,
+        "fontColor":            "darkGreen",
+        "textAlignment":        "right"
+    },
+    
     "titleLabelStyle1": {
         "parent":               [ "defaultLabelStyle" ],
         "fontSize":             25.0,

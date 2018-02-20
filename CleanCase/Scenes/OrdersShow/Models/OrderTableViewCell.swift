@@ -14,6 +14,7 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var deliveryLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var labelsView: UIView!
     
     
     // MARK: - Class Functions
@@ -24,11 +25,13 @@ class OrderTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+}
     
-    
-    // MARK: - Custom Functions
-    func setup(withItem item: OrdersShowModels.OrderItem.RequestModel.DisplayedOrder, andIndexPath indexPath: IndexPath) {
-        let order = item
+
+// MARK: - Custom Functions
+extension OrderTableViewCell: ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
+        let order = item as! OrdersShowModels.OrderItem.RequestModel.DisplayedOrder
        
         self.collectedLabel.text    =   order.createdDate + " " + order.collectionFrom
         self.statusLabel.text       =   OrderStatus(rawValue: order.status)!.name

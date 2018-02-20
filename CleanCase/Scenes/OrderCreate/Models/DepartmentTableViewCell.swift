@@ -26,15 +26,17 @@ class DepartmentTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+}
     
-    // MARK: - Custom Functions
-    func setup(withItem item: OrderCreateModels.Departments.RequestModel.DisplayedDepartment, andIndexPath indexPath: IndexPath) {
-        let department = item
-        
-        self.nameLabel.text = department.name
-        self.accessoryType = .none
 
-        selectionStyle = .none
+// MARK: - ConfigureCell
+extension DepartmentTableViewCell: ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
+        let department = item as! OrderCreateModels.Departments.RequestModel.DisplayedDepartment
+        
+        self.nameLabel.text     =   department.name
+        self.accessoryType      =   .none
+
+        selectionStyle          =   .none
     }
 }

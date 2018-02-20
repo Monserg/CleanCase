@@ -25,10 +25,13 @@ class DepartmentItemTableViewCell: UITableViewCell {
 }
 
 
-extension DepartmentItemTableViewCell {
-    func setup(withItem item: DepartmentItem, andIndexPath indexPath: IndexPath) {
-        self.nameLabel.text     =   item.name
-        self.priceLabel.text    =   String(format: "%@ %.2f", item.price, "Currency".localized())
+// MARK: - ConfigureCell
+extension DepartmentItemTableViewCell: ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
+        let departmentItem      =   item as! DepartmentItem
+        
+        self.nameLabel.text     =   departmentItem.name
+        self.priceLabel.text    =   String(format: "%@ %.2f", departmentItem.price, "Currency".localized())
         
         selectionStyle          =   .none
     }

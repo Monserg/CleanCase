@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SKStyleKit
 
 // MARK: - Input & Output protocols
 protocol OrdersShowDisplayLogic: class {
@@ -155,7 +156,8 @@ extension OrdersShowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.bounds.width, height: 4.0)))
-        footerView.backgroundColor = UIColor.lightGray
+        let footerViewStyle = SKStyleKit.style(withName: "sideMenuStyle")!
+        footerView.backgroundColor = footerViewStyle.backgroundColor
         
         return footerView
     }
@@ -164,8 +166,17 @@ extension OrdersShowViewController: UITableViewDelegate {
         self.router?.routeToOrderShowScene()
     }
     
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! OrderTableViewCell
+        cell.labelsView.backgroundColor = UIColor.white.darkened(amount: 0.2)
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! OrderTableViewCell
+        cell.labelsView.backgroundColor = UIColor.white
+    }
+
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
     }
 }
 

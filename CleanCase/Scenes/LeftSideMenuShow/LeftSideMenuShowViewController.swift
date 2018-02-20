@@ -12,6 +12,7 @@
 
 import UIKit
 import SideMenu
+import SKStyleKit
 import Device_swift
 import DynamicColor
 
@@ -183,7 +184,8 @@ extension LeftSideMenuShowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         let cell = self.menuTableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor = .clear
+        let cellStyle = SKStyleKit.style(withName: "sideMenuStyle")!
+        cell.contentView.backgroundColor = cellStyle.backgroundColor
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
