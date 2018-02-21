@@ -12,6 +12,7 @@
 
 import UIKit
 import SKStyleKit
+import DynamicColor
 import SwiftSpinner
 
 // MARK: - Input & Output protocols
@@ -44,8 +45,11 @@ class OrderCreateViewController: UIViewController {
     @IBOutlet var textFieldsCollection: [UITextField]! {
         didSet {
             _ = textFieldsCollection.map({
-                $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
-                $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
+                $0.placeholder          =   router?.dataStore?.textFieldsTexts[$0.tag].placeholder
+                $0.accessibilityValue   =   router?.dataStore?.textFieldsTexts[$0.tag].errorText
+               
+                $0.addPadding(.Both(8.0))
+                
                 $0.delegate = self
             })
         }
@@ -54,11 +58,17 @@ class OrderCreateViewController: UIViewController {
     @IBOutlet var textViewCollection: [UITextView]! {
         didSet {
             _ = textViewCollection.map({
-                $0.text = $0.text.localized()
-                $0.backgroundColor = .white
-                $0.layer.borderColor = UIColor.black.cgColor
-                $0.layer.borderWidth = 1
-                $0.layer.cornerRadius = 4
+                $0.text!.localize()
+                $0.backgroundColor      =   DynamicColor(hexString: "#82FFFF")              // veryLightCyan
+                $0.layer.borderColor    =   DynamicColor(hexString: "#A9A9A9").cgColor      // gray
+                $0.layer.borderWidth    =   1
+                $0.layer.cornerRadius   =   4
+                $0.font                 =   UIFont.systemFont(ofSize: 16.0)
+                $0.textAlignment        =   .right
+                $0.textColor            =   DynamicColor(hexString: "#A9A9A9")              // gray
+                $0.tintColor            =   DynamicColor(hexString: "#000000")              // black
+                $0.contentInset         =   UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
+                
                 $0.delegate = self
             })
         }
@@ -236,26 +246,28 @@ class OrderCreateViewController: UIViewController {
     fileprivate func loadTextViewPlaceholder(_ text: String?, _ tag: Int) {
         if (text == nil) {
             _ = textViewCollection.first(where: { $0.tag == tag }).map({
-                $0.text = ""
-//            textView.font = UIFont.ubuntuLight12
-                $0.textColor = UIColor.black
+                $0.text         =   ""
+                $0.textColor    =   DynamicColor(hexString: "#000000")              // black
             })
-        } else if (text == "Enter comment".localized() || (text!.isEmpty && tag == 0)) {
+        }
+        
+        else if (text == "Enter comment".localized() || (text!.isEmpty && tag == 0)) {
             _ = textViewCollection.first(where: { $0.tag == 0 }).map({
-                $0.text = "Enter comment".localized()
-//            textView.font = UIFont.ubuntuLightItalic12
-                $0.textColor = UIColor.green
+                $0.text         =   "Enter comment".localized()
+                $0.textColor    =   DynamicColor(hexString: "#A9A9A9")              // gray
             })
-        } else if (text == "Enter cleaning instructions".localized() || (text!.isEmpty && tag == 1)) {
+        }
+        
+        else if (text == "Enter cleaning instructions".localized() || (text!.isEmpty && tag == 1)) {
             _ = textViewCollection.first(where: { $0.tag == 1 }).map({
-                $0.text = "Enter cleaning instructions".localized()
-//            textView.font = UIFont.ubuntuLightItalic12
-                $0.textColor = UIColor.green
+                $0.text         =   "Enter cleaning instructions".localized()
+                $0.textColor    =   DynamicColor(hexString: "#A9A9A9")              // gray
             })
-        } else {
+        }
+        
+        else {
             _ = textViewCollection.first(where: { $0.tag == tag }).map({
-//            commentTextView.font = UIFont.ubuntuLight12
-                $0.textColor = UIColor.blue
+                $0.textColor    =   DynamicColor(hexString: "#000000")              // black
             })
         }
     }
@@ -322,7 +334,7 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
     func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel) {
         // NOTE: Display the result from the Presenter
         DispatchQueue.main.async(execute: {
-            self.departmentsTableViewHeightConstraint.constant += CGFloat(self.router!.dataStore!.departments.count - 1) * 54.0 + 4.0
+            self.departmentsTableViewHeightConstraint.constant += CGFloat(self.router!.dataStore!.departments.count - 1) * 54.0 * heightRatio + 4.0
             self.departmentsTableView.reloadData()
         })
     }
@@ -458,7 +470,7 @@ extension OrderCreateViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension OrderCreateViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 54.0
+        return 54.0 * heightRatio
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

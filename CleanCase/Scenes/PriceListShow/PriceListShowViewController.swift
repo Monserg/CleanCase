@@ -210,7 +210,7 @@ extension PriceListShowViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension PriceListShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 54.0
+        return 54.0 * heightRatio
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -284,8 +284,8 @@ extension PriceListShowViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        self.widthDepartmentCell = (departmentsCollectionView.frame.width - 30.0) / 3
-        self.selectedView.frame.size = CGSize.init(width: widthDepartmentCell, height: 4.0)
+        self.widthDepartmentCell        =   (departmentsCollectionView.frame.width - 30.0) / 3.0
+        self.selectedView.frame.size    =   CGSize.init(width: widthDepartmentCell, height: 4.0)
 
         return CGSize.init(width: self.widthDepartmentCell, height: collectionView.frame.height)
     }

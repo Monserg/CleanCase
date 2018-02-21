@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZDv-Kz-pDu" userLabel="Buttons Stack View">
+                            <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZDv-Kz-pDu" userLabel="Buttons Stack View">
                                 <rect key="frame" x="60" y="199" width="200" height="170"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-d2-pSe" userLabel="Create Order View">
@@ -126,6 +126,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonsStackViewHeightConstraint" destination="uQF-Lk-2hh" id="AFS-oa-7MZ"/>
+                        <outlet property="buttonsStackViewWidthConstraint" destination="3bt-Sb-eOI" id="LZL-fb-n9F"/>
                         <outlet property="createOrderButton" destination="VAe-ck-AtD" id="1Su-3M-yMa"/>
                         <outlet property="createOrderView" destination="5Dn-d2-pSe" id="99b-Gk-Gd3"/>
                         <outlet property="myOrderButton" destination="Uko-AD-WWG" id="qeQ-3d-RXP"/>

@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import SKStyleKit
 import FirebaseMessaging
+import UserNotifications
+import FirebaseInstanceID
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,27 +34,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black
         
-        // Use Firebase library to configure APIs
-        FirebaseApp.configure()
-
         // Register for remote notifications
-        if #available(iOS 8.0, *) {
-            let settings: UIUserNotificationSettings        =   UIUserNotificationSettings(types: [ .alert, .badge, .sound], categories: nil)
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate     =   self
+            let authOptions: UNAuthorizationOptions         =   [ .alert, .badge, .sound ]
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { _, _ in })
+           
+            // For iOS 10 data message (sent via FCM
+            Messaging.messaging().delegate                  =   self
+        } else {
+            let settings: UIUserNotificationSettings        =   UIUserNotificationSettings(types: [ .alert, .badge, .sound ], categories: nil)
             
             application.registerUserNotificationSettings(settings)
-            application.registerForRemoteNotifications()
-        } else {
-            application.registerForRemoteNotifications(matching: [ .alert, .badge, .sound ])
         }
         
-        // Add observer for InstanceID token refresh callback.
-        NotificationCenter.default.addObserver(self,
-                                               selector:    #selector(tokenRefreshNotification),
-                                               name:        NSNotification.Name.InstanceIDTokenRefresh,
-                                               object:      nil)
+        application.registerForRemoteNotifications()
         
-        // Set the messaging delegate
-        Messaging.messaging().delegate = self
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
         
         // CoreData: update current App version
         CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:         "Version",
@@ -90,8 +91,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Remote Push Notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().apnsToken = deviceToken as Data
-        print(deviceToken)
+        Messaging.messaging().apnsToken = deviceToken
+        let token = deviceToken.reduce("") { $0 + String(format: "%02x", $1) }
+        print("deviceToken = \(token)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -133,26 +135,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
-    
-    
-    // MARK: - Firebase
-    @objc func tokenRefreshNotification(_ notification: NSNotification) {
-        let refreshedToken = InstanceID.instanceID().token()!
-        print("InstanceID token: \(refreshedToken)")
-        
-        // Connect to FCM since connection may have failed when attempted before having a token.
-        connectToFcm()
-    }
-
-    func connectToFcm() {
-        if (Messaging.messaging().shouldEstablishDirectChannel) {
-            print("Connected to FCM.")
-        }
-            
-        else {
-            print("Unable to connect with FCM.")
-        }
-    }
 }
 
 
@@ -163,5 +145,28 @@ extension AppDelegate: MessagingDelegate {
         
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+    
+    func application(received remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
+}
+
+
+// MARK: - UNUserNotificationCenterDelegate
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
+        print("dddd1")
+    }
+    
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+        print("dddd2")
     }
 }

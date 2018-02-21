@@ -59,6 +59,18 @@ class MainShowViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var buttonsStackViewHeightConstraint: NSLayoutConstraint! {
+        didSet {
+            buttonsStackViewHeightConstraint.constant *= heightRatio
+        }
+    }
+    
+    @IBOutlet weak var buttonsStackViewWidthConstraint: NSLayoutConstraint! {
+        didSet {
+            buttonsStackViewWidthConstraint.constant *= widthRatio
+        }
+    }
+    
     
     // MARK: - Class Functions
     override func viewDidLoad() {

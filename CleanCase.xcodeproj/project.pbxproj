@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C72E5D6EC9AF2FC9D0F5CD1 /* Pods_CleanCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */; };
+		B1099868203D82BE00236985 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1099867203D82BE00236985 /* GoogleService-Info.plist */; };
 		B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B11B186C2025816D00EA29F7 /* Localizable.strings */; };
 		B12295AA202C312B00E3D750 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12295A9202C312B00E3D750 /* Array+Extensions.swift */; };
 		B122F0B8203C1A9500A1A712 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = B122F0B7203C1A9500A1A712 /* style.json */; };
@@ -41,7 +42,6 @@
 		B1798D342032C31400381584 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D302032C31400381584 /* Order+CoreDataProperties.swift */; };
 		B1798D39203305EE00381584 /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */; };
 		B1798D3B20336B9600381584 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D3A20336B9600381584 /* Date+Extensions.swift */; };
-		B17E3F2F203AC8DE00401E6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B17E3F2E203AC8DE00401E6C /* GoogleService-Info.plist */; };
 		B1847C642036B8BD0052DC18 /* DepartmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */; };
 		B1847C662036B9330052DC18 /* DepartmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */; };
 		B1847C682036BF200052DC18 /* DepartmentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */; };
@@ -142,6 +142,8 @@
 /* Begin PBXFileReference section */
 		27913F3729368B518AECD01C /* Pods-CleanCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.release.xcconfig"; sourceTree = "<group>"; };
 		4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1099866203D7E5700236985 /* CleanCase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CleanCase.entitlements; sourceTree = "<group>"; };
+		B1099867203D82BE00236985 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B11B18662025811B00EA29F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B11B186B2025816D00EA29F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B11B186D2025817100EA29F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -179,7 +181,6 @@
 		B1798D302032C31400381584 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
 		B1798D3A20336B9600381584 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		B17E3F2E203AC8DE00401E6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -425,6 +426,7 @@
 		B1F4D0EC202447D50086E25F /* CleanCase */ = {
 			isa = PBXGroup;
 			children = (
+				B1099866203D7E5700236985 /* CleanCase.entitlements */,
 				B1F4D0ED202447D50086E25F /* AppDelegate.swift */,
 				B1F4D102202449400086E25F /* Common */,
 				B1F4D100202448FD0086E25F /* Scenes */,
@@ -483,7 +485,7 @@
 			children = (
 				B1F4D0F4202447D50086E25F /* Assets.xcassets */,
 				B1F4D0F9202447D50086E25F /* Info.plist */,
-				B17E3F2E203AC8DE00401E6C /* GoogleService-Info.plist */,
+				B1099867203D82BE00236985 /* GoogleService-Info.plist */,
 				B11B186C2025816D00EA29F7 /* Localizable.strings */,
 				B122F0B7203C1A9500A1A712 /* style.json */,
 			);
@@ -761,6 +763,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -809,7 +814,7 @@
 				B17940A12026077300A9B675 /* LaundryView.xib in Resources */,
 				B1FA2D092024501100351BB7 /* SignInShow.storyboard in Resources */,
 				B1FA2D2B20245DC600351BB7 /* OrderCreate.storyboard in Resources */,
-				B17E3F2F203AC8DE00401E6C /* GoogleService-Info.plist in Resources */,
+				B1099868203D82BE00236985 /* GoogleService-Info.plist in Resources */,
 				B148E8FB202C410C0007D79B /* ChatShow.storyboard in Resources */,
 				B1FA2CFA20244DDD00351BB7 /* FlowControlShow.storyboard in Resources */,
 				B1FA2D8320245FCB00351BB7 /* PriceListShow.storyboard in Resources */,
@@ -1154,8 +1159,9 @@
 			baseConfigurationReference = B77D149EA968FA2CE61055A7 /* Pods-CleanCase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CleanCase/CleanCase.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DS2B364WY;
+				DEVELOPMENT_TEAM = 3M2ZVD66XU;
 				INFOPLIST_FILE = CleanCase/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1198,8 +1204,9 @@
 			baseConfigurationReference = 27913F3729368B518AECD01C /* Pods-CleanCase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CleanCase/CleanCase.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2DS2B364WY;
+				DEVELOPMENT_TEAM = 3M2ZVD66XU;
 				INFOPLIST_FILE = CleanCase/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

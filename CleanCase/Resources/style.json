@@ -68,6 +68,7 @@
         "alpha":                1,
         "fontSize":             16.0,
         "fontColor":            "black",
+        "tintColor":            "black",
         "borderColor":          "gray",
         "textAlignment":        "right",
         "backgroundColor":      "veryLightCyan"
@@ -80,6 +81,7 @@
         "fontSize":             16.0,
         "borderColor":          "gray",
         "fontColor":            "darkGreen",
+        "tintColor":            "darkGreen",
         "textAlignment":        "center",
         "backgroundColor":      "veryLightCyan"
     },

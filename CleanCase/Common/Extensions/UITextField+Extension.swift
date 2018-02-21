@@ -10,6 +10,12 @@ import UIKit
 import ActionKit
 import SKStyleKit
 
+enum PaddingSide {
+    case Left(CGFloat)
+    case Right(CGFloat)
+    case Both(CGFloat)
+}
+
 extension UITextField {
     // MARK: - Class Initialization
     func showToolBar(withPickerViewDataSource dataSource: [PickerViewSupport], andSelectedItem selectedRow: Int, _ completion: @escaping HandlerPassDataCompletion) {
@@ -52,5 +58,35 @@ extension UITextField {
         
         self.inputAccessoryView             =   toolbar
         self.inputView                      =   pickerView
+    }
+    
+    
+    // MARK: - Class Functions
+    func addPadding(_ padding: PaddingSide) {
+        self.leftViewMode           =   .always
+        self.layer.masksToBounds    =   true
+        
+        switch padding {
+        case .Left(let spacing):
+            let paddingView         =   UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
+            self.leftView           =   paddingView
+            self.rightViewMode      =   .always
+            
+        case .Right(let spacing):
+            let paddingView         =   UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
+            self.rightView          =   paddingView
+            self.rightViewMode      =   .always
+            
+        case .Both(let spacing):
+            let paddingView         =   UIView(frame: CGRect(x: 0, y: 0, width: spacing, height: self.frame.height))
+            
+            // Left
+            self.leftView           =   paddingView
+            self.leftViewMode       =   .always
+            
+            // Right
+            self.rightView          =   paddingView
+            self.rightViewMode      =   .always
+        }
     }
 }
