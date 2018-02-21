@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black
         
+        // For iOS 10 data message (sent via FCM)
+        Messaging.messaging().delegate                      =   self
+
         // Register for remote notifications
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -43,8 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { _, _ in })
            
-            // For iOS 10 data message (sent via FCM
-            Messaging.messaging().delegate                  =   self
+//            // For iOS 10 data message (sent via FCM
+//            Messaging.messaging().delegate                  =   self
         }
         
         else {
