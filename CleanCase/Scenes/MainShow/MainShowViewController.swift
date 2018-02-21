@@ -18,6 +18,7 @@ class MainShowViewController: UIViewController {
     // MARK: - Properties
     fileprivate var sideMenuManager: SideMenuManager!
     fileprivate var order: Order?
+    fileprivate var isDeliveryTermShow: Bool = false
     
     
     // MARK: - IBOutlets
@@ -79,6 +80,12 @@ class MainShowViewController: UIViewController {
         self.addNavigationBarShadow()
         self.loadViewSettings()
         self.setupSideMenu()
+        
+        // Add Timer Observer
+        NotificationCenter.default.addObserver(self,
+                                               selector:    #selector(handlerTimerNotification),
+                                               name:        Notification.Name("TimerNotificationComplete"),
+                                               object:      nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +93,11 @@ class MainShowViewController: UIViewController {
         
         self.loadOrder()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+        
     
     // MARK: - Custom Functions
     fileprivate func loadViewSettings() {
@@ -101,7 +113,7 @@ class MainShowViewController: UIViewController {
         sideMenuManager = SideMenuManager.default
         let leftSideMenuNC = storyboard!.instantiateViewController(withIdentifier: "LeftSideMenuNC") as! UISideMenuNavigationController
         
-        sideMenuManager.menuLeftNavigationController = leftSideMenuNC
+//        sideMenuManager.menuLeftNavigationController = leftSideMenuNC
         
         sideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         sideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
@@ -123,7 +135,11 @@ class MainShowViewController: UIViewController {
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
                         if nextScene.storyboardName == "AgreementShow" {
                             SwiftSpinner.hide()
-                            self.createPopover(withName: nextScene.storyboardName)
+                            self.createPopover(withName: nextScene.storyboardName, completion: { [unowned self] in
+                                self.isDeliveryTermShow = false
+                            })
+                            
+                            self.isDeliveryTermShow = true
                         }
                             
                         else if nextScene.storyboardName != "XXX" {
@@ -161,10 +177,20 @@ class MainShowViewController: UIViewController {
         self.show(self.nextViewController(fromStoryboardName: (sender.tag == 0) ? "OrderCreate" : "OrderShow"), sender: nil)
     }
     
+    @objc func handlerTimerNotification(_ notification: Notification) {
+        if !isDeliveryTermShow && sideMenuManager.menuLeftNavigationController!.isHidden {
+            self.createPopover(withName: "DeliveryTermsShow", completion: { [unowned self] in
+                self.isDeliveryTermShow = false
+            })
+            
+            self.isDeliveryTermShow = true
+        }
+    }
+    
     
     // FIXME: - DELETE AFTER TEST
     @IBAction func deliveryButtonTapped(_ sender: Any) {
-        self.createPopover(withName: "DeliveryTermsShow")
+        self.createPopover(withName: "DeliveryTermsShow", completion: {})
     }
     
     @IBAction func orderItemsButtonTapped(_ sender: UIButton) {

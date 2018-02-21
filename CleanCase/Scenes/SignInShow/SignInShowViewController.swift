@@ -183,7 +183,7 @@ class SignInShowViewController: UIViewController {
     
     @IBAction func handlerReadAgreementButtonTapped(_ sender: Any) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
-            self.createPopover(withName: "AgreementShow")
+            self.createPopover(withName: "AgreementShow", completion: {})
         }
     }
     

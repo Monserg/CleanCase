@@ -42,6 +42,8 @@
 		B1798D342032C31400381584 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D302032C31400381584 /* Order+CoreDataProperties.swift */; };
 		B1798D39203305EE00381584 /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */; };
 		B1798D3B20336B9600381584 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798D3A20336B9600381584 /* Date+Extensions.swift */; };
+		B17DC79A203DECD7002BEF12 /* CustomTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17DC799203DECD7002BEF12 /* CustomTimer.swift */; };
+		B17DC79C203E0F4F002BEF12 /* SharePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17DC79B203E0F4F002BEF12 /* SharePopoverViewController.swift */; };
 		B1847C642036B8BD0052DC18 /* DepartmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */; };
 		B1847C662036B9330052DC18 /* DepartmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */; };
 		B1847C682036BF200052DC18 /* DepartmentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */; };
@@ -181,6 +183,8 @@
 		B1798D302032C31400381584 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1798D38203305EE00381584 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
 		B1798D3A20336B9600381584 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B17DC799203DECD7002BEF12 /* CustomTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTimer.swift; sourceTree = "<group>"; };
+		B17DC79B203E0F4F002BEF12 /* SharePopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePopoverViewController.swift; sourceTree = "<group>"; };
 		B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -518,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FA2D9E202490A900351BB7 /* CoreDataManager.swift */,
+				B17DC799203DECD7002BEF12 /* CustomTimer.swift */,
 				B1FA2DAA202496F100351BB7 /* ErrorManager.swift */,
 				B1FA2DA82024948400351BB7 /* RestAPIManager.swift */,
 			);
@@ -719,6 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FA2DB520249B2F00351BB7 /* ShareInteractor.swift */,
+				B17DC79B203E0F4F002BEF12 /* SharePopoverViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -910,6 +916,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17DC79C203E0F4F002BEF12 /* SharePopoverViewController.swift in Sources */,
 				B1DBDF03202998E100127ECB /* DepartmentItem+CoreDataProperties.swift in Sources */,
 				B1FA2D072024500000351BB7 /* SignInShowInteractor.swift in Sources */,
 				B1FA2D3820245DDF00351BB7 /* OrderCreateInteractor.swift in Sources */,
@@ -998,6 +1005,7 @@
 				B1FA2D4F20245E8900351BB7 /* OrdersShowPresenter.swift in Sources */,
 				B1FA2D7C20245FC000351BB7 /* PriceListShowPresenter.swift in Sources */,
 				B1FA2D022024500000351BB7 /* SignInShowPresenter.swift in Sources */,
+				B17DC79A203DECD7002BEF12 /* CustomTimer.swift in Sources */,
 				B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */,
 				B1FA2D3620245DDF00351BB7 /* OrderCreateModels.swift in Sources */,
 				B1FA2D2920245D5F00351BB7 /* OrderShowInteractor.swift in Sources */,

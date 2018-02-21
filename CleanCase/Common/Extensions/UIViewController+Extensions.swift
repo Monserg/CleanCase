@@ -20,8 +20,6 @@ extension UIViewController {
         
         completion(true)
     }
-
-    
     
     func showAlertView(withTitle title: String, andMessage message: String, needCancel cancel: Bool, completion: @escaping ((Bool) -> ())) {
         let alertViewController = UIAlertController.init(title: title.localized(), message: message.localized(), preferredStyle: .alert)
@@ -42,15 +40,19 @@ extension UIViewController {
         present(alertViewController, animated: true, completion: nil)
     }
     
-    public func createPopover(withName name: String) {
+    public func createPopover(withName name: String, completion: @escaping () -> ()) {
         let storyboard: UIStoryboard = UIStoryboard(name: name, bundle: nil)
-        let presentedViewController = storyboard.instantiateViewController(withIdentifier: name + "VC")
+        let presentedViewController = storyboard.instantiateViewController(withIdentifier: name + "VC") as! SharePopoverViewController
         presentedViewController.providesPresentationContextTransitionStyle = true
         presentedViewController.definesPresentationContext = true
         presentedViewController.modalPresentationStyle = .overCurrentContext
         presentedViewController.view.backgroundColor = UIColor.init(white: 0.4, alpha: 0.8)
 
         self.present(presentedViewController, animated: true, completion: nil)
+        
+        presentedViewController.handlerDismissCompletion = {
+            completion()
+        }
     }
     
     public func addNavigationBarShadow() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AgreementShowViewController: UIViewController {
+class AgreementShowViewController: SharePopoverViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
@@ -52,7 +52,9 @@ class AgreementShowViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             if (touch.view == self.view) {
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: { [unowned self] in
+                    self.handlerDismissCompletion()
+                })
             }
         }
     }
@@ -60,6 +62,8 @@ class AgreementShowViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func handlerCancelButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: { [unowned self] in
+            self.handlerDismissCompletion()
+        })
     }
 }

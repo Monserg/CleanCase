@@ -20,7 +20,7 @@ protocol DeliveryTermsShowDisplayLogic: class {
     func displayConfirmDeliveryTerms(fromViewModel viewModel: DeliveryTermsShowModels.Item.ViewModel)
 }
 
-class DeliveryTermsShowViewController: UIViewController {
+class DeliveryTermsShowViewController: SharePopoverViewController {
     // MARK: - Properties
     var interactor: DeliveryTermsShowBusinessLogic?
     var router: (NSObjectProtocol & DeliveryTermsShowRoutingLogic & DeliveryTermsShowDataPassing)?
@@ -253,7 +253,9 @@ class DeliveryTermsShowViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             if (touch.view == self.view) {
-                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: { [unowned self] in
+                    self.handlerDismissCompletion()
+                })
             }
                 
             else {
@@ -307,7 +309,9 @@ extension DeliveryTermsShowViewController: DeliveryTermsShowDisplayLogic {
         }
         
         self.showAlertView(withTitle: "Info", andMessage: "Order confirmed", needCancel: false, completion: { [unowned self] success in
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: { [unowned self] in
+                self.handlerDismissCompletion()
+            })
         })
     }
 }
