@@ -12,6 +12,7 @@
 
 import UIKit
 import SKStyleKit
+import DynamicColor
 
 // MARK: - Input & Output protocols
 protocol DeliveryTermsShowDisplayLogic: class {
@@ -91,6 +92,9 @@ class DeliveryTermsShowViewController: UIViewController {
             _ = textFieldsCollection.map({
                 $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
                 $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
+                
+                $0.addPadding(.Both(8.0))
+
                 $0.delegate = self
             })
         }
@@ -105,6 +109,16 @@ class DeliveryTermsShowViewController: UIViewController {
     @IBOutlet weak var textView: UITextView! {
         didSet {
             textView.text!.localize()
+            textView.backgroundColor      =   DynamicColor(hexString: "#82FFFF")              // veryLightCyan
+            textView.layer.borderColor    =   DynamicColor(hexString: "#A9A9A9").cgColor      // gray
+            textView.layer.borderWidth    =   1
+            textView.layer.cornerRadius   =   4
+            textView.font                 =   UIFont.systemFont(ofSize: 16.0)
+            textView.textAlignment        =   .right
+            textView.textColor            =   DynamicColor(hexString: "#A9A9A9")              // gray
+            textView.tintColor            =   DynamicColor(hexString: "#000000")              // black
+            textView.contentInset         =   UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
+            
             textView.delegate = self
         }
     }
@@ -219,23 +233,19 @@ class DeliveryTermsShowViewController: UIViewController {
     }
     
     fileprivate func loadTextViewPlaceholder(_ text: String?) {
-        var textViewStyle: SKStyle!
-        
         if (text == nil) {
-            textView.text   =   ""
-            textViewStyle   =   SKStyleKit.style(withName: "defaultTextViewStyle")!
+            textView.text       =   ""
+            textView.textColor  =   DynamicColor(hexString: "#000000")              // black
         }
         
         else if (text == "Enter comment".localized() || text!.isEmpty) {
-            textView.text   =   "Enter comment".localized()
-            textViewStyle   =   SKStyleKit.style(withName: "defaultTextViewStyle")!
+            textView.text       =   "Enter comment".localized()
+            textView.textColor  =   DynamicColor(hexString: "#A9A9A9")              // gray
         }
         
         else {
-            textViewStyle   =   SKStyleKit.style(withName: "textViewTextStyle")!
+            textView.textColor  =   DynamicColor(hexString: "#000000")              // black
         }
-        
-        textViewStyle.apply(view: textView)
     }
     
     
