@@ -90,7 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    
     // MARK: - Remote Push Notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
@@ -136,6 +135,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(userInfo)
         
         completionHandler(UIBackgroundFetchResult.newData)
+    }
+}
+
+
+// MARK: - AppDelegate custom functions
+extension AppDelegate {
+    func showNotificationView() {
+        if let rootVC = window?.rootViewController {
+            rootVC.createPopover(withName: "DeliveryTermsShow")
+        }
     }
 }
 
