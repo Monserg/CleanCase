@@ -147,6 +147,7 @@ class OrderCreateViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadVewSettings() {
+        // Add keyboard Observers
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
@@ -290,7 +291,6 @@ class OrderCreateViewController: UIViewController {
 extension OrderCreateViewController: OrderCreateDisplayLogic {
     func displayDates(fromViewModel viewModel: OrderCreateModels.Dates.ViewModel) {
         // NOTE: Display the result from the Presenter
-        
     }
 
     func displayAddOrder(fromViewModel viewModel: OrderCreateModels.Order.ViewModel) {

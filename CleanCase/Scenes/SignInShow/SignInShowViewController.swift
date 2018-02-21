@@ -32,6 +32,10 @@ class SignInShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var acceptAgreementLabel: UILabel!
+    @IBOutlet weak var readAgreementButton: UIButton!
+    
     @IBOutlet weak var saveButton: UIButton! {
         didSet {
             saveButton.isEnabled = false
@@ -44,9 +48,6 @@ class SignInShowViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var acceptAgreementLabel: UILabel!
-    @IBOutlet weak var readAgreementButton: UIButton!
-    
     @IBOutlet var textFieldsCollection: [UITextField]! {
         didSet {
             _ = textFieldsCollection.map({
@@ -57,6 +58,18 @@ class SignInShowViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var contentViewTopConstraint: NSLayoutConstraint! {
+        didSet {
+            contentViewTopConstraint.constant *= heightRatio
+        }
+    }
+    
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer! {
+        didSet {
+            tapGestureRecognizer.cancelsTouchesInView = false
+        }
+    }
+
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -118,6 +131,11 @@ class SignInShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadViewSettings() {
+        // Add keyboard Observers
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
         // API
         checkNetworkConnection({ [unowned self] success in
             if success {
@@ -171,6 +189,19 @@ class SignInShowViewController: UIViewController {
     
     @IBAction func handlerCheckBoxTapped(_ sender: M13Checkbox) {
         self.saveButton.isEnabled = (sender.checkState == .checked) ? true : false
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            self.scrollView.contentInset = UIEdgeInsets.zero
+        } else {
+            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
     }
 }
 

@@ -21,8 +21,8 @@ typealias HandlerPassDataCompletion     =   ((_ data: Any?) -> Void)
 
 
 // Constants
-let heightRatio: CGFloat        =   UIScreen.main.bounds.height / 736
-let widthRatio: CGFloat         =   UIScreen.main.bounds.width / 414
+let heightRatio: CGFloat        =   UIScreen.main.bounds.height / 667       // iPhone 6, iPhone 8 as design template
+let widthRatio: CGFloat         =   UIScreen.main.bounds.width / 375
 let isPhoneX                    =   UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436
 let dispatchTimeDelay           =   0.1
 let logAPI                      =   "http://192.116.53.69/Facade/log.txt"

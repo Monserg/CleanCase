@@ -32,23 +32,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black
         
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
+
         // Register for remote notifications
         if #available(iOS 8.0, *) {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [ .alert, .badge, .sound], categories: nil)
-                application.registerUserNotificationSettings(settings)
-                application.registerForRemoteNotifications()
+            let settings: UIUserNotificationSettings        =   UIUserNotificationSettings(types: [ .alert, .badge, .sound], categories: nil)
+            
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
         } else {
             application.registerForRemoteNotifications(matching: [ .alert, .badge, .sound ])
         }
         
-        FirebaseApp.configure()
-
         // Add observer for InstanceID token refresh callback.
         NotificationCenter.default.addObserver(self,
                                                selector:    #selector(tokenRefreshNotification),
                                                name:        NSNotification.Name.InstanceIDTokenRefresh,
                                                object:      nil)
+        
+        // Set the messaging delegate
+        Messaging.messaging().delegate = self
         
         // CoreData: update current App version
         CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:         "Version",
@@ -82,17 +86,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    
+    
+    // MARK: - Remote Push Notifications
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken as Data
+        print(deviceToken)
+    }
+    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error.localizedDescription)
     }
     
-    public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print(FirebaseMessaging.MessagingAPNSTokenType.self)
-//        InstanceID.instanceID().setAPNSToken(deviceToken, type: .sandbox)
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//            print("Message ID: \(messageID)")
+//        }
+        
+        // Print full message.
+        print(userInfo)
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//            print("Message ID: \(messageID)")
+//        }
+        
+        // Print full message.
         print(userInfo)
+        
+        completionHandler(UIBackgroundFetchResult.newData)
     }
     
     
@@ -113,5 +152,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             print("Unable to connect with FCM.")
         }
+    }
+}
+
+
+// MARK: - MessagingDelegate
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }
