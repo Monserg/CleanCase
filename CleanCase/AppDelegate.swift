@@ -44,7 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
             // For iOS 10 data message (sent via FCM
             Messaging.messaging().delegate                  =   self
-        } else {
+        }
+        
+        else {
             let settings: UIUserNotificationSettings        =   UIUserNotificationSettings(types: [ .alert, .badge, .sound ], categories: nil)
             
             application.registerUserNotificationSettings(settings)

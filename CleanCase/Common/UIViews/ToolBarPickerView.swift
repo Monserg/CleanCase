@@ -65,7 +65,9 @@ extension ToolBarPickerView: UIPickerViewDelegate {
         
         if view == nil {
             label = UILabel()
-        } else {
+        }
+        
+        else {
             label = view as! UILabel
         }
         

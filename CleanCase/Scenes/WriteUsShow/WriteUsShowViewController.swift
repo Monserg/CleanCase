@@ -107,12 +107,16 @@ class WriteUsShowViewController: UIViewController {
             sendMessageButton.isEnabled     =   false
             
             textViewStyle                   =   SKStyleKit.style(withName: "textViewPlaceholderStyle")!
-        } else if (text == "Enter message".localized() || text!.isEmpty) {
+        }
+        
+        else if (text == "Enter message".localized() || text!.isEmpty) {
             textView.text                   =   "Enter message".localized()
             sendMessageButton.isEnabled     =   false
            
             textViewStyle                   =   SKStyleKit.style(withName: "textViewPlaceholderStyle")!
-        } else {
+        }
+        
+        else {
             sendMessageButton.isEnabled     =   true
 
             textViewStyle                   =   SKStyleKit.style(withName: "textViewTextStyle")!

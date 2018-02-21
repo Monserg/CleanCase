@@ -26,6 +26,50 @@ class DeliveryTermsShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bottomView: SKView!
+    
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer! {
+        didSet {
+            tapGestureRecognizer.cancelsTouchesInView = false
+        }
+    }
+
+    @IBOutlet var viewsHeightConstraintCollection: [NSLayoutConstraint]! {
+        didSet {
+            _ = viewsHeightConstraintCollection.map({
+                $0.constant *= heightRatio
+            })
+        }
+    }
+    
+    @IBOutlet var viewsCollection: [UIView]! {
+        didSet {
+            _ = viewsCollection.map({
+                $0.layer.cornerRadius   =   4.0
+                $0.clipsToBounds        =   true
+            })
+        }
+    }
+    
+    @IBOutlet weak var notificationTimeLabel: SKLabel! {
+        didSet {
+            notificationTimeLabel.text = Date().getCurrentTime()
+        }
+    }
+    
+    @IBOutlet weak var notificationTitleLabel: SKLabel! {
+        didSet {
+            notificationTitleLabel.text!.localize()
+        }
+    }
+    
+    @IBOutlet weak var notificationMessageLabel: SKLabel! {
+        didSet {
+            notificationMessageLabel.text = Laundry.name + notificationMessageLabel.text!.localized()
+        }
+    }
+    
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text!.localize()
@@ -68,6 +112,20 @@ class DeliveryTermsShowViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton! {
         didSet {
             saveButton.isEnabled = false
+        }
+    }
+    
+    @IBOutlet weak var circularImageView: SKView! {
+        didSet {
+            circularImageView.layer.cornerRadius = circularImageView.bounds.height / 2
+            circularImageView.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var bellImageView: UIImageView! {
+        didSet {
+            bellImageView.layer.cornerRadius = 4.0
+            bellImageView.clipsToBounds = true
         }
     }
     
@@ -124,6 +182,11 @@ class DeliveryTermsShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadViewSettings() {
+        // Add keyboard Observers
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
         // API
         checkNetworkConnection({ [unowned self] success in
             if success {
@@ -161,10 +224,14 @@ class DeliveryTermsShowViewController: UIViewController {
         if (text == nil) {
             textView.text   =   ""
             textViewStyle   =   SKStyleKit.style(withName: "defaultTextViewStyle")!
-        } else if (text == "Enter comment".localized() || text!.isEmpty) {
+        }
+        
+        else if (text == "Enter comment".localized() || text!.isEmpty) {
             textView.text   =   "Enter comment".localized()
             textViewStyle   =   SKStyleKit.style(withName: "defaultTextViewStyle")!
-        } else {
+        }
+        
+        else {
             textViewStyle   =   SKStyleKit.style(withName: "textViewTextStyle")!
         }
         
@@ -189,6 +256,28 @@ class DeliveryTermsShowViewController: UIViewController {
     // MARK: - Actions
     @IBAction func handlerSaveButtonTapped(_ sender: UIButton) {
         self.startDataValidation()
+    }
+    
+    @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+
+    @objc func adjustForKeyboard(notification: Notification) {
+        if textView.isFirstResponder {
+            let userInfo = notification.userInfo!
+            
+            let keyboardScreenEndFrame  =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardViewEndFrame    =   view.convert(keyboardScreenEndFrame, from: view.window)
+            
+            if notification.name == Notification.Name.UIKeyboardWillHide {
+                self.scrollView.setContentOffset(.zero, animated: true)
+            }
+                
+            else {
+                let textViewFrame       =   view.convert(textView.frame, from: bottomView)
+                self.scrollView.setContentOffset(CGPoint.init(x: 0, y: textViewFrame.maxY + 10.0 - keyboardViewEndFrame.minY), animated: true)
+            }
+        }
     }
 }
 

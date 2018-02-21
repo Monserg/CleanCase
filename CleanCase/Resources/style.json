@@ -46,6 +46,24 @@
         "textAlignment":        "right"
     },
     
+    "defaultNotificationLabelStyle": {
+        "textAlignment":        "right",
+        "fontColor":            "gray",
+        "fontSize":             14.0,
+        "alpha":                1.0
+    },
+    
+    "notificationTitleLabelStyle": {
+        "parent":               "defaultNotificationLabelStyle",
+        "fontColor":            "black",
+        "fontSize":             15.0
+    },
+    
+    "notificationLaundryMessageLabelStyle": {
+        "parent":               "defaultNotificationLabelStyle",
+        "fontSize":             15.0
+    },
+    
     "defaultTextViewStyle": {
         "fontSize":             16.0,
         "borderWidth":          1,

@@ -67,7 +67,9 @@ class LaundryView: UIView {
         
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(numberURL)
-        } else {
+        }
+        
+        else {
             UIApplication.shared.openURL(numberURL)
         }
     }    

@@ -199,7 +199,9 @@ class SignInShowViewController: UIViewController {
         
         if notification.name == Notification.Name.UIKeyboardWillHide {
             self.scrollView.contentInset = UIEdgeInsets.zero
-        } else {
+        }
+        
+        else {
             self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
         }
     }
@@ -356,7 +358,9 @@ extension SignInShowViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 6 {
             textField.resignFirstResponder()
-        } else {
+        }
+        
+        else {
             textFieldsCollection.first(where: { $0.tag == textField.tag + 1 })?.becomeFirstResponder()
         }
         

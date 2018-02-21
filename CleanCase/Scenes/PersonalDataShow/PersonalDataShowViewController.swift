@@ -144,14 +144,18 @@ class PersonalDataShowViewController: UIViewController {
                 case 7:
                     if let cardExpired = personalDataEntity.cardExpired {
                         $0.text = String(cardExpired.suffix(2))
-                    } else {
+                    }
+                    
+                    else {
                         $0.text = nil
                     }
                     
                 case 8:
                     if let cardExpired = personalDataEntity.cardExpired {
                         $0.text = String(cardExpired.prefix(2))
-                    } else {
+                    }
+                    
+                    else {
                         $0.text = nil
                     }
                     
@@ -339,7 +343,9 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.tag == 6 {
             textField.resignFirstResponder()
-        } else {
+        }
+        
+        else {
             textFieldsCollection.first(where: { $0.tag == textField.tag + 1 })?.becomeFirstResponder()
         }
         

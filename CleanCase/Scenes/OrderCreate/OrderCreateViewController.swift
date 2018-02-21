@@ -206,13 +206,17 @@ class OrderCreateViewController: UIViewController {
 
         if comments == "Enter comment".localized() {
             comments = selectedDepartments
-        } else {
+        }
+        
+        else {
             comments! += selectedDepartments
         }
 
         if instructions == "Enter cleaning instructions".localized() {
             instructions = selectedDepartments
-        } else {
+        }
+        
+        else {
             instructions! += selectedDepartments
         }
 
@@ -292,7 +296,9 @@ class OrderCreateViewController: UIViewController {
         
         if notification.name == Notification.Name.UIKeyboardWillHide {
             self.scrollView.contentInset = UIEdgeInsets.zero
-        } else {
+        }
+        
+        else {
             self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
         }
     }

@@ -23,4 +23,12 @@ extension Date {
         
         return Int(dateFormatter.string(from: date).addZero())!
     }
+    
+    func getCurrentTime() -> String {
+        let dateFormatter               =   DateFormatter()
+        dateFormatter.locale            =   NSLocale.current
+        dateFormatter.dateFormat        =   "HH:mm"
+        
+        return dateFormatter.string(from: self)
+    }
 }
