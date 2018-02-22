@@ -128,6 +128,11 @@
         "textAlignment":        "right"
     },
     
+    "tableViewItemGreenLeftStyle": {
+        "parent":               "tableViewItemGreenStyle",
+        "textAlignment":        "left"
+    },
+    
     "titleLabelStyle1": {
         "parent":               "defaultLabelStyle",
         "fontSize":             25.0,
@@ -151,7 +156,17 @@
         "fontSize":             19.0,
         "textAlignment":        "center"
     },
+    
+    "titleLabelStyle5": {
+        "parent":               "titleLabelStyle3",
+        "textAlignment":        "center"
+    },
 
+    "titleLabelStyle6": {
+        "parent":               "titleLabelStyle4",
+        "textAlignment":        "right"
+    },
+    
     "laundryNameLabelStyle": {
         "parent":               "defaultLabelStyle",
         "fontSize":             15

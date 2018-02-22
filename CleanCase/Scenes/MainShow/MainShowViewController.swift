@@ -186,21 +186,6 @@ class MainShowViewController: UIViewController {
             self.isDeliveryTermShow = true
         }
     }
-    
-    
-    // FIXME: - DELETE AFTER TEST
-    @IBAction func deliveryButtonTapped(_ sender: Any) {
-        self.createPopover(withName: "DeliveryTermsShow", completion: {})
-    }
-    
-    @IBAction func orderItemsButtonTapped(_ sender: UIButton) {
-        // API
-        checkNetworkConnection({ [unowned self] success in
-            if success {
-                self.order?.getItems()
-            }
-        })
-    }
 }
 
 

@@ -25,7 +25,7 @@ class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
     @IBOutlet var captionLabelsCollection: [UILabel]! {
         didSet {
             _ = captionLabelsCollection.map({
-                $0.text = $0.text!.localized()
+                $0.text!.localize()
                 $0.textAlignment = .right
             })
         }
@@ -42,9 +42,9 @@ class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
     
     @IBOutlet weak var orderDeliveryDateLabel: UILabel! {
         didSet {
-            orderDeliveryDateLabel.text = orderDeliveryDateLabel.text!.localized()
-            orderDeliveryDateLabel.textAlignment = .center
-            orderDeliveryDateLabel.isHidden = false
+            orderDeliveryDateLabel.text             =   orderDeliveryDateLabel.text!.localized()
+            orderDeliveryDateLabel.textAlignment    =   .center
+            orderDeliveryDateLabel.isHidden         =   false
         }
     }
     
@@ -54,9 +54,9 @@ class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
         switch orderStatus {
         // Type 3: Closed, Ready, InWayToClient
         case 2, 3, 8:
-            self.topView.isHidden = false
-            self.priceView.isHidden = false
-            self.orderDeliveryDateLabel.isHidden = false
+            self.topView.isHidden                   =   false
+            self.priceView.isHidden                 =   false
+            self.orderDeliveryDateLabel.isHidden    =   false
 
         default:
             break

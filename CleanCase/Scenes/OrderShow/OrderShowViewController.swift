@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SKStyleKit
 
 // MARK: - Input & Output protocols
 protocol OrderShowDisplayLogic: class {
@@ -209,7 +210,7 @@ extension OrderShowViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension OrderShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 54.0
+        return 54.0 * heightRatio
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -222,6 +223,9 @@ extension OrderShowViewController: UITableViewDelegate {
             self.tableView.register(UINib(nibName: "OrderItemsTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "FooterCell")
             let footerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "FooterCell") as! OrderItemsTableViewFooterView
             
+            let footerViewStyle = SKStyleKit.style(withName: "sideMenuStyle")!
+            footerView.backgroundColor = footerViewStyle.backgroundColor
+
             footerView.setup(withOrderStatus: order.orderStatus)
             
             return footerView

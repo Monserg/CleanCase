@@ -175,7 +175,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print("dddd1")
     }
     
-    
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
