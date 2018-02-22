@@ -88,17 +88,23 @@ extension UIViewController {
     }
     
     public func addBasketBarButtonItem(_ isEmpty: Bool) {
-        let basketButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 20, height: 44)))
-        basketButton.setImage(UIImage.init(named: (isEmpty) ? "icon-shopping-basket-empty" : "icon-shopping-basket-complete"), for: .normal)
-        basketButton.addTarget(self, action: #selector(handlerBasketButtonTapped), for: .touchUpInside)
-        basketButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
-        let basketBarButtonItem = UIBarButtonItem.init(customView: basketButton)
-        self.navigationItem.leftBarButtonItems?.append(basketBarButtonItem)
+        if Order.last != nil {
+            let basketButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 20, height: 44)))
+            basketButton.setImage(UIImage.init(named: (isEmpty) ? "icon-shopping-basket-empty" : "icon-shopping-basket-complete"), for: .normal)
+            basketButton.addTarget(self, action: #selector(handlerBasketButtonTapped), for: .touchUpInside)
+            basketButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            
+            let basketBarButtonItem = UIBarButtonItem.init(customView: basketButton)
+            self.navigationItem.leftBarButtonItems?.append(basketBarButtonItem)
+        }
     }
     
     @objc func handlerBasketButtonTapped(_ sender: UIBarButtonItem) {
-        print("BasketBarButtonItem tapped...")
+        let storyboard      =   UIStoryboard(name: "OrderShow", bundle: nil)
+        let orderShowVC     =   storyboard.instantiateViewController(withIdentifier: "OrderShowVC") as! OrderShowViewController
+        
+        orderShowVC.saveOrderID(Order.last!.orderID)
+        self.show(orderShowVC, sender: nil)
     }
 
     @objc func handlerBackButtonTapped(_ sender: UIBarButtonItem) {

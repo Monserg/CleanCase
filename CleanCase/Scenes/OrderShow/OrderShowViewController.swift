@@ -114,7 +114,6 @@ class OrderShowViewController: UIViewController {
         super.viewDidLoad()
         
         self.addBackBarButtonItem()
-        self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
 
         loadViewSettings()

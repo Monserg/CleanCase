@@ -70,11 +70,7 @@ class AboutShowViewController: UIViewController {
                 self.emptySceneLabel.isHidden = false
             }
         })
-    }
-    
-    override func handlerBasketButtonTapped(_ sender: UIBarButtonItem) {
-        print("Override tapped...")
-    }
+    }    
 }
 
 

@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  CleanCase
@@ -17,7 +18,7 @@ import FirebaseInstanceID
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
-    var timer: CustomTimer = CustomTimer.init(withTimeInterval: 0.1 * 60)
+    var timer: CustomTimer = CustomTimer.init(withTimeInterval: 100 * 60)
 
     
     // MARK: - Class Functions
@@ -45,9 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let authOptions: UNAuthorizationOptions         =   [ .alert, .badge, .sound ]
             
             UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { _, _ in })
-           
-//            // For iOS 10 data message (sent via FCM
-//            Messaging.messaging().delegate                  =   self
         }
         
         else {
