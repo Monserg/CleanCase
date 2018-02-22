@@ -42,7 +42,9 @@ class CoreDataManager {
         
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: self.options as! [AnyHashable: Any]?)
-        } catch {
+        }
+        
+        catch {
             var dict                                =   [String: AnyObject]()
             dict[NSLocalizedDescriptionKey]         =   NSLocalizedString("CoreData init error".localized(), comment: "") as AnyObject?
             dict[NSLocalizedFailureReasonErrorKey]  =   failureReason as AnyObject?
@@ -84,7 +86,9 @@ class CoreDataManager {
         if managedObjectContext.hasChanges {
             do {
                 try managedObjectContext.save()
-            } catch {
+            }
+            
+            catch {
                 let nserror = error as NSError
                 
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -111,7 +115,9 @@ class CoreDataManager {
 
         do {
             return try self.managedObjectContext.fetch(fetchRequest).first as? NSManagedObject
-        } catch {
+        }
+        
+        catch {
             print(error)
             
             return nil
@@ -132,7 +138,9 @@ class CoreDataManager {
 
         do {
             return try self.managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
+        }
+        
+        catch {
             print(error)
             
             return nil

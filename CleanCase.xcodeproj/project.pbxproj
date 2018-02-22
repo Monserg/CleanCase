@@ -55,6 +55,8 @@
 		B19DA3FC2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */; };
 		B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */; };
 		B1BAF5582028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */; };
+		B1DBBCF3203F3DE100C30EA7 /* Token+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBBCF1203F3DE100C30EA7 /* Token+CoreDataClass.swift */; };
+		B1DBBCF4203F3DE100C30EA7 /* Token+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBBCF2203F3DE100C30EA7 /* Token+CoreDataProperties.swift */; };
 		B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */; };
 		B1DBDEFB2029879B00127ECB /* DeliveryDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEF92029879B00127ECB /* DeliveryDate+CoreDataProperties.swift */; };
 		B1DBDF00202998E100127ECB /* Department+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBDEFC202998E100127ECB /* Department+CoreDataClass.swift */; };
@@ -196,6 +198,8 @@
 		B19DA3FA2028B0B000E9F7D6 /* Laundry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Laundry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1BAF5562028CF0C00BB4C66 /* CollectionDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1DBBCF1203F3DE100C30EA7 /* Token+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1DBBCF2203F3DE100C30EA7 /* Token+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1DBDEF82029879B00127ECB /* DeliveryDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1DBDEF92029879B00127ECB /* DeliveryDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1DBDEFC202998E100127ECB /* Department+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Department+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -706,6 +710,8 @@
 				B1798D2E2032C31400381584 /* OrderItem+CoreDataProperties.swift */,
 				B1597D16203189FD00C75966 /* PersonalData+CoreDataClass.swift */,
 				B1597D17203189FD00C75966 /* PersonalData+CoreDataProperties.swift */,
+				B1DBBCF1203F3DE100C30EA7 /* Token+CoreDataClass.swift */,
+				B1DBBCF2203F3DE100C30EA7 /* Token+CoreDataProperties.swift */,
 				B1FA2DAE202498C500351BB7 /* Version+CoreDataClass.swift */,
 				B1FA2DAF202498C500351BB7 /* Version+CoreDataProperties.swift */,
 			);
@@ -965,6 +971,7 @@
 				B1FA2D9620246FF700351BB7 /* Constants.swift in Sources */,
 				B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */,
 				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
+				B1DBBCF4203F3DE100C30EA7 /* Token+CoreDataProperties.swift in Sources */,
 				B148E903202C418B0007D79B /* ChatShowPresenter.swift in Sources */,
 				B1FA2DB620249B2F00351BB7 /* ShareInteractor.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
@@ -994,6 +1001,7 @@
 				B179409F2026076A00A9B675 /* LaundryView.swift in Sources */,
 				B1FA2DAB202496F100351BB7 /* ErrorManager.swift in Sources */,
 				B1FA2D062024500000351BB7 /* SignInShowViewController.swift in Sources */,
+				B1DBBCF3203F3DE100C30EA7 /* Token+CoreDataClass.swift in Sources */,
 				B1FA2DB2202498C500351BB7 /* Version+CoreDataClass.swift in Sources */,
 				B1FA2D5220245E8900351BB7 /* OrdersShowModels.swift in Sources */,
 				B1FA2DB0202498C500351BB7 /* City+CoreDataClass.swift in Sources */,

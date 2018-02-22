@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="CleanCaseModel">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="CleanCaseModel">
     <entity name="City" representedClassName="City" syncable="YES">
         <attribute name="cityName" attributeType="String" defaultValueString="Zorro" syncable="YES"/>
         <attribute name="iD" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -118,6 +118,10 @@
         <attribute name="mobilePhone" attributeType="String" syncable="YES"/>
         <attribute name="postCode" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Token" representedClassName="Token" syncable="YES">
+        <attribute name="device" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firebase" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Version" representedClassName="Version" syncable="YES">
         <attribute name="getVerResult" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -132,5 +136,6 @@
         <element name="OrderItem" positionX="-36" positionY="144" width="128" height="195"/>
         <element name="PersonalData" positionX="-36" positionY="126" width="128" height="255"/>
         <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
+        <element name="Token" positionX="-36" positionY="144" width="128" height="75"/>
     </elements>
 </model>

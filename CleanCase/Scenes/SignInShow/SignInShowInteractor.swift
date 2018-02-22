@@ -81,7 +81,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                                                         "CardNumber":       "",
                                                         "CardCVV":          "",
                                                         "CardExpired":      "",
-                                                        "Adv":              "1"
+                                                        "Adv":              "1",
+                                                        "Token":            firebaseRegistrationToken
                                                     ]
                                         ]
 
@@ -91,7 +92,9 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                 var personalDataJSON = bodyParams["client"] as! [String: Any]
                 personalDataJSON["ClientId"] = Int16(result.AddClientResult)
                 
-                PersonalData().updateEntity(fromJSON: personalDataJSON)
+                if let client = self.appDependency.coreDataManager.createEntity("PersonalData") as? PersonalData {
+                    client.updateEntity(fromJSON: personalDataJSON)
+                }
             }
             
             let responseModel = SignInShowModels.User.ResponseModel()

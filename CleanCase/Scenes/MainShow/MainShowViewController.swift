@@ -102,6 +102,37 @@ class MainShowViewController: UIViewController {
     // MARK: - Custom Functions
     fileprivate func loadViewSettings() {
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
+        
+        // API
+        checkNetworkConnection({ success in
+            if success {
+                DispatchQueue.main.async(execute: {
+                    if let client = PersonalData.current {
+                        let bodyParams: [String: Any] = [ "client": [
+                                                                        "ClientId":         client.clientId,
+                                                                        "LaundryId":        client.laundryId,
+                                                                        "FirstName":        client.firstName,
+                                                                        "LastName":         client.lastName,
+                                                                        "MobilePhone":      client.mobilePhone,
+                                                                        "Email":            client.email,
+                                                                        "CityId":           client.cityId,
+                                                                        "AddressLine1":     client.addressLine1,
+                                                                        "AddressLine2":     client.addressLine2 ?? "",
+                                                                        "PostCode":         client.postCode ?? "",
+                                                                        "CardNumber":       client.cardNumber ?? "",
+                                                                        "CardCVV":          client.cardCVV ?? "",
+                                                                        "CardExpired":      client.cardExpired ?? "",
+                                                                        "Adv":              "1",
+                                                                        "Token":            firebaseRegistrationToken
+                                                                    ]
+                                                        ]
+                        
+                        // API: Fetch request data
+                        RestAPIManager().fetchRequest(withRequestType: .addClient(bodyParams, true), andResponseType: ResponseAPIClientResult.self, completionHandler: { responseAPI in })
+                    }
+                })
+            }
+        })
     }
     
     fileprivate func loadOrder() {
@@ -112,8 +143,6 @@ class MainShowViewController: UIViewController {
     fileprivate func setupSideMenu() {
         sideMenuManager = SideMenuManager.default
         let leftSideMenuNC = storyboard!.instantiateViewController(withIdentifier: "LeftSideMenuNC") as! UISideMenuNavigationController
-        
-//        sideMenuManager.menuLeftNavigationController = leftSideMenuNC
         
         sideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         sideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
