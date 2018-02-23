@@ -104,6 +104,8 @@ class MainShowViewController: UIViewController {
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
         // API
+        // TODO: - DELETE AFTER DISCUSS
+        /*
         checkNetworkConnection({ success in
             if success {
                 DispatchQueue.main.async(execute: {
@@ -133,6 +135,7 @@ class MainShowViewController: UIViewController {
                 })
             }
         })
+        */
     }
     
     fileprivate func loadOrder() {
