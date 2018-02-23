@@ -43,28 +43,20 @@
                             <constraint firstAttribute="height" constant="1" id="ymX-oz-vCe"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ql-WF-Mad">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
-                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.94117647058823528" green="0.97254901960784312" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="1ql-WF-Mad" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4a6-ix-Gl6"/>
                     <constraint firstAttribute="bottom" secondItem="wfy-XP-6ch" secondAttribute="bottom" id="6dR-xB-eJu"/>
                     <constraint firstItem="TZO-MR-KQF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7el-Uv-bGD"/>
-                    <constraint firstItem="1ql-WF-Mad" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="AY9-78-3gq"/>
                     <constraint firstItem="yQ2-NE-i3d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Jdi-i5-FID"/>
                     <constraint firstItem="TZO-MR-KQF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NPg-Ug-QbM"/>
                     <constraint firstAttribute="bottom" secondItem="TZO-MR-KQF" secondAttribute="bottom" constant="8" id="Ogb-y5-1Bc"/>
                     <constraint firstAttribute="trailing" secondItem="wfy-XP-6ch" secondAttribute="trailing" id="QTc-IZ-sw3"/>
-                    <constraint firstAttribute="bottom" secondItem="1ql-WF-Mad" secondAttribute="bottom" id="cWx-2Q-Eqp"/>
                     <constraint firstAttribute="trailing" secondItem="yQ2-NE-i3d" secondAttribute="trailing" constant="20" id="fwp-e2-mmF"/>
                     <constraint firstItem="yQ2-NE-i3d" firstAttribute="leading" secondItem="TZO-MR-KQF" secondAttribute="trailing" constant="16" id="hT3-7F-0Zg"/>
                     <constraint firstItem="TZO-MR-KQF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="hVP-Xb-DKM"/>
                     <constraint firstItem="yQ2-NE-i3d" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iks-H9-bRl"/>
                     <constraint firstItem="wfy-XP-6ch" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jfh-ig-Y3t"/>
-                    <constraint firstAttribute="trailing" secondItem="1ql-WF-Mad" secondAttribute="trailing" id="usO-Fk-NIv"/>
                     <constraint firstAttribute="bottom" secondItem="yQ2-NE-i3d" secondAttribute="bottom" constant="8" id="zro-a7-x8q"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
@@ -75,7 +67,6 @@
             <connections>
                 <outlet property="itemImageView" destination="yQ2-NE-i3d" id="QNO-JE-OR2"/>
                 <outlet property="itemTitleLabel" destination="TZO-MR-KQF" id="SZ8-jI-NNL"/>
-                <outlet property="selectedBackgroundView" destination="1ql-WF-Mad" id="1Bt-Ny-cMO"/>
                 <outlet property="separatorLineView" destination="wfy-XP-6ch" id="ZJL-Q1-lKd"/>
             </connections>
         </tableViewCell>

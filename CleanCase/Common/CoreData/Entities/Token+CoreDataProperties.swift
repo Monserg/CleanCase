@@ -19,5 +19,6 @@ extension Token {
 
     @NSManaged public var device: String?
     @NSManaged public var firebase: String?
+    @NSManaged public var lastMessageID: Int64
 
 }

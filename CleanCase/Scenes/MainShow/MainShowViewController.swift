@@ -19,7 +19,8 @@ class MainShowViewController: UIViewController {
     fileprivate var sideMenuManager: SideMenuManager!
     fileprivate var order: Order?
     fileprivate var isDeliveryTermShow: Bool = false
-    
+    fileprivate var lastMessageTimer: CustomTimer!
+
     
     // MARK: - IBOutlets
     @IBOutlet weak var basketBarButtonItem: UIBarButtonItem!
@@ -80,7 +81,7 @@ class MainShowViewController: UIViewController {
         self.addNavigationBarShadow()
         self.loadViewSettings()
         self.setupSideMenu()
-        
+    
         // Add Timer Observer
         NotificationCenter.default.addObserver(self,
                                                selector:    #selector(handlerTimerNotification),
@@ -92,6 +93,7 @@ class MainShowViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.loadOrder()
+        self.runGetLastClientMessage()
     }
     
     deinit {
@@ -102,40 +104,6 @@ class MainShowViewController: UIViewController {
     // MARK: - Custom Functions
     fileprivate func loadViewSettings() {
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
-        
-        // API
-        // TODO: - DELETE AFTER DISCUSS
-        /*
-        checkNetworkConnection({ success in
-            if success {
-                DispatchQueue.main.async(execute: {
-                    if let client = PersonalData.current {
-                        let bodyParams: [String: Any] = [ "client": [
-                                                                        "ClientId":         client.clientId,
-                                                                        "LaundryId":        client.laundryId,
-                                                                        "FirstName":        client.firstName,
-                                                                        "LastName":         client.lastName,
-                                                                        "MobilePhone":      client.mobilePhone,
-                                                                        "Email":            client.email,
-                                                                        "CityId":           client.cityId,
-                                                                        "AddressLine1":     client.addressLine1,
-                                                                        "AddressLine2":     client.addressLine2 ?? "",
-                                                                        "PostCode":         client.postCode ?? "",
-                                                                        "CardNumber":       client.cardNumber ?? "",
-                                                                        "CardCVV":          client.cardCVV ?? "",
-                                                                        "CardExpired":      client.cardExpired ?? "",
-                                                                        "Adv":              "1",
-                                                                        "Token":            firebaseRegistrationToken
-                                                                    ]
-                                                        ]
-                        
-                        // API: Fetch request data
-                        RestAPIManager().fetchRequest(withRequestType: .addClient(bodyParams, true), andResponseType: ResponseAPIClientResult.self, completionHandler: { responseAPI in })
-                    }
-                })
-            }
-        })
-        */
     }
     
     fileprivate func loadOrder() {
@@ -147,6 +115,8 @@ class MainShowViewController: UIViewController {
         sideMenuManager = SideMenuManager.default
         let leftSideMenuNC = storyboard!.instantiateViewController(withIdentifier: "LeftSideMenuNC") as! UISideMenuNavigationController
         
+        sideMenuManager.menuLeftNavigationController = leftSideMenuNC
+
         sideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         sideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
@@ -196,6 +166,20 @@ class MainShowViewController: UIViewController {
         }
         
         return destinationVC
+    }
+    
+    fileprivate func runGetLastClientMessage() {
+        if let orders = CoreDataManager.instance.readEntities(withName: "Order",
+                                                              withPredicateParameters: nil,
+                                                              andSortDescriptor: NSSortDescriptor.init(key: "orderID", ascending: false)), orders.count > 0 {
+            self.lastMessageTimer = CustomTimer.init(withTimeInterval: 0.1 * 60)
+            self.lastMessageTimer.start()
+            
+            self.lastMessageTimer.handlerTimerActionCompletion = { _ in
+                // API
+                _ = UpdateManager().getLastClientMessage()
+            }
+        }
     }
 
     

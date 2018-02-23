@@ -24,13 +24,6 @@ class LeftMenuItemCell: UITableViewCell {
     // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
-
-//        titleLabel.font                         =   UIFont.setupBy("Calibri", withStyle: .Bold, andSize: 22.0)
-//        titleLabel.textColor                    =   UIColor.veryDarkGrayishBlue
-//        titleLabel.textAlignment                =   .left
-//        titleLabel.adjustsFontSizeToFitWidth    =   true
-//        titleLabel.minimumScaleFactor           =   0.5
-//        titleLabel.numberOfLines                =   0
     }
 }
 
@@ -40,9 +33,10 @@ extension LeftMenuItemCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let menuItem = item as! LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem
         
-        itemTitleLabel.text = menuItem.title
-        itemImageView.image = UIImage.init(named: menuItem.iconName)
-        itemImageView.contentMode = .center
-        selectionStyle = .none
+        itemTitleLabel.text         =   menuItem.title
+        itemImageView.image         =   UIImage.init(named: menuItem.iconName)
+        itemImageView.contentMode   =   .center
+        
+        selectionStyle              = . none
     }
 }

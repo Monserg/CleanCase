@@ -14,15 +14,18 @@ import FirebaseMessaging
 import UserNotifications
 import FirebaseInstanceID
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
-    var timer: CustomTimer = CustomTimer.init(withTimeInterval: 100 * 60)
+    var updateStatusTimer: CustomTimer = CustomTimer.init(withTimeInterval: 100 * 60)
 
     
     // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        print("sadasdas".convertToValues())
+        
         // Add SKStyleKit
         StyleKit.initStyleKit()
         
@@ -80,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        self.timer.stop()
+        self.updateStatusTimer.stop()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -89,19 +92,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        self.timer.start()
+        // Run Update Status Timer
+        self.updateStatusTimer.start()
         
-        timer.handlerTimerActionCompletion = { counter in
+        self.updateStatusTimer.handlerTimerActionCompletion = { _ in
             // Core Data: load last Order with empty Delivety Date & Time
             if let currentOrder = Order.last, currentOrder.deliveryFrom == nil && currentOrder.deliveryTo == nil {
                 NotificationCenter.default.post(name: Notification.Name("TimerNotificationComplete"), object: nil)
             }
-        }
+        }        
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        self.timer.stop()
+        self.updateStatusTimer.stop()
     }
     
     
@@ -115,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Token.current!.device = token
-        CoreDataManager.instance.contextSave()
+        Token.current!.save()
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -168,7 +172,8 @@ extension AppDelegate: MessagingDelegate {
         }
         
         Token.current!.firebase = fcmToken
-        CoreDataManager.instance.contextSave()
+        Token.current!.lastMessageID = 0
+        Token.current!.save()
     }
     
     func application(received remoteMessage: MessagingRemoteMessage) {

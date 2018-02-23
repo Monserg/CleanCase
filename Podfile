@@ -16,6 +16,7 @@ target 'CleanCase' do
     pod 'LTHRadioButton', '~> 1.2'
     pod 'Localize-Swift', '~> 2.0'
     pod 'ImageSlideshow', '~> 1.5'
+    pod 'SwiftyXMLParser', '~> 4.0'
     pod 'ADEmailAndPassword', '~> 1.0'
     
     pod 'SKStyleKit'

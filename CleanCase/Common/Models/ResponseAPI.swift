@@ -142,3 +142,18 @@ struct ResponseAPIOrderItemStatus: Decodable {
     let Path: String?
     let StatusName: String?
 }
+
+struct ResponseAPIClientMessageResult: Decodable {
+    // MARK: - Properties
+    let GetClientMessageResult: ResponseAPIClientMessageInfo
+}
+
+struct ResponseAPIClientMessageInfo: Decodable {
+    // MARK: - Properties
+    let ClientId: Int16
+    let Command: Int16
+    let CommandName: String
+    let Data: String?
+    let LaundryId: Int16
+    let RecordId: Int64
+}

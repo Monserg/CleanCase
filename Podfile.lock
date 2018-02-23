@@ -48,6 +48,7 @@ PODS:
   - SideMenu (3.1.5)
   - SKStyleKit (1.0.17)
   - SwiftSpinner (1.5.0)
+  - SwiftyXMLParser (4.0.0)
 
 DEPENDENCIES:
   - ActionKit (~> 2.3)
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - SideMenu (~> 3.1)
   - SKStyleKit
   - SwiftSpinner (~> 1.5)
+  - SwiftyXMLParser (~> 4.0)
 
 SPEC CHECKSUMS:
   ActionKit: cf7ca5781f4a43342384d872105fadd58985f416
@@ -90,7 +92,8 @@ SPEC CHECKSUMS:
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
   SKStyleKit: b943612f8c13759b7cd6968d12f0e8565eb56b47
   SwiftSpinner: 4c058c7a1d6b444dd2e1d70988ead40783097133
+  SwiftyXMLParser: 8065da2e715e86aeba677a34fad8c252db5128bb
 
-PODFILE CHECKSUM: 94dc6c31801cb33236afc2e3afde84b2812f2fb9
+PODFILE CHECKSUM: ea38031beb18406ddbfc934fb506c7bd663cc014
 
 COCOAPODS: 1.4.0

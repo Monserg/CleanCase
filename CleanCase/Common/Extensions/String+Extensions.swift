@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyXMLParser
 
 extension String {
     // MARK: - Properties
@@ -58,5 +59,25 @@ extension String {
         dateFormatter.dateFormat        =   dateFormat
 
         return dateFormatter.string(from: Calendar.current.date(from: components)!)
+    }
+    
+    func convertToValues() -> (orderID: Int16, clientID: Int16, price: Float, status: Int16, laundryID: Int16, collection: String?, delivery: String?, remarks: String?, instructions: String?) {
+        let string = "<order id=\"10\" clientid=\"20\" price=\"30\" status=\"9\" laundryid=\"40\"><collection>01/01/0001 00:00</collection><delivery>01/01/0001 00:00</delivery><remarks>אוקיינוס קלינרס</remarks><instructions></instructions></order>"
+        
+        // parse xml document
+        let xml = try! XML.parse(string)
+        
+        let orderID: Int16              =   Int16(xml["order"].attributes["id"] ?? "0")!
+        let clientID: Int16             =   Int16(xml["order"].attributes["clientid"] ?? "0")!
+        let price: Float                =   Float(xml["order"].attributes["price"] ?? "0")!
+        let status: Int16               =   Int16(xml["order"].attributes["status"] ?? "0")!
+        let laundryID: Int16            =   Int16(xml["order"].attributes["laundryid"] ?? "0")!
+
+        let collectionText              =   xml["order"]["collection"].text
+        let deliveryText                =   xml["order"]["delivery"].text
+        let remarksText                 =   xml["order"]["remarks"].text
+        let instructionsText            =   xml["order"]["instructions"].text
+
+        return (orderID: orderID, clientID: clientID, price: price, status: status, laundryID: laundryID, collection: collectionText, delivery: deliveryText, remarks: remarksText, instructions: instructionsText)
     }
 }

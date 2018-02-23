@@ -12,6 +12,8 @@
 		B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B11B186C2025816D00EA29F7 /* Localizable.strings */; };
 		B12295AA202C312B00E3D750 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12295A9202C312B00E3D750 /* Array+Extensions.swift */; };
 		B122F0B8203C1A9500A1A712 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = B122F0B7203C1A9500A1A712 /* style.json */; };
+		B13961FE204020C900B5063C /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13961FD204020C900B5063C /* UpdateManager.swift */; };
+		B139620020403A2100B5063C /* NSManagedObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13961FF20403A2100B5063C /* NSManagedObject+Extensions.swift */; };
 		B1413A7C2035856F00E62463 /* OrderItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1413A7B2035856F00E62463 /* OrderItemTableViewCell.swift */; };
 		B1413A7F20358D9100E62463 /* OrderItemsTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1413A7E20358D9100E62463 /* OrderItemsTableViewFooterView.swift */; };
 		B1413A8120358DAD00E62463 /* OrderItemsTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1413A8020358DAD00E62463 /* OrderItemsTableViewFooterView.xib */; };
@@ -155,6 +157,8 @@
 		B11B18702025851600EA29F7 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B12295A9202C312B00E3D750 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		B122F0B7203C1A9500A1A712 /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
+		B13961FD204020C900B5063C /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
+		B13961FF20403A2100B5063C /* NSManagedObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extensions.swift"; sourceTree = "<group>"; };
 		B1413A7B2035856F00E62463 /* OrderItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemTableViewCell.swift; sourceTree = "<group>"; };
 		B1413A7E20358D9100E62463 /* OrderItemsTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableViewFooterView.swift; sourceTree = "<group>"; };
 		B1413A8020358DAD00E62463 /* OrderItemsTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemsTableViewFooterView.xib; sourceTree = "<group>"; };
@@ -529,6 +533,7 @@
 				B17DC799203DECD7002BEF12 /* CustomTimer.swift */,
 				B1FA2DAA202496F100351BB7 /* ErrorManager.swift */,
 				B1FA2DA82024948400351BB7 /* RestAPIManager.swift */,
+				B13961FD204020C900B5063C /* UpdateManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 				B1FA2D9520246FF700351BB7 /* Constants.swift */,
 				B1798D3A20336B9600381584 /* Date+Extensions.swift */,
 				B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */,
+				B13961FF20403A2100B5063C /* NSManagedObject+Extensions.swift */,
 				B1FA2D9C2024748E00351BB7 /* Protocols.swift */,
 				B19DA3F72028993900E9F7D6 /* String+Extensions.swift */,
 				B1FA2D0A202455DE00351BB7 /* UIApplication+Extension.swift */,
@@ -857,6 +863,7 @@
 				"${BUILT_PRODUCTS_DIR}/SKStyleKit/SKStyleKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyXMLParser/SwiftyXMLParser.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -875,6 +882,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKStyleKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyXMLParser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -928,6 +936,7 @@
 				B1FA2D3820245DDF00351BB7 /* OrderCreateInteractor.swift in Sources */,
 				B1FA2D6420245EE900351BB7 /* AboutShowViewController.swift in Sources */,
 				B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */,
+				B139620020403A2100B5063C /* NSManagedObject+Extensions.swift in Sources */,
 				B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */,
 				B148E910202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift in Sources */,
 				B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */,
@@ -939,6 +948,7 @@
 				B1BAF5572028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift in Sources */,
 				B1798D39203305EE00381584 /* DepartmentTableViewCell.swift in Sources */,
 				B1FA2D9320246D2100351BB7 /* LeftSideMenuShowViewController.swift in Sources */,
+				B13961FE204020C900B5063C /* UpdateManager.swift in Sources */,
 				B1FA2D2720245D5F00351BB7 /* OrderShowModels.swift in Sources */,
 				B1DBDF00202998E100127ECB /* Department+CoreDataClass.swift in Sources */,
 				B1FA2CF720244DC200351BB7 /* FlowControlShowViewController.swift in Sources */,

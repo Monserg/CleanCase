@@ -121,6 +121,7 @@
     <entity name="Token" representedClassName="Token" syncable="YES">
         <attribute name="device" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firebase" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastMessageID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Version" representedClassName="Version" syncable="YES">
         <attribute name="getVerResult" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -135,7 +136,7 @@
         <element name="Order" positionX="-27" positionY="153" width="128" height="285"/>
         <element name="OrderItem" positionX="-36" positionY="144" width="128" height="195"/>
         <element name="PersonalData" positionX="-36" positionY="126" width="128" height="255"/>
+        <element name="Token" positionX="-36" positionY="144" width="128" height="90"/>
         <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
-        <element name="Token" positionX="-36" positionY="144" width="128" height="75"/>
     </elements>
 </model>

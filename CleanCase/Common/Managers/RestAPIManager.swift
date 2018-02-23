@@ -15,6 +15,7 @@ typealias RequestParametersType = (method: HTTPMethod, path: String, body: [Stri
 enum RequestType {
     // GET
     case getCitiesList([String: Any]?, Bool)
+    case getNextMessage([String: Any]?, Bool)
     case getLaundryInfo([String: Any]?, Bool)
     case getOrderItemsList([String: Any]?, Bool)
     case getDepartmentsList([String: Any]?, Bool)
@@ -41,10 +42,15 @@ enum RequestType {
                                                                         body:           (isBodyParams ? params : nil),
                                                                         parameters:     (isBodyParams ? nil : params))
             
-        case .getLaundryInfo(let params, let isBodyParams):      return (method:         .get,
-                                                                        path:           "/GetLaundryByCity/",
+        case .getNextMessage(let params, let isBodyParams):     return (method:         .get,
+                                                                        path:           "/GetClientMessage",
                                                                         body:           (isBodyParams ? params : nil),
                                                                         parameters:     (isBodyParams ? nil : params))
+            
+        case .getLaundryInfo(let params, let isBodyParams):      return (method:         .get,
+                                                                         path:           "/GetLaundryByCity/",
+                                                                         body:           (isBodyParams ? params : nil),
+                                                                         parameters:     (isBodyParams ? nil : params))
             
         case .getOrderItemsList(let params, let isBodyParams):                  return (method:         .get,
                                                                                         path:           "/GetItems/",
@@ -120,7 +126,15 @@ final class RestAPIManager {
 
         // Parameters
         if let params = parameters.parameters, parameters.body == nil {
-            components.path!.append("\(params.values.first!)")
+            if params.count == 1 {
+                components.path!.append("\(params.values.first!)")
+            }
+            
+            else {
+                for i in 0..<params.count {
+                    components.path!.append("/\(params["\(i)"] as! Int64)")
+                }
+            }
         }
         
         return components

@@ -128,7 +128,7 @@
         <scene sceneID="2fz-2w-dqN">
             <objects>
                 <viewController storyboardIdentifier="LeftSideMenuShowVC" id="M6e-eh-3U6" customClass="LeftSideMenuShowViewController" customModule="CleanCase" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PBh-2k-Foc">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="PBh-2k-Foc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
