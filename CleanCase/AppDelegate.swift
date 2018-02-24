@@ -19,13 +19,11 @@ import FirebaseInstanceID
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
-    var updateStatusTimer: CustomTimer = CustomTimer.init(withTimeInterval: 100 * 60)
+    var updateStatusTimer: CustomTimer = CustomTimer(withSecondsInterval: 3)
 
     
     // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        print("sadasdas".convertToValues())
-        
         // Add SKStyleKit
         StyleKit.initStyleKit()
         
@@ -83,7 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        self.updateStatusTimer.stop()
+        self.updateStatusTimer.suspend()
+//        self.updateStatusTimer.stop()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -93,19 +92,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         // Run Update Status Timer
-        self.updateStatusTimer.start()
+        self.updateStatusTimer.resume()
         
-        self.updateStatusTimer.handlerTimerActionCompletion = { _ in
+        self.updateStatusTimer.eventHandler = {
             // Core Data: load last Order with empty Delivety Date & Time
             if let currentOrder = Order.last, currentOrder.deliveryFrom == nil && currentOrder.deliveryTo == nil {
                 NotificationCenter.default.post(name: Notification.Name("TimerNotificationComplete"), object: nil)
             }
-        }        
+        }
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        self.updateStatusTimer.stop()
+        self.updateStatusTimer.suspend()
     }
     
     
@@ -127,35 +126,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        // Print message ID.
-//        if let messageID = userInfo[gcmMessageIDKey] {
-//            print("Message ID: \(messageID)")
-//        }
-        
         // Print full message.
         print(userInfo)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        // Print message ID.
-//        if let messageID = userInfo[gcmMessageIDKey] {
-//            print("Message ID: \(messageID)")
-//        }
-        
         // Print full message.
         print(userInfo)
         

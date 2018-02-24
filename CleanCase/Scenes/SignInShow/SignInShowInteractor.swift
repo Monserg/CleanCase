@@ -92,8 +92,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                 var personalDataJSON = bodyParams["client"] as! [String: Any]
                 personalDataJSON["ClientId"] = Int16(result.AddClientResult)
                 
-                if let client = self.appDependency.coreDataManager.createEntity("PersonalData") as? PersonalData {
-                    client.updateEntity(fromJSON: personalDataJSON)
+                if let personalData = self.appDependency.coreDataManager.createEntity("PersonalData") as? PersonalData {
+                    personalData.updateEntity(fromJSON: personalDataJSON)
                 }
             }
             

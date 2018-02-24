@@ -62,10 +62,8 @@ extension String {
     }
     
     func convertToValues() -> (orderID: Int16, clientID: Int16, price: Float, status: Int16, laundryID: Int16, collection: String?, delivery: String?, remarks: String?, instructions: String?) {
-        let string = "<order id=\"10\" clientid=\"20\" price=\"30\" status=\"9\" laundryid=\"40\"><collection>01/01/0001 00:00</collection><delivery>01/01/0001 00:00</delivery><remarks>אוקיינוס קלינרס</remarks><instructions></instructions></order>"
-        
         // parse xml document
-        let xml = try! XML.parse(string)
+        let xml = try! XML.parse(self)
         
         let orderID: Int16              =   Int16(xml["order"].attributes["id"] ?? "0")!
         let clientID: Int16             =   Int16(xml["order"].attributes["clientid"] ?? "0")!

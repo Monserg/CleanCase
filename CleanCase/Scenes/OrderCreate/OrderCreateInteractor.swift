@@ -67,7 +67,10 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
 
     func saveOrder(fromJSON json: [String: Any]) {
         // Add new Order to CoreData
-        Order().updateEntity(fromJSON: json)
+        if let order = self.appDependency.coreDataManager.createEntity("Order") as? Order {
+            order.updateEntity(fromJSON: json)
+            order.save()
+        }
     }
     
     func updateDepartment(selectedState state: UITableViewCellAccessoryType, byRow row: Int) {

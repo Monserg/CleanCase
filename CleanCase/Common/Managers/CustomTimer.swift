@@ -8,46 +8,62 @@
 
 import Foundation
 
+
 class CustomTimer {
     // MARK: - Properties
-    var timer = Timer()
-    var timeInterval: TimeInterval
+    var seconds: Int
+
+    private lazy var timer: DispatchSourceTimer = {
+        let t = DispatchSource.makeTimerSource()
+        t.schedule(deadline: .now() + 3, repeating: .seconds(6))
+        t.setEventHandler(handler: { [weak self] in
+            self?.eventHandler?()
+        })
+        
+        return t
+    }()
     
-    var handlerTimerActionCompletion: HandlerPassDataCompletion?
+    var eventHandler: (() -> Void)?
+    
+    private enum State {
+        case suspended
+        case resumed
+    }
+    
+    private var state: State = .suspended
     
     
     // MARK: - Class Initialization
-    init(withTimeInterval timeInterval: TimeInterval) {
-        self.timeInterval = timeInterval
+    init(withSecondsInterval seconds: Int) {
+        self.seconds = seconds
     }
     
     convenience init() {
-        self.init(withTimeInterval: 0.0)
+        self.init(withSecondsInterval: 0)
     }
-    
-    
-    // MARK: - Class Functions
-    func start() {
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval:     self.timeInterval,
-                                              target:           self,
-                                              selector:         #selector(self.handlerAction),
-                                              userInfo:         nil,
-                                              repeats:          true)
-        }
-    }
-    
-    func stop() {
-        timer.invalidate()
-    }
-    
+
     deinit {
-        self.timer.invalidate()
+        timer.setEventHandler {}
+        timer.cancel()
+        resume()
+        eventHandler = nil
     }
     
+    func resume() {
+        if state == .resumed {
+            return
+        }
+        
+        state = .resumed
+        timer.resume()
+    }
     
-    // MARK: - Actions
-    @objc func handlerAction() {
-        handlerTimerActionCompletion!(nil)
+    func suspend() {
+        if state == .suspended {
+            return
+        }
+        
+        state = .suspended
+        timer.suspend()
     }
 }

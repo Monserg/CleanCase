@@ -77,7 +77,9 @@ class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .addClient([ "client": requestModel.params! ], true), andResponseType: ResponseAPIClientResult.self, completionHandler: { [unowned self] responseAPI in
             if (responseAPI.model as? ResponseAPIClientResult) != nil {
-                PersonalData().updateEntity(fromJSON: requestModel.params!)
+                if let personalData = self.appDependency.coreDataManager.createEntity("PersonalData") as? PersonalData {
+                    personalData.updateEntity(fromJSON: requestModel.params!)
+                }
             }
             
             let responseModel = PersonalDataShowModels.Client.ResponseModel(error: responseAPI.error)

@@ -90,7 +90,6 @@ extension Decodable {
                 return orderItemModel.Name
             }
 
-
         case "telephone":
             return (self as! ResponseAPILaundryInfo).Telephone
             

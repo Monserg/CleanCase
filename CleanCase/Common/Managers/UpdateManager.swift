@@ -41,21 +41,27 @@ class UpdateManager {
                 let model = result.GetClientMessageResult
                 
                 if model.RecordId != Token.current!.lastMessageID && model.RecordId != 0 {
-                    Token.current!.lastMessageID = model.RecordId
-                    Token.current!.save()
-
-                    // CoreData
-                    switch model.Command {
-                    // Update Order Status
-                    case 5:
-                        if let order = CoreDataManager.instance.readEntity(withName: "Order",
-                                                                           andPredicateParameters: NSPredicate.init(format: "orderID == 1")) as? Order {
-                            order.orderStatus = 9
-                            order.save()
-                        }
+                    if model.ClientId == PersonalData.current!.clientId {
+                        Token.current!.lastMessageID = model.RecordId
+                        Token.current!.save()
                         
-                    default:
-                        break
+                        if let dataXML = model.Data, !dataXML.isEmpty {
+                            let dataInfo = dataXML.convertToValues()
+                            
+                            // CoreData
+                            switch model.Command {
+                            // Update Order Status
+                            case 5:
+                                if let order = CoreDataManager.instance.readEntity(withName: "Order",
+                                                                                   andPredicateParameters: NSPredicate.init(format: "orderID == \(dataInfo.orderID)")) as? Order {
+                                    order.orderStatus = dataInfo.status
+                                    order.save()
+                                }
+                                
+                            default:
+                                break
+                            }
+                        }
                     }
                 }
             }

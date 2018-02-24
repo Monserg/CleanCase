@@ -21,6 +21,8 @@ class MainShowViewController: UIViewController {
     fileprivate var isDeliveryTermShow: Bool = false
     fileprivate var lastMessageTimer: CustomTimer!
 
+    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
+
     
     // MARK: - IBOutlets
     @IBOutlet weak var basketBarButtonItem: UIBarButtonItem!
@@ -87,6 +89,10 @@ class MainShowViewController: UIViewController {
                                                selector:    #selector(handlerTimerNotification),
                                                name:        Notification.Name("TimerNotificationComplete"),
                                                object:      nil)
+        
+        backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier!)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -172,12 +178,16 @@ class MainShowViewController: UIViewController {
         if let orders = CoreDataManager.instance.readEntities(withName: "Order",
                                                               withPredicateParameters: nil,
                                                               andSortDescriptor: NSSortDescriptor.init(key: "orderID", ascending: false)), orders.count > 0 {
-            self.lastMessageTimer = CustomTimer.init(withTimeInterval: 0.1 * 60)
-            self.lastMessageTimer.start()
+            self.lastMessageTimer = CustomTimer.init(withSecondsInterval: 5)
+            self.lastMessageTimer.resume()
             
-            self.lastMessageTimer.handlerTimerActionCompletion = { _ in
+            self.lastMessageTimer.eventHandler = {
                 // API
-                _ = UpdateManager().getLastClientMessage()
+                self.checkNetworkConnection({ success in
+                    if success {
+                        _ = UpdateManager().getLastClientMessage()
+                    }
+                })
             }
         }
     }
@@ -195,11 +205,13 @@ class MainShowViewController: UIViewController {
     
     @objc func handlerTimerNotification(_ notification: Notification) {
         if !isDeliveryTermShow && sideMenuManager.menuLeftNavigationController!.isHidden {
-            self.createPopover(withName: "DeliveryTermsShow", completion: { [unowned self] in
-                self.isDeliveryTermShow = false
-            })
-            
-            self.isDeliveryTermShow = true
+            if let order = Order.last, order.orderStatus == 3, order.deliveryFrom == nil, order.deliveryTo == nil {
+                self.createPopover(withName: "DeliveryTermsShow", completion: { [unowned self] in
+                    self.isDeliveryTermShow = false
+                })
+                
+                self.isDeliveryTermShow = true
+            }
         }
     }
 }

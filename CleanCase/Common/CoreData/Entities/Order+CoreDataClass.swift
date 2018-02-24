@@ -50,20 +50,16 @@ public class Order: NSManagedObject {
     
     // MARK: - Class Functions
     func updateEntity(fromJSON json: [String: Any]) {
-        if let orderEntity = CoreDataManager.instance.createEntity("Order") as? Order {
-            orderEntity.price                   =   json["Price"] as! Float
-            orderEntity.orderID                 =   Int16(json["OrderID"] as! String)!
-            orderEntity.clientID                =   json["ClientId"] as! Int16
-            orderEntity.remarks                 =   json["Remarks"] as? String
-            orderEntity.address1                =   json["Address1"] as? String
-            orderEntity.orderStatus             =   Int16(json["OrderStatus"] as! Int)
-            orderEntity.createdDate             =   json["CreatedDate"] as! String
-            orderEntity.collectionTo            =   json["CollectionTo"] as! String
-            orderEntity.collectionFrom          =   json["CollectionFrom"] as! String
-            orderEntity.cleaningInstructions    =   json["CleaningInstructions"] as? String
-
-            CoreDataManager.instance.contextSave()
-        }
+            self.price                   =   json["Price"] as! Float
+            self.orderID                 =   Int16(json["OrderID"] as! String)!
+            self.clientID                =   json["ClientId"] as! Int16
+            self.remarks                 =   json["Remarks"] as? String
+            self.address1                =   json["Address1"] as? String
+            self.orderStatus             =   Int16(json["OrderStatus"] as! Int)
+            self.createdDate             =   json["CreatedDate"] as! String
+            self.collectionTo            =   json["CollectionTo"] as! String
+            self.collectionFrom          =   json["CollectionFrom"] as! String
+            self.cleaningInstructions    =   json["CleaningInstructions"] as? String
     }
     
     func getItems() {
