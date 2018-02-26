@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94q-9A-2Wf" userLabel="Content View" customClass="SKView" customModule="SKStyleKit">
-                                        <rect key="frame" x="0.0" y="48" width="375" height="559"/>
+                                        <rect key="frame" x="0.0" y="48" width="375" height="448"/>
                                         <subviews>
                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0B-Hj-tfE" userLabel="Select City Text Field" customClass="SKTextField" customModule="SKStyleKit">
                                                 <rect key="frame" x="16" y="16" width="343" height="30"/>
@@ -160,6 +160,7 @@
                                             <constraint firstItem="47K-yj-jwL" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="Hye-OW-cZa"/>
                                             <constraint firstItem="ZQf-vD-EaJ" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="INq-hj-m5O"/>
                                             <constraint firstItem="r6k-0O-JEp" firstAttribute="top" secondItem="XSZ-IG-k8o" secondAttribute="bottom" constant="32" id="K6T-es-hYI"/>
+                                            <constraint firstAttribute="bottom" secondItem="63b-XS-r6M" secondAttribute="bottom" constant="40" id="KJg-KV-8h2"/>
                                             <constraint firstAttribute="trailing" secondItem="r6k-0O-JEp" secondAttribute="trailing" constant="16" id="L9X-ib-ODS"/>
                                             <constraint firstItem="FAP-Pf-Z2b" firstAttribute="leading" secondItem="94q-9A-2Wf" secondAttribute="leading" constant="16" id="MIG-fa-MnG"/>
                                             <constraint firstItem="ZQf-vD-EaJ" firstAttribute="top" secondItem="47K-yj-jwL" secondAttribute="bottom" constant="16" id="TZi-tL-Wg5"/>

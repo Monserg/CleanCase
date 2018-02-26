@@ -12,6 +12,7 @@
 
 import UIKit
 import SKStyleKit
+import DynamicColor
 
 // MARK: - Input & Output protocols
 protocol WriteUsShowDisplayLogic: class {
@@ -39,8 +40,17 @@ class WriteUsShowViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView! {
         didSet {
-            textView.text.localize()
-            textView.textAlignment = .right
+            textView.text!.localize()
+            textView.backgroundColor      =   DynamicColor(hexString: "#82FFFF")              // veryLightCyan
+            textView.layer.borderColor    =   DynamicColor(hexString: "#A9A9A9").cgColor      // gray
+            textView.layer.borderWidth    =   1
+            textView.layer.cornerRadius   =   4
+            textView.font                 =   UIFont.systemFont(ofSize: 16.0)
+            textView.textAlignment        =   .right
+            textView.textColor            =   DynamicColor(hexString: "#A9A9A9")              // gray
+            textView.tintColor            =   DynamicColor(hexString: "#000000")              // black
+            textView.contentInset         =   UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
+            
             textView.delegate = self
         }
     }
@@ -106,35 +116,32 @@ class WriteUsShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     fileprivate func loadTextViewPlaceholder(_ text: String?) {
-        var textViewStyle: SKStyle!
-
-        if (text == nil) {
-            textView.text                   =   ""
-            sendMessageButton.isEnabled     =   false
+        guard text != nil else {
+            textView.text         =   ""
+            textView.textColor    =   DynamicColor(hexString: "#000000")              // black
+            return
+        }
+        
+        if (text!.isEmpty) {
+            textView.text         =   "Enter comment".localized()
+            textView.textColor    =   DynamicColor(hexString: "#A9A9A9")              // gray
+        }
             
-            textViewStyle                   =   SKStyleKit.style(withName: "textViewPlaceholderStyle")!
+        else if text == "Enter comment".localized() {
+            textView.text         =   ""
+            textView.textColor    =   DynamicColor(hexString: "#A9A9A9")              // gray
         }
-        
-        else if (text == "Enter message".localized() || text!.isEmpty) {
-            textView.text                   =   "Enter message".localized()
-            sendMessageButton.isEnabled     =   false
-           
-            textViewStyle                   =   SKStyleKit.style(withName: "textViewPlaceholderStyle")!
-        }
-        
+            
         else {
-            sendMessageButton.isEnabled     =   true
-
-            textViewStyle                   =   SKStyleKit.style(withName: "textViewTextStyle")!
+            textView.textColor    =   DynamicColor(hexString: "#000000")              // black
         }
-        
-        textViewStyle.apply(view: textView)
     }
-    
+
     
     // MARK: - Gestures
     @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         textView.resignFirstResponder()
+        self.sendMessageButton.isEnabled = (textView.text != "Enter comment".localized())
     }
     
     
@@ -183,7 +190,6 @@ extension WriteUsShowViewController: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         charactersCountLabel.text = "\(textView.text!.count + text.count)/200"
-        loadTextViewPlaceholder(textView.text)
 
         return (textView.text!.count + text.count) < 200
     }
