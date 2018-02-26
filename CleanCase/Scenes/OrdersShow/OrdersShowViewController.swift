@@ -32,6 +32,12 @@ class OrdersShowViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint! {
+        didSet {
+            tableViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? -64.0 : 0.0
+        }
+    }
+    
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

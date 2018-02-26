@@ -34,11 +34,10 @@ class OrderShowViewController: UIViewController {
         }
     }
     
-    @IBOutlet var captionLabelsCollection: [UILabel]! {
+    @IBOutlet var captionLabelsCollection: [SKLabel]! {
         didSet {
             _ = captionLabelsCollection.map({
-                $0.textAlignment = .right
-                $0.text = $0.text!.localized()
+                $0.text!.localize()
             })
         }
     }
@@ -62,6 +61,7 @@ class OrderShowViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
+            tableView.register(UINib(nibName: "OrderItemsTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "FooterCell")
             tableView.delegate = self
             tableView.dataSource = self
         }
@@ -118,6 +118,12 @@ class OrderShowViewController: UIViewController {
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
 
         loadViewSettings()
+        
+        // Add Timer Observer
+        NotificationCenter.default.addObserver(self,
+                                               selector:    #selector(handlerChangeOrderStatusNotification),
+                                               name:        Notification.Name("ChangeOrderStatusComplete"),
+                                               object:      nil)
     }
     
     override func handlerBackButtonTapped(_ sender: UIBarButtonItem) {
@@ -131,6 +137,10 @@ class OrderShowViewController: UIViewController {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     
     // MARK: - Custom Functions
     func loadViewSettings() {
@@ -148,6 +158,7 @@ class OrderShowViewController: UIViewController {
         interactor?.saveOrderID(orderID)
     }
     
+    
     // MARK: - Actions
     @IBAction func handlerCancelButtonTapped(_ sender: UIButton) {
         // API
@@ -161,6 +172,21 @@ class OrderShowViewController: UIViewController {
                 })
             }
         })
+    }
+    
+    @objc func handlerChangeOrderStatusNotification(_ notification: Notification) {
+        if let order = self.router?.dataStore?.order, order.orderStatus == 0 {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        else {
+            self.saveOrderID(self.router!.dataStore!.orderID)
+            self.loadViewSettings()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -213,21 +239,36 @@ extension OrderShowViewController: UITableViewDelegate {
         return 54.0 * heightRatio
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 89.0
+        return 109.0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if let order = self.router?.dataStore?.order {
             // Register the Nib footer section views
-            self.tableView.register(UINib(nibName: "OrderItemsTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "FooterCell")
             let footerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "FooterCell") as! OrderItemsTableViewFooterView
             
             let footerViewStyle = SKStyleKit.style(withName: "sideMenuStyle")!
             footerView.backgroundColor = footerViewStyle.backgroundColor
 
-            footerView.setup(withOrderStatus: order.orderStatus)
+            footerView.setup(withOrder: order)
             
+            footerView.setNeedsLayout()
+            footerView.layoutIfNeeded()
+
+            let width = tableView.frame.width
+            var frame = footerView.frame
+            frame.size.width = width
+            footerView.frame = frame
+
             return footerView
         }
         
@@ -235,6 +276,5 @@ extension OrderShowViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
     }
 }

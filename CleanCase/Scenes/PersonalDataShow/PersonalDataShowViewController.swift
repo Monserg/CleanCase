@@ -33,6 +33,8 @@ class PersonalDataShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
+    @IBOutlet weak var saveButton: UIButton!
+    
     @IBOutlet var textFieldsCollection: [UITextField]! {
         didSet {
             _ = textFieldsCollection.map({
@@ -55,7 +57,11 @@ class PersonalDataShowViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint! {
+        didSet {
+            scrollViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? -64.0 : 0.0
+        }
+    }
     
     
     // MARK: - Class Initialization

@@ -72,14 +72,16 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
                     let dateEntity = dateEntities.first!
                     var dateTimes = [PickerViewSupport]()
                     let weekDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "dd/MM/yyyy")
+                    let deliveryDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "yyyy-MM-dd")
 
                     // Check times for current date
                     for (index, dateEntity) in dateEntities.enumerated() {
                         if (i == 1 && dateEntity.fromDate.convertToFloat() >= (Float(dateComponents.hour! + 1) + Float(dateComponents.minute!) / 100)) || i != 1 {
-                            dateTimes.append(DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView(id:          Int16(index),
-                                                                                                          title:       "\(dateEntity.fromDate.getTime())-\(dateEntity.toDate.getTime())",
-                                                                                                          bodyDate:    weekDate,
-                                                                                                          bodyTime:    dateEntity.fromDate.getTime()))
+                            dateTimes.append(DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView(id:           Int16(index),
+                                                                                                          title:        "\(dateEntity.fromDate.getTime())-\(dateEntity.toDate.getTime())",
+                                                                                                          bodyDate:     weekDate,
+                                                                                                          bodyTime:     dateEntity.fromDate.getTime(),
+                                                                                                          deliveryDate: deliveryDate))
                         }
                     }
                     
@@ -100,12 +102,20 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
         // Prepare request body parameters
         let selectedDate    =   (times[selectedTimeRow] as! DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView).bodyDate
         let selectedTime    =   (times[selectedTimeRow] as! DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView).bodyTime
+        let deliveryDate    =   (times[selectedTimeRow] as! DeliveryTermsShowModels.Dates.RequestModel.TimeForPickerView).deliveryDate
         let comment         =   (requestModel.comment == "Enter comment".localized()) ? "" : requestModel.comment
         
         let bodyParams: [String: Any] = [ "orderId": "326", "delivery": "\(selectedDate) \(selectedTime)", "remarks": comment ?? "" ]
         
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .setDelivery(bodyParams, true), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] response in
+            if let order = Order.firstToDelivery, response.error == nil {
+                order.deliveryFrom  =   deliveryDate
+                order.deliveryTo    =   selectedTime
+                order.deliveryNotes =   comment
+                order.save()
+            }
+            
             let responseModel = DeliveryTermsShowModels.Item.ResponseModel(error: response.error)
             self.presenter?.presentConfirmDeliveryTerms(fromResponseModel: responseModel)
         })

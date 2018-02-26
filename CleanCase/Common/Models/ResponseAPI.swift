@@ -157,3 +157,8 @@ struct ResponseAPIClientMessageInfo: Decodable {
     let LaundryId: Int16
     let RecordId: Int64
 }
+
+struct ResponseAPIRecordIDResult: Decodable {
+    // MARK: - Properties
+    let GetRecordIdResult: Int64
+}

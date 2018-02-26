@@ -58,6 +58,17 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     
     
     // MARK: - Business logic implementation
+    fileprivate func loadLastRecordID() {
+        // API
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getLastRecordID(nil, false), andResponseType: ResponseAPIRecordIDResult.self, completionHandler: { [unowned self] responseAPI in
+            if let result = responseAPI.model as? ResponseAPIRecordIDResult {
+                Token.current!.lastMessageID = result.GetRecordIdResult
+                self.appDependency.coreDataManager.contextSave()
+                print("TEST: lasr record ID = \(result.GetRecordIdResult)")
+            }
+        })
+    }
+    
     func saveSelectedCity(byRow row: Int) {
         self.selectedCityID = "\(cities[row].id)"
     }
@@ -82,7 +93,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                                                         "CardCVV":          "",
                                                         "CardExpired":      "",
                                                         "Adv":              "1",
-                                                        "Token":            firebaseRegistrationToken
+                                                        "Token":            Token.current!.firebase ?? ""
                                                     ]
                                         ]
 
@@ -96,6 +107,9 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                     personalData.updateEntity(fromJSON: personalDataJSON)
                 }
             }
+            
+            self.appDependency.coreDataManager.contextSave()
+            self.loadLastRecordID()
             
             let responseModel = SignInShowModels.User.ResponseModel()
             self.presenter?.presentClient(fromResponseModel: responseModel)
@@ -119,6 +133,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                 }
             }
             
+            self.appDependency.coreDataManager.contextSave()
+
             let responseModel = SignInShowModels.City.ResponseModel()
             self.presenter?.presentCities(fromResponseModel: responseModel)
         })
@@ -136,6 +152,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                                                                                             model:      model))
             }
             
+            self.appDependency.coreDataManager.contextSave()
+
             let responseModel = SignInShowModels.Laundry.ResponseModel()
             self.presenter?.presentLaundry(fromResponseModel: responseModel)
         })
@@ -156,6 +174,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                 }
             }
             
+            self.appDependency.coreDataManager.contextSave()
+
             let responseModel = SignInShowModels.Date.ResponseModel()
             self.presenter?.presentDeliveryDates(fromResponseModel: responseModel)
         })
@@ -176,6 +196,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                 }
             }
             
+            self.appDependency.coreDataManager.contextSave()
+
             let responseModel = SignInShowModels.Date.ResponseModel()
             self.presenter?.presentCollectionDates(fromResponseModel: responseModel)
         })
@@ -194,6 +216,8 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
                 }
             }
             
+            self.appDependency.coreDataManager.contextSave()
+
             let responseModel = SignInShowModels.Department.ResponseModel()
             self.presenter?.presentDepartments(fromResponseModel: responseModel)
         })

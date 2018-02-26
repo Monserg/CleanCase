@@ -31,7 +31,7 @@ extension DepartmentItemTableViewCell: ConfigureCell {
         let departmentItem      =   item as! DepartmentItem
         
         self.nameLabel.text     =   departmentItem.name
-        self.priceLabel.text    =   String(format: "%@ %.2f", departmentItem.price, "Currency".localized())
+        self.priceLabel.text    =   String(format: "%@ %.2f", "Currency".localized(), departmentItem.price)
         
         selectionStyle          =   .none
     }

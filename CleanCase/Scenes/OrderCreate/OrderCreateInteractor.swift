@@ -70,6 +70,7 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         if let order = self.appDependency.coreDataManager.createEntity("Order") as? Order {
             order.updateEntity(fromJSON: json)
             order.save()
+            print("TEST: order data = \(json)")
         }
     }
     
@@ -82,6 +83,7 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .addOrder(requestModel.bodyParams, true), andResponseType: ResponseAPIAddOrderResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIAddOrderResult {
                 self.orderID = result.AddOrderResult
+                print("TEST: order ID = \(self.orderID!)")
             }
             
             let responseModel = OrderCreateModels.Order.ResponseModel(error: (self.orderID == nil) ? NSError.init(domain: "BAD_REQUEST_400", code: 400, userInfo: nil) : nil )
@@ -98,12 +100,12 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
             if dateComponents.weekday! != 7 {
                 if let dateEntities = appDependency.coreDataManager.readEntities(withName: "CollectionDate",
                                                                                  withPredicateParameters: NSPredicate.init(format: "weekDay == \(dateComponents.weekday!)"),
-                                                                                 andSortDescriptor: nil) as? [CollectionDate] {
+                                                                                 andSortDescriptor: nil) as? [CollectionDate], dateEntities.count > 0 {
                     // Times
-                    let dateEntity = dateEntities.first!
-                    var dateTimes = [PickerViewSupport]()
-                    let weekDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "dd/MM/yyyy")
-                    let bodyDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "yyyy-MM-dd")
+                    let dateEntity  =   dateEntities.first!
+                    var dateTimes   =   [PickerViewSupport]()
+                    let weekDate    =   String.createDateString(fromComponents: dateComponents, withDateFormat: "dd/MM/yyyy")
+                    let bodyDate    =   String.createDateString(fromComponents: dateComponents, withDateFormat: "yyyy-MM-dd")
 
                     // Check times for current date
                     for (index, dateEntity) in dateEntities.enumerated() {

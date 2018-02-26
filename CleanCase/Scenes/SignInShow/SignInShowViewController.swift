@@ -64,6 +64,12 @@ class SignInShowViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint! {
+        didSet {
+            scrollViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? -64.0 : 0.0
+        }
+    }
+
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer! {
         didSet {
             tapGestureRecognizer.cancelsTouchesInView = false

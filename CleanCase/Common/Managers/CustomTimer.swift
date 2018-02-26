@@ -15,7 +15,7 @@ class CustomTimer {
 
     private lazy var timer: DispatchSourceTimer = {
         let t = DispatchSource.makeTimerSource()
-        t.schedule(deadline: .now() + 3, repeating: .seconds(6))
+        t.schedule(deadline: .now() + 3, repeating: .seconds(seconds))
         t.setEventHandler(handler: { [weak self] in
             self?.eventHandler?()
         })

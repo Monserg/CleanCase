@@ -24,7 +24,12 @@ class PriceListShowViewController: UIViewController {
     var interactor: PriceListShowBusinessLogic?
     var router: (NSObjectProtocol & PriceListShowRoutingLogic & PriceListShowDataPassing)?
     
-    var widthDepartmentCell: CGFloat!
+    var widthDepartmentCell: CGFloat! = 130.0 {
+        didSet {
+            self.selectedView.frame.size = CGSize.init(width: self.widthDepartmentCell, height: 4.0)
+        }
+    }
+    
     var selectedDepartmentRow: Int = 0
     
     
@@ -93,10 +98,13 @@ class PriceListShowViewController: UIViewController {
     
     // MARK: - Class Functions
     override func viewDidLayoutSubviews() {
+        self.departmentsCollectionView.collectionViewLayout.invalidateLayout()
+
         let section                 =   0
         self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
         let indexPath               =   IndexPath(item: self.selectedDepartmentRow, section: section)
-        
+        self.widthDepartmentCell    =   (self.departmentsCollectionView.frame.width - 30.0) / 3.0
+
         self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: false)
         print(self.departmentsCollectionView.contentOffset.x)
         self.moveSelectedView()
@@ -105,11 +113,15 @@ class PriceListShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewSettingsDidLoad()
+
         self.addBackBarButtonItem()
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
-
-        viewSettingsDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -137,7 +149,6 @@ class PriceListShowViewController: UIViewController {
     }
 
     
-    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // API
@@ -164,11 +175,14 @@ class PriceListShowViewController: UIViewController {
 extension PriceListShowViewController: PriceListShowDisplayLogic {
     func displayDepartments(fromViewModel viewModel: PriceListShowModels.Department.ViewModel) {
         // NOTE: Display the result from the Presenter
+        let numberOfItems   =   self.departmentsCollectionView.numberOfItems(inSection: 0)
+        let indexPath       =   [Int](0..<numberOfItems).map{ IndexPath(row: $0, section: 0) }
+        
+        self.departmentsCollectionView.reloadItems(at: indexPath)
+
         DispatchQueue.main.async(execute: {
             let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: 0)
             self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
-            
-            self.departmentsCollectionView.reloadData()
         })
     }
     
@@ -284,8 +298,7 @@ extension PriceListShowViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        self.widthDepartmentCell        =   (departmentsCollectionView.frame.width - 30.0) / 3.0
-        self.selectedView.frame.size    =   CGSize.init(width: widthDepartmentCell, height: 4.0)
+        self.widthDepartmentCell = (self.departmentsCollectionView.frame.width - 30.0) / 3.0
 
         return CGSize.init(width: self.widthDepartmentCell, height: collectionView.frame.height)
     }

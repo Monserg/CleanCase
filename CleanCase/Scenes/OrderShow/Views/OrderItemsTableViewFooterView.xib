@@ -12,48 +12,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FooterCell" rowHeight="89" id="MuI-eW-UvP" customClass="OrderItemsTableViewFooterView" customModule="CleanCase" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FooterCell" rowHeight="109" id="MuI-eW-UvP" customClass="OrderItemsTableViewFooterView" customModule="CleanCase" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MuI-eW-UvP" id="6py-HX-OTL" customClass="SKLabel" customModule="SKStyleKit">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="108.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CIX-Oi-hEo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="108.5"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KK-aW-I9k" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="4"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="4"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.97254901960784312" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="K8S-qB-MAd"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhf-0l-Qq3" customClass="SKView" customModule="SKStyleKit">
-                                <rect key="frame" x="0.0" y="4" width="375" height="85.5"/>
+                                <rect key="frame" x="0.0" y="4" width="320" height="104.5"/>
                                 <subviews>
-                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Date Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlT-ZF-EGG" userLabel="Delivery Date Caption Label" customClass="SKLabel" customModule="SKStyleKit">
-                                        <rect key="frame" x="228" y="8" width="131" height="17"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle6"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <label clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KM8-Ld-AJa" userLabel="Total Price Caption Label" customClass="SKLabel" customModule="SKStyleKit">
-                                        <rect key="frame" x="228" y="41" width="131" height="20.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle6"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Date Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaL-fC-ZkK" userLabel="Delivery Date Label" customClass="SKLabel" customModule="SKStyleKit">
-                                        <rect key="frame" x="16" y="6" width="204" height="20.5"/>
+                                        <rect key="frame" x="16" y="8" width="143.5" height="20.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -62,32 +42,62 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle5"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-34-6Yp" userLabel="Price View" customClass="SKView" customModule="SKStyleKit">
-                                        <rect key="frame" x="0.0" y="41.5" width="220" height="44"/>
+                                    <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lR1-AO-TSi">
+                                        <rect key="frame" x="167.5" y="8" width="140.5" height="49"/>
                                         <subviews>
-                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNS-eb-bKz" userLabel="Total Caption Label">
-                                                <rect key="frame" x="131.5" y="11.5" width="72.5" height="20.5"/>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Date Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlT-ZF-EGG" userLabel="Delivery Date Caption Label" customClass="SKLabel" customModule="SKStyleKit">
+                                                <rect key="frame" x="0.0" y="0.0" width="140.5" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle6"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsX-0R-JLG" userLabel="Order Price Label">
-                                                <rect key="frame" x="16" y="11.5" width="87.5" height="20.5"/>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KM8-Ld-AJa" userLabel="Total Price Caption Label" customClass="SKLabel" customModule="SKStyleKit">
+                                                <rect key="frame" x="0.0" y="28.5" width="140.5" height="20.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle6"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-34-6Yp" userLabel="Price View" customClass="SKView" customModule="SKStyleKit">
+                                        <rect key="frame" x="0.0" y="38.5" width="192" height="64"/>
+                                        <subviews>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNS-eb-bKz" userLabel="Total Caption Label" customClass="SKLabel" customModule="SKStyleKit">
+                                                <rect key="frame" x="99.5" y="21.5" width="101" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle7"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsX-0R-JLG" userLabel="Order Price Label" customClass="SKLabel" customModule="SKStyleKit">
+                                                <rect key="frame" x="12" y="21.5" width="87.5" height="20.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle8"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="NNS-eb-bKz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qsX-0R-JLG" secondAttribute="trailing" id="D5j-MK-NGy"/>
-                                            <constraint firstItem="qsX-0R-JLG" firstAttribute="leading" secondItem="GMd-34-6Yp" secondAttribute="leading" constant="16" id="Jse-k1-gxJ"/>
-                                            <constraint firstAttribute="height" constant="44" id="SXp-ZY-1um"/>
+                                            <constraint firstAttribute="trailing" secondItem="NNS-eb-bKz" secondAttribute="trailing" priority="750" constant="8" id="FKl-F6-cNg"/>
+                                            <constraint firstItem="qsX-0R-JLG" firstAttribute="leading" secondItem="GMd-34-6Yp" secondAttribute="leading" constant="12" id="Jse-k1-gxJ"/>
+                                            <constraint firstAttribute="height" constant="64" id="SXp-ZY-1um"/>
                                             <constraint firstItem="NNS-eb-bKz" firstAttribute="centerY" secondItem="GMd-34-6Yp" secondAttribute="centerY" id="XFf-sw-8ii"/>
                                             <constraint firstItem="qsX-0R-JLG" firstAttribute="centerY" secondItem="GMd-34-6Yp" secondAttribute="centerY" id="YlP-oX-zDo"/>
-                                            <constraint firstAttribute="trailing" secondItem="NNS-eb-bKz" secondAttribute="trailing" constant="16" id="ozc-Eo-Y9x"/>
-                                            <constraint firstItem="NNS-eb-bKz" firstAttribute="width" secondItem="GMd-34-6Yp" secondAttribute="width" multiplier="0.33" id="pqw-H2-4cn"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
@@ -95,16 +105,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="KM8-Ld-AJa" secondAttribute="trailing" constant="16" id="1Pe-wJ-Smz"/>
+                                    <constraint firstItem="QaL-fC-ZkK" firstAttribute="top" secondItem="mhf-0l-Qq3" secondAttribute="top" constant="8" id="5f0-PJ-VxX"/>
                                     <constraint firstItem="GMd-34-6Yp" firstAttribute="leading" secondItem="mhf-0l-Qq3" secondAttribute="leading" id="C1O-hN-Nft"/>
-                                    <constraint firstAttribute="trailing" secondItem="TlT-ZF-EGG" secondAttribute="trailing" constant="16" id="Jnq-5W-4Ob"/>
-                                    <constraint firstItem="TlT-ZF-EGG" firstAttribute="centerY" secondItem="QaL-fC-ZkK" secondAttribute="centerY" id="MfU-bH-wdb"/>
-                                    <constraint firstItem="KM8-Ld-AJa" firstAttribute="top" secondItem="TlT-ZF-EGG" secondAttribute="bottom" constant="16" id="S8P-EQ-xwV"/>
-                                    <constraint firstItem="KM8-Ld-AJa" firstAttribute="leading" secondItem="GMd-34-6Yp" secondAttribute="trailing" constant="8" id="UpC-kp-Z6e"/>
-                                    <constraint firstItem="TlT-ZF-EGG" firstAttribute="leading" secondItem="QaL-fC-ZkK" secondAttribute="trailing" constant="8" id="aIL-H2-Eeb"/>
-                                    <constraint firstAttribute="bottom" secondItem="GMd-34-6Yp" secondAttribute="bottom" id="b5b-Mo-PmZ"/>
-                                    <constraint firstItem="KM8-Ld-AJa" firstAttribute="top" secondItem="GMd-34-6Yp" secondAttribute="top" id="cLj-9o-L2E"/>
-                                    <constraint firstItem="TlT-ZF-EGG" firstAttribute="top" secondItem="mhf-0l-Qq3" secondAttribute="top" constant="8" id="eku-Ov-Xpf"/>
+                                    <constraint firstAttribute="trailing" secondItem="lR1-AO-TSi" secondAttribute="trailing" constant="12" id="Igs-IS-qSG"/>
+                                    <constraint firstItem="GMd-34-6Yp" firstAttribute="top" secondItem="QaL-fC-ZkK" secondAttribute="bottom" constant="10" id="QgL-lx-nC8"/>
+                                    <constraint firstItem="GMd-34-6Yp" firstAttribute="width" secondItem="mhf-0l-Qq3" secondAttribute="width" multiplier="0.6" id="gd8-bb-sw9"/>
+                                    <constraint firstItem="lR1-AO-TSi" firstAttribute="top" secondItem="mhf-0l-Qq3" secondAttribute="top" constant="8" id="ifF-cU-H4m"/>
+                                    <constraint firstItem="lR1-AO-TSi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QaL-fC-ZkK" secondAttribute="trailing" constant="8" id="n9P-sv-hsF"/>
                                     <constraint firstItem="QaL-fC-ZkK" firstAttribute="leading" secondItem="mhf-0l-Qq3" secondAttribute="leading" constant="16" id="qrP-xD-Ylw"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -117,9 +124,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="CIX-Oi-hEo" firstAttribute="top" secondItem="6py-HX-OTL" secondAttribute="top" id="1hW-c4-xAp"/>
-                    <constraint firstItem="TlT-ZF-EGG" firstAttribute="width" secondItem="6py-HX-OTL" secondAttribute="width" multiplier="0.35" id="PAA-rE-Yah"/>
                     <constraint firstAttribute="trailing" secondItem="CIX-Oi-hEo" secondAttribute="trailing" id="SqY-RR-cWj"/>
-                    <constraint firstItem="KM8-Ld-AJa" firstAttribute="width" secondItem="6py-HX-OTL" secondAttribute="width" multiplier="0.35" id="Vg1-eq-bng"/>
                     <constraint firstItem="CIX-Oi-hEo" firstAttribute="leading" secondItem="6py-HX-OTL" secondAttribute="leading" id="lZM-hr-87E"/>
                     <constraint firstAttribute="bottom" secondItem="CIX-Oi-hEo" secondAttribute="bottom" id="nC7-We-Nk2"/>
                 </constraints>

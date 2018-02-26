@@ -95,6 +95,12 @@ class OrderCreateViewController: UIViewController {
     
     @IBOutlet weak var departmentsTableViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint! {
+        didSet {
+            scrollViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? -64.0 : 0.0
+        }
+    }
+
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -202,7 +208,7 @@ class OrderCreateViewController: UIViewController {
     fileprivate func prepareBodyParameters(_ forAPI: Bool) -> [ String: Any ] {
         var comments = textViewCollection.first(where: { $0.tag == 0 })?.text
         var instructions = textViewCollection.first(where: { $0.tag == 1 })?.text
-        let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + $1.name }
+        let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + " ," + $1.name }
 
         if comments == "Enter comment".localized() {
             comments = selectedDepartments

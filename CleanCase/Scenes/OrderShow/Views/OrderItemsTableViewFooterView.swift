@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SKStyleKit
 
 class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
     // MARK: - IBOutlets
@@ -22,18 +23,17 @@ class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
         }
     }
     
-    @IBOutlet var captionLabelsCollection: [UILabel]! {
+    @IBOutlet var captionLabelsCollection: [SKLabel]! {
         didSet {
             _ = captionLabelsCollection.map({
                 $0.text!.localize()
-                $0.textAlignment = .right
             })
         }
     }
     
     @IBOutlet weak var totalCaptionLabel: UILabel! {
         didSet {
-            totalCaptionLabel.text = totalCaptionLabel.text!.localized()
+            totalCaptionLabel.text!.localize()
             
         }
     }
@@ -50,14 +50,16 @@ class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
     
     
     // MARK: - Custom Functions
-    func setup(withOrderStatus orderStatus: Int16) {
-        switch orderStatus {
+    func setup(withOrder order: Order) {
+        switch order.orderStatus {
         // Type 3: Closed, Ready, InWayToClient
         case 2, 3, 8:
             self.topView.isHidden                   =   false
             self.priceView.isHidden                 =   false
             self.orderDeliveryDateLabel.isHidden    =   false
-
+            self.orderPriceLabel.text               =   String(format: "%@ %.2f", "Currency".localized(), order.price)
+            self.orderDeliveryDateLabel.text        =   String(format: "%@ %@", order.deliveryFrom!, order.deliveryTo!)
+        
         default:
             break
         }

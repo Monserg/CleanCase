@@ -113,7 +113,7 @@ class MainShowViewController: UIViewController {
     }
     
     fileprivate func loadOrder() {
-        self.order = Order.last
+        self.order = Order.firstToDelivery        
         self.myOrderView.isHidden = (self.order == nil) ? true : false
     }
     
@@ -178,14 +178,18 @@ class MainShowViewController: UIViewController {
         if let orders = CoreDataManager.instance.readEntities(withName: "Order",
                                                               withPredicateParameters: nil,
                                                               andSortDescriptor: NSSortDescriptor.init(key: "orderID", ascending: false)), orders.count > 0 {
-            self.lastMessageTimer = CustomTimer.init(withSecondsInterval: 5)
+            self.lastMessageTimer = CustomTimer.init(withSecondsInterval: 30)
             self.lastMessageTimer.resume()
             
             self.lastMessageTimer.eventHandler = {
                 // API
-                self.checkNetworkConnection({ success in
-                    if success {
-                        _ = UpdateManager().getLastClientMessage()
+                self.checkNetworkConnection({ connectionSuccess in
+                    if connectionSuccess {
+                        _ = UpdateManager().getLastClientMessage({ [unowned self] changeOrderStatusSuccess in
+                            if changeOrderStatusSuccess && self.navigationController!.viewControllers.last!.isKind(of: OrderShowViewController.self) {
+                                NotificationCenter.default.post(name: Notification.Name("ChangeOrderStatusComplete"), object: nil)
+                            }
+                        })
                     }
                 })
             }
@@ -205,12 +209,14 @@ class MainShowViewController: UIViewController {
     
     @objc func handlerTimerNotification(_ notification: Notification) {
         if !isDeliveryTermShow && sideMenuManager.menuLeftNavigationController!.isHidden {
-            if let order = Order.last, order.orderStatus == 3, order.deliveryFrom == nil, order.deliveryTo == nil {
-                self.createPopover(withName: "DeliveryTermsShow", completion: { [unowned self] in
-                    self.isDeliveryTermShow = false
+            if Order.firstToDelivery != nil {
+                DispatchQueue.main.async(execute: {
+                    self.createPopover(withName: "DeliveryTermsShow", completion: { [unowned self] in
+                        self.isDeliveryTermShow = false
+                    })
+                    
+                    self.isDeliveryTermShow = true
                 })
-                
-                self.isDeliveryTermShow = true
             }
         }
     }

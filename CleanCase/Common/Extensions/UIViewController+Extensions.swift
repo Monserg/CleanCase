@@ -75,7 +75,7 @@ extension UIViewController {
     }
 
     public func addBackBarButtonItem() {
-        let backButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 10, height: 44)))
+        let backButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 60, height: 44)))
         backButton.setImage(UIImage.init(named: "icon-back-bar-button"), for: .normal)
         backButton.addTarget(self, action: #selector(handlerBackButtonTapped), for: .touchUpInside)
         backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
@@ -88,7 +88,7 @@ extension UIViewController {
     }
     
     public func addBasketBarButtonItem(_ isEmpty: Bool) {
-        if Order.last != nil {
+        if Order.firstToChangeStatus != nil {
             let basketButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 20, height: 44)))
             basketButton.setImage(UIImage.init(named: (isEmpty) ? "icon-shopping-basket-empty" : "icon-shopping-basket-complete"), for: .normal)
             basketButton.addTarget(self, action: #selector(handlerBasketButtonTapped), for: .touchUpInside)
@@ -103,7 +103,7 @@ extension UIViewController {
         let storyboard      =   UIStoryboard(name: "OrderShow", bundle: nil)
         let orderShowVC     =   storyboard.instantiateViewController(withIdentifier: "OrderShowVC") as! OrderShowViewController
         
-        orderShowVC.saveOrderID(Order.last!.orderID)
+        orderShowVC.saveOrderID(Order.firstToChangeStatus!.orderID)
         self.show(orderShowVC, sender: nil)
     }
 

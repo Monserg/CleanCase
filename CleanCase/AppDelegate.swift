@@ -1,4 +1,3 @@
-
 //
 //  AppDelegate.swift
 //  CleanCase
@@ -19,11 +18,11 @@ import FirebaseInstanceID
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
-    var updateStatusTimer: CustomTimer = CustomTimer(withSecondsInterval: 3)
+    var updateStatusTimer: CustomTimer = CustomTimer(withSecondsInterval: 60)
 
     
     // MARK: - Class Functions
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {        
         // Add SKStyleKit
         StyleKit.initStyleKit()
         
@@ -82,7 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         self.updateStatusTimer.suspend()
-//        self.updateStatusTimer.stop()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -96,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.updateStatusTimer.eventHandler = {
             // Core Data: load last Order with empty Delivety Date & Time
-            if let currentOrder = Order.last, currentOrder.deliveryFrom == nil && currentOrder.deliveryTo == nil {
+            if Order.firstToChangeStatus != nil {
                 NotificationCenter.default.post(name: Notification.Name("TimerNotificationComplete"), object: nil)
             }
         }
@@ -125,14 +123,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(error.localizedDescription)
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        // Print full message.
-        print(userInfo)
-    }
-    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // Print full message.
-        print(userInfo)
+        // Print full Remote Push Notification message
+        print("TEST: receive RPN message = \(userInfo)")
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -149,6 +142,8 @@ extension AppDelegate: MessagingDelegate {
         Token.current!.firebase = fcmToken
         Token.current!.lastMessageID = 0
         Token.current!.save()
+        
+        print("TEST: Firebase token = \(fcmToken)")
     }
     
     func application(received remoteMessage: MessagingRemoteMessage) {

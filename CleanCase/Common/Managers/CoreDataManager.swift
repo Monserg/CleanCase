@@ -199,5 +199,22 @@ class CoreDataManager {
     
     
     // Delete
-    
+    func deleteEntities(withName name: String, andPredicateParameters predicate: NSPredicate?) {
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        
+        if predicate != nil {
+            deleteFetch.predicate = predicate!
+        }
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+
+        do {
+            try self.managedObjectContext.execute(deleteRequest)
+            self.contextSave()
+        }
+            
+        catch {
+            print(error)
+        }
+    }
 }

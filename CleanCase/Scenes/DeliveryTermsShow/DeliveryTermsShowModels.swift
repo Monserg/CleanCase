@@ -32,6 +32,7 @@ enum DeliveryTermsShowModels {
                 
                 var bodyDate: String
                 var bodyTime: String
+                var deliveryDate: String
             }
         }
         

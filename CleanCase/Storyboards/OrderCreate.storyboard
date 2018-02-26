@@ -267,6 +267,7 @@
                         <outlet property="departmentsTableViewHeightConstraint" destination="F4z-R2-FGg" id="5ZT-am-Ulj"/>
                         <outlet property="saveButton" destination="B6Q-Nj-XfO" id="0bd-KU-Bds"/>
                         <outlet property="scrollView" destination="owE-Zy-RCv" id="4rg-OI-huN"/>
+                        <outlet property="scrollViewTopConstraint" destination="2IE-sL-QSJ" id="75l-03-oxs"/>
                         <outlet property="tapGestureRecognizer" destination="Xn1-Ey-V9X" id="5DH-PI-epP"/>
                         <outletCollection property="textFieldsCollection" destination="eO7-Eg-ikJ" collectionClass="NSMutableArray" id="0tj-Zt-qBX"/>
                         <outletCollection property="textFieldsCollection" destination="tMN-16-0fc" collectionClass="NSMutableArray" id="8ah-u5-4Ss"/>

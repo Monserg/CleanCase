@@ -54,7 +54,7 @@ class LeftSideMenuShowInteractor: LeftSideMenuShowBusinessLogic, LeftSideMenuSho
                                                                                      cellIdentifier:    "LeftMenuItemCell"))
         }
         
-        if Order.last == nil {
+        if Order.firstToChangeStatus == nil {
             menuItems.remove(at: 2)
         }
         

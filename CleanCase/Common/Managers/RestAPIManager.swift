@@ -17,6 +17,7 @@ enum RequestType {
     case getCitiesList([String: Any]?, Bool)
     case getNextMessage([String: Any]?, Bool)
     case getLaundryInfo([String: Any]?, Bool)
+    case getLastRecordID([String: Any]?, Bool)
     case getOrderItemsList([String: Any]?, Bool)
     case getDepartmentsList([String: Any]?, Bool)
     case getDeliveryDatesList([String: Any]?, Bool)
@@ -47,11 +48,16 @@ enum RequestType {
                                                                         body:           (isBodyParams ? params : nil),
                                                                         parameters:     (isBodyParams ? nil : params))
             
-        case .getLaundryInfo(let params, let isBodyParams):      return (method:         .get,
+        case .getLaundryInfo(let params, let isBodyParams):     return (method:         .get,
                                                                          path:           "/GetLaundryByCity/",
                                                                          body:           (isBodyParams ? params : nil),
                                                                          parameters:     (isBodyParams ? nil : params))
             
+        case .getLastRecordID(let params, let isBodyParams):                    return (method:         .get,
+                                                                                        path:           "/GetRecordId",
+                                                                                        body:           (isBodyParams ? params : nil),
+                                                                                        parameters:     (isBodyParams ? nil : params))
+
         case .getOrderItemsList(let params, let isBodyParams):                  return (method:         .get,
                                                                                         path:           "/GetItems/",
                                                                                         body:           (isBodyParams ? params : nil),

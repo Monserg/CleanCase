@@ -35,9 +35,12 @@ extension OrderTableViewCell: ConfigureCell {
        
         self.collectedLabel.text    =   order.createdDate + " " + order.collectionFrom
         self.statusLabel.text       =   OrderStatus(rawValue: order.status)!.name
-        self.deliveryLabel.text     =   order.deliveryFrom
-        self.priceLabel.text        =   String(format: "%@ %.2f", order.price, "Currency".localized())
-            
+        self.priceLabel.text        =   String(format: "%@ %.2f", "Currency".localized(), order.price)
+
+        if let deliveryFrom = order.deliveryFrom, let deliveryTo = order.deliveryTo {
+            self.deliveryLabel.text =   String(format: "%@ %@", deliveryTo, deliveryFrom)
+        }
+        
         selectionStyle              =   .none
     }
 }

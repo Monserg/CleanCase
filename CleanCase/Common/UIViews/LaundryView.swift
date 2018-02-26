@@ -22,7 +22,7 @@ class LaundryView: UIView {
     
     // MARK: - Class Initialization
     init(withName name: String, andPhoneNumber phoneNumber: String?) {
-        super.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 280.0 * widthRatio, height: 44)))
+        super.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 230.0 * widthRatio, height: 44)))
         
         createFromXIB()
         laundryNameLabel.text = name.localized()
@@ -57,7 +57,7 @@ class LaundryView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 280.0 * widthRatio, height: 44)
+        return CGSize(width: 230.0 * widthRatio, height: 44)
     }
     
     

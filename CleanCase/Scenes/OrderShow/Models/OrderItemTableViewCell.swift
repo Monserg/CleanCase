@@ -36,10 +36,10 @@ class OrderItemTableViewCell: UITableViewCell {
         let orderItem = item
         
         self.nameLabel.text         =   item.name
-        self.priceLabel.text        =   String(format: "%@ %.2f", orderItem.price, "Currency".localized())
+        self.priceLabel.text        =   String(format: "%@ %.2f", "Currency".localized(), orderItem.price)
         
         // Price display when status is "Ready"(3), "Closed"(2) or "InWayToClient"(8)
-        self.priceLabel.isHidden    =   (orderStatus == 2 || orderStatus == 3 || orderStatus == 8) ? true : false
+        self.priceLabel.isHidden    =   (orderStatus == 2 || orderStatus == 3 || orderStatus == 8) ? false : true
         
         self.quantityLabel.text     =   "\(orderItem.qty)"
         

@@ -97,6 +97,7 @@
                         <outlet property="charactersCountLabel" destination="roZ-xz-f8G" id="4z9-sY-drA"/>
                         <outlet property="sendMessageButton" destination="Ysn-ew-LIn" id="c9D-aJ-AH7"/>
                         <outlet property="textView" destination="kqW-qu-qTv" id="j0Q-WB-81g"/>
+                        <outlet property="textViewTopConstraint" destination="ODJ-y9-mFx" id="5yM-UC-BiC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Alq-iW-fKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
