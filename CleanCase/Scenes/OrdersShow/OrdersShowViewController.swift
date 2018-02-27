@@ -88,8 +88,12 @@ class OrdersShowViewController: UIViewController {
         self.addBackBarButtonItem()
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
-
-        loadViewSettings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.loadViewSettings()
     }
     
     

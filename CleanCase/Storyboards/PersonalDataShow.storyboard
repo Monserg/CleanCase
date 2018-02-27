@@ -251,6 +251,7 @@
                         <outlet property="creditCardCVVLabel" destination="nxn-07-mzW" id="ODd-xI-PWy"/>
                         <outlet property="creditCardLabel" destination="efH-gn-xGH" id="HkU-jS-EkA"/>
                         <outlet property="saveButton" destination="RYQ-ed-iiF" id="m8P-xr-qhF"/>
+                        <outlet property="scrollView" destination="lsi-s2-cLO" id="y2g-5K-dg1"/>
                         <outlet property="scrollViewTopConstraint" destination="YIG-JG-my6" id="yqE-h8-xst"/>
                         <outletCollection property="textFieldsCollection" destination="Ahu-ZX-nnk" collectionClass="NSMutableArray" id="8AV-QC-EyT"/>
                         <outletCollection property="textFieldsCollection" destination="FRm-rB-m5S" collectionClass="NSMutableArray" id="57p-lk-e2v"/>

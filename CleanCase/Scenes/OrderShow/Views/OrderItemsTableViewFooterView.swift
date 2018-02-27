@@ -52,14 +52,17 @@ class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
     // MARK: - Custom Functions
     func setup(withOrder order: Order) {
         switch order.orderStatus {
-        // Type 3: Closed, Ready, InWayToClient
-        case 2, 3, 8:
+        // Type 3: Closed, Ready, Supplied, InWayToClient
+        case 2, 3, 5, 8:
             self.topView.isHidden                   =   false
             self.priceView.isHidden                 =   false
             self.orderDeliveryDateLabel.isHidden    =   false
             self.orderPriceLabel.text               =   String(format: "%@ %.2f", "Currency".localized(), order.price)
-            self.orderDeliveryDateLabel.text        =   String(format: "%@ %@", order.deliveryFrom!, order.deliveryTo!)
-        
+            
+            if let deliveryFrom = order.deliveryFrom, let deliveryTo = order.deliveryTo {
+                self.orderDeliveryDateLabel.text    =   String(format: "%@ %@", deliveryFrom, deliveryTo)
+            }
+            
         default:
             break
         }

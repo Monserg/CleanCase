@@ -38,8 +38,8 @@ class OrderItemTableViewCell: UITableViewCell {
         self.nameLabel.text         =   item.name
         self.priceLabel.text        =   String(format: "%@ %.2f", "Currency".localized(), orderItem.price)
         
-        // Price display when status is "Ready"(3), "Closed"(2) or "InWayToClient"(8)
-        self.priceLabel.isHidden    =   (orderStatus == 2 || orderStatus == 3 || orderStatus == 8) ? false : true
+        // Type 3: Closed, Ready, Supplied, InWayToClient
+        self.priceLabel.isHidden    =   (orderStatus == 2 || orderStatus == 3 || orderStatus == 5 || orderStatus == 8) ? false : true
         
         self.quantityLabel.text     =   "\(orderItem.qty)"
         

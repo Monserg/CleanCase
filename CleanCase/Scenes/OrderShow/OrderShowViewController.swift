@@ -15,7 +15,7 @@ import SKStyleKit
 
 // MARK: - Input & Output protocols
 protocol OrderShowDisplayLogic: class {
-    func displayUpdateOrderStatus(fromViewModel viewModel: OrderShowModels.Order.ViewModel)
+    func displayCancelOrder(fromViewModel viewModel: OrderShowModels.Order.ViewModel)
 }
 
 class OrderShowViewController: UIViewController {
@@ -148,9 +148,7 @@ class OrderShowViewController: UIViewController {
             _ = valuesLabelsCollection.first(where: { $0.tag == 2 }).map({ $0.text = order.createdDate + " " + order.collectionFrom })
             _ = valuesLabelsCollection.first(where: { $0.tag == 3 }).map({ $0.text = OrderStatus(rawValue: order.orderStatus)!.name })
             
-            if order.orderStatus == 0 {
-                self.cancelButton.isHidden = false
-            }
+            self.cancelButton.isHidden = (order.orderStatus != 0)
         }
     }
     
@@ -167,7 +165,7 @@ class OrderShowViewController: UIViewController {
                 self.showAlertView(withTitle: "Info", andMessage: "Are you sure?".localized(), needCancel: true, completion: { [unowned self] success in
                     if success {
                         let requestModel = OrderShowModels.Order.RequestModel()
-                        self.interactor?.updateOrderStatus(withRequestModel: requestModel)
+                        self.interactor?.cancelOrder(withRequestModel: requestModel)
                     }
                 })
             }
@@ -193,7 +191,7 @@ class OrderShowViewController: UIViewController {
 
 // MARK: - OrderShowDisplayLogic
 extension OrderShowViewController: OrderShowDisplayLogic {
-    func displayUpdateOrderStatus(fromViewModel viewModel: OrderShowModels.Order.ViewModel) {
+    func displayCancelOrder(fromViewModel viewModel: OrderShowModels.Order.ViewModel) {
         // NOTE: Display the result from the Presenter
         guard viewModel.error == nil else {
             self.showAlertView(withTitle: "Error", andMessage: (viewModel.error! as NSError).domain, needCancel: false, completion: {_ in})

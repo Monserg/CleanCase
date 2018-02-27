@@ -78,11 +78,11 @@ class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .addClient([ "client": requestModel.params! ], true), andResponseType: ResponseAPIClientResult.self, completionHandler: { [unowned self] responseAPI in
             if (responseAPI.model as? ResponseAPIClientResult) != nil {
                 if let personalData = self.appDependency.coreDataManager.createEntity("PersonalData") as? PersonalData {
+                    print("TEST: personalData json = \(requestModel.params!)")
                     personalData.updateEntity(fromJSON: requestModel.params!)
+                    personalData.save()
                 }
             }
-            
-            self.appDependency.coreDataManager.contextSave()
             
             let responseModel = PersonalDataShowModels.Client.ResponseModel(error: responseAPI.error)
             self.presenter?.presentUpdatePersonalData(fromResponseModel: responseModel)

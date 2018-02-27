@@ -194,6 +194,7 @@
 		B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentItemTableViewCell.swift; sourceTree = "<group>"; };
+		B192FF42204564F400F700B2 /* CleanCaseModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CleanCaseModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementShow.storyboard; sourceTree = "<group>"; };
 		B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementShowViewController.swift; sourceTree = "<group>"; };
 		B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
@@ -1270,10 +1271,11 @@
 		B1FA2DA12024914900351BB7 /* CleanCaseModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B192FF42204564F400F700B2 /* CleanCaseModel 2.xcdatamodel */,
 				B1FA2DA42024925200351BB7 /* CleanCaseModel 1.xcdatamodel */,
 				B1FA2DA22024914900351BB7 /* CleanCaseModel.xcdatamodel */,
 			);
-			currentVersion = B1FA2DA42024925200351BB7 /* CleanCaseModel 1.xcdatamodel */;
+			currentVersion = B192FF42204564F400F700B2 /* CleanCaseModel 2.xcdatamodel */;
 			path = CleanCaseModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

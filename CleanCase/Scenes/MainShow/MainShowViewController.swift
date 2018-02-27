@@ -113,7 +113,7 @@ class MainShowViewController: UIViewController {
     }
     
     fileprivate func loadOrder() {
-        self.order = Order.firstToDelivery        
+        self.order = Order.firstToChangeStatus
         self.myOrderView.isHidden = (self.order == nil) ? true : false
     }
     
@@ -175,9 +175,9 @@ class MainShowViewController: UIViewController {
     }
     
     fileprivate func runGetLastClientMessage() {
-        if let orders = CoreDataManager.instance.readEntities(withName: "Order",
-                                                              withPredicateParameters: nil,
-                                                              andSortDescriptor: NSSortDescriptor.init(key: "orderID", ascending: false)), orders.count > 0 {
+        if let orders = CoreDataManager.instance.readEntities(withName:                 "Order",
+                                                              withPredicateParameters:  nil,
+                                                              andSortDescriptor:        NSSortDescriptor.init(key: "orderID", ascending: false)), orders.count > 0 {
             self.lastMessageTimer = CustomTimer.init(withSecondsInterval: 30)
             self.lastMessageTimer.resume()
             

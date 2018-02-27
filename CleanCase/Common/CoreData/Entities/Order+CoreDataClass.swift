@@ -32,21 +32,13 @@ enum OrderStatus: Int16 {
     }
     
     // Example
-    //    let state = OrderStatus.Closed
-    //    print(state.name)
+//    let state = OrderStatus.Closed
+//    print(state.name)
 }
 
 @objc(Order)
 public class Order: NSManagedObject {
     // MARK: - Properties
-//    class var last: Order? {
-//        get {
-//            return (CoreDataManager.instance.readEntities(withName:                 "Order",
-//                                                          withPredicateParameters:  NSPredicate.init(format: "orderStatus != 2 AND orderStatus != 6"),
-//                                                          andSortDescriptor:        NSSortDescriptor.init(key: "orderID", ascending: false))?.first) as? Order
-//        }
-//    }
-//    
     class var firstToChangeStatus: Order? {
         get {
             return (CoreDataManager.instance.readEntities(withName:                 "Order",
@@ -82,6 +74,9 @@ public class Order: NSManagedObject {
         // API
         RestAPIManager().fetchRequest(withRequestType: RequestType.getOrderItemsList([ "order_id": self.orderID ], false), andResponseType: ResponseAPIOrderItemsResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIOrderItemsResult, let orderItemsList = result.GetItemsResult, orderItemsList.count > 0 {
+                // Remote all items for current Order
+                self.items = nil
+                
                 for orderItem in orderItemsList {
                     let predicate = NSPredicate.init(format: "iD == \(orderItem.ID) AND orderID == \(orderItem.OrderID) AND departmentID == \(orderItem.DepartmentID) AND departmentItemID == \(orderItem.DepartmentItemID)")
                     

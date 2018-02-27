@@ -33,6 +33,7 @@ class PersonalDataShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet var textFieldsCollection: [UITextField]! {
@@ -97,8 +98,8 @@ class PersonalDataShowViewController: UIViewController {
     // MARK: - Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OrderShowSegue" {
-            let destinationVC = segue.destination as! OrderShowViewController
-            destinationVC.routeFrom = .FromOrderCreate
+            let destinationVC           =   segue.destination as! OrderShowViewController
+            destinationVC.routeFrom     =   .FromOrderCreate
         }
     }
     
@@ -111,6 +112,11 @@ class PersonalDataShowViewController: UIViewController {
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
         loadViewSettings()
+        
+        // Add keyboard Observers
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     override func handlerBackButtonTapped(_ sender: UIBarButtonItem) {
@@ -224,6 +230,21 @@ class PersonalDataShowViewController: UIViewController {
     @IBAction func handlerSaveButtonTapped(_ sender: UIButton) {
         self.startDataValidation()
     }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            self.scrollView.contentInset = UIEdgeInsets.zero
+        }
+            
+        else {
+            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+    }
 }
 
 
@@ -290,19 +311,19 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
     
     // Hide keyboard
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.tag == 0 {
-            if let phoneNumber = textField.text, phoneNumber.count < 10 {
-                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct phone number...", needCancel: false, completion: {_ in})
-                return false
-            }
-        }
+//        if textField.tag == 0 {
+//            if let phoneNumber = textField.text, phoneNumber.count < 10 {
+//                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct phone number...", needCancel: false, completion: {_ in})
+//                return false
+//            }
+//        }
         
-        if textField.tag == 5 {
-            if let phoneNumber = textField.text, phoneNumber.count < 10 {
-                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct credit card...", needCancel: false, completion: {_ in})
-                return false
-            }
-        }
+//        if textField.tag == 5 {
+//            if let phoneNumber = textField.text, phoneNumber.count < 10 {
+//                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct credit card...", needCancel: false, completion: {_ in})
+//                return false
+//            }
+//        }
 
         if textField.tag == 4 {
             if let email = textField.text, !email.isEmpty {

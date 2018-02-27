@@ -15,7 +15,7 @@ import UIKit
 // MARK: - Business Logic protocols
 protocol OrderShowBusinessLogic {
     func saveOrderID(_ orderID: Int16)
-    func updateOrderStatus(withRequestModel requestModel: OrderShowModels.Order.RequestModel)
+    func cancelOrder(withRequestModel requestModel: OrderShowModels.Order.RequestModel)
 }
 
 protocol OrderShowDataStore {
@@ -50,7 +50,7 @@ class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDat
         self.orderID = orderID
     }
     
-    func updateOrderStatus(withRequestModel requestModel: OrderShowModels.Order.RequestModel) {
+    func cancelOrder(withRequestModel requestModel: OrderShowModels.Order.RequestModel) {
         // API: Fetch request data
         let bodyParams: [ String: Any ] = [ "orderId": self.orderID, "status": 6 ]
        
@@ -59,7 +59,7 @@ class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDat
             
             if let result = responseAPI.model as? ResponseAPIUpdateStatusResult, result.UpdateStatusResult == "1" {
                 self.order.orderStatus = 6
-                self.appDependency.coreDataManager.contextSave()
+                self.order.save()
             }
             
             else {
@@ -67,7 +67,7 @@ class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDat
             }
 
             let responseModel = OrderShowModels.Order.ResponseModel(error: error)
-            self.presenter?.presentUpdateOrderStatus(fromResponseModel: responseModel)
+            self.presenter?.presentCancelOrder(fromResponseModel: responseModel)
         })
     }
 }

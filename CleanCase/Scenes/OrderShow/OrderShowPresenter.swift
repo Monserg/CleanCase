@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol OrderShowPresentationLogic {
-    func presentUpdateOrderStatus(fromResponseModel responseModel: OrderShowModels.Order.ResponseModel)
+    func presentCancelOrder(fromResponseModel responseModel: OrderShowModels.Order.ResponseModel)
 }
 
 class OrderShowPresenter: OrderShowPresentationLogic {
@@ -23,8 +23,8 @@ class OrderShowPresenter: OrderShowPresentationLogic {
     
     
     // MARK: - Presentation Logic implementation
-    func presentUpdateOrderStatus(fromResponseModel responseModel: OrderShowModels.Order.ResponseModel) {
+    func presentCancelOrder(fromResponseModel responseModel: OrderShowModels.Order.ResponseModel) {
         let viewModel = OrderShowModels.Order.ViewModel(error: responseModel.error)
-        viewController?.displayUpdateOrderStatus(fromViewModel: viewModel)
+        viewController?.displayCancelOrder(fromViewModel: viewModel)
     }
 }

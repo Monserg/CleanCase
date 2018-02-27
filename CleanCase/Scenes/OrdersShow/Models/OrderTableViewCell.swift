@@ -38,7 +38,11 @@ extension OrderTableViewCell: ConfigureCell {
         self.priceLabel.text        =   String(format: "%@ %.2f", "Currency".localized(), order.price)
 
         if let deliveryFrom = order.deliveryFrom, let deliveryTo = order.deliveryTo {
-            self.deliveryLabel.text =   String(format: "%@ %@", deliveryTo, deliveryFrom)
+            self.deliveryLabel.text =   String(format: "%@ %@", deliveryFrom, deliveryTo)
+        }
+        
+        else {
+            self.deliveryLabel.isHidden = true
         }
         
         selectionStyle              =   .none
