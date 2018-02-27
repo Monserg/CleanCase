@@ -82,6 +82,8 @@ class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic
                 }
             }
             
+            self.appDependency.coreDataManager.contextSave()
+            
             let responseModel = PersonalDataShowModels.Client.ResponseModel(error: responseAPI.error)
             self.presenter?.presentUpdatePersonalData(fromResponseModel: responseModel)
         })
