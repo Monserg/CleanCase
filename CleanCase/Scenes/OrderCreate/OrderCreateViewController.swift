@@ -48,6 +48,11 @@ class OrderCreateViewController: UIViewController {
                 $0.placeholder          =   router?.dataStore?.textFieldsTexts[$0.tag].placeholder
                 $0.accessibilityValue   =   router?.dataStore?.textFieldsTexts[$0.tag].errorText
                
+                // Set address from PersonalData
+                if $0.tag == 0, let personalData = PersonalData.current {
+                    $0.text = personalData.addressLine1
+                }
+                
                 $0.addPadding(.Both(8.0))
                 
                 $0.delegate = self
