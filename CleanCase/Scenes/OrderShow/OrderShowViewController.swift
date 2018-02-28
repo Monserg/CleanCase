@@ -128,8 +128,9 @@ class OrderShowViewController: UIViewController {
     
     override func handlerBackButtonTapped(_ sender: UIBarButtonItem) {
         if routeFrom == .FromOrderCreate {
-            self.navigationController?.popToRootViewController(animated: true)
-            self.showAlertView(withTitle: "Info", andMessage: "Order accepted", needCancel: false, completion: { _ in })
+            self.showAlertView(withTitle: "Info", andMessage: "Order accepted", needCancel: false, completion: { [unowned self] _ in
+                self.navigationController?.popToRootViewController(animated: true)
+            })
         }
         
         else {

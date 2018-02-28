@@ -21,7 +21,7 @@
                             <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZDv-Kz-pDu" userLabel="Buttons Stack View">
                                 <rect key="frame" x="60" y="199" width="200" height="170"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-d2-pSe" userLabel="Create Order View">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-d2-pSe" userLabel="Create Order View">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="85"/>
                                         <subviews>
                                             <button clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAe-ck-AtD" userLabel="Create Order Button" customClass="SKButton" customModule="SKStyleKit">
@@ -51,7 +51,7 @@
                                             <constraint firstItem="VAe-ck-AtD" firstAttribute="centerX" secondItem="5Dn-d2-pSe" secondAttribute="centerX" id="d7w-hi-Npc"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eaf-Zf-NHk" userLabel="My Order View">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eaf-Zf-NHk" userLabel="My Order View">
                                         <rect key="frame" x="0.0" y="85" width="200" height="85"/>
                                         <subviews>
                                             <button clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uko-AD-WWG" userLabel="My Order Button" customClass="SKButton" customModule="SKStyleKit">

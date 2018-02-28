@@ -25,29 +25,14 @@ class MainShowViewController: UIViewController {
 
     
     // MARK: - IBOutlets
+    @IBOutlet weak var myOrderView: UIView!
+    @IBOutlet weak var myOrderButton: UIButton!
+    @IBOutlet weak var createOrderButton: UIButton!
     @IBOutlet weak var basketBarButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var createOrderView: UIView! {
         didSet {
             createOrderView.isHidden = false
-        }
-    }
-    
-    @IBOutlet weak var myOrderView: UIView! {
-        didSet {
-            
-        }
-    }
-    
-    @IBOutlet weak var createOrderButton: UIButton! {
-        didSet {
-            
-        }
-    }
-    
-    @IBOutlet weak var myOrderButton: UIButton! {
-        didSet {
-            
         }
     }
     
