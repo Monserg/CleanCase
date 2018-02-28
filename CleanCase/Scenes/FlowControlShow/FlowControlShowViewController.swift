@@ -12,6 +12,7 @@
 
 import UIKit
 import SwiftSpinner
+import Device_swift
 
 // MARK: - Input & Output protocols
 protocol FlowControlShowDisplayLogic: class {
@@ -122,8 +123,8 @@ class FlowControlShowViewController: UIViewController {
 extension FlowControlShowViewController: FlowControlShowDisplayLogic {
     func checkAppWorkingVersion(fromViewModel viewModel: FlowControlShowModels.Version.ViewModel) {
         // NOTE: Display the result from the Presenter
-        if viewModel.isEqual {
-            Logger.log(message: "App Working & Current Versions are equal", event: .Verbose)
+        if viewModel.isEqual || DeviceType.current == .simulator {
+            Logger.log(message: "App Working & Current Versions are equal or Device type is Simulator", event: .Verbose)
             self.routeToNextScene()
         }
         
@@ -132,7 +133,7 @@ extension FlowControlShowViewController: FlowControlShowDisplayLogic {
             SwiftSpinner.sharedInstance.title = "Please, restart App...".localized()
             
             DispatchQueue.main.async(execute: {
-                if let url = URL(string: "https://itunes.apple.com/app/id1042037745"), UIApplication.shared.canOpenURL(url) {
+                if let url = URL(string: "https://itunes.apple.com/app/id1353769148"), UIApplication.shared.canOpenURL(url) {
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
