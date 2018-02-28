@@ -64,6 +64,7 @@ class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDat
             
             else {
                 error = NSError.init(domain: "BAD_REQUEST_400", code: 400, userInfo: nil)
+                Logger.log(message: "API 'Cancel Order failed: error = \(error!.localizedDescription)'", event: .Error)
             }
 
             let responseModel = OrderShowModels.Order.ResponseModel(error: error)

@@ -30,11 +30,13 @@ class SignInShowViewController: UIViewController {
     var interactor: SignInShowBusinessLogic?
     var router: (NSObjectProtocol & SignInShowRoutingLogic & SignInShowDataPassing)?
     
+    var firstResponder: UIControl!
+
     
     // MARK: - IBOutlets
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var acceptAgreementLabel: UILabel!
     @IBOutlet weak var readAgreementButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var saveButton: UIButton! {
         didSet {
@@ -66,7 +68,7 @@ class SignInShowViewController: UIViewController {
     
     @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint! {
         didSet {
-            scrollViewTopConstraint.constant = 0.0 //smallDevices.contains(UIDevice.current.deviceType) ? 0.0 : 0.0
+            scrollViewTopConstraint.constant = 0.0
         }
     }
 
@@ -137,10 +139,10 @@ class SignInShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     func loadViewSettings() {
+        self.firstResponder = self.textFieldsCollection[0]
+        
         // Add keyboard Observers
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        self.registerForKeyboardNotifications()
         
         // API
         checkNetworkConnection({ [unowned self] success in
@@ -149,6 +151,11 @@ class SignInShowViewController: UIViewController {
                 self.interactor?.fetchCities(withRequestModel: requestModel)
             }
         })
+    }
+    
+    fileprivate func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     fileprivate func startDataValidation() {
@@ -178,7 +185,7 @@ class SignInShowViewController: UIViewController {
     
     // MARK: - Gestures
     @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     
@@ -187,28 +194,39 @@ class SignInShowViewController: UIViewController {
         self.startDataValidation()
     }
     
-    @IBAction func handlerReadAgreementButtonTapped(_ sender: Any) {
+    @IBAction func handlerReadAgreementButtonTapped(_ sender: UIButton) {
+        self.firstResponder = sender
+        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
             self.createPopover(withName: "AgreementShow", completion: {})
         }
     }
     
     @IBAction func handlerCheckBoxTapped(_ sender: M13Checkbox) {
-        self.saveButton.isEnabled = (sender.checkState == .checked) ? true : false
+        self.firstResponder         =   sender
+        self.saveButton.isEnabled   =   (sender.checkState == .checked) ? true : false
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
         let userInfo = notification.userInfo!
         
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        let keyboardScreenEndFrame  =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame    =   view.convert(keyboardScreenEndFrame, from: view.window)
         
+        // Keyboard hide
         if notification.name == Notification.Name.UIKeyboardWillHide {
             self.scrollView.contentInset = UIEdgeInsets.zero
         }
-        
+            
+            // Keyboard show
         else {
-            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            self.scrollView.contentInset    =   UIEdgeInsets(top: 0,left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            var activeViewRect              =   self.view.frame
+            activeViewRect.size.height     -=   keyboardViewEndFrame.height
+            
+            if (!activeViewRect.contains(self.firstResponder.frame.origin)) {
+                self.scrollView.scrollRectToVisible(self.firstResponder.frame, animated: true)
+            }
         }
     }
 }
@@ -279,6 +297,10 @@ extension SignInShowViewController: SignInShowDisplayLogic {
 
 // MARK: - UITextFieldDelegate
 extension SignInShowViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.firstResponder = textField
+    }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         guard textField.tag != 0 && textField.tag != 1 else {
             if textField.tag == 0 {
@@ -319,14 +341,18 @@ extension SignInShowViewController: UITextFieldDelegate {
     }
     
     // Hide keyboard
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.firstResponder = nil
+    }
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         // Phone number
-        if textField.tag == 2 {
-            if let phoneNumber = textField.text, phoneNumber.count < 7 {
-                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct phone number...", needCancel: false, completion: {_ in})
-                return false
-            }
-        }
+//        if textField.tag == 2 {
+//            if let phoneNumber = textField.text, phoneNumber.count < 7 {
+//                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct phone number...", needCancel: false, completion: {_ in})
+//                return false
+//            }
+//        }
 
         if textField.tag == 6 {
             if let email = textField.text, !email.isEmpty {

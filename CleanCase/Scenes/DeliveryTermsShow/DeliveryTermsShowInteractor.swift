@@ -106,7 +106,8 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
         let comment         =   (requestModel.comment == "Enter comment".localized()) ? "" : requestModel.comment
         
         let bodyParams: [String: Any] = [ "orderId": Order.firstToDelivery!.orderID, "delivery": "\(selectedDate) \(selectedTime)", "remarks": comment ?? "" ]
-        
+        Logger.log(message: "API 'Set Delivery' parameters: \(bodyParams)", event: .Verbose)
+
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .setDelivery(bodyParams, true), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] response in
             if let order = Order.firstToDelivery, response.error == nil {
@@ -115,6 +116,7 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
                 order.deliveryNotes =   bodyParams["remarks"] as? String
                 
                 order.save()
+                Logger.log(message: "CoreData 'Set Order Delivery Terms': \(order)", event: .Verbose)
             }
             
             let responseModel = DeliveryTermsShowModels.Item.ResponseModel(error: response.error)

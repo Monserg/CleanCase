@@ -30,8 +30,8 @@ class CoreDataManager {
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = Bundle.main.url(forResource: self.modelName, withExtension: "momd")!
-        
+        let modelURL    =   Bundle.main.url(forResource: self.modelName, withExtension: "momd")!
+
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
@@ -51,7 +51,7 @@ class CoreDataManager {
             dict[NSUnderlyingErrorKey]              =   error as NSError
             let wrappedError                        =   NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             
-            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+            Logger.log(message: "Unresolved error \(wrappedError), \(wrappedError.userInfo)", event: .Error)
             abort()
         }
         
@@ -90,8 +90,7 @@ class CoreDataManager {
             
             catch {
                 let nserror = error as NSError
-                
-                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                Logger.log(message: "Unresolved error \(nserror), \(nserror.userInfo)", event: .Error)
                 abort()
             }
         }
@@ -118,8 +117,7 @@ class CoreDataManager {
         }
         
         catch {
-            print(error)
-            
+            Logger.log(message: "Read Entity '\(name)' failed", event: .Error)
             return nil
         }
     }
@@ -141,8 +139,7 @@ class CoreDataManager {
         }
         
         catch {
-            print(error)
-            
+            Logger.log(message: "Read Entities '\(name)' failed", event: .Error)
             return nil
         }
     }
@@ -186,7 +183,7 @@ class CoreDataManager {
             }
                 
             else if propertyName == "Status" {
-                print("status...")
+                Logger.log(message: "Current Entity '\(data.name)'has field '\(propertyName)'", event: .Warning)
             }
                 
             else {
@@ -214,7 +211,7 @@ class CoreDataManager {
         }
             
         catch {
-            print(error)
+            Logger.log(message: "Delete Entities '\(name)' failed", event: .Error)
         }
     }
 }

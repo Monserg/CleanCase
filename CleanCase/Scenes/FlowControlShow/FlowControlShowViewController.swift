@@ -106,10 +106,12 @@ class FlowControlShowViewController: UIViewController {
     fileprivate func routeToNextScene() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
             guard Laundry.name != "My Laundry".localized() || Laundry.phoneNumber != nil else {
+                Logger.log(message: "Route to SignInShow scene", event: .Info)
                 self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
                 return
             }
             
+            Logger.log(message: "Route to MainShow scene", event: .Info)
             self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
         }
     }
@@ -121,13 +123,12 @@ extension FlowControlShowViewController: FlowControlShowDisplayLogic {
     func checkAppWorkingVersion(fromViewModel viewModel: FlowControlShowModels.Version.ViewModel) {
         // NOTE: Display the result from the Presenter
         if viewModel.isEqual {
-            print("Versions is equal...")
-            
+            Logger.log(message: "App Working & Current Versions are equal", event: .Verbose)
             self.routeToNextScene()
         }
         
         else {
-            print("Versions is not equal...")
+            Logger.log(message: "App Working & Current Versions are not equal", event: .Verbose)
             SwiftSpinner.sharedInstance.title = "Please, restart App...".localized()
             
             DispatchQueue.main.async(execute: {

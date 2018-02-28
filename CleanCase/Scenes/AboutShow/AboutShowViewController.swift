@@ -81,16 +81,16 @@ extension AboutShowViewController: WKUIDelegate {}
 // MARK: - WKNavigationDelegate
 extension AboutShowViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        print(error.localizedDescription)
+        Logger.log(message: "Display WKWebView content failed: \(error.localizedDescription)", event: .Error)
         SwiftSpinner.hide()
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Start to load")
+        Logger.log(message: "WKWebView start to load content", event: .Info)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("Finish to load")
+        Logger.log(message: "WKWebView end to load content", event: .Info)
         SwiftSpinner.hide()
     }
 }

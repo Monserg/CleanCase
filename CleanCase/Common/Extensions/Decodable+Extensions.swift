@@ -228,7 +228,7 @@ extension Decodable {
             }
 
         default:
-            fatalError("Wrong property name")
+            Logger.log(message: "Wrong property name", event: .Error)
         }
         
         return nil

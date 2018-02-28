@@ -197,9 +197,7 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
     // MARK: - Custom Functions
     func loadViewSettings() {
         // Add keyboard Observers
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        self.registerForKeyboardNotifications()
         
         // API
         checkNetworkConnection({ [unowned self] success in
@@ -212,6 +210,11 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
         })
     }
     
+    fileprivate func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+    }
+
     fileprivate func startDataValidation() {
         if let textField = textFieldsCollection.first(where: { ($0.text?.isEmpty)! }) {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
@@ -303,8 +306,10 @@ extension DeliveryTermsShowViewController: DeliveryTermsShowDisplayLogic {
     func displayConfirmDeliveryTerms(fromViewModel viewModel: DeliveryTermsShowModels.Item.ViewModel) {
         // NOTE: Display the result from the Presenter
         guard viewModel.error == nil else {
+            Logger.log(message: "Error confirm Delivery Terms", event: .Severe)
             self.showAlertView(withTitle: "Error", andMessage: viewModel.error!.localizedDescription, needCancel: false, completion: { _ in })
             self.view.isUserInteractionEnabled = false
+            
             return
         }
         

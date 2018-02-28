@@ -39,27 +39,44 @@ class UpdateManager {
         RestAPIManager().fetchRequest(withRequestType: RequestType.getNextMessage(params, false), andResponseType: ResponseAPIClientMessageResult.self, completionHandler: { responseAPI in
             if let result = responseAPI.model as? ResponseAPIClientMessageResult {
                 let model = result.GetClientMessageResult
-                print("TEST: get model from API = \(model)")
+                Logger.log(message: "GetClientMessageResult model = \(model)", event: .Verbose)
 
-                if model.RecordId != Token.current!.lastMessageID && model.RecordId != 0 {
+                if model.RecordId != 0 {
+                    // Save Last Client Message
+                    Token.current!.lastMessageID = model.RecordId
+                    Token.current!.save()
+                    Logger.log(message: "CoreData 'Update Token Last Message ID' success: lastMessageID = \(model.RecordId)", event: .Severe)
+
+                    // Clients commands
                     if model.ClientId == PersonalData.current!.clientId {
-                        // Save Last Client Message
-                        Token.current!.lastMessageID = model.RecordId
-                        Token.current!.save()
-                        
+                        Logger.log(message: "Client command: \(model.Command)", event: .Severe)
+
                         if let dataXML = model.Data, !dataXML.isEmpty {
                             let dataInfo = dataXML.convertToValues()
                             
                             // CoreData
-                            if let order = CoreDataManager.instance.readEntity(withName: "Order",
-                                                                               andPredicateParameters: NSPredicate.init(format: "orderID == \(dataInfo.orderID)")) as? Order {
+                            if let order = CoreDataManager.instance.readEntity(withName:                "Order",
+                                                                               andPredicateParameters:  NSPredicate.init(format: "orderID == \(dataInfo.orderID)")) as? Order {
                                 switch model.Command {
                                 // AddDepartment
                                 case 1:
-                                   print("XXX")
-                                    // Delete all departments
-                                    // CoreDataManager.instance.deleteEntities(withName: "Department", andPredicateParameters: NSPredicate.init(format: "id == 55"))
-
+                                    // API
+                                    RestAPIManager().fetchRequest(withRequestType: RequestType.getDepartmentsList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { responseAPI in
+                                        if let result = responseAPI.model as? ResponseAPIDepartmentsResult {
+                                            // Delete all departments
+                                            CoreDataManager.instance.deleteEntities(withName: "Department", andPredicateParameters: nil)
+                                            
+                                            // Add new departments
+                                            for model in result.GetDepartmentsResult {
+                                                let predicate = NSPredicate.init(format: "departmentId == \(model.DepartmentId)")
+                                                
+                                                CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Department",
+                                                                                                                  predicate:  predicate,
+                                                                                                                  model:      model))
+                                            }
+                                        }
+                                    })
+                                    
                                 // UpdateOrder
                                 case 4:
                                     order.orderStatus   =   dataInfo.status
@@ -80,10 +97,42 @@ class UpdateManager {
                             }
                         }
                     }
+
+                    // Common commands
+                    else {
+                        Logger.log(message: "Common command: \(model.Command)", event: .Severe)
+
+                        switch model.Command {
+                        // AddDepartment
+                        case 1:
+                            // API
+                            RestAPIManager().fetchRequest(withRequestType: RequestType.getDepartmentsList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { responseAPI in
+                                if let result = responseAPI.model as? ResponseAPIDepartmentsResult {
+                                    // Delete all departments
+                                    CoreDataManager.instance.deleteEntities(withName: "Department", andPredicateParameters: nil)
+                                    
+                                    // Add new departments
+                                    for model in result.GetDepartmentsResult {
+                                        let predicate = NSPredicate.init(format: "departmentId == \(model.DepartmentId)")
+                                        
+                                        CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Department",
+                                                                                                          predicate:  predicate,
+                                                                                                          model:      model))
+                                    }
+                                }
+                            })
+                            
+                        default:
+                            break
+                        }
+                        
+                        completion(true)
+                    }
                 }
+                
+                Logger.log(message: "Update Manager return false", event: .Severe)
+                completion(false)
             }
-            
-            completion(false)
         })
     }
 }

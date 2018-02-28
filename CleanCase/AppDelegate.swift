@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Fabric
 import Firebase
 import SKStyleKit
+import Crashlytics
 import FirebaseMessaging
 import UserNotifications
 import FirebaseInstanceID
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Add SKStyleKit
         StyleKit.initStyleKit()
         
+        // Start Fabric
+        Fabric.with([Crashlytics.self])
+
         // Set navbar & status bar color
         let style = StyleKit.style(withName: "defaultBarTintColorStyle")!
         
@@ -95,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.updateStatusTimer.eventHandler = {
             // Core Data: load last Order with empty Delivety Date & Time
             if Order.firstToChangeStatus != nil {
+                Logger.log(message: "Post Notification to change current Order status", event: .Debug)
                 NotificationCenter.default.post(name: Notification.Name("TimerNotificationComplete"), object: nil)
             }
         }
@@ -120,13 +125,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print(error.localizedDescription)
+        Logger.log(message: "Register for Remote Notifications failed: \(error.localizedDescription)", event: .Error)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // Print full Remote Push Notification message
-        print("TEST: receive RPN message = \(userInfo)")
-        
+        Logger.log(message: "Received Remote Notification message: \(userInfo)", event: .Severe)
         completionHandler(UIBackgroundFetchResult.newData)
     }
 }
@@ -142,12 +145,11 @@ extension AppDelegate: MessagingDelegate {
         Token.current!.firebase = fcmToken
         Token.current!.lastMessageID = 0
         Token.current!.save()
-        
-        print("TEST: Firebase token = \(fcmToken)")
+        Logger.log(message: "Received Firebase token: \(fcmToken)", event: .Severe)
     }
     
     func application(received remoteMessage: MessagingRemoteMessage) {
-        print(remoteMessage.appData)
+        Logger.log(message: "Received Remote message: \(remoteMessage.appData)", event: .Severe)
     }
 }
 
@@ -158,13 +160,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
-        print("dddd1")
+        Logger.log(message: "Present User Notification", event: .Severe)
     }
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
-        print("dddd2")
+        Logger.log(message: "Receive User Notification", event: .Severe)
     }
 }

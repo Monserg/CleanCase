@@ -30,6 +30,7 @@ class PersonalDataShowViewController: UIViewController {
     var router: (NSObjectProtocol & PersonalDataShowRoutingLogic & PersonalDataShowDataPassing)?
     
     var routeFrom: ShowMode = .FromSideMenu
+    var firstResponder: UITextField!
     
     
     // MARK: - IBOutlets
@@ -60,7 +61,7 @@ class PersonalDataShowViewController: UIViewController {
     
     @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint! {
         didSet {
-            scrollViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? -64.0 : 0.0
+//            scrollViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? -64.0 : 0.0
         }
     }
     
@@ -114,9 +115,7 @@ class PersonalDataShowViewController: UIViewController {
         loadViewSettings()
         
         // Add keyboard Observers
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        self.registerForKeyboardNotifications()
     }
     
     override func handlerBackButtonTapped(_ sender: UIBarButtonItem) {
@@ -178,6 +177,11 @@ class PersonalDataShowViewController: UIViewController {
         }
     }
     
+    fileprivate func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+    }
+    
     fileprivate func startDataValidation() {
         if let textField = textFieldsCollection.first(where: { ($0.text?.isEmpty)! }) {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
@@ -234,15 +238,24 @@ class PersonalDataShowViewController: UIViewController {
     @objc func adjustForKeyboard(notification: Notification) {
         let userInfo = notification.userInfo!
         
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        let keyboardScreenEndFrame  =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame    =   view.convert(keyboardScreenEndFrame, from: view.window)
         
+        // Keyboard hide
         if notification.name == Notification.Name.UIKeyboardWillHide {
             self.scrollView.contentInset = UIEdgeInsets.zero
+            //(top: smallDevices.contains(UIDevice.current.deviceType) ? 64 : 0, left: 0, bottom: 0, right: 0)
         }
-            
+         
+        // Keyboard show
         else {
-            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            self.scrollView.contentInset    =   UIEdgeInsets(top: 0,left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            var activeViewRect              =   self.view.frame
+            activeViewRect.size.height     -=  keyboardViewEndFrame.height
+            
+            if (!activeViewRect.contains(self.firstResponder.frame.origin)) {
+                self.scrollView.scrollRectToVisible(self.firstResponder.frame, animated: true)
+            }
         }
     }
 }
@@ -257,16 +270,19 @@ extension PersonalDataShowViewController: PersonalDataShowDisplayLogic {
     func displayUpdatePersonalData(fromViewModel viewModel: PersonalDataShowModels.Client.ViewModel) {
         // NOTE: Display the result from the Presenter
         guard viewModel.error == nil else {
+            Logger.log(message: "API 'Update Personal Data' failed", event: .Info)
             self.showAlertView(withTitle: "Error", andMessage: viewModel.error!.localizedDescription, needCancel: false, completion: {_ in})
             return
         }
         
         self.showAlertView(withTitle: "Info", andMessage: "Your Personal Data updated", needCancel: false, completion: { _ in
             if self.routeFrom == .FromSideMenu {
+                Logger.log(message: "Route to MainShow scene", event: .Info)
                 self.navigationController?.popViewController(animated: true)
             }
                 
             else {
+                Logger.log(message: "Route to OrderShow scene", event: .Info)
                 self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
             }
         })
@@ -276,6 +292,10 @@ extension PersonalDataShowViewController: PersonalDataShowDisplayLogic {
 
 // MARK: - UITextFieldDelegate
 extension PersonalDataShowViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.firstResponder = textField
+    }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // Years
         if textField.tag == 7 {
@@ -310,6 +330,10 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
     }
     
     // Hide keyboard
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.firstResponder = nil
+    }
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
 //        if textField.tag == 0 {
 //            if let phoneNumber = textField.text, phoneNumber.count < 10 {

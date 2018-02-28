@@ -70,7 +70,7 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         if let order = self.appDependency.coreDataManager.createEntity("Order") as? Order {
             order.updateEntity(fromJSON: json)
             order.save()
-            print("TEST: order data = \(json)")
+            Logger.log(message: "CoreData 'Save Order' success: Order data = \(json)", event: .Verbose)
         }
     }
     
@@ -83,7 +83,7 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .addOrder(requestModel.bodyParams, true), andResponseType: ResponseAPIAddOrderResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIAddOrderResult {
                 self.orderID = result.AddOrderResult
-                print("TEST: order ID = \(self.orderID!)")
+                Logger.log(message: "CoreData 'Add Order' success: Order ID = \(self.orderID!)", event: .Verbose)
             }
             
             let responseModel = OrderCreateModels.Order.ResponseModel(error: (self.orderID == nil) ? NSError.init(domain: "BAD_REQUEST_400", code: 400, userInfo: nil) : nil )

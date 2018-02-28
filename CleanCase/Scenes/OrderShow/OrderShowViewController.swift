@@ -117,7 +117,7 @@ class OrderShowViewController: UIViewController {
         self.addBackBarButtonItem()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
 
-        loadViewSettings()
+        self.loadViewSettings()
         
         // Add Timer Observer
         NotificationCenter.default.addObserver(self,
@@ -194,11 +194,13 @@ extension OrderShowViewController: OrderShowDisplayLogic {
     func displayCancelOrder(fromViewModel viewModel: OrderShowModels.Order.ViewModel) {
         // NOTE: Display the result from the Presenter
         guard viewModel.error == nil else {
+            Logger.log(message: "API 'Cancel Order' failed", event: .Info)
             self.showAlertView(withTitle: "Error", andMessage: (viewModel.error! as NSError).domain, needCancel: false, completion: {_ in})
             return
         }
         
         self.showAlertView(withTitle: "Info", andMessage: "Order status updated".localized(), needCancel: false, completion: { _ in
+            Logger.log(message: "Route to MainShow scene", event: .Info)
             self.navigationController?.popToRootViewController(animated: true)
         })
     }
@@ -213,6 +215,7 @@ extension OrderShowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let dataSource = self.router?.dataStore?.orderItems else {
+            Logger.log(message: "Data source of DepartmentItems is empty", event: .Info)
             return 0
         }
         
@@ -255,7 +258,7 @@ extension OrderShowViewController: UITableViewDelegate {
             let footerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "FooterCell") as! OrderItemsTableViewFooterView
             
             let footerViewStyle = SKStyleKit.style(withName: "sideMenuStyle")!
-            footerView.backgroundColor = footerViewStyle.backgroundColor
+            footerView.contentView.backgroundColor = footerViewStyle.backgroundColor
 
             footerView.setup(withOrder: order)
             

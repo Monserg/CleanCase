@@ -99,7 +99,7 @@
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6k-0O-JEp">
                                                 <rect key="frame" x="16" y="308" width="343" height="54"/>
                                                 <subviews>
-                                                    <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="bt3-JL-S02" userLabel="Accept Agreement Checkbox" customClass="M13Checkbox" customModule="M13Checkbox">
+                                                    <view clipsSubviews="YES" tag="22" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="bt3-JL-S02" userLabel="Accept Agreement Checkbox" customClass="M13Checkbox" customModule="M13Checkbox">
                                                         <rect key="frame" x="305" y="16" width="22" height="22"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,7 +138,7 @@
                                                     <constraint firstItem="bt3-JL-S02" firstAttribute="centerY" secondItem="mlr-1x-Epc" secondAttribute="centerY" id="dN1-XR-pCB"/>
                                                 </constraints>
                                             </view>
-                                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63b-XS-r6M" userLabel="Read Agreement Button" customClass="SKButton" customModule="SKStyleKit">
+                                            <button clipsSubviews="YES" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63b-XS-r6M" userLabel="Read Agreement Button" customClass="SKButton" customModule="SKStyleKit">
                                                 <rect key="frame" x="130" y="378" width="114" height="30"/>
                                                 <state key="normal" title="Read Agreement"/>
                                                 <userDefinedRuntimeAttributes>
@@ -182,6 +182,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="v1f-co-n85" appends="YES" id="8St-bf-iAV"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -194,9 +197,6 @@
                                     <constraint firstItem="94q-9A-2Wf" firstAttribute="leading" secondItem="mkC-82-B5i" secondAttribute="leading" id="ggb-HL-JYv"/>
                                     <constraint firstItem="94q-9A-2Wf" firstAttribute="centerX" secondItem="mkC-82-B5i" secondAttribute="centerX" id="v5L-Ew-6eS"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="v1f-co-n85" appends="YES" id="bu5-xA-Cdx"/>
-                                </connections>
                             </scrollView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXv-Os-4jb" userLabel="BottomBar View" customClass="SKView" customModule="SKStyleKit">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
@@ -255,7 +255,7 @@
                         <outlet property="saveButton" destination="ye3-bo-12x" id="kZH-fk-25O"/>
                         <outlet property="scrollView" destination="mkC-82-B5i" id="tn1-MM-1yO"/>
                         <outlet property="scrollViewTopConstraint" destination="sZN-ei-t3u" id="nWo-Se-FY9"/>
-                        <outlet property="tapGestureRecognizer" destination="v1f-co-n85" id="ZCU-qe-CcG"/>
+                        <outlet property="tapGestureRecognizer" destination="v1f-co-n85" id="4gK-gL-0Nj"/>
                         <outletCollection property="textFieldsCollection" destination="g0B-Hj-tfE" collectionClass="NSMutableArray" id="nvY-N0-N9T"/>
                         <outletCollection property="textFieldsCollection" destination="FAP-Pf-Z2b" collectionClass="NSMutableArray" id="5O5-vr-4oG"/>
                         <outletCollection property="textFieldsCollection" destination="NAH-Qu-1GS" collectionClass="NSMutableArray" id="nQ3-ao-9UU"/>
@@ -269,8 +269,8 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AM8-pb-2AV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="v1f-co-n85">
                     <connections>
-                        <action selector="handlerTapGestureRecognizer:" destination="bxM-jC-7qF" id="DUq-NM-a1G"/>
-                        <outlet property="delegate" destination="5yD-HB-1pb" id="rOU-P3-lGt"/>
+                        <action selector="handlerTapGestureRecognizer:" destination="bxM-jC-7qF" id="I4s-9h-fiY"/>
+                        <outlet property="delegate" destination="bxM-jC-7qF" id="1re-jr-5Zg"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -49,6 +49,7 @@
 		B1847C642036B8BD0052DC18 /* DepartmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1847C632036B8BD0052DC18 /* DepartmentCollectionViewCell.swift */; };
 		B1847C662036B9330052DC18 /* DepartmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */; };
 		B1847C682036BF200052DC18 /* DepartmentItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */; };
+		B192FF442045AB4000F700B2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192FF432045AB4000F700B2 /* Logger.swift */; };
 		B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */; };
 		B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */; };
 		B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */; };
@@ -195,6 +196,7 @@
 		B1847C652036B9330052DC18 /* DepartmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1847C672036BF200052DC18 /* DepartmentItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentItemTableViewCell.swift; sourceTree = "<group>"; };
 		B192FF42204564F400F700B2 /* CleanCaseModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CleanCaseModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		B192FF432045AB4000F700B2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementShow.storyboard; sourceTree = "<group>"; };
 		B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementShowViewController.swift; sourceTree = "<group>"; };
 		B19DA3F5202891E800E9F7D6 /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 				B1FA2D9E202490A900351BB7 /* CoreDataManager.swift */,
 				B17DC799203DECD7002BEF12 /* CustomTimer.swift */,
 				B1FA2DAA202496F100351BB7 /* ErrorManager.swift */,
+				B192FF432045AB4000F700B2 /* Logger.swift */,
 				B1FA2DA82024948400351BB7 /* RestAPIManager.swift */,
 				B13961FD204020C900B5063C /* UpdateManager.swift */,
 			);
@@ -755,6 +758,7 @@
 				B1F4D0E8202447D40086E25F /* Resources */,
 				8A9744522F0709C344617A50 /* [CP] Embed Pods Frameworks */,
 				D728EBB0927129E4C03B063A /* [CP] Copy Pods Resources */,
+				B1777E2B2046A443007DB49C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -890,6 +894,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B1777E2B2046A443007DB49C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 5199138ab370bad867ec3f137489f3e63e70881d af0046d71438aab83216127b488477013a6fcc7ccc22d6b8be5453057c5413fb";
 		};
 		C1BDBD0AFA195ECB8EA59410 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1043,6 +1060,7 @@
 				B1FA2D7220245F4B00351BB7 /* WriteUsShowInteractor.swift in Sources */,
 				B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */,
 				B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */,
+				B192FF442045AB4000F700B2 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1104,7 +1122,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

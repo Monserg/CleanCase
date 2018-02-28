@@ -11,6 +11,7 @@ import UIKit
 extension UIViewController {
     func checkNetworkConnection(_ completion: @escaping ((_ success: Bool) -> Void)) {
         guard isNetworkAvailable else {
+            Logger.log(message: "isNetworkAvailable is false", event: .Severe)
             self.showAlertView(withTitle: "Error", andMessage: "Disconnected from Network", needCancel: false, completion: { _ in
                 completion(false)
             })

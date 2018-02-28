@@ -238,6 +238,7 @@ class OrderCreateViewController: UIViewController {
                                                 "Price":                    Float(0)
                                             ]
         guard forAPI == false else {
+            Logger.log(message: "CoreData 'Save Order' parameters: \([ "order": bodyParams ])", event: .Verbose)
             return [ "order": bodyParams ]
         }
         
@@ -250,6 +251,7 @@ class OrderCreateViewController: UIViewController {
         bodyParams["CollectionTo"]      =   collectionTimeTo
         bodyParams["CreatedDate"]       =   createdDate
 
+        Logger.log(message: "API 'Create Order' parameters: \(bodyParams)", event: .Verbose)
         return bodyParams
     }
     
@@ -325,6 +327,7 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
             SwiftSpinner.hide()
             
             guard viewModel.error == nil else {
+                Logger.log(message: "API 'Add Order' failed", event: .Info)
                 self.showAlertView(withTitle: "Error", andMessage: (viewModel.error! as NSError).domain, needCancel: false, completion: {_ in})
                 return
             }
@@ -333,10 +336,12 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
             
             self.showAlertView(withTitle: "Info", andMessage: "Order added", needCancel: false, completion: {_ in
                 if let personalDataEntity = PersonalData.current, personalDataEntity.cardNumber!.isEmpty {
+                    Logger.log(message: "Route to PersonalDataShow scene", event: .Info)
                     self.performSegue(withIdentifier: "PersonalDataShowSegue", sender: nil)
                 }
                     
                 else {
+                    Logger.log(message: "Route to OrderShow scene", event: .Info)
                     self.performSegue(withIdentifier: "OrderShowSegue", sender: nil)
                 }
             })
@@ -461,6 +466,7 @@ extension OrderCreateViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let dataSource = self.router?.dataStore?.departments else {
+            Logger.log(message: "Data source of Departments is empty", event: .Info)
             return 0
         }
         

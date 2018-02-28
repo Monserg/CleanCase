@@ -39,6 +39,14 @@ enum OrderStatus: Int16 {
 @objc(Order)
 public class Order: NSManagedObject {
     // MARK: - Properties
+    class var firstToShow: Order? {
+        get {
+            return (CoreDataManager.instance.readEntities(withName:                 "Order",
+                                                          withPredicateParameters:  NSPredicate.init(format: "orderStatus != 2 AND orderStatus != 5 AND orderStatus != 6"),
+                                                          andSortDescriptor:        NSSortDescriptor.init(key: "orderID", ascending: false))?.first) as? Order
+        }
+    }
+    
     class var firstToChangeStatus: Order? {
         get {
             return (CoreDataManager.instance.readEntities(withName:                 "Order",
@@ -84,12 +92,15 @@ public class Order: NSManagedObject {
                                                                                       predicate:    predicate,
                                                                                       model:        orderItem))
                     
+                    CoreDataManager.instance.contextSave()
+                    
                     self.addToItems(CoreDataManager.instance.readEntity(withName:                   "OrderItem",
                                                                         andPredicateParameters:     predicate) as! OrderItem)
+
+                    self.save()
                 }
             }
             
-            self.save()
         })
     }
 }

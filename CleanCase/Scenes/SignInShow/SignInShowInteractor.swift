@@ -64,7 +64,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
             if let result = responseAPI.model as? ResponseAPIRecordIDResult {
                 Token.current!.lastMessageID = result.GetRecordIdResult
                 self.appDependency.coreDataManager.contextSave()
-                print("TEST: lasr record ID = \(result.GetRecordIdResult)")
+                Logger.log(message: "Last Record ID = \(result.GetRecordIdResult)", event: .Verbose)
             }
         })
     }

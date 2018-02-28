@@ -2,11 +2,11 @@ PODS:
   - ActionKit (2.3.2)
   - ADEmailAndPassword (1.0.15)
   - Alamofire (4.6.0)
-  - Crashlytics (3.9.3):
-    - Fabric (~> 1.7.2)
+  - Crashlytics (3.10.0):
+    - Fabric (~> 1.7.3)
   - Device.swift (1.1)
   - DynamicColor (4.0.2)
-  - Fabric (1.7.2)
+  - Fabric (1.7.5)
   - Firebase/Core (4.8.2):
     - FirebaseAnalytics (= 4.0.9)
     - FirebaseCore (= 4.0.14)
@@ -73,10 +73,10 @@ SPEC CHECKSUMS:
   ActionKit: cf7ca5781f4a43342384d872105fadd58985f416
   ADEmailAndPassword: 8030215991923ddd82767742c01ab58325cfeb0a
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
   Device.swift: f90a2493ab5059da5aeca4907ed55da7b16006fb
   DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
-  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
   Firebase: 7d3b8cd837ad9fcd391657734c0d56dab8e9a5a3
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
   FirebaseCore: 2e0b98fb2d64ca8140136beff15772bdd14d2dd7
@@ -94,6 +94,6 @@ SPEC CHECKSUMS:
   SwiftSpinner: 4c058c7a1d6b444dd2e1d70988ead40783097133
   SwiftyXMLParser: 8065da2e715e86aeba677a34fad8c252db5128bb
 
-PODFILE CHECKSUM: ea38031beb18406ddbfc934fb506c7bd663cc014
+PODFILE CHECKSUM: 10676cfde81bc3a7974d67f92ef1df276973ef1b
 
 COCOAPODS: 1.4.0

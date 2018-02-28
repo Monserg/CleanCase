@@ -63,7 +63,11 @@ class LaundryView: UIView {
     
     // MARK: - Actions
     @IBAction func handlerLaundryPhoneButtonTapped(_ sender: UIButton) {
-        guard let numberURL = URL(string: "tel://" + (sender.titleLabel?.text)!) else { return }
+        guard let numberURL = URL(string: "tel://" + (sender.titleLabel?.text)!) else {
+            Logger.log(message: "Laundry phone number is nil", event: .Severe)
+            return
+            
+        }
         
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(numberURL)

@@ -110,9 +110,13 @@
     },
     
     "textFieldPlaceholderStyle": {
-        "parent":               "textFieldTextStyle",
-        "textAlignment":        "right",
-        "fontColor":            "gray"
+        "borderWidth":          1,
+        "cornerRadius":         4,
+        "alpha":                1,
+        "fontSize":             16.0,
+        "fontColor":            "gray",
+        "borderColor":          "gray",
+        "backgroundColor":      "veryLightCyan"
     },
     
     "captionLabelStyle": {

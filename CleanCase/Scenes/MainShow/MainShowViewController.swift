@@ -103,6 +103,7 @@ class MainShowViewController: UIViewController {
     }
     
     deinit {
+        Logger.log(message: "Remove all Observers", event: .Info)
         NotificationCenter.default.removeObserver(self)
     }
         
@@ -113,7 +114,7 @@ class MainShowViewController: UIViewController {
     }
     
     fileprivate func loadOrder() {
-        self.order = Order.firstToChangeStatus
+        self.order = Order.firstToShow
         self.myOrderView.isHidden = (self.order == nil) ? true : false
     }
     
@@ -121,7 +122,8 @@ class MainShowViewController: UIViewController {
         sideMenuManager = SideMenuManager.default
         let leftSideMenuNC = storyboard!.instantiateViewController(withIdentifier: "LeftSideMenuNC") as! UISideMenuNavigationController
         
-        sideMenuManager.menuLeftNavigationController = leftSideMenuNC
+        sideMenuManager.menuLeftNavigationController    =   leftSideMenuNC
+        sideMenuManager.menuRightNavigationController   =   nil
 
         sideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         sideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
@@ -130,10 +132,11 @@ class MainShowViewController: UIViewController {
         sideMenuManager.menuDismissOnPush   =   true
         sideMenuManager.menuPresentMode     =   .menuSlideIn
         
-        let leftSideMenuShowVC  =   leftSideMenuNC.viewControllers.first as! LeftSideMenuShowViewController
+        let leftSideMenuShowVC              =   leftSideMenuNC.viewControllers.first as! LeftSideMenuShowViewController
         
-        sideMenuManager.menuLeftNavigationController = leftSideMenuNC
-        
+        sideMenuManager.menuLeftNavigationController    =   leftSideMenuNC
+        sideMenuManager.menuRightNavigationController   =   nil
+
         // Handler left side menu item select
         leftSideMenuShowVC.handlerMenuItemSelectCompletion = { [unowned self] (scene) in
             if let nextScene = scene as? LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem  {
@@ -187,6 +190,7 @@ class MainShowViewController: UIViewController {
                     if connectionSuccess {
                         _ = UpdateManager().getLastClientMessage({ [unowned self] changeOrderStatusSuccess in
                             if changeOrderStatusSuccess && self.navigationController!.viewControllers.last!.isKind(of: OrderShowViewController.self) {
+                                Logger.log(message: "Post Notification to complete change current Order status", event: .Debug)
                                 NotificationCenter.default.post(name: Notification.Name("ChangeOrderStatusComplete"), object: nil)
                             }
                         })
@@ -200,6 +204,7 @@ class MainShowViewController: UIViewController {
     // MARK: - Actions
     @IBAction func handlerSideMenuBarButtonTapped(_ sender: UIBarButtonItem) {
         // Show side menu
+        Logger.log(message: "Display left side menu", event: .Info)
         present(sideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
@@ -211,6 +216,7 @@ class MainShowViewController: UIViewController {
         if !isDeliveryTermShow && sideMenuManager.menuLeftNavigationController!.isHidden {
             if Order.firstToDelivery != nil {
                 DispatchQueue.main.async(execute: {
+                    Logger.log(message: "Display DeliveryTermsShow scene", event: .Verbose)
                     self.createPopover(withName: "DeliveryTermsShow", completion: { [unowned self] in
                         self.isDeliveryTermShow = false
                     })
@@ -226,18 +232,18 @@ class MainShowViewController: UIViewController {
 // MARK: - UISideMenuNavigationControllerDelegate
 extension MainShowViewController: UISideMenuNavigationControllerDelegate {
     func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
-        print("SideMenu Appearing! (animated: \(animated))")
+        Logger.log(message: "SideMenu Appearing! (animated: \(animated))", event: .Info)
     }
     
     func sideMenuDidAppear(menu: UISideMenuNavigationController, animated: Bool) {
-        print("SideMenu Appeared! (animated: \(animated))")
+        Logger.log(message: "SideMenu Appeared! (animated: \(animated))", event: .Info)
     }
     
     func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
-        print("SideMenu Disappearing! (animated: \(animated))")
+        Logger.log(message: "SideMenu Disappearing! (animated: \(animated))", event: .Info)
     }
     
     func sideMenuDidDisappear(menu: UISideMenuNavigationController, animated: Bool) {
-        print("SideMenu Disappeared! (animated: \(animated))")
+        Logger.log(message: "SideMenu Disappeared! (animated: \(animated))", event: .Info)
     }
 }

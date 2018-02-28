@@ -106,7 +106,7 @@ class PriceListShowViewController: UIViewController {
         self.widthDepartmentCell    =   (self.departmentsCollectionView.frame.width - 30.0) / 3.0
 
         self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: false)
-        print(self.departmentsCollectionView.contentOffset.x)
+        Logger.log(message: "Selected View move to new X: \(self.departmentsCollectionView.contentOffset.x)", event: .Verbose)
         self.moveSelectedView()
     }
     
@@ -203,6 +203,7 @@ extension PriceListShowViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let dataSource = self.router?.dataStore?.departmentItems else {
+            Logger.log(message: "Data source of Department Items is empty", event: .Info)
             return 0
         }
         
@@ -240,7 +241,6 @@ extension PriceListShowViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Select departmentItem...")
     }
 }
 
@@ -255,6 +255,7 @@ extension PriceListShowViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Return the number of items
         guard let dataSource = self.router?.dataStore?.departments else {
+            Logger.log(message: "Data source of Departments is empty", event: .Info)
             return 0
         }
         
