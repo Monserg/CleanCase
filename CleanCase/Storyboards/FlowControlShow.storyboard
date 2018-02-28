@@ -39,6 +39,7 @@
                         <outlet property="flowControlLabel" destination="31O-2q-KTh" id="QCO-km-vMX"/>
                         <segue destination="WOp-uw-LfR" kind="presentation" identifier="SignInShowSegue" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="aqf-Rk-7oV"/>
                         <segue destination="SEc-qw-hnP" kind="presentation" identifier="MainShowSegue" animates="NO" modalTransitionStyle="crossDissolve" id="uNE-8E-f9o"/>
+                        <segue destination="Xrc-SI-16O" kind="presentation" identifier="OnboardShowSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="2kt-oc-pEz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg7-pW-TgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,6 +61,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6v7-Q5-BfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="106"/>
+        </scene>
+        <!--OnboardShowVC-->
+        <scene sceneID="2Dm-rQ-4YV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OnboardShow" referencedIdentifier="OnboardShowVC" id="Xrc-SI-16O" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X0f-28-REE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052" y="225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dLt-YY-ujF">

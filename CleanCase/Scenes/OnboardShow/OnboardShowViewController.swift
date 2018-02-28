@@ -12,10 +12,6 @@ import SwiftSpinner
 import ImageSlideshow
 
 class OnboardShowViewController: UIViewController {
-    // MARK: - Properties
-    var currentPage: Int = 0
-
-    
     // MARK: - IBOutlets
     @IBOutlet weak var nextButton: UIButton! {
         didSet {
@@ -24,6 +20,16 @@ class OnboardShowViewController: UIViewController {
     }
     
     @IBOutlet weak var imageSlideShow: ImageSlideshow!
+    
+    @IBOutlet weak var pageControl: UIPageControl! {
+        didSet {
+            pageControl.numberOfPages                     =   5
+            pageControl.currentPage                       =   0
+            pageControl.tintColor                         =   UIColor.red
+            pageControl.pageIndicatorTintColor            =   DynamicColor(hexString: "#88A7E4")
+            pageControl.currentPageIndicatorTintColor     =   DynamicColor(hexString: "#3D5B96")
+        }
+    }
     
     @IBOutlet weak var pageTitleLabel: UILabel! {
         didSet {
@@ -45,7 +51,7 @@ class OnboardShowViewController: UIViewController {
 
         self.hideBackBarButton()
         self.addNavigationBarShadow()
-        self.loadTitle(forPage: currentPage)
+        self.loadTitle(forPage: self.pageControl.currentPage)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         self.prepareInfoForPresentation()
     }
@@ -63,9 +69,9 @@ class OnboardShowViewController: UIViewController {
     }
     
     fileprivate func prepareInfoForPresentation() {
-        imageSlideShow.backgroundColor = UIColor.clear
-        imageSlideShow.draggingEnabled = false
-        imageSlideShow.pageControlPosition = .insideScrollView
+        imageSlideShow.backgroundColor                              =   UIColor.clear
+        imageSlideShow.draggingEnabled                              =   false
+        imageSlideShow.pageControlPosition                          =   .hidden    // .insideScrollView
         imageSlideShow.pageControl.currentPageIndicatorTintColor    =   DynamicColor(hexString: "#3D5B96")
         imageSlideShow.pageControl.pageIndicatorTintColor           =   DynamicColor(hexString: "#88A7E4")
         imageSlideShow.contentScaleMode                             =   UIViewContentMode.scaleAspectFill
@@ -84,14 +90,18 @@ class OnboardShowViewController: UIViewController {
         ])
     }
 
-    
-    // MARK: - Actions
-    @IBAction func handlerControlPageButtonTapped(_ sender: UIButton) {
-        if self.currentPage != 4 {
-            self.handlerNextButtonTapped(self.nextButton)
-        }
+    fileprivate func showNextPage() {
+        self.imageSlideShow.setCurrentPage(self.pageControl.currentPage, animated: true)
+        self.nextButton.setTitle((self.pageControl.currentPage == 4) ? "Start".localized() : "Next".localized(), for: .normal)
     }
     
+    // MARK: - UIPageControl
+    @IBAction func handlerSelectNewPage(_ sender: UIPageControl) {
+        self.showNextPage()
+    }
+    
+    
+    // MARK: - Actions
     @IBAction func handlerNextButtonTapped(_ sender: UIButton) {
         if sender.title(for: .normal) == "Start".localized() {
             SwiftSpinner.show("Loading App data...".localized(), animated: true)
@@ -102,12 +112,8 @@ class OnboardShowViewController: UIViewController {
         }
         
         else {
-            self.currentPage += 1
-            self.imageSlideShow.setCurrentPage(currentPage, animated: true)
-            
-            if self.currentPage == 4 {
-                self.nextButton.setTitle("Start".localized(), for: .normal)
-            }
+            self.pageControl.currentPage += 1
+            self.showNextPage()
         }
     }
 }

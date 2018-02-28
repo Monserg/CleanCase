@@ -113,6 +113,7 @@ class FlowControlShowViewController: UIViewController {
             }
             
             Logger.log(message: "Route to MainShow scene", event: .Info)
+//            self.performSegue(withIdentifier: "OnboardShowSegue", sender: nil)
             self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
         }
     }

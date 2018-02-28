@@ -63,19 +63,21 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle4"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-cg-xeJ" userLabel="Control Page Button">
-                                <rect key="frame" x="112" y="623" width="150" height="44"/>
+                            <pageControl clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="yId-yC-KST">
+                                <rect key="frame" x="112.5" y="623" width="150" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="mha-SO-uMo"/>
-                                    <constraint firstAttribute="width" constant="150" id="u21-5B-g02"/>
+                                    <constraint firstAttribute="height" constant="44" id="3HN-mv-fDN"/>
+                                    <constraint firstAttribute="width" constant="150" id="Tdq-yH-cjZ"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="handlerControlPageButtonTapped:" destination="MvJ-79-BAL" eventType="touchUpInside" id="4fI-9d-HuV"/>
+                                    <action selector="handlerSelectNewPage:" destination="MvJ-79-BAL" eventType="valueChanged" id="Qk3-BL-wUo"/>
                                 </connections>
-                            </button>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5Fz-pW-3yf" firstAttribute="bottom" secondItem="yId-yC-KST" secondAttribute="bottom" id="19x-NT-upm"/>
                             <constraint firstItem="oc0-xa-BBM" firstAttribute="top" secondItem="VBF-Ou-F87" secondAttribute="bottom" constant="2" id="2bT-KF-xGN"/>
                             <constraint firstItem="wFO-0S-Xkt" firstAttribute="top" secondItem="VBF-Ou-F87" secondAttribute="bottom" constant="50" id="3gb-32-2ne"/>
                             <constraint firstItem="VBF-Ou-F87" firstAttribute="leading" secondItem="5Fz-pW-3yf" secondAttribute="leading" id="7N1-jw-WJT"/>
@@ -83,9 +85,8 @@
                             <constraint firstItem="wFO-0S-Xkt" firstAttribute="centerX" secondItem="oeI-dE-kU3" secondAttribute="centerX" id="BQw-z9-2BI"/>
                             <constraint firstItem="5Fz-pW-3yf" firstAttribute="trailing" secondItem="oc0-xa-BBM" secondAttribute="trailing" id="Jk9-gL-HoG"/>
                             <constraint firstItem="VBF-Ou-F87" firstAttribute="top" secondItem="5Fz-pW-3yf" secondAttribute="top" id="KiE-JL-AEu"/>
-                            <constraint firstItem="I1b-cg-xeJ" firstAttribute="centerX" secondItem="oeI-dE-kU3" secondAttribute="centerX" id="Meh-x9-nGl"/>
                             <constraint firstItem="wFO-0S-Xkt" firstAttribute="leading" secondItem="5Fz-pW-3yf" secondAttribute="leading" constant="16" id="Tso-zq-rNY"/>
-                            <constraint firstItem="5Fz-pW-3yf" firstAttribute="bottom" secondItem="I1b-cg-xeJ" secondAttribute="bottom" id="UeK-lc-U5U"/>
+                            <constraint firstItem="yId-yC-KST" firstAttribute="centerX" secondItem="oeI-dE-kU3" secondAttribute="centerX" id="abf-uJ-IXZ"/>
                             <constraint firstItem="oc0-xa-BBM" firstAttribute="leading" secondItem="5Fz-pW-3yf" secondAttribute="leading" id="dF2-mm-nR7"/>
                             <constraint firstItem="5Fz-pW-3yf" firstAttribute="trailing" secondItem="VBF-Ou-F87" secondAttribute="trailing" id="oXH-v9-xKp"/>
                             <constraint firstItem="5Fz-pW-3yf" firstAttribute="bottom" secondItem="oc0-xa-BBM" secondAttribute="bottom" id="xk9-Jd-Fc4"/>
@@ -95,6 +96,7 @@
                     <connections>
                         <outlet property="imageSlideShow" destination="oc0-xa-BBM" id="KSv-rP-GdN"/>
                         <outlet property="nextButton" destination="jnV-Z6-PXj" id="UJj-94-Mbz"/>
+                        <outlet property="pageControl" destination="yId-yC-KST" id="aZ8-rd-nol"/>
                         <outlet property="pageTitleLabel" destination="wFO-0S-Xkt" id="Wxy-bM-dot"/>
                         <segue destination="YTS-eA-ieb" kind="presentation" identifier="MainShowSegue" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Tlk-KL-neT"/>
                     </connections>
