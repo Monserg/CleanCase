@@ -68,7 +68,7 @@ class OnboardShowViewController: UIViewController {
         imageSlideShow.pageControlPosition = .insideScrollView
         imageSlideShow.pageControl.currentPageIndicatorTintColor    =   DynamicColor(hexString: "#3D5B96")
         imageSlideShow.pageControl.pageIndicatorTintColor           =   DynamicColor(hexString: "#88A7E4")
-        imageSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        imageSlideShow.contentScaleMode                             =   UIViewContentMode.scaleAspectFill
         
         imageSlideShow.currentPageChanged = { [unowned self] page in
             self.loadTitle(forPage: page)
