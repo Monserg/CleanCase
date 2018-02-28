@@ -36,5 +36,7 @@ public class PersonalData: NSManagedObject {
         self.laundryId       =   json["LaundryId"] as! Int16
         self.mobilePhone     =   json["MobilePhone"] as! String
         self.postCode        =   json["PostCode"] as? String
+        
+        self.save()
     }
 }

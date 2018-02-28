@@ -143,6 +143,7 @@ class OrderCreateViewController: UIViewController {
         if segue.identifier == "PersonalDataShowSegue" {
             let destinationVC = segue.destination as! PersonalDataShowViewController
             destinationVC.routeFrom = .FromOrderCreate
+            destinationVC.saveOrderID(Int16(self.router!.dataStore!.orderID!)!)
         }
         
         else if segue.identifier == "OrderShowSegue" {

@@ -101,6 +101,7 @@ class PersonalDataShowViewController: UIViewController {
         if segue.identifier == "OrderShowSegue" {
             let destinationVC           =   segue.destination as! OrderShowViewController
             destinationVC.routeFrom     =   .FromOrderCreate
+            destinationVC.saveOrderID(self.router!.dataStore!.orderID)
         }
     }
     
@@ -124,6 +125,10 @@ class PersonalDataShowViewController: UIViewController {
     
     
     // MARK: - Custom Functions
+    func saveOrderID(_ orderID: Int16) {
+        interactor?.saveOrderID(orderID)
+    }
+
     func loadViewSettings() {
         let requestModel = PersonalDataShowModels.Client.RequestModel(params: nil)
         interactor?.fetchTerms(withRequestModel: requestModel)

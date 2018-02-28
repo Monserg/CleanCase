@@ -86,7 +86,7 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
                 Logger.log(message: "CoreData 'Add Order' success: Order ID = \(self.orderID!)", event: .Verbose)
             }
             
-            let responseModel = OrderCreateModels.Order.ResponseModel(error: (self.orderID == nil) ? NSError.init(domain: "BAD_REQUEST_400", code: 400, userInfo: nil) : nil )
+            let responseModel = OrderCreateModels.Order.ResponseModel(error: (self.orderID == nil) ? NSError.init(domain: "BAD_REQUEST_400", code: 400, userInfo: nil) : nil)
             self.presenter?.presentAddOrder(fromResponseModel: responseModel)
         })
     }

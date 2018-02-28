@@ -14,6 +14,7 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol PersonalDataShowBusinessLogic {
+    func saveOrderID(_ orderID: Int16)
     func saveSelectedYear(byRow row: Int)
     func saveSelectedMonth(byRow row: Int)
     func fetchTerms(withRequestModel requestModel: PersonalDataShowModels.Client.RequestModel)
@@ -21,6 +22,7 @@ protocol PersonalDataShowBusinessLogic {
 }
 
 protocol PersonalDataShowDataStore {
+    var orderID: Int16! { get set }
     var selectedYearRow: Int { get set }
     var selectedMonthRow: Int { get set }
     var years: [PickerViewSupport]! { get set }
@@ -33,6 +35,7 @@ class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic
     var presenter: PersonalDataShowPresentationLogic?
     
     // PersonalDataShowDataStore protocol implementation
+    var orderID: Int16! = 0
     var selectedYearRow: Int = 0
     var selectedMonthRow: Int = 0
 
@@ -53,6 +56,10 @@ class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic
 
     
     // MARK: - Business logic implementation
+    func saveOrderID(_ orderID: Int16) {
+        self.orderID = orderID
+    }
+    
     func saveSelectedYear(byRow row: Int) {
         self.selectedYearRow = row
     }
@@ -79,7 +86,6 @@ class PersonalDataShowInteractor: ShareInteractor, PersonalDataShowBusinessLogic
             if (responseAPI.model as? ResponseAPIClientResult) != nil {
                 if let personalData = self.appDependency.coreDataManager.createEntity("PersonalData") as? PersonalData {
                     personalData.updateEntity(fromJSON: requestModel.params!)
-                    personalData.save()
                     Logger.log(message: "CoreData 'Update Personal Data' success: personalData json = \(requestModel.params!)", event: .Verbose)
                 }
             }
