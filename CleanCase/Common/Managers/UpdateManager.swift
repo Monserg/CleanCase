@@ -86,7 +86,7 @@ class UpdateManager {
                                     
                                 // UpdateStatus
                                 case 5:
-                                    order.orderStatus = dataInfo.status
+                                    order.orderStatus   =   dataInfo.status
                                     
                                 default:
                                     break

@@ -121,8 +121,8 @@ class OrderShowViewController: UIViewController {
         
         // Add Timer Observer
         NotificationCenter.default.addObserver(self,
-                                               selector:    #selector(handlerChangeOrderStatusNotification),
-                                               name:        Notification.Name("ChangeOrderStatusComplete"),
+                                               selector:    #selector(handlerCompleteChangeOrderStatusNotification),
+                                               name:        Notification.Name("CompleteChangeOrderStatus"),
                                                object:      nil)
     }
     
@@ -173,7 +173,7 @@ class OrderShowViewController: UIViewController {
         })
     }
     
-    @objc func handlerChangeOrderStatusNotification(_ notification: Notification) {
+    @objc func handlerCompleteChangeOrderStatusNotification(_ notification: Notification) {
         if let order = self.router?.dataStore?.order, order.orderStatus == 0 {
             self.navigationController?.popViewController(animated: true)
         }

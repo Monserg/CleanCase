@@ -218,7 +218,8 @@ class PersonalDataShowViewController: UIViewController {
                                 "CardCVV":          self.textFieldsCollection.first(where: { $0.tag == 6 })!.text!,
                                 "CardExpired":      self.textFieldsCollection.first(where: { $0.tag == 8})!.text! +
                                                     self.textFieldsCollection.first(where: { $0.tag == 7})!.text!,
-                                "Adv":              "1"
+                                "Adv":              "1",
+                                "Token":            Token.current!.firebase ?? ""
                             ])
                         
                         self.interactor?.updatePersonalData(withRequestModel: requestModel)

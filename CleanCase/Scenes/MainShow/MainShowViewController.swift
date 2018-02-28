@@ -19,8 +19,9 @@ class MainShowViewController: UIViewController {
     fileprivate var sideMenuManager: SideMenuManager!
     fileprivate var order: Order?
     fileprivate var isDeliveryTermShow: Bool = false
+    
+    // Background timer
     fileprivate var lastMessageTimer: CustomTimer!
-
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
 
     
@@ -71,8 +72,8 @@ class MainShowViewController: UIViewController {
     
         // Add Timer Observer
         NotificationCenter.default.addObserver(self,
-                                               selector:    #selector(handlerTimerNotification),
-                                               name:        Notification.Name("TimerNotificationComplete"),
+                                               selector:    #selector(handlerShowDeliveryTermsSceneNotification),
+                                               name:        Notification.Name("ShowDeliveryTermsScene"),
                                                object:      nil)
         
         backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
@@ -163,25 +164,21 @@ class MainShowViewController: UIViewController {
     }
     
     fileprivate func runGetLastClientMessage() {
-        if let orders = CoreDataManager.instance.readEntities(withName:                 "Order",
-                                                              withPredicateParameters:  nil,
-                                                              andSortDescriptor:        NSSortDescriptor.init(key: "orderID", ascending: false)), orders.count > 0 {
-            self.lastMessageTimer = CustomTimer.init(withSecondsInterval: 30)
-            self.lastMessageTimer.resume()
-            
-            self.lastMessageTimer.eventHandler = {
-                // API
-                self.checkNetworkConnection({ connectionSuccess in
-                    if connectionSuccess {
-                        _ = UpdateManager().getLastClientMessage({ [unowned self] changeOrderStatusSuccess in
-                            if changeOrderStatusSuccess && self.navigationController!.viewControllers.last!.isKind(of: OrderShowViewController.self) {
-                                Logger.log(message: "Post Notification to complete change current Order status", event: .Debug)
-                                NotificationCenter.default.post(name: Notification.Name("ChangeOrderStatusComplete"), object: nil)
-                            }
-                        })
-                    }
-                })
-            }
+        self.lastMessageTimer = CustomTimer.init(withSecondsInterval: 30)
+        self.lastMessageTimer.resume()
+        
+        self.lastMessageTimer.eventHandler = {
+            // API
+            self.checkNetworkConnection({ connectionSuccess in
+                if connectionSuccess {
+                    _ = UpdateManager().getLastClientMessage({ [unowned self] changeOrderStatusSuccess in
+                        if changeOrderStatusSuccess && self.navigationController!.viewControllers.last!.isKind(of: OrderShowViewController.self) {
+                            Logger.log(message: "Post Notification to complete change current Order status", event: .Debug)
+                            NotificationCenter.default.post(name: Notification.Name("CompleteChangeOrderStatus"), object: nil)
+                        }
+                    })
+                }
+            })
         }
     }
 
@@ -197,7 +194,7 @@ class MainShowViewController: UIViewController {
         self.show(self.nextViewController(fromStoryboardName: (sender.tag == 0) ? "OrderCreate" : "OrderShow"), sender: nil)
     }
     
-    @objc func handlerTimerNotification(_ notification: Notification) {
+    @objc func handlerShowDeliveryTermsSceneNotification(_ notification: Notification) {
         if !isDeliveryTermShow && sideMenuManager.menuLeftNavigationController!.isHidden {
             if Order.firstToDelivery != nil {
                 DispatchQueue.main.async(execute: {

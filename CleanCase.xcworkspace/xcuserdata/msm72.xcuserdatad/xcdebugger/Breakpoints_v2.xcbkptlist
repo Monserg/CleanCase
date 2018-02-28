@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanCase/Scenes/FlowControlShow/FlowControlShowViewController.swift"
-            timestampString = "541517724.4861619"
+            filePath = "CleanCase/Scenes/OrderShow/OrderShowViewController.swift"
+            timestampString = "541521583.568922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "checkAppWorkingVersion(fromViewModel:)"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "handlerCompleteChangeOrderStatusNotification(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CleanCase/AppDelegate.swift"
+            timestampString = "541521583.569203"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "applicationDidBecomeActive(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanCase/Scenes/PersonalDataShow/PersonalDataShowInteractor.swift"
-            timestampString = "541517724.486227"
+            filePath = "CleanCase/Scenes/MainShow/MainShowViewController.swift"
+            timestampString = "541521583.5698659"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "saveOrderID(_:)"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "runGetLastClientMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanCase/Scenes/OrderCreate/OrderCreateViewController.swift"
-            timestampString = "541517724.486277"
+            filePath = "CleanCase/Common/Managers/UpdateManager.swift"
+            timestampString = "541521583.570067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getLastClientMessage(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanCase/Scenes/OrderShow/OrderShowInteractor.swift"
-            timestampString = "541517724.486665"
+            filePath = "CleanCase/Common/Managers/UpdateManager.swift"
+            timestampString = "541521583.57058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "saveOrderID(_:)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "getLastClientMessage(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,14 +89,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanCase/Scenes/OrderShow/OrderShowInteractor.swift"
-            timestampString = "541517724.486928"
+            filePath = "CleanCase/Common/Managers/UpdateManager.swift"
+            timestampString = "541521583.570799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "orderID"
-            landmarkType = "24">
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "getLastClientMessage(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanCase/Scenes/PersonalDataShow/PersonalDataShowViewController.swift"
-            timestampString = "541517724.487151"
+            filePath = "CleanCase/Common/Managers/UpdateManager.swift"
+            timestampString = "541521583.571053"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "getLastClientMessage(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
