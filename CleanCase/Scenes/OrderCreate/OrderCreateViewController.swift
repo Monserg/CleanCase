@@ -212,7 +212,7 @@ class OrderCreateViewController: UIViewController {
     
     fileprivate func prepareBodyParameters(_ forAPI: Bool) -> [ String: Any ] {
         var comments = textViewCollection.first(where: { $0.tag == 0 })?.text
-        var instructions = textViewCollection.first(where: { $0.tag == 1 })?.text
+        let instructions = textViewCollection.first(where: { $0.tag == 1 })?.text
         let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + " ," + $1.name }
 
         if comments == "Enter comment".localized() {
@@ -221,14 +221,6 @@ class OrderCreateViewController: UIViewController {
         
         else {
             comments! += selectedDepartments
-        }
-
-        if instructions == "Enter cleaning instructions".localized() {
-            instructions = selectedDepartments
-        }
-        
-        else {
-            instructions! += selectedDepartments
         }
 
         let collectionTimeFrom  =   (self.router!.dataStore!.times[self.router!.dataStore!.selectedTimeRow] as! OrderCreateModels.Dates.RequestModel.TimeForPickerView).bodyTimeFrom

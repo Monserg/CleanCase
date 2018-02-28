@@ -369,7 +369,7 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
         // Phone Number & Credit Card Number
         case 0, 5:
             guard !string.isEmpty else { return true }
-            return (textField.text!.count + string.count) < 11 && CharacterSet.decimalDigits.contains(Unicode.Scalar(string)!)
+            return (textField.text!.count + string.count) < (textField.tag == 0 ? 11 : 21) && CharacterSet.decimalDigits.contains(Unicode.Scalar(string)!)
         
         // First & Last Names
         case 1, 2:
