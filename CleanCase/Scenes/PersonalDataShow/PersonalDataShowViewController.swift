@@ -127,6 +127,13 @@ class PersonalDataShowViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        Logger.log(message: "Success", event: .Severe)
+        NotificationCenter.default.removeObserver(self)
+    }
+
     
     // MARK: - Custom Functions
     func saveOrderID(_ orderID: Int16) {

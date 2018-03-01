@@ -170,6 +170,13 @@ class OrderCreateViewController: UIViewController {
         self.loadVewSettings()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        Logger.log(message: "Success", event: .Severe)
+        NotificationCenter.default.removeObserver(self)
+    }
+
     
     // MARK: - Custom Functions
     private func loadVewSettings() {
