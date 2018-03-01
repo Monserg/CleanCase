@@ -75,7 +75,6 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         // Add new Order to CoreData
         if let order = self.appDependency.coreDataManager.createEntity("Order") as? Order {
             order.updateEntity(fromJSON: json)
-            order.save()
             Logger.log(message: "CoreData 'Save Order' success: Order data = \(json)", event: .Verbose)
         }
     }

@@ -66,16 +66,19 @@ public class Order: NSManagedObject {
     
     // MARK: - Class Functions
     func updateEntity(fromJSON json: [String: Any]) {
-            self.price                   =   json["Price"] as! Float
-            self.orderID                 =   Int16(json["OrderID"] as! String)!
-            self.clientID                =   json["ClientId"] as! Int16
-            self.remarks                 =   json["Remarks"] as? String
-            self.address1                =   json["Address1"] as? String
-            self.orderStatus             =   Int16(json["OrderStatus"] as! Int)
-            self.createdDate             =   json["CreatedDate"] as! String
-            self.collectionTo            =   json["CollectionTo"] as! String
-            self.collectionFrom          =   json["CollectionFrom"] as! String
-            self.cleaningInstructions    =   json["CleaningInstructions"] as? String
+        self.price                  =   json["Price"] as! Float
+        self.orderID                =   Int16(json["OrderID"] as! String)!
+        self.clientID               =   json["ClientId"] as! Int16
+        self.remarks                =   json["Remarks"] as? String
+        self.address1               =   json["Address1"] as? String
+        self.orderStatus            =   Int16(json["OrderStatus"] as! Int)
+        self.createdDate            =   json["CreatedDate"] as! String
+        self.collectionTo           =   json["CollectionTo"] as! String
+        self.collectionFrom         =   json["CollectionFrom"] as! String
+        self.cleaningInstructions   =   json["CleaningInstructions"] as? String
+        self.items                  =   nil
+        
+        self.save()
     }
     
     func getItems() {
@@ -83,7 +86,9 @@ public class Order: NSManagedObject {
         RestAPIManager().fetchRequest(withRequestType: RequestType.getOrderItemsList([ "order_id": self.orderID ], false), andResponseType: ResponseAPIOrderItemsResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIOrderItemsResult, let orderItemsList = result.GetItemsResult, orderItemsList.count > 0 {
                 // Remote all items for current Order
-                self.items = nil
+                if self.items != nil, self.items!.count > 0 {
+                    self.items = nil
+                }
                 
                 for orderItem in orderItemsList {
                     let predicate = NSPredicate.init(format: "iD == \(orderItem.ID) AND orderID == \(orderItem.OrderID) AND departmentID == \(orderItem.DepartmentID) AND departmentItemID == \(orderItem.DepartmentItemID)")
