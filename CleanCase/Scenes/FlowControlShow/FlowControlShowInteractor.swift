@@ -29,7 +29,7 @@ class FlowControlShowInteractor: ShareInteractor, FlowControlShowBusinessLogic, 
     
     // MARK: - Class Initialization
     deinit {
-        Logger.log(message: "Class deinit", event: .Severe)
+        Logger.log(message: "Success", event: .Severe)
     }
     
 
@@ -38,7 +38,7 @@ class FlowControlShowInteractor: ShareInteractor, FlowControlShowBusinessLogic, 
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCurrentAppWorkingVersion(nil, false), andResponseType: ResponseAPIVersion.self, completionHandler: { [unowned self] responseAPI in
             if let model = responseAPI.model as? ResponseAPIVersion {
-                Logger.log(message: "Check App Working Version: version = \(model.GetVerResult), build = \(Version.currentVersion)", event: .Verbose)
+                Logger.log(message: "Check App Working Version: fromAPI = \(model.GetVerResult), fromCoreData = \(Version.currentVersion)", event: .Verbose)
                 self.isEqual = Version.currentVersion == model.GetVerResult
             }
             

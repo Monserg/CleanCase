@@ -33,10 +33,10 @@
                             </constraints>
                         </imageView>
                         <stackView contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-RE-iyh">
-                            <rect key="frame" x="293" y="4" width="38" height="36"/>
+                            <rect key="frame" x="285" y="4" width="46" height="36"/>
                             <subviews>
                                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwY-7O-zga" userLabel="Laundry Name Label" customClass="SKLabel" customModule="SKStyleKit">
-                                    <rect key="frame" x="0.0" y="0.0" width="38" height="14.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="46" height="13.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,10 +45,10 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="laundryNameLabelStyle"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-Jq-Bdk" userLabel="Laundry Phone Button" customClass="SKButton" customModule="SKStyleKit">
-                                    <rect key="frame" x="0.0" y="14.5" width="38" height="21.5"/>
+                                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-Jq-Bdk" userLabel="Laundry Phone Button" customClass="SKButton" customModule="SKStyleKit">
+                                    <rect key="frame" x="0.0" y="13.5" width="46" height="22.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Button">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>

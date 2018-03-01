@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94q-9A-2Wf" userLabel="Content View" customClass="SKView" customModule="SKStyleKit">
-                                        <rect key="frame" x="0.0" y="48" width="375" height="448"/>
+                                        <rect key="frame" x="0.0" y="48" width="375" height="452"/>
                                         <subviews>
                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0B-Hj-tfE" userLabel="Select City Text Field" customClass="SKTextField" customModule="SKStyleKit">
                                                 <rect key="frame" x="16" y="16" width="343" height="30"/>
@@ -138,9 +138,11 @@
                                                     <constraint firstItem="bt3-JL-S02" firstAttribute="centerY" secondItem="mlr-1x-Epc" secondAttribute="centerY" id="dN1-XR-pCB"/>
                                                 </constraints>
                                             </view>
-                                            <button clipsSubviews="YES" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63b-XS-r6M" userLabel="Read Agreement Button" customClass="SKButton" customModule="SKStyleKit">
-                                                <rect key="frame" x="130" y="378" width="114" height="30"/>
-                                                <state key="normal" title="Read Agreement"/>
+                                            <button clipsSubviews="YES" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63b-XS-r6M" userLabel="Read Agreement Button" customClass="SKButton" customModule="SKStyleKit">
+                                                <rect key="frame" x="119.5" y="378" width="135" height="34"/>
+                                                <state key="normal" title="Read Agreement">
+                                                    <color key="titleColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="actionButtonGreen.normal"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="highlightedStyleName" value="actionButton.highlighted"/>

@@ -26,7 +26,7 @@ class OrderCreatePresenter: OrderCreatePresentationLogic {
     
     // MARK: - Class Initialization
     deinit {
-        Logger.log(message: "Class deinit", event: .Severe)
+        Logger.log(message: "Success", event: .Severe)
     }
     
 
