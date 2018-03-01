@@ -76,7 +76,6 @@ public class Order: NSManagedObject {
         self.collectionTo           =   json["CollectionTo"] as! String
         self.collectionFrom         =   json["CollectionFrom"] as! String
         self.cleaningInstructions   =   json["CleaningInstructions"] as? String
-        self.items                  =   nil
         
         self.save()
     }
@@ -86,9 +85,8 @@ public class Order: NSManagedObject {
         RestAPIManager().fetchRequest(withRequestType: RequestType.getOrderItemsList([ "order_id": self.orderID ], false), andResponseType: ResponseAPIOrderItemsResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIOrderItemsResult, let orderItemsList = result.GetItemsResult, orderItemsList.count > 0 {
                 // Remote all items for current Order
-                if self.items != nil, self.items!.count > 0 {
-                    self.items = nil
-                }
+                CoreDataManager.instance.deleteEntities(withName: "OrderItem",
+                                                        andPredicateParameters: NSPredicate.init(format: "orderID = \(self.orderID)"))
                 
                 for orderItem in orderItemsList {
                     let predicate = NSPredicate.init(format: "iD == \(orderItem.ID) AND orderID == \(orderItem.OrderID) AND departmentID == \(orderItem.DepartmentID) AND departmentItemID == \(orderItem.DepartmentItemID)")
