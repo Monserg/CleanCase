@@ -2,8 +2,8 @@ PODS:
   - ActionKit (2.3.2)
   - ADEmailAndPassword (1.0.15)
   - Alamofire (4.6.0)
-  - Crashlytics (3.10.0):
-    - Fabric (~> 1.7.3)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
   - Device.swift (1.1)
   - DynamicColor (4.0.2)
   - Fabric (1.7.5)
@@ -73,7 +73,7 @@ SPEC CHECKSUMS:
   ActionKit: cf7ca5781f4a43342384d872105fadd58985f416
   ADEmailAndPassword: 8030215991923ddd82767742c01ab58325cfeb0a
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   Device.swift: f90a2493ab5059da5aeca4907ed55da7b16006fb
   DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
   Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
