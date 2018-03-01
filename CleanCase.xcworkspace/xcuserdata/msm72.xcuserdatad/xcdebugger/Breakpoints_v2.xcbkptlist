@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleanCase/Common/Managers/CoreDataManager.swift"
-            timestampString = "541603662.9638849"
+            filePath = "CleanCase/Common/CoreData/Entities/Order+CoreDataClass.swift"
+            timestampString = "541607068.888783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "deleteEntities(withName:andPredicateParameters:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CleanCase/Common/Managers/CoreDataManager.swift"
-            timestampString = "541603663.795737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "deleteEntities(withName:andPredicateParameters:)"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getItems()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
