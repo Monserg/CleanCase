@@ -80,6 +80,11 @@ class OrderShowViewController: UIViewController {
         
         setup()
     }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
     
     
     // MARK: - Setup
@@ -138,13 +143,9 @@ class OrderShowViewController: UIViewController {
         }
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
     
     // MARK: - Custom Functions
-    func loadViewSettings() {
+    private func loadViewSettings() {
         if let order = self.router?.dataStore?.order {
             _ = valuesLabelsCollection.first(where: { $0.tag == 2 }).map({ $0.text = order.createdDate + " " + order.collectionFrom })
             _ = valuesLabelsCollection.first(where: { $0.tag == 3 }).map({ $0.text = OrderStatus(rawValue: order.orderStatus)!.name })

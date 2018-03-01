@@ -119,7 +119,11 @@ class OrderCreateViewController: UIViewController {
         
         setup()
     }
-    
+
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+
     
     // MARK: - Setup
     private func setup() {
@@ -163,12 +167,12 @@ class OrderCreateViewController: UIViewController {
         self.addBackBarButtonItem()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
-        loadVewSettings()
+        self.loadVewSettings()
     }
     
     
     // MARK: - Custom Functions
-    func loadVewSettings() {
+    private func loadVewSettings() {
         // Add keyboard Observers
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)

@@ -39,6 +39,12 @@ class OnboardShowViewController: UIViewController {
     }
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         SwiftSpinner.hide()
@@ -94,6 +100,7 @@ class OnboardShowViewController: UIViewController {
         self.imageSlideShow.setCurrentPage(self.pageControl.currentPage, animated: true)
         self.nextButton.setTitle((self.pageControl.currentPage == 4) ? "Start".localized() : "Next".localized(), for: .normal)
     }
+    
     
     // MARK: - UIPageControl
     @IBAction func handlerSelectNewPage(_ sender: UIPageControl) {

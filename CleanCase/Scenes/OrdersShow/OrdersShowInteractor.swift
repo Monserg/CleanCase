@@ -29,6 +29,12 @@ class OrdersShowInteractor: ShareInteractor, OrdersShowBusinessLogic, OrdersShow
     var orders: [OrdersShowModels.OrderItem.RequestModel.DisplayedOrder]!
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Business logic implementation
     func fetchOrders(withRequestModel requestModel: OrdersShowModels.OrderItem.RequestModel) {
         if let ordersList = self.appDependency.coreDataManager.readEntities(withName: "Order",

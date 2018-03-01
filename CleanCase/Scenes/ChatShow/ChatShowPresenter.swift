@@ -22,6 +22,12 @@ class ChatShowPresenter: ChatShowPresentationLogic {
     weak var viewController: ChatShowDisplayLogic?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Presentation Logic implementation
     func presentSomething(fromResponseModel responseModel: ChatShowModels.Something.ResponseModel) {
         let viewModel = ChatShowModels.Something.ViewModel()

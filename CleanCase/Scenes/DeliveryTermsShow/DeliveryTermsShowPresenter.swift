@@ -23,6 +23,12 @@ class DeliveryTermsShowPresenter: DeliveryTermsShowPresentationLogic {
     weak var viewController: DeliveryTermsShowDisplayLogic?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Presentation Logic implementation
     func presentData(fromResponseModel responseModel: DeliveryTermsShowModels.Dates.ResponseModel) {
         let viewModel = DeliveryTermsShowModels.Dates.ViewModel()

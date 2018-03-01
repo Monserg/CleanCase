@@ -16,7 +16,7 @@ enum LogEvent: String {
     case Debug      =   "[💬]"          // tested values & local notifications
     case Verbose    =   "[🔬]"          // current values
     case Warning    =   "[⚠️]"
-    case Severe     =   "[🔥]"          // tokens & keys
+    case Severe     =   "[🔥]"          // tokens & keys & deinit
 }
 
 class Logger {

@@ -27,6 +27,12 @@ class PriceListShowRouter: NSObject, PriceListShowRoutingLogic, PriceListShowDat
     var dataStore: PriceListShowDataStore?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Routing
 //    func routeToSomewhere(segue: UIStoryboardSegue?) {
 //        if let segue = segue {

@@ -78,7 +78,11 @@ class PersonalDataShowViewController: UIViewController {
         
         setup()
     }
-    
+
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+
     
     // MARK: - Setup
     private func setup() {
@@ -113,7 +117,7 @@ class PersonalDataShowViewController: UIViewController {
         self.addBackBarButtonItem()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
-        loadViewSettings()
+        self.loadViewSettings()
         
         // Add keyboard Observers
         self.registerForKeyboardNotifications()
@@ -129,7 +133,7 @@ class PersonalDataShowViewController: UIViewController {
         interactor?.saveOrderID(orderID)
     }
 
-    func loadViewSettings() {
+    private func loadViewSettings() {
         let requestModel = PersonalDataShowModels.Client.RequestModel(params: nil)
         interactor?.fetchTerms(withRequestModel: requestModel)
         

@@ -46,6 +46,10 @@ class FlowControlShowViewController: UIViewController {
         
         setup()
     }
+
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
     
     
     // MARK: - Setup
@@ -78,7 +82,7 @@ class FlowControlShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
+        self.loadViewSettings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +93,7 @@ class FlowControlShowViewController: UIViewController {
 
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
+    private func loadViewSettings() {
         checkNetworkConnection({ [unowned self] success in
             SwiftSpinner.show("Loading App data...".localized(), animated: true)
 

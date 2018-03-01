@@ -27,6 +27,12 @@ class OrderCreateRouter: NSObject, OrderCreateRoutingLogic, OrderCreateDataPassi
     var dataStore: OrderCreateDataStore?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Routing
 //    func routeToSomewhere(segue: UIStoryboardSegue?) {
 //        if let segue = segue {

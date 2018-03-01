@@ -10,6 +10,8 @@ import UIKit
 
 class AgreementShowViewController: SharePopoverViewController {
     // MARK: - IBOutlets
+    @IBOutlet var colorViewsCollection: [UIView]!
+    
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text!.localize()
@@ -34,9 +36,13 @@ class AgreementShowViewController: SharePopoverViewController {
         }
     }
     
-    @IBOutlet var colorViewsCollection: [UIView]!
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
     
+
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()

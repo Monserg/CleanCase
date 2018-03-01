@@ -156,6 +156,10 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
         
         setup()
     }
+
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
     
     
     // MARK: - Setup
@@ -190,12 +194,12 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadViewSettings()
+        self.loadViewSettings()
     }
     
     
     // MARK: - Custom Functions
-    func loadViewSettings() {
+    private func loadViewSettings() {
         // Add keyboard Observers
         self.registerForKeyboardNotifications()
         

@@ -27,6 +27,12 @@ class FlowControlShowInteractor: ShareInteractor, FlowControlShowBusinessLogic, 
     var isEqual: Bool = true
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Business logic implementation
     func fetchAppWorkingVersion(withRequestModel requestModel: FlowControlShowModels.Version.RequestModel) {
         // API: Fetch request data

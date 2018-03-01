@@ -27,6 +27,12 @@ class SignInShowPresenter: SignInShowPresentationLogic {
     weak var viewController: SignInShowDisplayLogic?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Presentation Logic implementation
     func presentClient(fromResponseModel responseModel: SignInShowModels.User.ResponseModel) {
         let viewModel = SignInShowModels.User.ViewModel()

@@ -13,6 +13,12 @@
 import UIKit
 
 class ChatShowWorker {
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Business Logic
     func doSomeWork() {
     }

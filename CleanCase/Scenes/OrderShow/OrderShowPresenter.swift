@@ -22,6 +22,12 @@ class OrderShowPresenter: OrderShowPresentationLogic {
     weak var viewController: OrderShowDisplayLogic?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Presentation Logic implementation
     func presentCancelOrder(fromResponseModel responseModel: OrderShowModels.Order.ResponseModel) {
         let viewModel = OrderShowModels.Order.ViewModel(error: responseModel.error)

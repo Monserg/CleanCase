@@ -27,6 +27,12 @@ class ChatShowRouter: NSObject, ChatShowRoutingLogic, ChatShowDataPassing {
     var dataStore: ChatShowDataStore?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Routing
 //    func routeToSomewhere(segue: UIStoryboardSegue?) {
 //        if let segue = segue {

@@ -45,6 +45,12 @@ class OrderShowInteractor: ShareInteractor, OrderShowBusinessLogic, OrderShowDat
     var orderItems: [OrderItem]?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Business logic implementation
     func saveOrderID(_ orderID: Int16) {
         self.orderID = orderID

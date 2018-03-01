@@ -30,6 +30,12 @@ class ChatShowInteractor: ChatShowBusinessLogic, ChatShowDataStore {
 //    var name: String = ""
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Business logic implementation
     func doSomething(withRequestModel requestModel: ChatShowModels.Something.RequestModel) {
         worker = ChatShowWorker()

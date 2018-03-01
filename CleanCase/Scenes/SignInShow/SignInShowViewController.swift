@@ -91,6 +91,10 @@ class SignInShowViewController: UIViewController {
         
         setup()
     }
+
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
     
     
     // MARK: - Setup
@@ -127,7 +131,7 @@ class SignInShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadViewSettings()
+        self.loadViewSettings()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -138,7 +142,7 @@ class SignInShowViewController: UIViewController {
 
     
     // MARK: - Custom Functions
-    func loadViewSettings() {
+    private func loadViewSettings() {
         self.firstResponder = self.textFieldsCollection[0]
         
         // Add keyboard Observers

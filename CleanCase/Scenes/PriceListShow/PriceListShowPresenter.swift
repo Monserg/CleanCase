@@ -23,6 +23,12 @@ class PriceListShowPresenter: PriceListShowPresentationLogic {
     weak var viewController: PriceListShowDisplayLogic?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Presentation Logic implementation
     func presentDepartments(fromResponseModel responseModel: PriceListShowModels.Department.ResponseModel) {
         let viewModel = PriceListShowModels.Department.ViewModel()

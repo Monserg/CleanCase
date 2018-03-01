@@ -27,6 +27,12 @@ class OrderShowRouter: NSObject, OrderShowRoutingLogic, OrderShowDataPassing {
     var dataStore: OrderShowDataStore?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Routing
 //    func routeToSomewhere(segue: UIStoryboardSegue?) {
 //        if let segue = segue {

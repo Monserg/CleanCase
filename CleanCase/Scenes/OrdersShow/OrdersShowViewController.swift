@@ -51,6 +51,10 @@ class OrdersShowViewController: UIViewController {
         
         setup()
     }
+
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
     
     
     // MARK: - Setup
@@ -98,7 +102,7 @@ class OrdersShowViewController: UIViewController {
     
     
     // MARK: - Custom Functions
-    func loadViewSettings() {
+    private func loadViewSettings() {
         let requestModel = OrdersShowModels.OrderItem.RequestModel()
         self.interactor?.fetchOrders(withRequestModel: requestModel)
     }

@@ -31,6 +31,13 @@ class PriceListShowInteractor: ShareInteractor, PriceListShowBusinessLogic, Pric
     var departments: [Department]!
     var departmentItems: [DepartmentItem]!
     
+    
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Business logic implementation
     func loadDepartments(withRequestModel requestModel: PriceListShowModels.Department.RequestModel) {
         // CoreData

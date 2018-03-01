@@ -27,6 +27,12 @@ class SignInShowRouter: NSObject, SignInShowRoutingLogic, SignInShowDataPassing 
     var dataStore: SignInShowDataStore?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Routing
 //    func routeToSomewhere(segue: UIStoryboardSegue?) {
 //        if let segue = segue {

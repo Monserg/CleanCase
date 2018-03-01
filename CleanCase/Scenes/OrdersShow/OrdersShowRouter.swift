@@ -27,6 +27,12 @@ class OrdersShowRouter: NSObject, OrdersShowRoutingLogic, OrdersShowDataPassing 
     var dataStore: OrdersShowDataStore?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Routing
     func routeToOrderShowScene() {
         let storyboard = UIStoryboard(name: "OrderShow", bundle: nil)

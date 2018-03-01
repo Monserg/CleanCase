@@ -48,6 +48,12 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
     var times: [PickerViewSupport]!
 
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Business logic implementation
     func saveSelectedDate(byRow row: Int) {
         self.selectedDateRow = row

@@ -66,6 +66,10 @@ class PriceListShowViewController: UIViewController {
         
         setup()
     }
+
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
     
     
     // MARK: - Setup
@@ -113,7 +117,7 @@ class PriceListShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
+        self.viewSettingsDidLoad()
 
         self.addBackBarButtonItem()
         self.addBasketBarButtonItem(true)

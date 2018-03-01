@@ -22,6 +22,12 @@ class FlowControlShowPresenter: FlowControlShowPresentationLogic {
     weak var viewController: FlowControlShowDisplayLogic?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Presentation Logic implementation
     func presentAppWorkingVersion(fromResponseModel responseModel: FlowControlShowModels.Version.ResponseModel) {
         let viewModel = FlowControlShowModels.Version.ViewModel(isEqual: responseModel.isEqual)

@@ -39,6 +39,10 @@ class AboutShowViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
     
     // MARK: - Class Functions
     override func viewDidLoad() {

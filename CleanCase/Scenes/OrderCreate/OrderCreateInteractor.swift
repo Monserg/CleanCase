@@ -55,6 +55,12 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
     var departments: [OrderCreateModels.Departments.RequestModel.DisplayedDepartment]! = [OrderCreateModels.Departments.RequestModel.DisplayedDepartment]()
 
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Business logic implementation
     func saveSelectedDate(byRow row: Int) {
         self.selectedDateRow = row

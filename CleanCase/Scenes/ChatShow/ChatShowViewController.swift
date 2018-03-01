@@ -39,6 +39,10 @@ class ChatShowViewController: UIViewController {
         
         setup()
     }
+
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
     
     
     // MARK: - Setup
@@ -77,12 +81,12 @@ class ChatShowViewController: UIViewController {
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
 
-        viewSettingsDidLoad()
+        self.loadViewSettings()
     }
     
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
+    private func loadViewSettings() {
         let requestModel = ChatShowModels.Something.RequestModel()
         interactor?.doSomething(withRequestModel: requestModel)
     }

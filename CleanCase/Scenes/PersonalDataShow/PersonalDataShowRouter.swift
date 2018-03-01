@@ -27,6 +27,12 @@ class PersonalDataShowRouter: NSObject, PersonalDataShowRoutingLogic, PersonalDa
     var dataStore: PersonalDataShowDataStore?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Routing
 //    func routeToSomewhere(segue: UIStoryboardSegue?) {
 //        if let segue = segue {

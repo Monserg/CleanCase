@@ -23,6 +23,12 @@ class PersonalDataShowPresenter: PersonalDataShowPresentationLogic {
     weak var viewController: PersonalDataShowDisplayLogic?
     
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Class deinit", event: .Severe)
+    }
+    
+
     // MARK: - Presentation Logic implementation
     func presentTerms(fromResponseModel responseModel: PersonalDataShowModels.Client.ResponseModel) {
         let viewModel = PersonalDataShowModels.Client.ViewModel(error: responseModel.error)
