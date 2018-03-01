@@ -19,7 +19,7 @@ import FirebaseInstanceID
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
-    var showDeliveryTermsTimer: CustomTimer = CustomTimer(withSecondsInterval: 60)
+    var showDeliveryTermsTimer: CustomTimer = CustomTimer(withSecondsInterval: 30)
 
     
     // MARK: - Class Functions

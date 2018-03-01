@@ -136,7 +136,7 @@
 "Order confirmed"                           =   "Order confirmed";
 "Order accepted"                            =   "Order accepted";
 "Order added"                               =   "Order added";
-"Order status updated"                      =   "Order status updated";
+"Order status canceled"                     =   "Order status canceled";
 "Your Personal Data updated"                =   "Your Personal Data updated";
 "Please, enter credit card number..."       =   "Please, \nenter credit card number...";
 "Please, enter correct credit card..."      =   "Please, \nenter correct credit card number...";

@@ -201,7 +201,7 @@ extension OrderShowViewController: OrderShowDisplayLogic {
             return
         }
         
-        self.showAlertView(withTitle: "Info", andMessage: "Order status updated".localized(), needCancel: false, completion: { _ in
+        self.showAlertView(withTitle: "Info", andMessage: "Order status canceled".localized(), needCancel: false, completion: { _ in
             Logger.log(message: "Route to MainShow scene", event: .Info)
             self.navigationController?.popToRootViewController(animated: true)
         })
