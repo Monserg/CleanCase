@@ -64,6 +64,12 @@ public class Order: NSManagedObject {
     }
 
     
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
+    
+
     // MARK: - Class Functions
     func updateEntity(fromJSON json: [String: Any]) {
         self.price                  =   json["Price"] as! Float
@@ -84,6 +90,8 @@ public class Order: NSManagedObject {
         // API
         RestAPIManager().fetchRequest(withRequestType: RequestType.getOrderItemsList([ "order_id": self.orderID ], false), andResponseType: ResponseAPIOrderItemsResult.self, completionHandler: { responseAPI in
             if let result = responseAPI.model as? ResponseAPIOrderItemsResult, let orderItemsList = result.GetItemsResult, orderItemsList.count > 0 {
+                self.items = []
+
                 for orderItem in orderItemsList {
                     let predicate = NSPredicate.init(format: "iD == \(orderItem.ID) AND orderID == \(orderItem.OrderID) AND departmentID == \(orderItem.DepartmentID) AND departmentItemID == \(orderItem.DepartmentItemID)")
                     
@@ -93,13 +101,11 @@ public class Order: NSManagedObject {
                                                         coreDataManager.createEntity("OrderItem")) as! OrderItem
 
                     orderItemEntity.updateEntity(fromResponse: orderItem)
-                    
-                    self.items = []
                     self.addToItems(orderItemEntity)
-                    self.save()
                 }
+
+                self.save()
             }
-            
         })
     }
 }

@@ -43,6 +43,7 @@ class CustomTimer {
     }
 
     deinit {
+        Logger.log(message: "Success", event: .Severe)
         timer.setEventHandler {}
         timer.cancel()
         resume()

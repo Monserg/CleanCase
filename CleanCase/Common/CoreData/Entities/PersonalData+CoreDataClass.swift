@@ -20,6 +20,12 @@ public class PersonalData: NSManagedObject {
     }
     
 
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
+
+    
     // MARK: - Class Functions
     func updateEntity(fromJSON json: [String: Any]) {
         self.addressLine1    =   json["AddressLine1"] as! String

@@ -12,5 +12,8 @@ import CoreData
 
 @objc(Department)
 public class Department: NSManagedObject {
-
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
 }

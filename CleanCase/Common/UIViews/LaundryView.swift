@@ -48,6 +48,10 @@ class LaundryView: UIView {
         createFromXIB()
     }
     
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
+
     
     // MARK: - Class Functions
     func createFromXIB() {

@@ -21,13 +21,16 @@ class ToolBarPickerView: UIPickerView {
         
         self.style              =   SKStyleKit.style(withName: "toolBarPickerViewStyle")!
         self.items              =   items
-//        self.backgroundColor    =   style.backgroundColor
         self.dataSource         =   self
         self.delegate           =   self
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
     }
 }
 
@@ -71,7 +74,6 @@ extension ToolBarPickerView: UIPickerViewDelegate {
             label = view as! UILabel
         }
         
-//        label.font              =   UIFont.setupBy("Calibri", withStyle: .Regular, andSize: 20.0)
         label.textColor         =   self.style.fontColor
         label.textAlignment     =   .center
         label.text              =   items![row].title

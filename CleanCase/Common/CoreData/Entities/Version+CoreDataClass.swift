@@ -22,4 +22,10 @@ public class Version: NSManagedObject {
             return 0
         }
     }
+    
+    
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
 }

@@ -12,5 +12,8 @@ import CoreData
 
 @objc(City)
 public class City: NSManagedObject {
-
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
 }

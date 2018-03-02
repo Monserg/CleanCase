@@ -12,5 +12,8 @@ import CoreData
 
 @objc(DeliveryDate)
 public class DeliveryDate: NSManagedObject {
-
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
 }

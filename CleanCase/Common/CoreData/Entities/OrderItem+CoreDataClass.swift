@@ -24,4 +24,10 @@ public class OrderItem: NSManagedObject {
         self.height             =   responseAPI.Height
         self.width              =   responseAPI.Width
     }
+    
+    
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
 }

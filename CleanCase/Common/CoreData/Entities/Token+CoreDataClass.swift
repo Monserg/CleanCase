@@ -18,4 +18,10 @@ public class Token: NSManagedObject {
             return (CoreDataManager.instance.readEntity(withName: "Token", andPredicateParameters: nil)) as? Token
         }
     }
+    
+    
+    // MARK: - Class Initialization
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
 }
