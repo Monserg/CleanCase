@@ -26,16 +26,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-wash-masine" translatesAutoresizingMaskIntoConstraints="NO" id="2XA-BL-w5b">
-                            <rect key="frame" x="339" y="4" width="36" height="36"/>
+                            <rect key="frame" x="0.0" y="4" width="36" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="2XA-BL-w5b" secondAttribute="height" multiplier="1:1" id="qnJ-aS-61r"/>
                             </constraints>
                         </imageView>
                         <stackView contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-RE-iyh">
-                            <rect key="frame" x="285" y="4" width="46" height="36"/>
+                            <rect key="frame" x="44" y="4" width="46" height="36"/>
                             <subviews>
-                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwY-7O-zga" userLabel="Laundry Name Label" customClass="SKLabel" customModule="SKStyleKit">
+                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwY-7O-zga" userLabel="Laundry Name Label" customClass="SKLabel" customModule="SKStyleKit">
                                     <rect key="frame" x="0.0" y="0.0" width="46" height="13.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -70,10 +70,10 @@
                         <constraint firstItem="2XA-BL-w5b" firstAttribute="centerY" secondItem="yVV-Cq-UqO" secondAttribute="centerY" id="4CW-nj-pKC"/>
                         <constraint firstItem="2XA-BL-w5b" firstAttribute="top" secondItem="yVV-Cq-UqO" secondAttribute="top" constant="4" id="9a0-dh-6lH"/>
                         <constraint firstAttribute="bottom" secondItem="lXf-RE-iyh" secondAttribute="bottom" constant="4" id="Kjk-7D-TQT"/>
+                        <constraint firstItem="lXf-RE-iyh" firstAttribute="leading" secondItem="2XA-BL-w5b" secondAttribute="trailing" constant="8" id="Vwu-Nt-xbi"/>
                         <constraint firstAttribute="bottom" secondItem="2XA-BL-w5b" secondAttribute="bottom" constant="4" id="YMW-a3-cPq"/>
-                        <constraint firstItem="2XA-BL-w5b" firstAttribute="leading" secondItem="lXf-RE-iyh" secondAttribute="trailing" constant="8" id="eJZ-3z-m1t"/>
+                        <constraint firstItem="2XA-BL-w5b" firstAttribute="leading" secondItem="yVV-Cq-UqO" secondAttribute="leading" id="cih-If-ddP"/>
                         <constraint firstItem="lXf-RE-iyh" firstAttribute="top" secondItem="yVV-Cq-UqO" secondAttribute="top" constant="4" id="nEu-K2-rVd"/>
-                        <constraint firstAttribute="trailing" secondItem="2XA-BL-w5b" secondAttribute="trailing" id="nzQ-G2-88E"/>
                     </constraints>
                 </view>
             </subviews>

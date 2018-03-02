@@ -49,8 +49,8 @@ class WriteUsShowViewController: UIViewController {
             textView.textAlignment        =   .right
             textView.textColor            =   DynamicColor(hexString: "#A9A9A9")              // gray
             textView.tintColor            =   DynamicColor(hexString: "#000000")              // black
-            textView.contentInset         =   UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
-            
+            textView.textContainerInset   =   UIEdgeInsets(top: 8.0, left: 1.0, bottom: 8.0, right: 8.0)
+
             textView.delegate = self
         }
     }

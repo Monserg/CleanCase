@@ -93,7 +93,7 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
                 $0.placeholder = router?.dataStore?.textFieldsTexts[$0.tag].placeholder
                 $0.accessibilityValue = router?.dataStore?.textFieldsTexts[$0.tag].errorText
                 
-                $0.addPadding(.Both(8.0))
+                $0.addPadding(.Both(6.0))
 
                 $0.delegate = self
             })
@@ -117,8 +117,8 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
             textView.textAlignment        =   .right
             textView.textColor            =   DynamicColor(hexString: "#A9A9A9")              // gray
             textView.tintColor            =   DynamicColor(hexString: "#000000")              // black
-            textView.contentInset         =   UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
-            
+            textView.textContainerInset   =   UIEdgeInsets(top: 8.0, left: 1.0, bottom: 8.0, right: 8.0)
+
             textView.delegate = self
         }
     }

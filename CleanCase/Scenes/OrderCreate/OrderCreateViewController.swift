@@ -53,7 +53,7 @@ class OrderCreateViewController: UIViewController {
                     $0.text = personalData.addressLine1
                 }
                 
-                $0.addPadding(.Both(8.0))
+                $0.addPadding(.Both(6.0))
                 
                 $0.delegate = self
             })
@@ -72,7 +72,7 @@ class OrderCreateViewController: UIViewController {
                 $0.textAlignment        =   .right
                 $0.textColor            =   DynamicColor(hexString: "#A9A9A9")              // gray
                 $0.tintColor            =   DynamicColor(hexString: "#000000")              // black
-                $0.contentInset         =   UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
+                $0.textContainerInset   =   UIEdgeInsets(top: 8.0, left: 1.0, bottom: 8.0, right: 8.0)
                 
                 $0.delegate = self
             })

@@ -100,7 +100,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="uwP-0w-hvB">
-                        <barButtonItem key="leftBarButtonItem" image="icon-side-menu" id="IE4-Cq-ODy" userLabel="Menu Bar Button Item">
+                        <barButtonItem key="rightBarButtonItem" image="icon-side-menu" id="IE4-Cq-ODy" userLabel="Menu Bar Button Item">
                             <connections>
                                 <action selector="handlerSideMenuBarButtonTapped:" destination="s6c-Yv-o5R" id="3f3-4d-FCo"/>
                             </connections>

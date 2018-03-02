@@ -57,17 +57,17 @@ extension UIViewController {
     }
     
     public func addNavigationBarShadow() {
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.gray.cgColor
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 4.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 4
+        self.navigationController?.navigationBar.layer.masksToBounds    =   false
+        self.navigationController?.navigationBar.layer.shadowColor      =   UIColor.gray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity    =   0.8
+        self.navigationController?.navigationBar.layer.shadowOffset     =   CGSize(width: 0, height: 4.0)
+        self.navigationController?.navigationBar.layer.shadowRadius     =   4
     }
     
     public func displayLaundryInfo(withName name: String, andPhoneNumber phone: String?) {
         let laundryBarButton = UIBarButtonItem()
         laundryBarButton.customView = LaundryView(withName: name, andPhoneNumber: phone)
-        self.navigationItem.rightBarButtonItem = laundryBarButton
+        self.navigationItem.leftBarButtonItem = laundryBarButton
     }
     
     public func hideBackBarButton() {
@@ -77,15 +77,17 @@ extension UIViewController {
 
     public func addBackBarButtonItem() {
         let backButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 60, height: 44)))
-        backButton.setImage(UIImage.init(named: "icon-back-bar-button"), for: .normal)
+        backButton.setImage(UIImage.init(named: "icon-back-bar-button-left"), for: .normal)
         backButton.addTarget(self, action: #selector(handlerBackButtonTapped), for: .touchUpInside)
-        backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 50)
+        backButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -10)
         backButton.setTitle("Back".localized(), for: .normal)
         backButton.setTitleColor(UIColor.white, for: .normal)
         backButton.setTitleColor(UIColor.gray, for: .highlighted)
-
+        backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.right
+        
         let backBarButtonItem = UIBarButtonItem.init(customView: backButton)
-        self.navigationItem.leftBarButtonItems = [backBarButtonItem]
+        self.navigationItem.rightBarButtonItems = [backBarButtonItem]
     }
     
     public func addBasketBarButtonItem(_ isEmpty: Bool) {
