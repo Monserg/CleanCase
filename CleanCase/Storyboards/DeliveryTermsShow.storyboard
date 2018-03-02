@@ -24,7 +24,7 @@
                                 <rect key="frame" x="8" y="22" width="359" height="54"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbV-yM-Etb" userLabel="Circular Image View" customClass="SKView" customModule="SKStyleKit">
-                                        <rect key="frame" x="16" y="8" width="38" height="38"/>
+                                        <rect key="frame" x="305" y="8" width="38" height="38"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-bell" translatesAutoresizingMaskIntoConstraints="NO" id="tBJ-cH-2x6">
                                                 <rect key="frame" x="5.5" y="5.5" width="27" height="27"/>
@@ -43,28 +43,28 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="FFK-r8-BAw" userLabel="Labels Stack View">
-                                        <rect key="frame" x="70" y="8" width="273" height="38"/>
+                                        <rect key="frame" x="16" y="8" width="273" height="38"/>
                                         <subviews>
                                             <stackView contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="U4O-UZ-suG">
                                                 <rect key="frame" x="0.0" y="0.0" width="273" height="18"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODc-8k-22U" userLabel="Time Label" customClass="SKLabel" customModule="SKStyleKit">
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultNotificationLabelStyle"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9k-wR-HcQ" userLabel="Title Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                        <rect key="frame" x="0.0" y="0.0" width="219" height="18"/>
+                                                        <rect key="frame" x="54" y="0.0" width="219" height="18"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="notificationTitleLabelStyle"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODc-8k-22U" userLabel="Time Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                        <rect key="frame" x="219" y="0.0" width="54" height="18"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultNotificationLabelStyle"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
@@ -89,11 +89,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FFK-r8-BAw" firstAttribute="centerY" secondItem="uxO-ur-ics" secondAttribute="centerY" id="I56-e1-6UT"/>
+                                    <constraint firstAttribute="trailing" secondItem="qbV-yM-Etb" secondAttribute="trailing" constant="16" id="SAF-LT-jxg"/>
+                                    <constraint firstItem="FFK-r8-BAw" firstAttribute="leading" secondItem="uxO-ur-ics" secondAttribute="leading" constant="16" id="Trc-Ss-bJe"/>
                                     <constraint firstItem="qbV-yM-Etb" firstAttribute="height" secondItem="uxO-ur-ics" secondAttribute="height" multiplier="0.7" id="ZsJ-on-s4J"/>
-                                    <constraint firstItem="FFK-r8-BAw" firstAttribute="leading" secondItem="qbV-yM-Etb" secondAttribute="trailing" constant="16" id="b60-bB-UQZ"/>
-                                    <constraint firstItem="qbV-yM-Etb" firstAttribute="leading" secondItem="uxO-ur-ics" secondAttribute="leading" constant="16" id="bc2-ex-XGY"/>
-                                    <constraint firstAttribute="trailing" secondItem="FFK-r8-BAw" secondAttribute="trailing" constant="16" id="jsN-ZP-IBg"/>
                                     <constraint firstItem="qbV-yM-Etb" firstAttribute="centerY" secondItem="uxO-ur-ics" secondAttribute="centerY" id="rJh-on-sNh"/>
+                                    <constraint firstItem="qbV-yM-Etb" firstAttribute="leading" secondItem="FFK-r8-BAw" secondAttribute="trailing" constant="16" id="sBW-Ak-j0x"/>
                                     <constraint firstAttribute="bottom" secondItem="FFK-r8-BAw" secondAttribute="bottom" constant="8" id="tIh-rC-nJf"/>
                                     <constraint firstItem="FFK-r8-BAw" firstAttribute="top" secondItem="uxO-ur-ics" secondAttribute="top" constant="8" id="zV1-je-Xtp"/>
                                     <constraint firstAttribute="height" constant="54" id="ze3-M2-g3m"/>
@@ -109,7 +109,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="64"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa8-ol-7Ff" userLabel="Title Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                <rect key="frame" x="222" y="21.5" width="99.5" height="20.5"/>
+                                                <rect key="frame" x="16" y="21.5" width="305.5" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -120,6 +120,7 @@
                                             </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="Fa8-ol-7Ff" firstAttribute="leading" secondItem="WuL-J4-SGT" secondAttribute="leading" constant="16" id="EMY-Ya-BmK"/>
                                             <constraint firstItem="Fa8-ol-7Ff" firstAttribute="centerY" secondItem="WuL-J4-SGT" secondAttribute="centerY" id="NyF-5x-ytq"/>
                                             <constraint firstAttribute="height" constant="64" id="tUj-BZ-Wzm"/>
                                             <constraint firstAttribute="trailing" secondItem="Fa8-ol-7Ff" secondAttribute="trailing" constant="16" id="u6o-DB-bVC"/>
@@ -220,7 +221,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLN-jf-FRe" customClass="SKLabel" customModule="SKStyleKit">
-                                                        <rect key="frame" x="279.5" y="176.5" width="42" height="20.5"/>
+                                                        <rect key="frame" x="16" y="176.5" width="305.5" height="20.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -231,6 +232,7 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="dLN-jf-FRe" firstAttribute="leading" secondItem="mLR-sE-hh9" secondAttribute="leading" constant="16" id="BTJ-HI-Pav"/>
                                                     <constraint firstItem="g1O-cj-fup" firstAttribute="leading" secondItem="2um-eX-egb" secondAttribute="leading" constant="16" id="EkM-6E-o6J"/>
                                                     <constraint firstItem="UCi-Sb-SKP" firstAttribute="top" secondItem="JLx-YL-JvI" secondAttribute="bottom" id="Ih0-fk-3Ui"/>
                                                     <constraint firstAttribute="bottom" secondItem="UCi-Sb-SKP" secondAttribute="bottom" id="MxK-Vd-2Tm"/>

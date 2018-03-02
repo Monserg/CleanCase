@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="4" width="320" height="104.5"/>
                                 <subviews>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Date Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaL-fC-ZkK" userLabel="Delivery Date Label" customClass="SKLabel" customModule="SKStyleKit">
-                                        <rect key="frame" x="16" y="8" width="143.5" height="20.5"/>
+                                        <rect key="frame" x="160.5" y="8" width="143.5" height="20.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -43,7 +43,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lR1-AO-TSi">
-                                        <rect key="frame" x="167.5" y="8" width="140.5" height="49"/>
+                                        <rect key="frame" x="12" y="8" width="140.5" height="49"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Date Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlT-ZF-EGG" userLabel="Delivery Date Caption Label" customClass="SKLabel" customModule="SKStyleKit">
                                                 <rect key="frame" x="0.0" y="0.0" width="140.5" height="20.5"/>
@@ -68,10 +68,10 @@
                                         </subviews>
                                     </stackView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-34-6Yp" userLabel="Price View" customClass="SKView" customModule="SKStyleKit">
-                                        <rect key="frame" x="0.0" y="38.5" width="201.5" height="64"/>
+                                        <rect key="frame" x="118.5" y="38" width="201.5" height="64"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" text="Total Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNS-eb-bKz" userLabel="Total Caption Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                <rect key="frame" x="96.5" y="21.5" width="99" height="20.5"/>
+                                                <rect key="frame" x="6" y="21.5" width="99" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,7 +81,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Order Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsX-0R-JLG" userLabel="Order Price Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                <rect key="frame" x="6" y="21.5" width="87.5" height="20.5"/>
+                                                <rect key="frame" x="108" y="21.5" width="87.5" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,12 +92,12 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="NNS-eb-bKz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qsX-0R-JLG" secondAttribute="trailing" constant="3" id="D5j-MK-NGy"/>
-                                            <constraint firstAttribute="trailing" secondItem="NNS-eb-bKz" secondAttribute="trailing" constant="6" id="FKl-F6-cNg"/>
-                                            <constraint firstItem="qsX-0R-JLG" firstAttribute="leading" secondItem="GMd-34-6Yp" secondAttribute="leading" constant="6" id="Jse-k1-gxJ"/>
+                                            <constraint firstItem="qsX-0R-JLG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NNS-eb-bKz" secondAttribute="trailing" constant="3" id="1nR-9j-qV6"/>
+                                            <constraint firstItem="NNS-eb-bKz" firstAttribute="leading" secondItem="GMd-34-6Yp" secondAttribute="leading" constant="6" id="PTV-jC-cTN"/>
                                             <constraint firstAttribute="height" constant="64" id="SXp-ZY-1um"/>
                                             <constraint firstItem="NNS-eb-bKz" firstAttribute="centerY" secondItem="GMd-34-6Yp" secondAttribute="centerY" id="XFf-sw-8ii"/>
                                             <constraint firstItem="qsX-0R-JLG" firstAttribute="centerY" secondItem="GMd-34-6Yp" secondAttribute="centerY" id="YlP-oX-zDo"/>
+                                            <constraint firstAttribute="trailing" secondItem="qsX-0R-JLG" secondAttribute="trailing" constant="6" id="mBv-LE-AFU"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
@@ -106,13 +106,13 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QaL-fC-ZkK" firstAttribute="top" secondItem="mhf-0l-Qq3" secondAttribute="top" constant="8" id="5f0-PJ-VxX"/>
-                                    <constraint firstItem="GMd-34-6Yp" firstAttribute="leading" secondItem="mhf-0l-Qq3" secondAttribute="leading" id="C1O-hN-Nft"/>
-                                    <constraint firstAttribute="trailing" secondItem="lR1-AO-TSi" secondAttribute="trailing" constant="12" id="Igs-IS-qSG"/>
+                                    <constraint firstItem="lR1-AO-TSi" firstAttribute="leading" secondItem="mhf-0l-Qq3" secondAttribute="leading" constant="12" id="6w7-a3-gWb"/>
+                                    <constraint firstItem="QaL-fC-ZkK" firstAttribute="leading" secondItem="lR1-AO-TSi" secondAttribute="trailing" constant="8" id="7hh-GX-TIS"/>
                                     <constraint firstItem="GMd-34-6Yp" firstAttribute="top" secondItem="QaL-fC-ZkK" secondAttribute="bottom" constant="10" id="QgL-lx-nC8"/>
+                                    <constraint firstAttribute="trailing" secondItem="QaL-fC-ZkK" secondAttribute="trailing" constant="16" id="g3h-HF-u3t"/>
                                     <constraint firstItem="GMd-34-6Yp" firstAttribute="width" secondItem="mhf-0l-Qq3" secondAttribute="width" multiplier="0.63" id="gd8-bb-sw9"/>
                                     <constraint firstItem="lR1-AO-TSi" firstAttribute="top" secondItem="mhf-0l-Qq3" secondAttribute="top" constant="8" id="ifF-cU-H4m"/>
-                                    <constraint firstItem="lR1-AO-TSi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QaL-fC-ZkK" secondAttribute="trailing" constant="8" id="n9P-sv-hsF"/>
-                                    <constraint firstItem="QaL-fC-ZkK" firstAttribute="leading" secondItem="mhf-0l-Qq3" secondAttribute="leading" constant="16" id="qrP-xD-Ylw"/>
+                                    <constraint firstAttribute="trailing" secondItem="GMd-34-6Yp" secondAttribute="trailing" id="rSy-KH-aZq"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
@@ -141,7 +141,7 @@
                 <outletCollection property="captionLabelsCollection" destination="TlT-ZF-EGG" collectionClass="NSMutableArray" id="7We-bK-BbI"/>
                 <outletCollection property="captionLabelsCollection" destination="KM8-Ld-AJa" collectionClass="NSMutableArray" id="YCc-Tw-uxY"/>
             </connections>
-            <point key="canvasLocation" x="-47.5" y="-18"/>
+            <point key="canvasLocation" x="-48" y="-18.5"/>
         </tableViewCell>
     </objects>
 </document>

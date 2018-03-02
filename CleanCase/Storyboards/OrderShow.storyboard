@@ -22,8 +22,8 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCA-zY-odX" userLabel="Top View" customClass="SKView" customModule="SKStyleKit">
                                 <rect key="frame" x="0.0" y="20" width="375" height="84"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqF-0L-H2f" userLabel="Right View" customClass="SKView" customModule="SKStyleKit">
-                                        <rect key="frame" x="206.5" y="0.0" width="168.5" height="84"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqF-0L-H2f" userLabel="Captions View" customClass="SKView" customModule="SKStyleKit">
+                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="84"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection Date Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Uq-T4-EOO" userLabel="Collection Date Caption Label" customClass="SKLabel" customModule="SKStyleKit">
                                                 <rect key="frame" x="8" y="16" width="144.5" height="21"/>
@@ -58,8 +58,8 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdq-Vf-QKY" userLabel="Left View" customClass="SKView" customModule="SKStyleKit">
-                                        <rect key="frame" x="0.0" y="0.0" width="206.5" height="84"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdq-Vf-QKY" userLabel="Values View" customClass="SKView" customModule="SKStyleKit">
+                                        <rect key="frame" x="168.5" y="0.0" width="206.5" height="84"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juH-OF-jVK" userLabel="Collection Date Value Label" customClass="SKLabel" customModule="SKStyleKit">
                                                 <rect key="frame" x="8" y="16" width="190.5" height="21"/>
@@ -100,11 +100,10 @@
                                     <constraint firstAttribute="height" constant="84" id="6eR-Pk-GBA"/>
                                     <constraint firstItem="pqF-0L-H2f" firstAttribute="top" secondItem="yCA-zY-odX" secondAttribute="top" id="GRJ-jQ-4qt"/>
                                     <constraint firstAttribute="bottom" secondItem="mdq-Vf-QKY" secondAttribute="bottom" id="IJt-4T-2VO"/>
-                                    <constraint firstItem="pqF-0L-H2f" firstAttribute="leading" secondItem="mdq-Vf-QKY" secondAttribute="trailing" id="Ja8-O5-WRB"/>
+                                    <constraint firstAttribute="trailing" secondItem="mdq-Vf-QKY" secondAttribute="trailing" id="ND7-mJ-T37"/>
+                                    <constraint firstItem="pqF-0L-H2f" firstAttribute="leading" secondItem="yCA-zY-odX" secondAttribute="leading" id="OgN-mi-19v"/>
                                     <constraint firstAttribute="bottom" secondItem="pqF-0L-H2f" secondAttribute="bottom" id="PlT-C9-Ieh"/>
-                                    <constraint firstAttribute="trailing" secondItem="pqF-0L-H2f" secondAttribute="trailing" id="o0h-v6-lFd"/>
-                                    <constraint firstItem="mdq-Vf-QKY" firstAttribute="leading" secondItem="yCA-zY-odX" secondAttribute="leading" id="vCW-pc-K9D"/>
-                                    <constraint firstItem="pqF-0L-H2f" firstAttribute="leading" secondItem="mdq-Vf-QKY" secondAttribute="trailing" id="vJP-Hl-0nH"/>
+                                    <constraint firstItem="mdq-Vf-QKY" firstAttribute="leading" secondItem="pqF-0L-H2f" secondAttribute="trailing" id="bpP-fF-FPG"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
@@ -114,21 +113,21 @@
                                 <rect key="frame" x="0.0" y="104" width="375" height="44"/>
                                 <subviews>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrk-4M-VTc" userLabel="Name Caption Label">
-                                        <rect key="frame" x="188.5" y="0.0" width="178.5" height="44"/>
+                                        <rect key="frame" x="8" y="0.0" width="178.5" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdS-Nb-j2E" userLabel="Price Caption Label">
-                                        <rect key="frame" x="102" y="0.0" width="86.5" height="44"/>
+                                        <rect key="frame" x="186.5" y="0.0" width="86.5" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity Caption" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF2-Yp-Qi9" userLabel="Quantity Caption Label">
-                                        <rect key="frame" x="8" y="0.0" width="94" height="44"/>
+                                        <rect key="frame" x="273" y="0.0" width="94" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,11 +138,11 @@
                                     <constraint firstItem="Mrk-4M-VTc" firstAttribute="top" secondItem="Z47-3c-LSh" secondAttribute="top" id="3ex-IW-mLR"/>
                                     <constraint firstAttribute="height" constant="44" id="6p7-J5-4kN"/>
                                     <constraint firstItem="eF2-Yp-Qi9" firstAttribute="top" secondItem="Z47-3c-LSh" secondAttribute="top" id="A0z-fQ-etO"/>
-                                    <constraint firstItem="Mrk-4M-VTc" firstAttribute="leading" secondItem="OdS-Nb-j2E" secondAttribute="trailing" id="Qcf-mu-gvw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mrk-4M-VTc" secondAttribute="trailing" constant="8" id="S5t-mJ-D3Y"/>
+                                    <constraint firstItem="OdS-Nb-j2E" firstAttribute="leading" secondItem="Mrk-4M-VTc" secondAttribute="trailing" id="CTx-e2-aAg"/>
+                                    <constraint firstAttribute="trailing" secondItem="eF2-Yp-Qi9" secondAttribute="trailing" constant="8" id="Nf1-aX-Rqh"/>
+                                    <constraint firstItem="Mrk-4M-VTc" firstAttribute="leading" secondItem="Z47-3c-LSh" secondAttribute="leading" constant="8" id="TXq-GW-5Jj"/>
                                     <constraint firstAttribute="bottom" secondItem="eF2-Yp-Qi9" secondAttribute="bottom" id="VZJ-J5-EBG"/>
-                                    <constraint firstItem="OdS-Nb-j2E" firstAttribute="leading" secondItem="eF2-Yp-Qi9" secondAttribute="trailing" id="i5m-Y2-F3F"/>
-                                    <constraint firstItem="eF2-Yp-Qi9" firstAttribute="leading" secondItem="Z47-3c-LSh" secondAttribute="leading" constant="8" id="ljY-nH-amd"/>
+                                    <constraint firstItem="eF2-Yp-Qi9" firstAttribute="leading" secondItem="OdS-Nb-j2E" secondAttribute="trailing" id="lNM-ek-Dat"/>
                                     <constraint firstAttribute="bottom" secondItem="Mrk-4M-VTc" secondAttribute="bottom" id="ncE-DL-sUt"/>
                                     <constraint firstAttribute="bottom" secondItem="OdS-Nb-j2E" secondAttribute="bottom" id="qPX-a1-SMQ"/>
                                     <constraint firstItem="OdS-Nb-j2E" firstAttribute="top" secondItem="Z47-3c-LSh" secondAttribute="top" id="vPC-Gv-3S2"/>
@@ -167,7 +166,7 @@
                                                     <rect key="frame" x="4" y="4" width="367" height="49.5"/>
                                                     <subviews>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMQ-uX-coS" userLabel="Name Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="192.5" y="14" width="166.5" height="21"/>
+                                                            <rect key="frame" x="8" y="14" width="166.5" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -177,7 +176,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehx-zd-w43" userLabel="Price Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="90.5" y="14" width="94" height="21"/>
+                                                            <rect key="frame" x="182.5" y="14" width="94" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -187,7 +186,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqr-Le-dIR" userLabel="Quantity Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="18" y="14" width="56.5" height="21"/>
+                                                            <rect key="frame" x="292.5" y="14" width="56.5" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -199,12 +198,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="Iqr-Le-dIR" firstAttribute="leading" relation="lessThanOrEqual" secondItem="ehx-zd-w43" secondAttribute="trailing" constant="16" id="80A-6G-txi"/>
                                                         <constraint firstItem="RMQ-uX-coS" firstAttribute="centerY" secondItem="yC8-0a-olO" secondAttribute="centerY" id="A4E-th-msS"/>
-                                                        <constraint firstItem="Iqr-Le-dIR" firstAttribute="leading" secondItem="yC8-0a-olO" secondAttribute="leading" constant="18" id="CZ7-fi-RsS"/>
-                                                        <constraint firstItem="ehx-zd-w43" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Iqr-Le-dIR" secondAttribute="trailing" constant="16" id="SYv-mz-wWi"/>
-                                                        <constraint firstAttribute="trailing" secondItem="RMQ-uX-coS" secondAttribute="trailing" constant="8" id="WCG-7I-dCQ"/>
+                                                        <constraint firstItem="ehx-zd-w43" firstAttribute="leading" secondItem="RMQ-uX-coS" secondAttribute="trailing" constant="8" id="B5d-XD-q8M"/>
+                                                        <constraint firstItem="RMQ-uX-coS" firstAttribute="leading" secondItem="yC8-0a-olO" secondAttribute="leading" constant="8" id="BjW-Cs-wfy"/>
                                                         <constraint firstItem="ehx-zd-w43" firstAttribute="centerY" secondItem="yC8-0a-olO" secondAttribute="centerY" id="Yc9-fn-l1W"/>
-                                                        <constraint firstItem="RMQ-uX-coS" firstAttribute="leading" secondItem="ehx-zd-w43" secondAttribute="trailing" constant="8" id="qwB-QG-A02"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Iqr-Le-dIR" secondAttribute="trailing" constant="18" id="nBL-Sj-I6R"/>
                                                         <constraint firstItem="Iqr-Le-dIR" firstAttribute="centerY" secondItem="yC8-0a-olO" secondAttribute="centerY" id="zyp-9N-VsJ"/>
                                                     </constraints>
                                                 </view>
