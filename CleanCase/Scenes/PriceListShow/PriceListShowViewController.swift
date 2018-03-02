@@ -106,7 +106,7 @@ class PriceListShowViewController: UIViewController {
 
         let section                 =   0
         self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
-        let indexPath               =   IndexPath(item: self.selectedDepartmentRow, section: section)
+        let indexPath               =   IndexPath(item: 0, section: section)
         self.widthDepartmentCell    =   (self.departmentsCollectionView.frame.width - 30.0) / 3.0
 
         self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: false)
@@ -285,8 +285,8 @@ extension PriceListShowViewController {
         // Reload departmentItems
         let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: indexPath.row)
         self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
-        self.selectedDepartmentRow = indexPath.row
-        
+        self.selectedDepartmentRow = collectionView.numberOfItems(inSection: indexPath.section) - 1 - indexPath.row
+
         self.moveSelectedView()
     }
 }

@@ -43,6 +43,7 @@
     
     "sideMenuItemLabelStyle": {
         "parent":               "defaultLabelStyle",
+        "fontColor":            "darkGreen",
         "textAlignment":        "right"
     },
     

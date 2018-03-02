@@ -71,7 +71,7 @@
                                                     <rect key="frame" x="4" y="4" width="367" height="49.5"/>
                                                     <subviews>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kgt-KF-Xee" userLabel="Name Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="306" y="14" width="45" height="21"/>
+                                                            <rect key="frame" x="16" y="14" width="45" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -81,7 +81,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLY-cK-PR7" userLabel="Price Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="48" y="14" width="39" height="21"/>
+                                                            <rect key="frame" x="280" y="14" width="39" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -93,11 +93,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Kgt-KF-Xee" secondAttribute="trailing" constant="16" id="6ve-gt-2YM"/>
-                                                        <constraint firstItem="aLY-cK-PR7" firstAttribute="leading" secondItem="7AR-2Y-aEX" secondAttribute="leading" constant="48" id="Hyz-DN-eXS"/>
+                                                        <constraint firstItem="aLY-cK-PR7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kgt-KF-Xee" secondAttribute="trailing" constant="8" id="80O-7B-6XY"/>
+                                                        <constraint firstItem="Kgt-KF-Xee" firstAttribute="leading" secondItem="7AR-2Y-aEX" secondAttribute="leading" constant="16" id="J81-ZP-epN"/>
                                                         <constraint firstItem="Kgt-KF-Xee" firstAttribute="centerY" secondItem="7AR-2Y-aEX" secondAttribute="centerY" id="Ztv-ii-9T7"/>
-                                                        <constraint firstItem="Kgt-KF-Xee" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aLY-cK-PR7" secondAttribute="trailing" constant="8" id="dCx-Ha-tUp"/>
                                                         <constraint firstItem="aLY-cK-PR7" firstAttribute="centerY" secondItem="7AR-2Y-aEX" secondAttribute="centerY" id="qsl-hZ-1ey"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aLY-cK-PR7" secondAttribute="trailing" constant="48" id="wZ1-KH-hUi"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

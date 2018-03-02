@@ -223,9 +223,9 @@ class OrderCreateViewController: UIViewController {
     }
     
     fileprivate func prepareBodyParameters(_ forAPI: Bool) -> [ String: Any ] {
-        var comments = textViewCollection.first(where: { $0.tag == 0 })?.text
-        let instructions = textViewCollection.first(where: { $0.tag == 1 })?.text
-        let selectedDepartments = self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + " ," + $1.name }
+        var comments                =   textViewCollection.first(where: { $0.tag == 0 })?.text
+        let instructions            =   textViewCollection.first(where: { $0.tag == 1 })?.text
+        let selectedDepartments     =   self.router!.dataStore!.departments.filter({ $0.isSelected }).reduce("") { $0 + " ," + $1.name }
 
         if comments == "Enter comment".localized() {
             comments = selectedDepartments
@@ -520,10 +520,6 @@ extension OrderCreateViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-//        if let cell = tableView.cellForRow(at: indexPath) as? DepartmentTableViewCell {
-//            cell.changeCheckbox()
-//        }
     }
 }
 
