@@ -122,7 +122,8 @@
     "captionLabelStyle": {
         "parent":               "defaultLabelStyle",
         "fontSize":             14.0,
-        "fontColor":            "darkGreen"
+        "fontColor":            "darkGreen",
+        "textAlignment":        "right"
     },
 
     "tableViewItemGreenStyle": {

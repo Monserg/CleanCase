@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZO-MR-KQF" customClass="SKLabel" customModule="SKStyleKit">
-                        <rect key="frame" x="35" y="8" width="200.5" height="48.5"/>
+                        <rect key="frame" x="84.5" y="8" width="200.5" height="48.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -30,7 +30,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-menu-sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="yQ2-NE-i3d">
-                        <rect key="frame" x="251.5" y="8" width="48.5" height="48.5"/>
+                        <rect key="frame" x="20" y="8" width="48.5" height="48.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="yQ2-NE-i3d" secondAttribute="height" multiplier="1:1" id="gdX-Z3-ENc"/>
@@ -48,15 +48,15 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="wfy-XP-6ch" secondAttribute="bottom" id="6dR-xB-eJu"/>
                     <constraint firstItem="TZO-MR-KQF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7el-Uv-bGD"/>
+                    <constraint firstAttribute="trailing" secondItem="TZO-MR-KQF" secondAttribute="trailing" constant="35" id="JJX-GO-8ju"/>
                     <constraint firstItem="yQ2-NE-i3d" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Jdi-i5-FID"/>
                     <constraint firstItem="TZO-MR-KQF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NPg-Ug-QbM"/>
                     <constraint firstAttribute="bottom" secondItem="TZO-MR-KQF" secondAttribute="bottom" constant="8" id="Ogb-y5-1Bc"/>
                     <constraint firstAttribute="trailing" secondItem="wfy-XP-6ch" secondAttribute="trailing" id="QTc-IZ-sw3"/>
-                    <constraint firstAttribute="trailing" secondItem="yQ2-NE-i3d" secondAttribute="trailing" constant="20" id="fwp-e2-mmF"/>
-                    <constraint firstItem="yQ2-NE-i3d" firstAttribute="leading" secondItem="TZO-MR-KQF" secondAttribute="trailing" constant="16" id="hT3-7F-0Zg"/>
-                    <constraint firstItem="TZO-MR-KQF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="hVP-Xb-DKM"/>
+                    <constraint firstItem="TZO-MR-KQF" firstAttribute="leading" secondItem="yQ2-NE-i3d" secondAttribute="trailing" constant="16" id="XYK-41-lIf"/>
                     <constraint firstItem="yQ2-NE-i3d" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iks-H9-bRl"/>
                     <constraint firstItem="wfy-XP-6ch" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jfh-ig-Y3t"/>
+                    <constraint firstItem="yQ2-NE-i3d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="yw1-xq-Yfn"/>
                     <constraint firstAttribute="bottom" secondItem="yQ2-NE-i3d" secondAttribute="bottom" constant="8" id="zro-a7-x8q"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
