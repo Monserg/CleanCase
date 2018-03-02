@@ -53,7 +53,7 @@ extension UITextField {
         cancelButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 17.0),
                                              NSAttributedStringKey.foregroundColor: UIColor.white.lighter(amount: 0.8)], for: .highlighted)
 
-        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
         toolbar.isUserInteractionEnabled    =   true
         
         self.inputAccessoryView             =   toolbar

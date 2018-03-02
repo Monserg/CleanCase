@@ -515,16 +515,10 @@ extension OrderCreateViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .checkmark {
-                cell.accessoryType = .none
-            }
-                
-            else {
-                cell.accessoryType = .checkmark
-            }
+        if let cell = tableView.cellForRow(at: indexPath) as? DepartmentTableViewCell {
+            cell.changeCheckbox()
             
-            self.interactor?.updateDepartment(selectedState: cell.accessoryType, byRow: indexPath.row)
+            self.interactor?.updateDepartment(selectedState: cell.isChecked, byRow: indexPath.row)
             self.saveButton.isEnabled = self.router!.dataStore!.departments.filter({ $0.isSelected == true }).count > 0
         }
     }

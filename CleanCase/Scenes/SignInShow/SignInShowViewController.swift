@@ -229,7 +229,7 @@ class SignInShowViewController: UIViewController {
             self.scrollView.contentInset = UIEdgeInsets.zero
         }
             
-            // Keyboard show
+        // Keyboard show
         else {
             self.scrollView.contentInset    =   UIEdgeInsets(top: 0,left: 0, bottom: keyboardViewEndFrame.height, right: 0)
             var activeViewRect              =   self.view.frame

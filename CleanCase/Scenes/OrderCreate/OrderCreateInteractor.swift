@@ -17,7 +17,7 @@ protocol OrderCreateBusinessLogic {
     func saveSelectedDate(byRow row: Int)
     func saveSelectedTime(byRow row: Int)
     func saveOrder(fromJSON json: [String: Any])
-    func updateDepartment(selectedState state: UITableViewCellAccessoryType, byRow row: Int)
+    func updateDepartment(selectedState isSelected: Bool, byRow row: Int)
     func addOrder(withRequestModel requestModel: OrderCreateModels.Order.RequestModel)
     func fetchDates(withRequestModel requestModel: OrderCreateModels.Dates.RequestModel)
     func fetchDepartments(withRequestModel requestModel: OrderCreateModels.Departments.RequestModel)
@@ -79,8 +79,8 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
         }
     }
     
-    func updateDepartment(selectedState state: UITableViewCellAccessoryType, byRow row: Int) {
-        departments[row].isSelected = (state == .none) ? false : true
+    func updateDepartment(selectedState isSelected: Bool, byRow row: Int) {
+        departments[row].isSelected = isSelected
     }
     
     func addOrder(withRequestModel requestModel: OrderCreateModels.Order.RequestModel) {

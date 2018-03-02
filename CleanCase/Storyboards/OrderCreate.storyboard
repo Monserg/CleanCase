@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -114,7 +115,7 @@
                                                                     <rect key="frame" x="4" y="4" width="335" height="50"/>
                                                                     <subviews>
                                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wq-Jl-lGW" userLabel="Name Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                                            <rect key="frame" x="16" y="14.5" width="279" height="21"/>
+                                                                            <rect key="frame" x="54" y="14.5" width="265" height="21"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -123,12 +124,33 @@
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultLabelStyle"/>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
+                                                                        <view clipsSubviews="YES" tag="22" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="bYl-i7-zFS" customClass="M13Checkbox" customModule="M13Checkbox">
+                                                                            <rect key="frame" x="16" y="14" width="22" height="22"/>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="bYl-i7-zFS" secondAttribute="height" multiplier="1:1" id="Zb5-6R-897"/>
+                                                                                <constraint firstAttribute="width" constant="22" id="ij0-EP-4Fo"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="hideBox" value="NO"/>
+                                                                                <userDefinedRuntimeAttribute type="color" keyPath="secondaryTintColor">
+                                                                                    <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                            <connections>
+                                                                                <action selector="handlerChangeValue:" destination="IHi-3H-DTr" eventType="valueChanged" id="2mv-PF-k3j"/>
+                                                                            </connections>
+                                                                        </view>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstItem="9wq-Jl-lGW" firstAttribute="centerY" secondItem="8a0-c6-IFd" secondAttribute="centerY" id="HNF-qU-Eyf"/>
-                                                                        <constraint firstItem="9wq-Jl-lGW" firstAttribute="leading" secondItem="8a0-c6-IFd" secondAttribute="leading" constant="16" id="aHV-kg-t6a"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="9wq-Jl-lGW" secondAttribute="trailing" constant="40" id="zpn-Q3-NPu"/>
+                                                                        <constraint firstItem="9wq-Jl-lGW" firstAttribute="leading" secondItem="bYl-i7-zFS" secondAttribute="trailing" constant="16" id="IFS-CH-R92"/>
+                                                                        <constraint firstItem="bYl-i7-zFS" firstAttribute="centerY" secondItem="8a0-c6-IFd" secondAttribute="centerY" id="Isv-jI-2JM"/>
+                                                                        <constraint firstItem="bYl-i7-zFS" firstAttribute="leading" secondItem="8a0-c6-IFd" secondAttribute="leading" constant="16" id="hWD-Kx-jug"/>
+                                                                        <constraint firstItem="bYl-i7-zFS" firstAttribute="width" secondItem="bYl-i7-zFS" secondAttribute="height" multiplier="1:1" id="rdp-EB-crr"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="9wq-Jl-lGW" secondAttribute="trailing" constant="16" id="zpn-Q3-NPu"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -145,6 +167,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="8a0-c6-IFd" secondAttribute="trailing" constant="4" id="QdJ-hH-D5r"/>
                                                         </constraints>
                                                         <connections>
+                                                            <outlet property="checkbox" destination="bYl-i7-zFS" id="ijz-nX-SGG"/>
                                                             <outlet property="nameLabel" destination="9wq-Jl-lGW" id="KqE-YH-ikh"/>
                                                         </connections>
                                                     </tableViewCell>

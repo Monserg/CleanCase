@@ -96,7 +96,7 @@
                                         <rect key="frame" x="0.0" y="423" width="337.5" height="44"/>
                                         <subviews>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koh-Nh-WgC" userLabel="Cancel Button" customClass="SKButton" customModule="SKStyleKit">
-                                                <rect key="frame" x="4.5" y="4" width="36" height="36"/>
+                                                <rect key="frame" x="297.5" y="4" width="36" height="36"/>
                                                 <color key="backgroundColor" red="0.00030086832699999997" green="0.66218382119999997" blue="0.52358740569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="koh-Nh-WgC" secondAttribute="height" multiplier="1:1" id="AnW-o3-t9b"/>
@@ -115,9 +115,9 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="koh-Nh-WgC" secondAttribute="trailing" constant="4" id="3EH-yp-Cb0"/>
                                             <constraint firstItem="koh-Nh-WgC" firstAttribute="top" secondItem="ZRh-2V-Drf" secondAttribute="top" constant="4" id="5Kx-75-ent"/>
                                             <constraint firstAttribute="bottom" secondItem="koh-Nh-WgC" secondAttribute="bottom" constant="4" id="6fg-lV-s2h"/>
-                                            <constraint firstItem="koh-Nh-WgC" firstAttribute="leading" secondItem="ZRh-2V-Drf" secondAttribute="leading" constant="4" id="BWC-QF-44M"/>
                                             <constraint firstAttribute="height" constant="44" id="zE4-Ar-TO3"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>

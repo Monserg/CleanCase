@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import M13Checkbox
 
 class DepartmentTableViewCell: UITableViewCell {
+    // MARK: - Properties
+    var isChecked = false
+    
+    
     // MARK: - IBOutlets
+    @IBOutlet weak var checkbox: M13Checkbox! {
+        didSet {
+            checkbox.boxType = .square
+        }
+    }
+    
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
             nameLabel.textAlignment = .right
@@ -26,6 +37,18 @@ class DepartmentTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    
+    // MARK: - Custom Functions
+    func changeCheckbox() {
+        self.handlerChangeValue(self.checkbox)
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerChangeValue(_ sender: M13Checkbox) {
+        self.isChecked = (sender.checkState == .checked)
+    }    
 }
     
 
