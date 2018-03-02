@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roZ-xz-f8G" customClass="SKLabel" customModule="SKStyleKit">
-                                <rect key="frame" x="317" y="87" width="42" height="21"/>
+                                <rect key="frame" x="16" y="87" width="343" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -73,6 +73,7 @@
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="roZ-xz-f8G" firstAttribute="leading" secondItem="X1k-h0-CJf" secondAttribute="leading" constant="16" id="5ob-QP-Z27"/>
                             <constraint firstItem="kqW-qu-qTv" firstAttribute="top" secondItem="X1k-h0-CJf" secondAttribute="top" constant="96" id="ODJ-y9-mFx"/>
                             <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="mK3-q7-RU2" secondAttribute="trailing" id="ZoN-FY-fab"/>
                             <constraint firstItem="kqW-qu-qTv" firstAttribute="leading" secondItem="X1k-h0-CJf" secondAttribute="leading" constant="16" id="cNw-7F-oXk"/>
