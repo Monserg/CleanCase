@@ -33,7 +33,7 @@
                                                     <rect key="frame" x="4" y="4" width="367" height="50"/>
                                                     <subviews>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atd-6k-XpN" userLabel="Collected Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="321" y="4" width="42" height="21"/>
+                                                            <rect key="frame" x="4" y="4" width="42" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -43,7 +43,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4U-JS-n8n" userLabel="Status Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="321" y="25" width="42" height="21"/>
+                                                            <rect key="frame" x="4" y="25" width="42" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -53,7 +53,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVe-HX-OS9" userLabel="Delivery Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="275" y="4" width="42" height="21"/>
+                                                            <rect key="frame" x="50" y="4" width="42" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -63,7 +63,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8K-1J-mib" userLabel="Price Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                            <rect key="frame" x="4" y="4" width="42" height="21"/>
+                                                            <rect key="frame" x="321" y="4" width="42" height="21"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -75,15 +75,15 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="atd-6k-XpN" firstAttribute="trailing" secondItem="H4U-JS-n8n" secondAttribute="trailing" id="8TH-VQ-mb1"/>
                                                         <constraint firstItem="atd-6k-XpN" firstAttribute="centerY" secondItem="V8K-1J-mib" secondAttribute="centerY" id="ERy-nU-ArN"/>
+                                                        <constraint firstItem="SVe-HX-OS9" firstAttribute="leading" secondItem="atd-6k-XpN" secondAttribute="trailing" constant="4" id="FrS-Fo-uoB"/>
                                                         <constraint firstItem="atd-6k-XpN" firstAttribute="top" secondItem="Je1-pw-aVR" secondAttribute="top" constant="4" id="Iqx-rL-o5A"/>
                                                         <constraint firstAttribute="bottom" secondItem="H4U-JS-n8n" secondAttribute="bottom" constant="4" id="Myf-p2-U0h"/>
-                                                        <constraint firstItem="V8K-1J-mib" firstAttribute="leading" secondItem="Je1-pw-aVR" secondAttribute="leading" constant="4" id="RYV-MV-nFY"/>
-                                                        <constraint firstItem="atd-6k-XpN" firstAttribute="leading" secondItem="SVe-HX-OS9" secondAttribute="trailing" constant="4" id="gB4-EX-ubz"/>
+                                                        <constraint firstItem="V8K-1J-mib" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SVe-HX-OS9" secondAttribute="trailing" constant="4" id="RBN-5J-PSZ"/>
+                                                        <constraint firstItem="atd-6k-XpN" firstAttribute="leading" secondItem="Je1-pw-aVR" secondAttribute="leading" constant="4" id="WcL-mF-f9U"/>
                                                         <constraint firstItem="SVe-HX-OS9" firstAttribute="centerY" secondItem="V8K-1J-mib" secondAttribute="centerY" id="hvM-Q0-wgE"/>
-                                                        <constraint firstAttribute="trailing" secondItem="atd-6k-XpN" secondAttribute="trailing" constant="4" id="mdV-M0-6LI"/>
-                                                        <constraint firstItem="SVe-HX-OS9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V8K-1J-mib" secondAttribute="trailing" constant="4" id="nh1-Wb-0cZ"/>
+                                                        <constraint firstItem="H4U-JS-n8n" firstAttribute="leading" secondItem="Je1-pw-aVR" secondAttribute="leading" constant="4" id="k0H-WH-Ve1"/>
+                                                        <constraint firstAttribute="trailing" secondItem="V8K-1J-mib" secondAttribute="trailing" constant="4" id="sJ5-Ce-RDk"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

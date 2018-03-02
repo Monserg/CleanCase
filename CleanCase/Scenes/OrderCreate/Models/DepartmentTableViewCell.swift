@@ -11,7 +11,7 @@ import M13Checkbox
 
 class DepartmentTableViewCell: UITableViewCell {
     // MARK: - Properties
-    var isChecked = false
+    var handlerCheckboxTap: ((M13Checkbox.CheckState) -> ())?
     
     
     // MARK: - IBOutlets
@@ -47,7 +47,7 @@ class DepartmentTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func handlerChangeValue(_ sender: M13Checkbox) {
-        self.isChecked = (sender.checkState == .checked)
+        self.handlerCheckboxTap!(sender.checkState)
     }    
 }
     

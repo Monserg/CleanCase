@@ -489,6 +489,12 @@ extension OrderCreateViewController: UITableViewDataSource {
         
         cell.setup(withItem: department, andIndexPath: indexPath)
         
+        // Handler checkbox tap
+        cell.handlerCheckboxTap  = { state in
+            self.interactor?.updateDepartment(selectedState: (state == .unchecked), byRow: indexPath.row)
+            self.saveButton.isEnabled = self.router!.dataStore!.departments.filter({ $0.isSelected == true }).count > 0
+        }
+        
         return cell
     }
 }
@@ -515,12 +521,9 @@ extension OrderCreateViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let cell = tableView.cellForRow(at: indexPath) as? DepartmentTableViewCell {
-            cell.changeCheckbox()
-            
-            self.interactor?.updateDepartment(selectedState: cell.isChecked, byRow: indexPath.row)
-            self.saveButton.isEnabled = self.router!.dataStore!.departments.filter({ $0.isSelected == true }).count > 0
-        }
+//        if let cell = tableView.cellForRow(at: indexPath) as? DepartmentTableViewCell {
+//            cell.changeCheckbox()
+//        }
     }
 }
 

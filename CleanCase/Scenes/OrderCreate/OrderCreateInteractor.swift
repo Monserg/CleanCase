@@ -80,7 +80,7 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
     }
     
     func updateDepartment(selectedState isSelected: Bool, byRow row: Int) {
-        departments[row].isSelected = isSelected
+        departments[row].isSelected = !isSelected
     }
     
     func addOrder(withRequestModel requestModel: OrderCreateModels.Order.RequestModel) {
