@@ -58,25 +58,6 @@ class UpdateManager {
                             if let order = CoreDataManager.instance.readEntity(withName:                "Order",
                                                                                andPredicateParameters:  NSPredicate.init(format: "orderID == \(dataInfo.orderID)")) as? Order {
                                 switch model.Command {
-                                // AddDepartment
-                                case 1:
-                                    // API
-                                    RestAPIManager().fetchRequest(withRequestType: RequestType.getDepartmentsList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { responseAPI in
-                                        if let result = responseAPI.model as? ResponseAPIDepartmentsResult {
-                                            // Delete all departments
-                                            CoreDataManager.instance.deleteEntities(withName: "Department", andPredicateParameters: nil)
-                                            
-                                            // Add new departments
-                                            for model in result.GetDepartmentsResult {
-                                                let predicate = NSPredicate.init(format: "departmentId == \(model.DepartmentId)")
-                                                
-                                                CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Department",
-                                                                                                                  predicate:  predicate,
-                                                                                                                  model:      model))
-                                            }
-                                        }
-                                    })
-                                    
                                 // UpdateOrder
                                 case 4:
                                     order.orderStatus   =   dataInfo.status
