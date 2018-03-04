@@ -82,7 +82,9 @@ class MainShowViewController: UIViewController {
         
         // Check Departments in CoreData
         DispatchQueue.main.async {
-            if CoreDataManager.instance.readEntities(withName: "Department", withPredicateParameters: nil, andSortDescriptor: nil) == nil {
+            if CoreDataManager.instance.readEntities(withName: "Department", withPredicateParameters: nil, andSortDescriptor: nil)!.count == 0 {
+                Logger.log(message: "Departments List is empty", event: .Severe)
+
                 RestAPIManager().fetchRequest(withRequestType: .getDepartmentsList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { responseAPI in
                     if let result = responseAPI.model as? ResponseAPIDepartmentsResult {
                         for model in result.GetDepartmentsResult {
@@ -94,6 +96,10 @@ class MainShowViewController: UIViewController {
                         }
                     }
                 })
+            }
+            
+            else {
+                Logger.log(message: "Departments List is full", event: .Severe)
             }
         }
     }
