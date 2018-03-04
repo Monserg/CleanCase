@@ -29,7 +29,7 @@ class WriteUsShowInteractor: ShareInteractor, WriteUsShowBusinessLogic, WriteUsS
     // MARK: - Business logic implementation
     func sendMessage(withRequestModel requestModel: WriteUsShowModels.Data.RequestModel) {
         // Prepare request body parameters
-        let bodyParams: [String: Any] = [ "message": [ "ClientId": 1537, "LaundryId": Laundry.codeID, "Data": "XXXX" ] ]
+        let bodyParams: [String: Any] = [ "message": [ "ClientId": PersonalData.current!.clientId, "LaundryId": Laundry.codeID, "Data": requestModel.message ] ]
         
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .sendMessage(bodyParams, true), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] response in
