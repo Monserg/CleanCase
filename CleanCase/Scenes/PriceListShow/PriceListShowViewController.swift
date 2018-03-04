@@ -182,12 +182,14 @@ extension PriceListShowViewController: PriceListShowDisplayLogic {
         let numberOfItems   =   self.departmentsCollectionView.numberOfItems(inSection: 0)
         let indexPath       =   [Int](0..<numberOfItems).map{ IndexPath(row: $0, section: 0) }
         
-        self.departmentsCollectionView.reloadItems(at: indexPath)
-
-        DispatchQueue.main.async(execute: {
-            let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: 0)
-            self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
-        })
+        if let departments = self.router?.dataStore?.departments, departments.count > 0 {
+            self.departmentsCollectionView.reloadItems(at: indexPath)
+            
+            DispatchQueue.main.async(execute: {
+                let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: 0)
+                self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
+            })
+        }
     }
     
     func displayDepartmentItems(fromViewModel viewModel: PriceListShowModels.DepartmentItems.ViewModel) {
