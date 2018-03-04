@@ -79,6 +79,23 @@ class MainShowViewController: UIViewController {
         backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
             UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier!)
         })
+        
+        // Check Departments in CoreData
+        DispatchQueue.main.async {
+            if CoreDataManager.instance.readEntities(withName: "Department", withPredicateParameters: nil, andSortDescriptor: nil) == nil {
+                RestAPIManager().fetchRequest(withRequestType: .getDepartmentsList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { responseAPI in
+                    if let result = responseAPI.model as? ResponseAPIDepartmentsResult {
+                        for model in result.GetDepartmentsResult {
+                            let predicate = NSPredicate.init(format: "departmentId == \(model.DepartmentId)")
+                            
+                            CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "Department",
+                                                                                              predicate:  predicate,
+                                                                                              model:      model))
+                        }
+                    }
+                })
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
