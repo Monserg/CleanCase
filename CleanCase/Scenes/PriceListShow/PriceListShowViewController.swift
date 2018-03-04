@@ -104,14 +104,17 @@ class PriceListShowViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         self.departmentsCollectionView.collectionViewLayout.invalidateLayout()
 
-        let section                 =   0
-        self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
-        let indexPath               =   IndexPath(item: 0, section: section)
-        self.widthDepartmentCell    =   (self.departmentsCollectionView.frame.width - 30.0) / 3.0
-
-        self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: false)
-        Logger.log(message: "Selected View move to new X: \(self.departmentsCollectionView.contentOffset.x)", event: .Verbose)
-        self.moveSelectedView()
+        if let departments = self.router?.dataStore?.departments, departments.count > 0 {
+            let section                 =   0
+            self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
+            let indexPath               =   IndexPath(item: 0, section: section)
+            self.widthDepartmentCell    =   (self.departmentsCollectionView.frame.width - 30.0) / 3.0
+            
+            self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: false)
+            
+            Logger.log(message: "Selected View move to new X: \(self.departmentsCollectionView.contentOffset.x)", event: .Verbose)
+            self.moveSelectedView()
+        }
     }
     
     override func viewDidLoad() {

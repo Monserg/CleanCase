@@ -107,6 +107,7 @@ class UpdateManager {
                             break
                         }
                         
+                        Logger.log(message: "Update Manager return true", event: .Severe)
                         completion(true)
                     }
                 }
