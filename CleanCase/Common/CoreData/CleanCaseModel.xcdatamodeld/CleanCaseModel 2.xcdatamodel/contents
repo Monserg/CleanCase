@@ -51,6 +51,15 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="items" inverseEntity="Department" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="departmentId"/>
+                <constraint value="departmentItemId"/>
+                <constraint value="departmentName"/>
+                <constraint value="id"/>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Laundry" representedClassName="Laundry" syncable="YES">
         <attribute name="addressLine" optional="YES" attributeType="String" syncable="YES"/>

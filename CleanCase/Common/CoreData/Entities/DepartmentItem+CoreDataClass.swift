@@ -16,4 +16,16 @@ public class DepartmentItem: NSManagedObject {
     deinit {
         Logger.log(message: "Success", event: .Severe)
     }
+    
+    
+    // MARK: - Class Functions
+    func updateEntity(fromResponse responseAPI: ResponseAPIDepartmentItem) {
+        self.departmentId       =   responseAPI.DepartmentId
+        self.departmentItemId   =   responseAPI.DepartmentItemId
+        self.departmentName     =   responseAPI.DepartmentName
+        self.id                 =   responseAPI.Id
+        self.name               =   responseAPI.Name
+        self.price              =   responseAPI.Price
+        self.descriptionItem    =   responseAPI.Description
+    }
 }

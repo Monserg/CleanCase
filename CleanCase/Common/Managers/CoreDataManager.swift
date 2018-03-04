@@ -166,9 +166,9 @@ class CoreDataManager {
             
             else if propertyName == "Items" {
                 if let model = data.model as? ResponseAPIDepartment, let items = model.Items, items.count > 0 {
-                    let department = readEntity(withName:                   "Department",
-                                                andPredicateParameters:     NSPredicate.init(format: "departmentId = \(model.DepartmentId)")) as! Department
-
+//                    let department = readEntity(withName:                   "Department",
+//                                                andPredicateParameters:     NSPredicate.init(format: "departmentId = \(model.DepartmentId)")) as! Department
+//
                     for item in items {
                         let predicate = NSPredicate.init(format: "departmentId == \(item.DepartmentId) AND departmentItemId == \(item.DepartmentItemId)")
                         
@@ -176,8 +176,8 @@ class CoreDataManager {
                                                                       predicate:        predicate,
                                                                       model:            item))
                         
-                        department.addToItems(self.readEntity(withName:                 "DepartmentItem",
-                                                              andPredicateParameters:   predicate) as! DepartmentItem)
+                        (entity as! Department).addToItems(self.readEntity(withName:                     "DepartmentItem",
+                                                                           andPredicateParameters:       predicate) as! DepartmentItem)
                     }
                 }
             }
@@ -196,7 +196,7 @@ class CoreDataManager {
     
     
     // Delete
-    func deleteEntities(withName name: String, andPredicateParameters predicate: NSPredicate?) {
+    func deleteEntities(withName name: String, andPredicateParameters predicate: NSPredicate?, completion: @escaping (Bool) -> ()) {
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: name)
         
         if predicate != nil {
@@ -208,10 +208,12 @@ class CoreDataManager {
         do {
             try self.managedObjectContext.execute(deleteRequest)
             self.contextSave()
+            completion(true)
         }
             
         catch {
             Logger.log(message: "Delete Entities '\(name)' failed", event: .Error)
+            completion(false)
         }
     }
 }
