@@ -23,7 +23,7 @@
 
 
 // Order status
-"None"                                      =   "Ar None";
+"None"                                      =   " ";
 "Opened"                                    =   "Ar Opened";
 "Closed"                                    =   "Ar Closed";
 "Ready"                                     =   "Ar Ready";

@@ -90,12 +90,6 @@ class ChatShowViewController: UIViewController {
         let requestModel = ChatShowModels.Something.RequestModel()
         interactor?.doSomething(withRequestModel: requestModel)
     }
-    
-    
-    // MARK: - Actions
-    @IBAction func tapped(_ sender: Any) {
-        UpdateManager.test()
-    }
 }
 
 

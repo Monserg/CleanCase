@@ -115,34 +115,4 @@ class UpdateManager {
             }
         })
     }
-    
-    class func test() {
-        // API
-        RestAPIManager().fetchRequest(withRequestType: RequestType.getDepartmentsList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { responseAPI in
-            if let result = responseAPI.model as? ResponseAPIDepartmentsResult {
-                // Delete all departments
-//                CoreDataManager.instance.deleteEntities(withName: "Department", andPredicateParameters: nil, completion: { success in
-//                    if success {
-                        // Add new departments
-                        for model in result.GetDepartmentsResult {
-                            let departmentEntity = CoreDataManager.instance.createEntity("Department") as! Department
-                            departmentEntity.updateEntity(fromResponse: model)
-                            
-                            // Set DepartmentItems
-                            if let items = model.Items, items.count > 0 {
-                                for item in items {
-                                    let departmentItemEntity = CoreDataManager.instance.createEntity("DepartmentItem") as! DepartmentItem
-                                    
-                                    departmentItemEntity.updateEntity(fromResponse: item)
-                                    departmentEntity.addToItems(departmentItemEntity)
-                                }
-                            }
-                            
-                            departmentEntity.save()
-                        }
-//                    }
-//                })
-            }
-        })
-    }
 }
