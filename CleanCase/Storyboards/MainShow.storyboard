@@ -142,20 +142,29 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ag3-iu-R2I" userLabel="Switch View" customClass="SKView" customModule="SKStyleKit">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QM4-bO-9OD">
+                                    <switch clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QM4-bO-9OD">
                                         <rect key="frame" x="136" y="6.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="handlerChangeState:" destination="M6e-eh-3U6" eventType="valueChanged" id="TS2-Gw-2Fc"/>
+                                        </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arabic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyw-Ox-4em">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arabic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyw-Ox-4em" customClass="SKLabel" customModule="SKStyleKit">
                                         <rect key="frame" x="16" y="12" width="104" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="sideMenuItemLabelStyle"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hebrew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI7-vj-t2S">
-                                        <rect key="frame" x="201" y="12" width="103" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hebrew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI7-vj-t2S" customClass="SKLabel" customModule="SKStyleKit">
+                                        <rect key="frame" x="201" y="12" width="103" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="sideMenuItemLabelStyle"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -196,12 +205,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="PIe-E8-66P"/>
                     <connections>
+                        <outlet property="arabicLabel" destination="Qyw-Ox-4em" id="kGZ-cc-Poq"/>
+                        <outlet property="hebrewLabel" destination="RI7-vj-t2S" id="fI0-WC-X2e"/>
+                        <outlet property="languageSwitch" destination="QM4-bO-9OD" id="RQt-1B-xS5"/>
                         <outlet property="menuTableView" destination="dZw-Ms-ZDB" id="X06-y0-8J4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0SB-U9-fgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-797.60000000000002" y="108.39580209895054"/>
+            <point key="canvasLocation" x="-798.75" y="107.74647887323944"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UWL-Zu-gue">

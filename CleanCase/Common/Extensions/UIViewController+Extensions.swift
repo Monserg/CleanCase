@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import Localize_Swift
 
 extension UIViewController {
+    func registerForAppLanguageChangeNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handlerAppLanguageChange),
+                                               name: NSNotification.Name(rawValue: LCLLanguageChangeNotification),
+                                               object: nil)
+    }
+
+    @objc func handlerAppLanguageChange(notification: Notification) {
+    }
+
     func checkNetworkConnection(_ completion: @escaping ((_ success: Bool) -> Void)) {
         guard isNetworkAvailable else {
             Logger.log(message: "isNetworkAvailable is false", event: .Severe)

@@ -82,6 +82,7 @@ class OrderCreateViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton! {
         didSet {
             saveButton.isEnabled = false
+            saveButton.setTitle("Save".localized(), for: .normal)
         }
     }
     

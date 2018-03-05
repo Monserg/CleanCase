@@ -34,13 +34,24 @@ class SignInShowViewController: UIViewController {
 
     
     // MARK: - IBOutlets
-    @IBOutlet weak var acceptAgreementLabel: UILabel!
-    @IBOutlet weak var readAgreementButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var acceptAgreementLabel: UILabel! {
+        didSet {
+            acceptAgreementLabel.text!.localize()
+        }
+    }
+    
+    @IBOutlet weak var readAgreementButton: UIButton! {
+        didSet {
+            readAgreementButton.setTitle("Read Agreement".localized(), for: .normal)
+        }
+    }
     
     @IBOutlet weak var saveButton: UIButton! {
         didSet {
             saveButton.isEnabled = false
+            saveButton.setTitle("Save".localized(), for: .normal)
         }
     }
         
@@ -219,6 +230,10 @@ class SignInShowViewController: UIViewController {
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
+        guard self.firstResponder != nil else {
+            return
+        }
+
         let userInfo = notification.userInfo!
         
         let keyboardScreenEndFrame  =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue

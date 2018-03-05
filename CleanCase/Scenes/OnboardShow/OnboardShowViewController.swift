@@ -69,7 +69,7 @@ class OnboardShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     fileprivate func loadTitle(forPage page: Int) {
-        let pageTitles = [ "TitleForPage0", "TitleForPage1", "TitleForPage2", "TitleForPage3", "TitleForPage4" ]
+        let pageTitles = [ "TitleForPage0".localized(), "TitleForPage1".localized(), "TitleForPage2".localized(), "TitleForPage3".localized(), "TitleForPage4".localized() ]
         self.pageTitleLabel.fadeTransition(0.5)
         self.pageTitleLabel.text = pageTitles[page]
     }

@@ -27,9 +27,18 @@ class MainShowViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var myOrderView: UIView!
-    @IBOutlet weak var myOrderButton: UIButton!
-    @IBOutlet weak var createOrderButton: UIButton!
-    @IBOutlet weak var basketBarButtonItem: UIBarButtonItem!
+
+    @IBOutlet weak var myOrderButton: UIButton! {
+        didSet {
+            myOrderButton.setTitle("My Order".localized(), for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var createOrderButton: UIButton! {
+        didSet {
+            createOrderButton.setTitle("Create Order".localized(), for: .normal)
+        }
+    }
     
     @IBOutlet weak var createOrderView: UIView! {
         didSet {
@@ -70,6 +79,9 @@ class MainShowViewController: UIViewController {
         self.loadViewSettings()
         self.setupSideMenu()
     
+        // Add Language Observer
+        self.registerForAppLanguageChangeNotifications()
+        
         // Add Timer Observer
         NotificationCenter.default.addObserver(self,
                                                selector:    #selector(handlerShowDeliveryTermsSceneNotification),
@@ -220,6 +232,11 @@ class MainShowViewController: UIViewController {
         }
     }
 
+    private func localize() {
+        self.createOrderButton.setTitle("Create Order".localized(), for: .normal)
+        self.myOrderButton.setTitle("My Order".localized(), for: .normal)
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerSideMenuBarButtonTapped(_ sender: UIBarButtonItem) {
@@ -245,6 +262,10 @@ class MainShowViewController: UIViewController {
                 })
             }
         }
+    }
+    
+    override func handlerAppLanguageChange(notification: Notification) {
+        self.localize()
     }
 }
 

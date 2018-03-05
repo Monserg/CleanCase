@@ -15,6 +15,7 @@ import SideMenu
 import SKStyleKit
 import Device_swift
 import DynamicColor
+import Localize_Swift
 
 // MARK: - Input & Output protocols
 protocol LeftSideMenuShowDisplayLogic: class {
@@ -30,6 +31,24 @@ class LeftSideMenuShowViewController: UIViewController {
 
     
     // MARK: - IBOutlets
+    @IBOutlet weak var languageSwitch: UISwitch! {
+        didSet {
+            languageSwitch.isOn = Localize.currentLanguage() == "he"
+        }
+    }
+
+    @IBOutlet weak var arabicLabel: SKLabel! {
+        didSet {
+            arabicLabel.text!.localize()
+        }
+    }
+    
+    @IBOutlet weak var hebrewLabel: SKLabel! {
+        didSet {
+            hebrewLabel.text!.localize()
+        }
+    }
+    
     @IBOutlet weak var menuTableView: UITableView! {
         didSet {
             menuTableView.isScrollEnabled = false
@@ -66,6 +85,11 @@ class LeftSideMenuShowViewController: UIViewController {
         setup()
     }
     
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+        NotificationCenter.default.removeObserver(self)
+    }
+
     
     // MARK: - Setup
     private func setup() {
@@ -100,6 +124,9 @@ class LeftSideMenuShowViewController: UIViewController {
         super.viewDidLoad()
         
 //        loadViewSettings()
+        
+        // Add Language Observer
+        self.registerForAppLanguageChangeNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,12 +146,34 @@ class LeftSideMenuShowViewController: UIViewController {
         self.interactor?.loadMenuItems(withRequestModel: requestModel)
     }
     
+    private func localize() {
+        DispatchQueue.main.async(execute: {
+            self.menuTableView.reloadData()
+            self.arabicLabel.text = "Arabic".localized()
+            self.hebrewLabel.text = "Hebrew".localized()
+        })
+    }
+    
+    
+    
     
     // MARK: - Actions
     @IBAction func handlerSideMenuButtonTapped(_ sender: Any) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 0) {
             self.navigationController?.dismiss(animated: true, completion: {})
         }
+    }
+    
+    @IBAction func handlerChangeState(_ sender: UISwitch) {
+        let currentLanguage = sender.isOn ? "he" : "ar"
+        UserDefaults.standard.set(currentLanguage, forKey: "languageApp")
+        UserDefaults.standard.synchronize()
+        
+        Localize.setCurrentLanguage(currentLanguage)
+    }
+    
+    override func handlerAppLanguageChange(notification: Notification) {
+        self.loadMenuItems()
     }
 }
 
@@ -134,9 +183,7 @@ extension LeftSideMenuShowViewController: LeftSideMenuShowDisplayLogic {
     func displayMenuItems(fromViewModel viewModel: LeftSideMenuShowModels.MenuItems.ViewModel) {
         // NOTE: Display the result from the Presenter
         if self.router!.dataStore!.menuItems.count > 0 {
-            DispatchQueue.main.async(execute: {
-                self.menuTableView.reloadData()
-            })
+            self.localize()
         }
     }
 }

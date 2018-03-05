@@ -35,7 +35,12 @@ class PersonalDataShowViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var saveButton: UIButton!
+   
+    @IBOutlet weak var saveButton: UIButton! {
+        didSet {
+            saveButton.setTitle("Save".localized(), for: .normal)
+        }
+    }
     
     @IBOutlet var textFieldsCollection: [UITextField]! {
         didSet {

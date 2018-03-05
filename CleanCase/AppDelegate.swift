@@ -11,6 +11,7 @@ import Fabric
 import Firebase
 import SKStyleKit
 import Crashlytics
+import Localize_Swift
 import FirebaseMessaging
 import UserNotifications
 import FirebaseInstanceID
@@ -24,6 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Set default App language
+        if let languageCode = UserDefaults.standard.value(forKey: "languageApp") as? String {
+            Localize.setCurrentLanguage(languageCode)
+        }
+        
+        else {
+            Localize.setCurrentLanguage("he")
+        }
+        
+        Logger.log(message: "App language is \(Localize.currentLanguage())", event: .Info)
+        
         // Add SKStyleKit
         StyleKit.initStyleKit()
         
