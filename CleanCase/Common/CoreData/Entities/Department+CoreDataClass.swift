@@ -26,6 +26,6 @@ public class Department: NSManagedObject {
         self.id                 =   responseAPI.Id
         self.laundryId          =   responseAPI.LaundryId
         
-//        self.save()        
+        self.items = []
     }
 }
