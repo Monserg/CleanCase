@@ -7,7 +7,6 @@
 */
 
 // Menu Items
-
 "New order"                                 =   "הזמנה חדשה";
 "Hours of work"                             =   "שעות עבודה";
 "Current order"                             =   "הזמנה נוכחית";
@@ -21,11 +20,10 @@
 "Agreement"                                 =   "הסכם שימוש";
 "Sign out"                                  =   "יציאה";
 "Hebrew"                                    =   "עברית";
-"Arabic"                                    =   "Arabic";
+"Arabic"                                    =   "He Arabic";
 
 
 // Order status
-
 "None"                                      =   " ";
 "Opened"                                    =   "פתוח";
 "Closed"                                    =   "סגור";
@@ -38,125 +36,124 @@
 "PackagesInOffice"                          =   "הגיא למכבסה";
 "LockerOrderChanged"                        =   "LockerOrderChanged";
 "Paid"                                      =   "שולם";
-"RequestForPaid"                            =   "RequestForPaid";
+"RequestForPaid"                            =   "He RequestForPaid";
 
 
 // Labels
-
 "Please, restart App"                       =   "נא להפעיל תוכנה מחדש";
-"Application is closing..."                 =   "Application\n is closing...";
+"Application is closing..."                 =   "He Application\n is closing...";
 "Agreement Title"                           =   "הסכם שימוש";
 "Agreement Caption"                         =   "הסכם";
-"Agreement Content"                         =   "Agreement Content";
+"Agreement Content"                         =   "He Agreement Content";
 "Loading App data..."                       =   "עדכונים\n הורדת נתונים...";
 "Initialization..."                         =   "איתחול...";
 "Delivery Title"                            =   "לדוגמה:לקחת ליד הדלת/אני בבית/אצל שומר";
 "Delivery Caption"                          =   "הערות לאיסוף";
-"Credit Card Title"                         =   "Credit Card Title";
-"Credit Card CVV"                           =   "CVV";
+"Credit Card Title"                         =   "He Credit Card Title";
+"Credit Card CVV"                           =   "He CVV";
 "Currency"                                  =   "₪";
-"Comment Caption"                           =   "Comment";
-"Cleaning Instructions Caption"             =   "Cleaning Instructions";
+"Comment Caption"                           =   "He Comment";
+"Cleaning Instructions Caption"             =   "He Cleaning Instructions";
 "Terms Caption"                             =   "אני מסכים / מסכימה לתנאי השימוש והשרות";
-"Departments Caption"                       =   "Departments";
-"Add Order..."                              =   "Add Order...";
-"Collection Date Caption"                   =   "Collection Date";
-"Order Status Caption"                      =   "Order Status";
-"Name Caption"                              =   "Name";
-"Price Caption"                             =   "Price";
-"Quantity Caption"                          =   "Quantity";
-"Delivery Date Caption"                     =   "Delivery Date";
-"Total Price Caption"                       =   "Total Price";
-"Total Caption"                             =   "Total";
-"Delivery Date Note"                        =   "Not definitely";
+"Departments Caption"                       =   "He Departments";
+"Add Order..."                              =   "He Add Order...";
+"Collection Date Caption"                   =   "He Collection Date";
+"Order Status Caption"                      =   "He Order Status";
+"Name Caption"                              =   "He Name";
+"Price Caption"                             =   "He Price";
+"Quantity Caption"                          =   "He Quantity";
+"Delivery Date Caption"                     =   "He Delivery Date";
+"Total Price Caption"                       =   "He Total Price";
+"Total Caption"                             =   "He Total";
+"Delivery Date Note"                        =   "He Not definitely";
 
 
 
 
 // Titles
 "My Laundry"                                =   "מכבסה שלי";
-"TitleForPage0"                             =   "TitleForPage0";
-"TitleForPage1"                             =   "TitleForPage1";
-"TitleForPage2"                             =   "TitleForPage2";
-"TitleForPage3"                             =   "TitleForPage3";
-"TitleForPage4"                             =   "TitleForPage4";
-"Orders List is Empty"                      =   "Orders List is Empty";
-"About App is empty"                        =   "Content of About us\nis empty";
-"Notification Title"                        =   "Notification Title";
-"Order is ready"                            =   " .Order is ready";
+"TitleForPage0"                             =   "He TitleForPage0";
+"TitleForPage1"                             =   "He TitleForPage1";
+"TitleForPage2"                             =   "He TitleForPage2";
+"TitleForPage3"                             =   "He TitleForPage3";
+"TitleForPage4"                             =   "He TitleForPage4";
+"Orders List is Empty"                      =   "He Orders List is Empty";
+"About App is empty"                        =   "He Content of About us\nis empty";
+"Notification Title"                        =   "He Notification Title";
+"Order is ready"                            =   " .He Order is ready";
 
 
 // Buttons
 "Save"                                      =   "המשך";
 "Cancel"                                    =   "ביטול";
 "Ok"                                        =   "סגור";
-"Done"                                      =   "Done";
+"Done"                                      =   "He Done";
 "Send"                                      =   "שלח";
 "Create Order"                              =   "אשר הזמנה";
-"My Order"                                  =   "My Order";
+"My Order"                                  =   "He My Order";
 "Next"                                      =   "הבא";
 "Start"                                     =   "התחל";
 "Send message"                              =   "שלח הודעה";
 
 
 // Info/Errors Messages
-"Info"                                      =   "Info";
-"Error"                                     =   "Error";
-"CoreData saved error"                      =   "There was an error creating or loading the application's saved data";
-"CoreData init error"                       =   "Failed to initialize the application's saved data";
-"Empty phone number message"                =   "Please\nenter phone number";
-"Phone number error"                        =   "Please\nenter correct phone number";
-"Empty sms code message"                    =   "Please\nenter code from sms";
-"SMS code error"                            =   "Please\nenter correct code from sms";
-"Empty user name message"                   =   "Please\nenter your name";
-"Retry count info message"                  =   "Entry opportunity is blocked for 15 minutes";
-"Cities list is empty"                      =   "Cities list is empty";
-"User welcome"                              =   "Welcome!";
-"Connected to Network"                      =   "Connected to Network";
-"Disconnected from Network"                 =   "Disconnected from Network";
-"Reachable"                                 =   "Reachable";
-"Not Reachable"                             =   "Not Reachable";
-"About App Doc is empty"                    =   "Content of About Project\nis empty";
-"Private Policy Doc is empty"               =   "Content of Private Policy\nis empty";
-"Service Terms Doc is empty"                =   "Content of Service Terms\nis empty";
-"Agreement Doc is empty"                    =   "Content of Agreement\nis empty";
-"Establishments List is empty"              =   "Establishments list\nis empty";
-"Establishment Profile is empty"            =   "Establishment profile\nis empty";
-"History Booking List is empty"             =   "History booking list\nis empty";
-"Favorites List is empty"                   =   "Favorites establishments list\nis empty";
-"Active Booking List is empty"              =   "Active booking list\nis empty";
-"Settings List is empty"                    =   "Settings list\nis empty";
-"Services List is empty"                    =   "Services list\nis empty";
-"Categories List is empty"                  =   "Categories list\nis empty";
-"Location authorization error"              =   "Please go into Settings and give this app authorization to your location";
-"Please Login in App"                       =   "Please\nregister in the application";
-"Please modify hours"                       =   "Please,\nchange the time and the number of hours";
-"Please, enter correct email..."            =   "Please, \nenter correct email...";
-"Please, select city..."                    =   "Please, \nselect city...";
-"Please, select code..."                    =   "Please, \nselect code...";
-"Please, enter phone number..."             =   "Please, \nenter phone number...";
-"Please, enter correct phone number..."     =   "Please, \nenter correct phone number...";
-"Please, enter first name..."               =   "Please, \nenter first name...";
-"Please, enter last name..."                =   "Please, \nenter last name...";
-"Please, enter address..."                  =   "Please, \nenter address...";
-"Please, enter email..."                    =   "Please, \nenter email...";
-"Message sent"                              =   "Message sent";
-"Order confirmed"                           =   "Order confirmed";
-"Order accepted"                            =   "Order accepted";
-"Order added"                               =   "Order added";
+"Info"                                      =   "He Info";
+"Error"                                     =   "He Error";
+"CoreData saved error"                      =   "He There was an error creating or loading the application's saved data";
+"CoreData init error"                       =   "He Failed to initialize the application's saved data";
+"Empty phone number message"                =   "He Please\nenter phone number";
+"Phone number error"                        =   "He Please\nenter correct phone number";
+"Empty sms code message"                    =   "He Please\nenter code from sms";
+"SMS code error"                            =   "He Please\nenter correct code from sms";
+"Empty user name message"                   =   "He Please\nenter your name";
+"Retry count info message"                  =   "He Entry opportunity is blocked for 15 minutes";
+"Cities list is empty"                      =   "He Cities list is empty";
+"User welcome"                              =   "He Welcome!";
+"Connected to Network"                      =   "He Connected to Network";
+"Disconnected from Network"                 =   "He Disconnected from Network";
+"Reachable"                                 =   "He Reachable";
+"Not Reachable"                             =   "He Not Reachable";
+"About App Doc is empty"                    =   "He Content of About Project\nis empty";
+"Private Policy Doc is empty"               =   "He Content of Private Policy\nis empty";
+"Service Terms Doc is empty"                =   "He Content of Service Terms\nis empty";
+"Agreement Doc is empty"                    =   "He Content of Agreement\nis empty";
+"Establishments List is empty"              =   "He Establishments list\nis empty";
+"Establishment Profile is empty"            =   "He Establishment profile\nis empty";
+"History Booking List is empty"             =   "He History booking list\nis empty";
+"Favorites List is empty"                   =   "He Favorites establishments list\nis empty";
+"Active Booking List is empty"              =   "He Active booking list\nis empty";
+"Settings List is empty"                    =   "He Settings list\nis empty";
+"Services List is empty"                    =   "He Services list\nis empty";
+"Categories List is empty"                  =   "He Categories list\nis empty";
+"Location authorization error"              =   "He Please go into Settings and give this app authorization to your location";
+"Please Login in App"                       =   "He Please\nregister in the application";
+"Please modify hours"                       =   "He Please,\nchange the time and the number of hours";
+"Please, enter correct email..."            =   "He Please, \nenter correct email...";
+"Please, select city..."                    =   "He Please, \nselect city...";
+"Please, select code..."                    =   "He Please, \nselect code...";
+"Please, enter phone number..."             =   "He Please, \nenter phone number...";
+"Please, enter correct phone number..."     =   "He Please, \nenter correct phone number...";
+"Please, enter first name..."               =   "He Please, \nenter first name...";
+"Please, enter last name..."                =   "He Please, \nenter last name...";
+"Please, enter address..."                  =   "He Please, \nenter address...";
+"Please, enter email..."                    =   "He Please, \nenter email...";
+"Message sent"                              =   "He Message sent";
+"Order confirmed"                           =   "He Order confirmed";
+"Order accepted"                            =   "He Order accepted";
+"Order added"                               =   "He Order added";
 "Order status canceled"                     =   "הזמנה בוטלה";
 "Your Personal Data updated"                =   "כרטיס אישי נשמר";
-"Please, enter credit card number..."       =   "Please, \nenter credit card number...";
-"Please, enter correct credit card..."      =   "Please, \nenter correct credit card number...";
-"Please, enter credit card CVV..."          =   "Please, \nenter credit card CVV...";
-"Please, enter credit card year..."         =   "Please, \nenter credit card year...";
-"Please, enter credit card month..."        =   "Please, \nenter credit card month...";
-"Please, select collection date..."         =   "Please, \nselect collection date...";
-"Please, select collection time..."         =   "Please, \nselect collection time...";
-"Please, select delivery date..."           =   "Please, \nselect delivery date...";
-"Please, select delivery time..."           =   "Please, \nselect delivery time...";
-"Are you sure?"                             =   "Are you sure?";
-"Disconnected from Network"                 =   "Disconnected from Network";
+"Please, enter credit card number..."       =   "He Please, \nenter credit card number...";
+"Please, enter correct credit card..."      =   "He Please, \nenter correct credit card number...";
+"Please, enter credit card CVV..."          =   "He Please, \nenter credit card CVV...";
+"Please, enter credit card year..."         =   "He Please, \nenter credit card year...";
+"Please, enter credit card month..."        =   "He Please, \nenter credit card month...";
+"Please, select collection date..."         =   "He Please, \nselect collection date...";
+"Please, select collection time..."         =   "He Please, \nselect collection time...";
+"Please, select delivery date..."           =   "He Please, \nselect delivery date...";
+"Please, select delivery time..."           =   "He Please, \nselect delivery time...";
+"Are you sure?"                             =   "He Are you sure?";
+"Disconnected from Network"                 =   "He Disconnected from Network";
 
 
 // TextField Placeholders
@@ -165,19 +162,19 @@
 "Select Delivery Time"                      =   "יש לבחור זמן החזרה ";
 "Select Collection Date"                    =   "יש לבחור מועד איסוף";
 "Select Collection Time"                    =   "יש לבחור זמן איסוף";
-"Code"                                      =   "Code";
+"Code"                                      =   "He Code";
 "Enter Phone Number"                        =   "מספר טלפון";
 "Enter First Name"                          =   "שם פרטי";
 "Enter Last Name"                           =   "שם משפחה";
 "Enter Address"                             =   " כתובת,קומה,כניסה,דירה,קוד סודי";
 "Enter Email"                               =   "דואר אלקטרוני";
-"Accept Agreement"                          =   "Accept Agreement";
-"Read Agreement"                            =   "Read Agreement";
-"Enter message"                             =   "Enter message";
-"Enter comment"                             =   "Enter comment";
+"Accept Agreement"                          =   "He Accept Agreement";
+"Read Agreement"                            =   "He Read Agreement";
+"Enter message"                             =   "He Enter message";
+"Enter comment"                             =   "He Enter comment";
 "Enter cleaning instructions"               =   "הנחיות מיוחדות.לדוגמה כתם,מקום הכתם,סוג הבד";
 "Enter Credit Card Number"                  =   "פרטי כרטיס אשראי";
-"Enter Credit Card CVV"                     =   "CVV";
+"Enter Credit Card CVV"                     =   "He CVV";
 "Enter Credit Card Year"                    =   "שנה";
 "Enter Credit Card Month"                   =   "חודש";
 
