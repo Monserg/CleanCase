@@ -53,11 +53,8 @@
         <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="items" inverseEntity="Department" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
-                <constraint value="departmentId"/>
                 <constraint value="departmentItemId"/>
                 <constraint value="departmentName"/>
-                <constraint value="id"/>
-                <constraint value="name"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
