@@ -36,9 +36,15 @@ class OrderCreateViewController: UIViewController {
     @IBOutlet var labelsCollection: [UILabel]! {
         didSet {
             _ = labelsCollection.map({
-                $0.text?.localize()
+                $0.text!.localize()
                 $0.textAlignment = .right
             })
+        }
+    }
+    
+    @IBOutlet weak var cleaningInstructionsNotesLabel: UILabel! {
+        didSet {
+            cleaningInstructionsNotesLabel.text!.localize()
         }
     }
     

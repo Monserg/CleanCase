@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNa-hC-3tZ" userLabel="Content View" customClass="SKView" customModule="SKStyleKit">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="459"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="438.5"/>
                                         <subviews>
                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eO7-Eg-ikJ" userLabel="Address Text Field" customClass="SKTextField" customModule="SKStyleKit">
                                                 <rect key="frame" x="16" y="32" width="343" height="30"/>
@@ -182,8 +182,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textView>
-                                            <label clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cleaning Instructions Caption sjkhf jsdhf jhdsjf sj ska fsjdf jsdh fjsd jsdf jhsjdfhjsh fjsd fskj fksjhf kjsfh" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb3-HF-hKl" userLabel="Instructions Label">
-                                                <rect key="frame" x="16" y="402" width="343" height="41"/>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cleaning instructions notes" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb3-HF-hKl" userLabel="Instructions Label">
+                                                <rect key="frame" x="16" y="402" width="343" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -289,6 +289,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="cleaningInstructionsNotesLabel" destination="jb3-HF-hKl" id="2Gj-0I-r8P"/>
                         <outlet property="departmentsTableView" destination="jMV-OQ-Tvg" id="bnx-j9-eK1"/>
                         <outlet property="departmentsTableViewHeightConstraint" destination="F4z-R2-FGg" id="5ZT-am-Ulj"/>
                         <outlet property="saveButton" destination="B6Q-Nj-XfO" id="0bd-KU-Bds"/>
@@ -302,7 +303,6 @@
                         <outletCollection property="textViewCollection" destination="hee-sn-7tL" collectionClass="NSMutableArray" id="QLY-Zx-yKM"/>
                         <outletCollection property="labelsCollection" destination="EJa-ri-UWE" collectionClass="NSMutableArray" id="Ayw-sz-Ibu"/>
                         <outletCollection property="labelsCollection" destination="oya-Tp-CID" collectionClass="NSMutableArray" id="pot-f9-ium"/>
-                        <outletCollection property="labelsCollection" destination="jb3-HF-hKl" collectionClass="NSMutableArray" id="iZa-ma-NWw"/>
                         <outletCollection property="labelsCollection" destination="kDs-el-8dD" collectionClass="NSMutableArray" id="UpM-78-uOL"/>
                         <segue destination="0qz-sx-5vg" kind="show" identifier="PersonalDataShowSegue" id="DKv-X9-KbS"/>
                         <segue destination="b0N-Q7-wVC" kind="show" identifier="OrderShowSegue" id="2xg-Ib-G2Y"/>

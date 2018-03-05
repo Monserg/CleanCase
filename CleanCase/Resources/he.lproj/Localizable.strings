@@ -12,7 +12,6 @@
 "Current order"                             =   "הזמנה נוכחית";
 "Price list"                                =   "מחירון";
 "My orders"                                 =   "הזמנות שלי";
-
 "Chat"                                      =   "הודעות";
 "Personal data"                             =   "מידע פרטי";
 "Write us"                                  =   "כתבו לנו";
@@ -66,8 +65,7 @@
 "Total Price Caption"                       =   "He Total Price";
 "Total Caption"                             =   "He Total";
 "Delivery Date Note"                        =   "He Not definitely";
-
-
+"Cleaning instructions notes"               =   "He Cleaning instructions notes";
 
 
 // Titles
@@ -94,6 +92,7 @@
 "Next"                                      =   "הבא";
 "Start"                                     =   "התחל";
 "Send message"                              =   "שלח הודעה";
+"Back"                                      =   "חזור";
 
 
 // Info/Errors Messages

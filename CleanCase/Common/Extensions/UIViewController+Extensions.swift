@@ -91,7 +91,7 @@ extension UIViewController {
         backButton.setImage(UIImage.init(named: "icon-back-bar-button-left"), for: .normal)
         backButton.addTarget(self, action: #selector(handlerBackButtonTapped), for: .touchUpInside)
         backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 50)
-        backButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -10)
+        backButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -5)
         backButton.setTitle("Back".localized(), for: .normal)
         backButton.setTitleColor(UIColor.white, for: .normal)
         backButton.setTitleColor(UIColor.gray, for: .highlighted)

@@ -65,6 +65,7 @@
 "Total Price Caption"                       =   "Ar Total Price";
 "Total Caption"                             =   "Ar Total";
 "Delivery Date Note"                        =   "Ar Not definitely";
+"Cleaning instructions notes"               =   "Ar Cleaning instructions notes";
 
 
 // Titles
@@ -91,7 +92,7 @@
 "Next"                                      =   "Ar Next";
 "Start"                                     =   "Ar Start";
 "Send message"                              =   "Ar Send message";
-"Back"                                      =   "Ar Back";
+"Back"                                      =   "سرّي";
 
 
 // Info/Errors Messages
