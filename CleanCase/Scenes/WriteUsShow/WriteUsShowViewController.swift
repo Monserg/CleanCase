@@ -29,6 +29,7 @@ class WriteUsShowViewController: UIViewController {
     @IBOutlet weak var sendMessageButton: UIButton! {
         didSet {
             sendMessageButton.isEnabled = false
+            sendMessageButton.setTitle("Send message".localized(), for: .normal)
         }
     }
 
@@ -74,7 +75,11 @@ class WriteUsShowViewController: UIViewController {
         
         setup()
     }
-    
+
+    deinit {
+        Logger.log(message: "Success", event: .Severe)
+    }
+
     
     // MARK: - Setup
     private func setup() {
