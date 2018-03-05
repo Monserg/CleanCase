@@ -7,53 +7,57 @@
 */
 
 // Menu Items
-"New order"                                 =   "New order";
-"Hours of work"                             =   "Hours of work";
-"Current order"                             =   "Current order";
-"Price list"                                =   "Price list";
-"My orders"                                 =   "My orders";
-"Chat"                                      =   "Chat";
-"Personal data"                             =   "Personal data";
-"Write us"                                  =   "Write us";
-"About us"                                  =   "About us";
-"Agreement"                                 =   "Agreement";
-"Sign out"                                  =   "Sign out";
-"Hebrew"                                    =   "Hebrew";
+
+"New order"                                 =   "הזמנה חדשה";
+"Hours of work"                             =   "שעות עבודה";
+"Current order"                             =   "הזמנה נוכחית";
+"Price list"                                =   "מחירון";
+"My orders"                                 =   "הזמנות שלי";
+
+"Chat"                                      =   "הודעות";
+"Personal data"                             =   "מידע פרטי";
+"Write us"                                  =   "כתבו לנו";
+"About us"                                  =   "עודות";
+"Agreement"                                 =   "הסכם שימוש";
+"Sign out"                                  =   "יציאה";
+"Hebrew"                                    =   "עברית";
 "Arabic"                                    =   "Arabic";
 
 
 // Order status
-"None"                                      =   "None";
-"Opened"                                    =   "Opened";
-"Closed"                                    =   "Closed";
-"Ready"                                     =   "Ready";
-"InWayToLaundry"                            =   "InWayToLaundry";
-"Supplied"                                  =   "Supplied";
-"Cancel"                                    =   "Cancel";
-"InProcess"                                 =   "InProcess";
-"InWayToClient"                             =   "InWayToClient";
-"PackagesInOffice"                          =   "PackagesInOffice";
+
+"None"                                      =   " ";
+"Opened"                                    =   "פתוח";
+"Closed"                                    =   "סגור";
+"Ready"                                     =   "מוכן";
+"InWayToLaundry"                            =   "לאיסוף";
+"Supplied"                                  =   "נמסר";
+"Cancel"                                    =   "בוטל";
+"InProcess"                                 =   "בעבודה";
+"InWayToClient"                             =   "בדרך ללקוח";
+"PackagesInOffice"                          =   "הגיא למכבסה";
 "LockerOrderChanged"                        =   "LockerOrderChanged";
-"Paid"                                      =   "Paid";
+"Paid"                                      =   "שולם";
 "RequestForPaid"                            =   "RequestForPaid";
 
 
 // Labels
-"Please, restart App"                       =   "Please, restart App";
+
+"Please, restart App"                       =   "נא להפעיל תוכנה מחדש";
 "Application is closing..."                 =   "Application\n is closing...";
-"Agreement Title"                           =   "Agreement Title";
-"Agreement Caption"                         =   "Agreement";
+"Agreement Title"                           =   "הסכם שימוש";
+"Agreement Caption"                         =   "הסכם";
 "Agreement Content"                         =   "Agreement Content";
-"Loading App data..."                       =   "Application\n downloads data...";
-"Initialization..."                         =   "Initialization...";
-"Delivery Title"                            =   "Delivery Title";
-"Delivery Caption"                          =   "Delivery";
+"Loading App data..."                       =   "עדכונים\n הורדת נתונים...";
+"Initialization..."                         =   "איתחול...";
+"Delivery Title"                            =   "לדוגמה:לקחת ליד הדלת/אני בבית/אצל שומר";
+"Delivery Caption"                          =   "הערות לאיסוף";
 "Credit Card Title"                         =   "Credit Card Title";
 "Credit Card CVV"                           =   "CVV";
-"Currency"                                  =   "uah";
+"Currency"                                  =   "₪";
 "Comment Caption"                           =   "Comment";
 "Cleaning Instructions Caption"             =   "Cleaning Instructions";
-"Terms Caption"                             =   "Terms";
+"Terms Caption"                             =   "אני מסכים / מסכימה לתנאי השימוש והשרות";
 "Departments Caption"                       =   "Departments";
 "Add Order..."                              =   "Add Order...";
 "Collection Date Caption"                   =   "Collection Date";
@@ -67,8 +71,10 @@
 "Delivery Date Note"                        =   "Not definitely";
 
 
+
+
 // Titles
-"My Laundry"                                =   "My laundry";
+"My Laundry"                                =   "מכבסה שלי";
 "TitleForPage0"                             =   "TitleForPage0";
 "TitleForPage1"                             =   "TitleForPage1";
 "TitleForPage2"                             =   "TitleForPage2";
@@ -81,16 +87,16 @@
 
 
 // Buttons
-"Save"                                      =   "Continue";
-"Cancel"                                    =   "Cancel";
-"Ok"                                        =   "Ok";
+"Save"                                      =   "המשך";
+"Cancel"                                    =   "ביטול";
+"Ok"                                        =   "סגור";
 "Done"                                      =   "Done";
-"Send"                                      =   "Send";
-"Create Order"                              =   "Create Order";
+"Send"                                      =   "שלח";
+"Create Order"                              =   "אשר הזמנה";
 "My Order"                                  =   "My Order";
-"Next"                                      =   "Next";
-"Start"                                     =   "Start";
-"Send message"                              =   "Send message";
+"Next"                                      =   "הבא";
+"Start"                                     =   "התחל";
+"Send message"                              =   "שלח הודעה";
 
 
 // Info/Errors Messages
@@ -138,8 +144,8 @@
 "Order confirmed"                           =   "Order confirmed";
 "Order accepted"                            =   "Order accepted";
 "Order added"                               =   "Order added";
-"Order status canceled"                     =   "Order status canceled";
-"Your Personal Data updated"                =   "Your Personal Data updated";
+"Order status canceled"                     =   "הזמנה בוטלה";
+"Your Personal Data updated"                =   "כרטיס אישי נשמר";
 "Please, enter credit card number..."       =   "Please, \nenter credit card number...";
 "Please, enter correct credit card..."      =   "Please, \nenter correct credit card number...";
 "Please, enter credit card CVV..."          =   "Please, \nenter credit card CVV...";
@@ -154,26 +160,26 @@
 
 
 // TextField Placeholders
-"Select City"                               =   "Select City";
-"Select Delivery Date"                      =   "Select Delivery Date";
-"Select Delivery Time"                      =   "Select Delivery Time";
-"Select Collection Date"                    =   "Select Collection Date";
-"Select Collection Time"                    =   "Select Collection Time";
+"Select City"                               =   "אישוב";
+"Select Delivery Date"                      =   " יש לבחור מועד החזרה ";
+"Select Delivery Time"                      =   "יש לבחור זמן החזרה ";
+"Select Collection Date"                    =   "יש לבחור מועד איסוף";
+"Select Collection Time"                    =   "יש לבחור זמן איסוף";
 "Code"                                      =   "Code";
-"Enter Phone Number"                        =   "Enter Phone Number";
-"Enter First Name"                          =   "Enter First Name";
-"Enter Last Name"                           =   "Enter Last Name";
-"Enter Address"                             =   "Enter Address";
-"Enter Email"                               =   "Enter Email";
+"Enter Phone Number"                        =   "מספר טלפון";
+"Enter First Name"                          =   "שם פרטי";
+"Enter Last Name"                           =   "שם משפחה";
+"Enter Address"                             =   " כתובת,קומה,כניסה,דירה,קוד סודי";
+"Enter Email"                               =   "דואר אלקטרוני";
 "Accept Agreement"                          =   "Accept Agreement";
 "Read Agreement"                            =   "Read Agreement";
 "Enter message"                             =   "Enter message";
 "Enter comment"                             =   "Enter comment";
-"Enter cleaning instructions"               =   "Enter cleaning instructions";
-"Enter Credit Card Number"                  =   "Enter Credit Card number";
+"Enter cleaning instructions"               =   "הנחיות מיוחדות.לדוגמה כתם,מקום הכתם,סוג הבד";
+"Enter Credit Card Number"                  =   "פרטי כרטיס אשראי";
 "Enter Credit Card CVV"                     =   "CVV";
-"Enter Credit Card Year"                    =   "Year";
-"Enter Credit Card Month"                   =   "Month";
+"Enter Credit Card Year"                    =   "שנה";
+"Enter Credit Card Month"                   =   "חודש";
 
 
 // Request Errors
