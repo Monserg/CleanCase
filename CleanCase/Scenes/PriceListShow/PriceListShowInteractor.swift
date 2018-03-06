@@ -42,8 +42,8 @@ class PriceListShowInteractor: ShareInteractor, PriceListShowBusinessLogic, Pric
     func loadDepartments(withRequestModel requestModel: PriceListShowModels.Department.RequestModel) {
         // CoreData
         self.departments = self.appDependency.coreDataManager.readEntities(withName:                    "Department",
-                                                                           withPredicateParameters:     nil,    // NSPredicate.init(format: "laundryId == \(Laundry.codeID)"),
-                                                                           andSortDescriptor:           NSSortDescriptor.init(key: "departmentName", ascending: true)) as! [Department]
+                                                                           withPredicateParameters:     nil,
+                                                                           andSortDescriptor:           NSSortDescriptor.init(key: "id", ascending: true)) as! [Department]
         
         let responseModel = PriceListShowModels.Department.ResponseModel()
         presenter?.presentDepartments(fromResponseModel: responseModel)

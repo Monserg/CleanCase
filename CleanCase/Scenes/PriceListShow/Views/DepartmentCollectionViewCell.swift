@@ -20,5 +20,6 @@ extension DepartmentCollectionViewCell: ConfigureCell {
         let department = item as! Department
         
         self.nameLabel.text = department.departmentName
+        self.contentView.transform = CGAffineTransform(scaleX: -1, y: 1)
     }
 }

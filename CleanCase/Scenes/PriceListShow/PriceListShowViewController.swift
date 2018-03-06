@@ -107,7 +107,7 @@ class PriceListShowViewController: UIViewController {
         if let departments = self.router?.dataStore?.departments, departments.count > 0 {
             let section                 =   0
             self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
-            let indexPath               =   IndexPath(item: 0, section: section)
+            let indexPath               =   IndexPath(item: self.selectedDepartmentRow, section: section)
             self.widthDepartmentCell    =   (self.departmentsCollectionView.frame.width - 30.0) / 3.0
             
             self.departmentsCollectionView.scrollToItem(at: indexPath, at: .right, animated: false)
@@ -121,6 +121,8 @@ class PriceListShowViewController: UIViewController {
         super.viewDidLoad()
         
         self.viewSettingsDidLoad()
+
+        self.departmentsCollectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
 
         self.addBackBarButtonItem()
         self.addBasketBarButtonItem(true)
@@ -170,7 +172,7 @@ class PriceListShowViewController: UIViewController {
     private func moveSelectedView() {
         DispatchQueue.main.async(execute: {
             UIView.animate(withDuration: 0.1, animations: {
-                self.selectedView.frame.origin = CGPoint.init(x: self.widthDepartmentCell * CGFloat(self.selectedDepartmentRow) - self.departmentsCollectionView.contentOffset.x,
+                self.selectedView.frame.origin = CGPoint.init(x: self.departmentsCollectionView.frame.maxX + self.widthDepartmentCell * CGFloat(self.selectedDepartmentRow - self.router!.dataStore!.departments.count) + self.departmentsCollectionView.contentOffset.x,
                                                               y: self.selectedView.frame.minY)
             }, completion: nil)
         })
@@ -189,7 +191,7 @@ extension PriceListShowViewController: PriceListShowDisplayLogic {
             self.departmentsCollectionView.reloadItems(at: indexPath)
             
             DispatchQueue.main.async(execute: {
-                let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: 0)
+                let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: self.selectedDepartmentRow)
                 self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
             })
         }
@@ -248,9 +250,6 @@ extension PriceListShowViewController: UITableViewDelegate {
         
         return footerView
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
 }
 
 
@@ -290,7 +289,7 @@ extension PriceListShowViewController {
         // Reload departmentItems
         let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: indexPath.row)
         self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
-        self.selectedDepartmentRow = collectionView.numberOfItems(inSection: indexPath.section) - 1 - indexPath.row
+        self.selectedDepartmentRow = indexPath.row // collectionView.numberOfItems(inSection: indexPath.section) - 1 - indexPath.row
 
         self.moveSelectedView()
     }
