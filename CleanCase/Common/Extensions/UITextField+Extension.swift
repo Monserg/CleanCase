@@ -43,7 +43,7 @@ extension UITextField {
         
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        let cancelButton = UIBarButtonItem(title: "Cancel".localized(), style: .done) {
+        let cancelButton = UIBarButtonItem(title: "CancelToolBar".localized(), style: .done) {
             completion(nil)
         }
 

@@ -83,7 +83,9 @@
 
 // Buttons
 "Save"                                      =   "Ar Save";
-"Cancel"                                    =   "Ar Cancel";
+"CancelOrder"                               =   "Ar CancelOrder";
+"CancelAlert"                               =   "Ar CancelAlert";
+"CancelToolBar"                             =   "Ar CancelToolBar";
 "Ok"                                        =   "Ar Ok";
 "Done"                                      =   "Ar Done";
 "Send"                                      =   "Ar Send";
@@ -203,4 +205,3 @@
 "ORG_NAME_EXIST"                            =   "Organization name is already exist";               //  6992
 "TIMESHEET_BROKEN"                          =   "Timesheet is not available";                       //  8100
 "RESPONSE_NIL"                              =   "API is not available";                             //  Nil
-

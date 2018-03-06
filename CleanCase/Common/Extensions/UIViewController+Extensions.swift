@@ -43,7 +43,7 @@ extension UIViewController {
         alertViewController.addAction(alertViewControllerOkAction)
 
         if cancel {
-            let alertViewControllerCancelAction = UIAlertAction.init(title: "Cancel".localized(), style: .default, handler: { action in
+            let alertViewControllerCancelAction = UIAlertAction.init(title: "CancelAlert".localized(), style: .default, handler: { action in
                 return completion(false)
             })
 

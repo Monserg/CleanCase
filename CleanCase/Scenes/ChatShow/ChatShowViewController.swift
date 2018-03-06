@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SKStyleKit
 
 // MARK: - Input & Output protocols
 protocol ChatShowDisplayLogic: class {
@@ -24,7 +25,6 @@ class ChatShowViewController: UIViewController {
     
     
     // MARK: - IBOutlets
-//     @IBOutlet weak var nameTextField: UITextField!
     
     
     // MARK: - Class Initialization

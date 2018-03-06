@@ -30,7 +30,7 @@ class OrderShowViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton! {
         didSet {
             cancelButton.isHidden = true
-            cancelButton.setTitle(cancelButton.titleLabel!.text!.localized(), for: .normal)
+            cancelButton.setTitle("CancelOrder".localized(), for: .normal)
         }
     }
     
@@ -276,8 +276,5 @@ extension OrderShowViewController: UITableViewDelegate {
         }
         
         return nil
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }

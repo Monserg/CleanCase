@@ -233,11 +233,12 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <subviews>
                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohg-6K-mci" userLabel="Cancel Button" customClass="SKButton" customModule="SKStyleKit">
-                                        <rect key="frame" x="123" y="-10" width="128" height="64"/>
+                                        <rect key="frame" x="94" y="-10" width="187.5" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="2lY-yG-jPt"/>
                                         </constraints>
-                                        <state key="normal" title="Cancel" backgroundImage="button-orange">
+                                        <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <state key="normal" title="CancelOrder" backgroundImage="button-orange">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="disabled" backgroundImage="button-gray"/>
@@ -255,6 +256,7 @@
                                 <constraints>
                                     <constraint firstItem="Ohg-6K-mci" firstAttribute="centerX" secondItem="VVM-M4-i7y" secondAttribute="centerX" id="1su-cg-Bca"/>
                                     <constraint firstAttribute="height" constant="44" id="772-iU-zDL"/>
+                                    <constraint firstItem="Ohg-6K-mci" firstAttribute="width" secondItem="VVM-M4-i7y" secondAttribute="width" multiplier="0.5" id="7Xm-SJ-Dck"/>
                                     <constraint firstItem="Ohg-6K-mci" firstAttribute="centerY" secondItem="VVM-M4-i7y" secondAttribute="centerY" id="W7C-y5-YJD"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>

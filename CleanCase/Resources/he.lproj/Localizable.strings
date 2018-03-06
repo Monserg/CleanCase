@@ -83,7 +83,9 @@
 
 // Buttons
 "Save"                                      =   "שמור";
-"Cancel"                                    =   "ביטול הזמנת איסוף";
+"CancelOrder"                               =   "ביטול הזמנת איסוף";
+"CancelAlert"                               =   "He CancelAlert";
+"CancelToolBar"                             =   "He CancelToolBar";
 "Ok"                                        =   "כן";
 "Done"                                      =   "בחר";
 "Send"                                      =   "שלח";
