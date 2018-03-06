@@ -55,40 +55,40 @@
 "Cleaning Instructions Caption"             =   "יש לפרט אם יש כתמים ובאיזה בגד והוראות מיוחדות כלליות הנודעות לניקוי.";
 "Terms Caption"                             =   "איסוף";
 "Departments Caption"                       =   "הפריטים לאיסוף";
-"Add Order..."                              =   "He Add Order...";
-"Collection Date Caption"                   =   "He Collection Date";
-"Order Status Caption"                      =   "He Order Status";
-"Name Caption"                              =   "He Name";
-"Price Caption"                             =   "He Price";
-"Quantity Caption"                          =   "He Quantity";
-"Delivery Date Caption"                     =   "He Delivery Date";
-"Total Price Caption"                       =   "He Total Price";
-"Total Caption"                             =   "He Total";
-"Delivery Date Note"                        =   "He Not definitely";
-"Cleaning instructions notes"               =   "He Cleaning instructions notes";
+"Add Order..."                              =   "הזמנה נשמרת...";
+"Collection Date Caption"                   =   "תאריך איסוף";
+"Order Status Caption"                      =   "סטטוס";
+"Name Caption"                              =   "שם פריט";
+"Price Caption"                             =   "מחיר";
+"Quantity Caption"                          =   "כמות";
+"Delivery Date Caption"                     =   "תאריך החזרה";
+"Total Price Caption"                       =   "סה\"כ";
+"Total Caption"                             =   "סה\"כ";
+"Delivery Date Note"                        =   "לא מוגדר";
+"Cleaning instructions notes"               =   "יש לפרט אם יש כתמים ובאיזה בגד והוראות מיוחדות כלליות הנודעות לניקוי.";
 
 
 // Titles
 "My Laundry"                                =   "מכבסה שלי";
-"TitleForPage0"                             =   "He TitleForPage0";
-"TitleForPage1"                             =   "He TitleForPage1";
-"TitleForPage2"                             =   "He TitleForPage2";
-"TitleForPage3"                             =   "He TitleForPage3";
-"TitleForPage4"                             =   "He TitleForPage4";
+"TitleForPage0"                             =   "ברוך הבא ל\&quot;מכבסה שלי\&quot; היישומון המוביל בישראל לשירותי ניקוי יבש, כביסה, גיהוץ וניקוי שאר טקסטיל הבית.";
+"TitleForPage1"                             =   "באמצעותנו תחסכו את הזמנכם בלמסור כביסה ולקבל כביסה נקייה בזמנים הנוחים בשבלכם.";
+"TitleForPage2"                             =   "תמיד תדעו מה מצב של הזמנה,מה מחיר של ההזמנה.";
+"TitleForPage3"                             =   "תכלו להגיד לנו על הכתמים או בד מיוחד וזה יאפשר לנו לתת שירות הטוב ביותר.";
+"TitleForPage4"                             =   "ביחד נהנה מהשירות מהיר ואיכותי!";
 "Orders List is Empty"                      =   "He Orders List is Empty";
 "About App is empty"                        =   "He Content of About us\nis empty";
 "Notification Title"                        =   "He Notification Title";
-"Order is ready"                            =   " .He Order is ready";
+"Order is ready"                            =   "ההזמנה מוכנה. יש לקבוע מועד החזרה.";
 
 
 // Buttons
 "Save"                                      =   "שמור";
-"Cancel"                                    =   "ביטול";
-"Ok"                                        =   "סגור";
-"Done"                                      =   "He Done";
+"Cancel"                                    =   "ביטול הזמנת איסוף";
+"Ok"                                        =   "כן";
+"Done"                                      =   "בחר";
 "Send"                                      =   "שלח";
 "Create Order"                              =   "הזמן איסוף";
-"My Order"                                  =   "He My Order";
+"My Order"                                  =   "הזמנה שלי";
 "Next"                                      =   "הבא";
 "Start"                                     =   "התחל";
 "Send message"                              =   "שלח הודעה";
@@ -96,7 +96,7 @@
 
 
 // Info/Errors Messages
-"Info"                                      =   "He Info";
+"Info"                                      =   "לתשומתך!";
 "Error"                                     =   "He Error";
 "CoreData saved error"                      =   "He There was an error creating or loading the application's saved data";
 "CoreData init error"                       =   "He Failed to initialize the application's saved data";
@@ -127,31 +127,31 @@
 "Location authorization error"              =   "He Please go into Settings and give this app authorization to your location";
 "Please Login in App"                       =   "He Please\nregister in the application";
 "Please modify hours"                       =   "He Please,\nchange the time and the number of hours";
-"Please, enter correct email..."            =   "He Please, \nenter correct email...";
-"Please, select city..."                    =   "He Please, \nselect city...";
+"Please, enter correct email..."            =   "דואר אלקטרוני שגוי.";
+"Please, select city..."                    =   "בחר אישוב";
 "Please, select code..."                    =   "He Please, \nselect code...";
-"Please, enter phone number..."             =   "He Please, \nenter phone number...";
+"Please, enter phone number..."             =   "יש להזין מספר טלפון";
 "Please, enter correct phone number..."     =   "He Please, \nenter correct phone number...";
-"Please, enter first name..."               =   "He Please, \nenter first name...";
-"Please, enter last name..."                =   "He Please, \nenter last name...";
-"Please, enter address..."                  =   "He Please, \nenter address...";
-"Please, enter email..."                    =   "He Please, \nenter email...";
+"Please, enter first name..."               =   "יש להזין שם פרטי";
+"Please, enter last name..."                =   "יש להזין שם משפחה";
+"Please, enter address..."                  =   "יש להזין כתובת";
+"Please, enter email..."                    =   "יש להזין דואר אלקטרוני";
 "Message sent"                              =   "He Message sent";
-"Order confirmed"                           =   "He Order confirmed";
-"Order accepted"                            =   "He Order accepted";
-"Order added"                               =   "He Order added";
+"Order confirmed"                           =   "מועד החזרה נקבע.\תודה.";
+"Order accepted"                            =   "הזמנה נקלטה";
+"Order added"                               =   "הזמנה נשלחה לאישור.";
 "Order status canceled"                     =   "הזמנה בוטלה";
-"Your Personal Data updated"                =   "כרטיס אישי נשמר";
-"Please, enter credit card number..."       =   "He Please, \nenter credit card number...";
-"Please, enter correct credit card..."      =   "He Please, \nenter correct credit card number...";
-"Please, enter credit card CVV..."          =   "He Please, \nenter credit card CVV...";
-"Please, enter credit card year..."         =   "He Please, \nenter credit card year...";
-"Please, enter credit card month..."        =   "He Please, \nenter credit card month...";
-"Please, select collection date..."         =   "He Please, \nselect collection date...";
-"Please, select collection time..."         =   "He Please, \nselect collection time...";
+"Your Personal Data updated"                =   "פרטים אישים נשמרו בהצלחה.";
+"Please, enter credit card number..."       =   "יש להזין המספר הכרטיס";
+"Please, enter correct credit card..."      =   "יש להזין המספר הכרטיס";
+"Please, enter credit card CVV..."          =   "יש להזין 3 ספרות על הגב הכרטיס";
+"Please, enter credit card year..."         =   "יש לבחור תוקף של הכרטיס";
+"Please, enter credit card month..."        =   "יש לבחור תוקף של הכרטיס";
+"Please, select collection date..."         =   "יש לבחור תאריך איסוף";
+"Please, select collection time..."         =   "יש לבחור זמן איסוף";
 "Please, select delivery date..."           =   "He Please, \nselect delivery date...";
 "Please, select delivery time..."           =   "He Please, \nselect delivery time...";
-"Are you sure?"                             =   "He Are you sure?";
+"Are you sure?"                             =   "האם ברצונך לבטל ההזמנה?";
 "Disconnected from Network"                 =   "He Disconnected from Network";
 
 
@@ -173,7 +173,7 @@
 "Enter comment"                             =   "לדוגמה:לקחת ליד הדלת/אני בבית/אצל שומר";
 "Enter cleaning instructions"               =   "הנחיות מיוחדות.לדוגמה כתם,מקום הכתם,סוג הבד";
 "Enter Credit Card Number"                  =   "מספר כרטיס";
-"Enter Credit Card CVV"                     =   "He CVV";
+"Enter Credit Card CVV"                     =   "3 ספרות";
 "Enter Credit Card Year"                    =   "שנה";
 "Enter Credit Card Month"                   =   "חודש";
 
