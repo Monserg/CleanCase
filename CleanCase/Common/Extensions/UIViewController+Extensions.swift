@@ -40,15 +40,16 @@ extension UIViewController {
             return completion(true)
         })
 
+        alertViewController.addAction(alertViewControllerOkAction)
+
         if cancel {
-            let alertViewControllerCancelAction = UIAlertAction.init(title: "Cancel".localized(), style: .cancel, handler: { action in
+            let alertViewControllerCancelAction = UIAlertAction.init(title: "Cancel".localized(), style: .default, handler: { action in
                 return completion(false)
             })
 
             alertViewController.addAction(alertViewControllerCancelAction)
         }
         
-        alertViewController.addAction(alertViewControllerOkAction)
         present(alertViewController, animated: true, completion: nil)
     }
     
