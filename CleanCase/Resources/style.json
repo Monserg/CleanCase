@@ -189,7 +189,7 @@
     "titleLabelStyle8": {
         "parent":               "titleLabelStyle7",
         "fontSize":             25.0,
-        "textAlignment":        "center"
+        "textAlignment":        "right"
     },
 
     "laundryNameLabelStyle": {

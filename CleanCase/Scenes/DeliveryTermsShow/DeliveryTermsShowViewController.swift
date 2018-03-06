@@ -232,6 +232,10 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
         }
             
+        else if self.textView.text.isEmpty || self.textView.text == "Enter comment".localized() {
+            self.showAlertView(withTitle: "Info", andMessage: "Comment error", needCancel: false, completion: { _ in })
+        }
+            
         else {
             self.view.isUserInteractionEnabled = false
             

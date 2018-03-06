@@ -173,6 +173,7 @@
 "Read Agreement"                            =   "Read Agreement";
 "Enter message"                             =   "Enter message";
 "Enter comment"                             =   "Enter comment";
+"Comment error"                             =   "Please\nenter comment";
 "Enter cleaning instructions"               =   "Enter cleaning instructions";
 "Enter Credit Card Number"                  =   "Enter Credit Card number";
 "Enter Credit Card CVV"                     =   "CVV";

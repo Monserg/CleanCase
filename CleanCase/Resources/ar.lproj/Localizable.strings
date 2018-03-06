@@ -173,6 +173,7 @@
 "Read Agreement"                            =   "Ar Read Agreement";
 "Enter message"                             =   "Ar Enter message";
 "Enter comment"                             =   "Ar Enter comment";
+"Comment error"                             =   "Ar Please\nenter comment";
 "Enter cleaning instructions"               =   "Ar Enter cleaning instructions";
 "Enter Credit Card Number"                  =   "Ar Enter Credit Card number";
 "Enter Credit Card CVV"                     =   "Ar CVV";
