@@ -123,10 +123,8 @@ class LeftSideMenuShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        loadViewSettings()
-        
         // Add Language Observer
-        self.registerForAppLanguageChangeNotifications()
+        self.registerForCustomAppNotifications(withName: NSNotification.Name(rawValue: LCLLanguageChangeNotification))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -137,10 +135,6 @@ class LeftSideMenuShowViewController: UIViewController {
     
     
     // MARK: - Custom Functions
-//    func loadViewSettings() {
-//        self.loadMenuItems()
-//    }
-    
     public func loadMenuItems() {
         let requestModel = LeftSideMenuShowModels.MenuItems.RequestModel()
         self.interactor?.loadMenuItems(withRequestModel: requestModel)
@@ -153,7 +147,6 @@ class LeftSideMenuShowViewController: UIViewController {
             self.hebrewLabel.text = "Hebrew".localized()
         })
     }
-    
     
     
     
@@ -172,7 +165,7 @@ class LeftSideMenuShowViewController: UIViewController {
         Localize.setCurrentLanguage(currentLanguage)
     }
     
-    override func handlerAppLanguageChange(notification: Notification) {
+    override func handlerCustomAppNotification(notification: Notification) {
         self.loadMenuItems()
     }
 }

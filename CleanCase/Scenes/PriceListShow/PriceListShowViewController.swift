@@ -69,6 +69,7 @@ class PriceListShowViewController: UIViewController {
 
     deinit {
         Logger.log(message: "Success", event: .Severe)
+        NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -127,6 +128,9 @@ class PriceListShowViewController: UIViewController {
         self.addBackBarButtonItem()
         self.addBasketBarButtonItem(true)
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
+        
+        // Add API 'Get last message' Observer
+        self.registerForCustomAppNotifications(withName: Notification.Name("AddDepartmentCommonCommand"))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -175,6 +179,14 @@ class PriceListShowViewController: UIViewController {
                 self.selectedView.frame.origin = CGPoint.init(x: self.departmentsCollectionView.frame.maxX + self.widthDepartmentCell * CGFloat(self.selectedDepartmentRow - self.router!.dataStore!.departments.count) + self.departmentsCollectionView.contentOffset.x,
                                                               y: self.selectedView.frame.minY)
             }, completion: nil)
+        })
+    }
+    
+    
+    // MARK: - Actions
+    override func handlerCustomAppNotification(notification: Notification) {
+        DispatchQueue.main.async(execute: {
+            self.viewSettingsDidLoad()
         })
     }
 }

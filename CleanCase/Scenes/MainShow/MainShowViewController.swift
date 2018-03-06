@@ -13,6 +13,7 @@
 import UIKit
 import SideMenu
 import SwiftSpinner
+import Localize_Swift
 
 class MainShowViewController: UIViewController {
     // MARK: - Properties
@@ -80,7 +81,7 @@ class MainShowViewController: UIViewController {
         self.setupSideMenu()
     
         // Add Language Observer
-        self.registerForAppLanguageChangeNotifications()
+        self.registerForCustomAppNotifications(withName: NSNotification.Name(rawValue: LCLLanguageChangeNotification))
         
         // Add Timer Observer
         NotificationCenter.default.addObserver(self,
@@ -264,7 +265,7 @@ class MainShowViewController: UIViewController {
         }
     }
     
-    override func handlerAppLanguageChange(notification: Notification) {
+    override func handlerCustomAppNotification(notification: Notification) {
         self.localize()
     }
 }

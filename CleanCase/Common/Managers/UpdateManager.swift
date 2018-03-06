@@ -109,6 +109,9 @@ class UpdateManager {
                                                 
                                                 departmentEntity.save()
                                             }
+                                            
+                                            // Post Custom User Notification
+                                            NotificationCenter.default.post(name: Notification.Name("AddDepartmentCommonCommand"), object: nil)
                                         }
                                     })
                                 }

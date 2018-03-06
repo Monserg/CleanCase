@@ -10,14 +10,14 @@ import UIKit
 import Localize_Swift
 
 extension UIViewController {
-    func registerForAppLanguageChangeNotifications() {
+    func registerForCustomAppNotifications(withName name:  NSNotification.Name?) {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(handlerAppLanguageChange),
-                                               name: NSNotification.Name(rawValue: LCLLanguageChangeNotification),
+                                               selector: #selector(handlerCustomAppNotification),
+                                               name: name,
                                                object: nil)
     }
 
-    @objc func handlerAppLanguageChange(notification: Notification) {
+    @objc func handlerCustomAppNotification(notification: Notification) {
     }
 
     func checkNetworkConnection(_ completion: @escaping ((_ success: Bool) -> Void)) {
