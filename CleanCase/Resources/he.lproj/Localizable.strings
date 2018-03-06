@@ -12,11 +12,11 @@
 "Current order"                             =   "הזמנה נוכחית";
 "Price list"                                =   "מחירון";
 "My orders"                                 =   "הזמנות שלי";
-"Chat"                                      =   "הודעות";
-"Personal data"                             =   "מידע פרטי";
-"Write us"                                  =   "כתבו לנו";
+"Chat"                                      =   "ניהול הודעות";
+"Personal data"                             =   "פרטים אישים";
+"Write us"                                  =   "צור קשר";
 "About us"                                  =   "עודות";
-"Agreement"                                 =   "הסכם שימוש";
+"Agreement"                                 =   "תנאי שימוש";
 "Sign out"                                  =   "יציאה";
 "Hebrew"                                    =   "עברית";
 "Arabic"                                    =   "He Arabic";
@@ -48,13 +48,13 @@
 "Initialization..."                         =   "איתחול...";
 "Delivery Title"                            =   "לדוגמה:לקחת ליד הדלת/אני בבית/אצל שומר";
 "Delivery Caption"                          =   "הערות לאיסוף";
-"Credit Card Title"                         =   "He Credit Card Title";
-"Credit Card CVV"                           =   "He CVV";
+"Credit Card Title"                         =   "פרטי כרטיס אשראי";
+"Credit Card CVV"                           =   "תוקף";
 "Currency"                                  =   "₪";
-"Comment Caption"                           =   "He Comment";
-"Cleaning Instructions Caption"             =   "He Cleaning Instructions";
-"Terms Caption"                             =   "אני מסכים / מסכימה לתנאי השימוש והשרות";
-"Departments Caption"                       =   "He Departments";
+"Comment Caption"                           =   "הערות לאיסוף";
+"Cleaning Instructions Caption"             =   "יש לפרט אם יש כתמים ובאיזה בגד והוראות מיוחדות כלליות הנודעות לניקוי.";
+"Terms Caption"                             =   "איסוף";
+"Departments Caption"                       =   "הפריטים לאיסוף";
 "Add Order..."                              =   "He Add Order...";
 "Collection Date Caption"                   =   "He Collection Date";
 "Order Status Caption"                      =   "He Order Status";
@@ -82,12 +82,12 @@
 
 
 // Buttons
-"Save"                                      =   "המשך";
+"Save"                                      =   "שמור";
 "Cancel"                                    =   "ביטול";
 "Ok"                                        =   "סגור";
 "Done"                                      =   "He Done";
 "Send"                                      =   "שלח";
-"Create Order"                              =   "אשר הזמנה";
+"Create Order"                              =   "הזמן איסוף";
 "My Order"                                  =   "He My Order";
 "Next"                                      =   "הבא";
 "Start"                                     =   "התחל";
@@ -170,9 +170,9 @@
 "Accept Agreement"                          =   "He Accept Agreement";
 "Read Agreement"                            =   "He Read Agreement";
 "Enter message"                             =   "He Enter message";
-"Enter comment"                             =   "He Enter comment";
+"Enter comment"                             =   "לדוגמה:לקחת ליד הדלת/אני בבית/אצל שומר";
 "Enter cleaning instructions"               =   "הנחיות מיוחדות.לדוגמה כתם,מקום הכתם,סוג הבד";
-"Enter Credit Card Number"                  =   "פרטי כרטיס אשראי";
+"Enter Credit Card Number"                  =   "מספר כרטיס";
 "Enter Credit Card CVV"                     =   "He CVV";
 "Enter Credit Card Year"                    =   "שנה";
 "Enter Credit Card Month"                   =   "חודש";
