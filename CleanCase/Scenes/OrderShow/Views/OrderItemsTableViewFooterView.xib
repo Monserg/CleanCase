@@ -71,7 +71,7 @@
                                         <rect key="frame" x="118.5" y="38" width="201.5" height="64"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" text="Total Caption" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNS-eb-bKz" userLabel="Total Caption Label" customClass="SKLabel" customModule="SKStyleKit">
-                                                <rect key="frame" x="6" y="21.5" width="99" height="20.5"/>
+                                                <rect key="frame" x="6" y="21.5" width="94" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,7 +80,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="titleLabelStyle7"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Order Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsX-0R-JLG" userLabel="Order Price Label" customClass="SKLabel" customModule="SKStyleKit">
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Order Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsX-0R-JLG" userLabel="Order Price Label" customClass="SKLabel" customModule="SKStyleKit">
                                                 <rect key="frame" x="108" y="21.5" width="87.5" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -92,7 +92,7 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="qsX-0R-JLG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NNS-eb-bKz" secondAttribute="trailing" constant="3" id="1nR-9j-qV6"/>
+                                            <constraint firstItem="qsX-0R-JLG" firstAttribute="leading" secondItem="NNS-eb-bKz" secondAttribute="trailing" constant="8" id="1nR-9j-qV6"/>
                                             <constraint firstItem="NNS-eb-bKz" firstAttribute="leading" secondItem="GMd-34-6Yp" secondAttribute="leading" constant="6" id="PTV-jC-cTN"/>
                                             <constraint firstAttribute="height" constant="64" id="SXp-ZY-1um"/>
                                             <constraint firstItem="NNS-eb-bKz" firstAttribute="centerY" secondItem="GMd-34-6Yp" secondAttribute="centerY" id="XFf-sw-8ii"/>

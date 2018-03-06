@@ -183,13 +183,13 @@
         "parent":               "defaultLabelStyle",
         "fontSize":             25.0,
         "fontColor":            "white",
-        "textAlignment":        "right"
+        "textAlignment":        "center"
     },
 
     "titleLabelStyle8": {
         "parent":               "titleLabelStyle7",
         "fontSize":             25.0,
-        "textAlignment":        "left"
+        "textAlignment":        "center"
     },
 
     "laundryNameLabelStyle": {
