@@ -27,5 +27,9 @@ public class Department: NSManagedObject {
         self.laundryId          =   responseAPI.LaundryId
         
         self.items = []
+
+        CoreDataManager.instance.deleteEntities(withName: "DepartmentItem",
+                                                andPredicateParameters: NSPredicate.init(format: "departmentId == \(self.id)"),
+                                                completion: { success in })
     }
 }

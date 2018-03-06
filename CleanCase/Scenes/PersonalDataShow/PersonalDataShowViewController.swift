@@ -208,7 +208,7 @@ class PersonalDataShowViewController: UIViewController {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
         }
 
-        else if let textField = textFieldsCollection.first(where: { ($0.tag == 0 || $0.tag == 5) && $0.text!.count < 10 }) {
+        else if let textField = textFieldsCollection.first(where: { $0.tag == 0 && $0.text!.count < 10 }) {
             self.showAlertView(withTitle: "Info", andMessage: textField.accessibilityValue!, needCancel: false, completion: { _ in })
         }
 
@@ -357,20 +357,6 @@ extension PersonalDataShowViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        if textField.tag == 0 {
-//            if let phoneNumber = textField.text, phoneNumber.count < 10 {
-//                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct phone number...", needCancel: false, completion: {_ in})
-//                return false
-//            }
-//        }
-        
-//        if textField.tag == 5 {
-//            if let phoneNumber = textField.text, phoneNumber.count < 10 {
-//                self.showAlertView(withTitle: "Info", andMessage: "Please, enter correct credit card...", needCancel: false, completion: {_ in})
-//                return false
-//            }
-//        }
-
         if textField.tag == 4 {
             if let email = textField.text, !email.isEmpty {
                 guard ADEmailAndPassword.validateEmail(emailId: email) else {
