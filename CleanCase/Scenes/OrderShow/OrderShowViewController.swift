@@ -53,7 +53,7 @@ class OrderShowViewController: UIViewController {
     @IBOutlet var headerCaptionLabelsCollection: [UILabel]! {
         didSet {
             _ = headerCaptionLabelsCollection.map({
-                $0.textAlignment = .center
+                $0.textAlignment = ($0.tag == 0) ? .right : .center
                 $0.text = $0.text!.localized()
             })
         }
