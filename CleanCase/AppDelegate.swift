@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Logger.log(message: "App language is \(Localize.currentLanguage())", event: .Info)
-        
+
         // Add SKStyleKit
         StyleKit.initStyleKit()
         
@@ -52,6 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle                 =   .lightContent
         UIApplication.shared.statusBarView?.backgroundColor =   UIColor.black
         
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
+
         // Register for remote notifications
         if Token.current == nil {
             // For iOS 10 data message (sent via FCM)
@@ -72,11 +75,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             application.registerForRemoteNotifications()
-            
-            // Use Firebase library to configure APIs
-            FirebaseApp.configure()
         }
         
+        else {
+            Logger.log(message: "Stored Firebase token: \(Token.current!.firebase ?? "firebaseTokenXXX"), device token: \(Token.current!.device ?? "deviceTokenXXX")", event: .Severe)
+        }
         
         // CoreData: update current App version
         CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:         "Version",
@@ -105,6 +108,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        application.applicationIconBadgeNumber = 0
+
         // Run Update Status Timer
         self.showDeliveryTermsTimer.resume()
         
@@ -141,7 +146,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        Logger.log(message: "Received Remote Notification message: \(userInfo)", event: .Severe)
+        // App in Active mode & after tap on notification
+//        application.applicationIconBadgeNumber += 1
+        Logger.log(message: "Received Remote Notification message: \(userInfo), badge = \(application.applicationIconBadgeNumber)", event: .Severe)
         completionHandler(UIBackgroundFetchResult.newData)
     }
 }
@@ -172,13 +179,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
-        Logger.log(message: "Present User Notification", event: .Severe)
+        UIApplication.shared.applicationIconBadgeNumber += 1
+        Logger.log(message: "Present User Notification, badge = \(UIApplication.shared.applicationIconBadgeNumber)", event: .Severe)
     }
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
-        Logger.log(message: "Receive User Notification", event: .Severe)
+        Logger.log(message: "Receive User Notification, badge = \(UIApplication.shared.applicationIconBadgeNumber)", event: .Severe)
     }
 }
