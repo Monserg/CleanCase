@@ -44,13 +44,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="right" secondItem="Zlz-wg-Lgt" secondAttribute="right" id="0nv-da-32t"/>
                                     <constraint firstAttribute="height" constant="48" id="A6H-qW-eDz"/>
+                                    <constraint firstItem="Zlz-wg-Lgt" firstAttribute="left" secondItem="Wu4-wm-FJg" secondAttribute="left" id="AAa-jW-lQd"/>
                                     <constraint firstItem="GK7-5O-mKt" firstAttribute="centerX" secondItem="Wu4-wm-FJg" secondAttribute="centerX" priority="250" constant="-55" id="Fcn-CX-NKc"/>
                                     <constraint firstAttribute="bottom" secondItem="Zlz-wg-Lgt" secondAttribute="bottom" id="Hto-H5-HCw"/>
                                     <constraint firstItem="Zlz-wg-Lgt" firstAttribute="top" secondItem="Wu4-wm-FJg" secondAttribute="top" id="ai1-Qc-2r3"/>
                                     <constraint firstAttribute="bottom" secondItem="GK7-5O-mKt" secondAttribute="bottom" id="dLp-2y-cSJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zlz-wg-Lgt" secondAttribute="trailing" id="hWs-SO-Cph"/>
-                                    <constraint firstItem="Zlz-wg-Lgt" firstAttribute="leading" secondItem="Wu4-wm-FJg" secondAttribute="leading" id="tZN-K8-gBz"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="departmentsViewStyle"/>
@@ -118,12 +118,12 @@
                             </tableView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Wu4-wm-FJg" firstAttribute="trailing" secondItem="wpS-kd-IyG" secondAttribute="trailing" id="2Bo-tU-fcM"/>
+                            <constraint firstItem="Wu4-wm-FJg" firstAttribute="leading" secondItem="wpS-kd-IyG" secondAttribute="leading" id="DGi-Ze-lhQ"/>
                             <constraint firstItem="ePa-cd-LPM" firstAttribute="leading" secondItem="wpS-kd-IyG" secondAttribute="leading" id="EHg-yF-qvf"/>
                             <constraint firstItem="ePa-cd-LPM" firstAttribute="top" secondItem="Wu4-wm-FJg" secondAttribute="bottom" id="FE6-oo-tHM"/>
                             <constraint firstItem="ePa-cd-LPM" firstAttribute="trailing" secondItem="wpS-kd-IyG" secondAttribute="trailing" id="Oj3-8u-y8N"/>
-                            <constraint firstItem="Wu4-wm-FJg" firstAttribute="leading" secondItem="wpS-kd-IyG" secondAttribute="leading" id="Rct-g6-03r"/>
                             <constraint firstItem="wpS-kd-IyG" firstAttribute="bottom" secondItem="ePa-cd-LPM" secondAttribute="bottom" id="YaE-kI-vSE"/>
-                            <constraint firstItem="wpS-kd-IyG" firstAttribute="trailing" secondItem="Wu4-wm-FJg" secondAttribute="trailing" id="xdC-yq-Lb5"/>
                             <constraint firstItem="Wu4-wm-FJg" firstAttribute="top" secondItem="wpS-kd-IyG" secondAttribute="top" id="yqi-96-0Xg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wpS-kd-IyG"/>

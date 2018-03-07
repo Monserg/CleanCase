@@ -107,7 +107,7 @@ class PriceListShowViewController: UIViewController {
 
         if let departments = self.router?.dataStore?.departments, departments.count > 0 {
             let section                 =   0
-            self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
+//            self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
             let indexPath               =   IndexPath(item: self.selectedDepartmentRow, section: section)
             self.widthDepartmentCell    =   (self.departmentsCollectionView.frame.width - 30.0) / 3.0
             
@@ -196,11 +196,9 @@ class PriceListShowViewController: UIViewController {
 extension PriceListShowViewController: PriceListShowDisplayLogic {
     func displayDepartments(fromViewModel viewModel: PriceListShowModels.Department.ViewModel) {
         // NOTE: Display the result from the Presenter
-        let numberOfItems   =   self.departmentsCollectionView.numberOfItems(inSection: 0)
-        let indexPath       =   [Int](0..<numberOfItems).map{ IndexPath(row: $0, section: 0) }
-        
         if let departments = self.router?.dataStore?.departments, departments.count > 0 {
-            self.departmentsCollectionView.reloadItems(at: indexPath)
+            self.departmentsCollectionView.reloadData()
+            self.selectedDepartmentRow = self.departmentsCollectionView.numberOfItems(inSection: 0) - 1
             
             DispatchQueue.main.async(execute: {
                 let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: self.selectedDepartmentRow)
