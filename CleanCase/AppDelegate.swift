@@ -147,8 +147,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // App in Active mode & after tap on notification
-//        application.applicationIconBadgeNumber += 1
-        Logger.log(message: "Received Remote Notification message: \(userInfo), badge = \(application.applicationIconBadgeNumber)", event: .Severe)
+        Logger.log(message: "Received Remote Notification message: \(userInfo)", event: .Severe)
         completionHandler(UIBackgroundFetchResult.newData)
     }
 }

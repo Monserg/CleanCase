@@ -22,7 +22,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdI-s4-OWo">
                                 <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXh-z0-9UN" userLabel="Content View">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXh-z0-9UN" userLabel="Content View">
                                         <rect key="frame" x="-0.5" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-DW-EmG" userLabel="Phone Text Field" customClass="SKTextField" customModule="SKStyleKit">
@@ -145,7 +145,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.93944048881530762" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="k06-tB-Kt2" firstAttribute="top" secondItem="qfP-NM-A6e" secondAttribute="bottom" constant="16" id="034-9O-fuZ"/>
                                             <constraint firstAttribute="trailing" secondItem="qLh-S3-4NC" secondAttribute="trailing" constant="16" id="0bo-e6-HvD"/>
@@ -241,7 +241,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MRb-cl-2a7"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>

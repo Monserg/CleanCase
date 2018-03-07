@@ -231,6 +231,7 @@
                                         </connections>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.93944048881530762" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="CNa-hC-3tZ" secondAttribute="bottom" priority="750" id="OTS-fv-xuh"/>
                                     <constraint firstItem="CNa-hC-3tZ" firstAttribute="leading" secondItem="owE-Zy-RCv" secondAttribute="leading" id="W6e-Nh-b2H"/>
@@ -285,7 +286,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wc7-xU-DPc"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>

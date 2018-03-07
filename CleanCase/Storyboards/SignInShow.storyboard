@@ -189,7 +189,7 @@
                                         </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.93944048881530762" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="94q-9A-2Wf" firstAttribute="width" secondItem="mkC-82-B5i" secondAttribute="width" priority="250" id="AR1-hu-xzI"/>
                                     <constraint firstAttribute="trailing" secondItem="94q-9A-2Wf" secondAttribute="trailing" id="Ftx-jD-1Ry"/>
@@ -245,7 +245,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UrO-ky-v7J"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="iRn-9s-Nm9"/>

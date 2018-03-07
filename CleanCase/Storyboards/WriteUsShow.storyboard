@@ -18,6 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6T0-UZ-vR1" userLabel="Content View" customClass="SKView" customModule="SKStyleKit">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roZ-xz-f8G" customClass="SKLabel" customModule="SKStyleKit">
                                 <rect key="frame" x="16" y="87" width="343" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,8 +80,11 @@
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="6T0-UZ-vR1" secondAttribute="trailing" id="30D-BB-uZq"/>
                             <constraint firstItem="roZ-xz-f8G" firstAttribute="leading" secondItem="X1k-h0-CJf" secondAttribute="leading" constant="16" id="5ob-QP-Z27"/>
                             <constraint firstItem="kqW-qu-qTv" firstAttribute="top" secondItem="X1k-h0-CJf" secondAttribute="top" constant="96" id="ODJ-y9-mFx"/>
+                            <constraint firstItem="mK3-q7-RU2" firstAttribute="top" secondItem="6T0-UZ-vR1" secondAttribute="bottom" id="Wil-7a-zSN"/>
+                            <constraint firstItem="6T0-UZ-vR1" firstAttribute="top" secondItem="X1k-h0-CJf" secondAttribute="top" id="WpJ-Rj-MJK"/>
                             <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="mK3-q7-RU2" secondAttribute="trailing" id="ZoN-FY-fab"/>
                             <constraint firstItem="kqW-qu-qTv" firstAttribute="leading" secondItem="X1k-h0-CJf" secondAttribute="leading" constant="16" id="cNw-7F-oXk"/>
                             <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="roZ-xz-f8G" secondAttribute="trailing" constant="16" id="csg-1V-Duz"/>
@@ -82,10 +92,11 @@
                             <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="kqW-qu-qTv" secondAttribute="trailing" constant="16" id="jUJ-pf-W3k"/>
                             <constraint firstItem="kqW-qu-qTv" firstAttribute="top" secondItem="roZ-xz-f8G" secondAttribute="bottom" constant="8" id="lg6-S7-tiD"/>
                             <constraint firstItem="mK3-q7-RU2" firstAttribute="bottom" secondItem="X1k-h0-CJf" secondAttribute="bottom" id="o4c-DO-i6d"/>
+                            <constraint firstItem="6T0-UZ-vR1" firstAttribute="leading" secondItem="X1k-h0-CJf" secondAttribute="leading" id="zIS-vm-DQh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X1k-h0-CJf"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
                         </userDefinedRuntimeAttributes>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="v83-NH-jpb" appends="YES" id="wx8-E1-dwn"/>
