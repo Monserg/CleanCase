@@ -131,14 +131,14 @@
 "Please modify hours"                       =   "He Please,\nchange the time and the number of hours";
 "Please, enter correct email..."            =   "דואר אלקטרוני שגוי.";
 "Please, select city..."                    =   "בחר אישוב";
-"Please, select code..."                    =   "He Please, \nselect code...";
+"Please, select code..."                    =   "יש לבחור קידומת;
 "Please, enter phone number..."             =   "יש להזין מספר טלפון";
-"Please, enter correct phone number..."     =   "He Please, \nenter correct phone number...";
+"Please, enter correct phone number..."     =   "יש להזין מספר טלפון תקין";
 "Please, enter first name..."               =   "יש להזין שם פרטי";
 "Please, enter last name..."                =   "יש להזין שם משפחה";
 "Please, enter address..."                  =   "יש להזין כתובת";
 "Please, enter email..."                    =   "יש להזין דואר אלקטרוני";
-"Message sent"                              =   "He Message sent";
+"Message sent"                              =   "הודעה נשלחה";
 "Order confirmed"                           =   "מועד החזרה נקבע.\תודה.";
 "Order accepted"                            =   "הזמנה נקלטה";
 "Order added"                               =   "הזמנה נשלחה לאישור.";
@@ -151,8 +151,8 @@
 "Please, enter credit card month..."        =   "יש לבחור תוקף של הכרטיס";
 "Please, select collection date..."         =   "יש לבחור תאריך איסוף";
 "Please, select collection time..."         =   "יש לבחור זמן איסוף";
-"Please, select delivery date..."           =   "He Please, \nselect delivery date...";
-"Please, select delivery time..."           =   "He Please, \nselect delivery time...";
+"Please, select delivery date..."           =   "יש לבחור תאריך החזרה";
+"Please, select delivery time..."           =   "יש לבחור זמן החזרה";
 "Are you sure?"                             =   "האם ברצונך לבטל ההזמנה?";
 "Disconnected from Network"                 =   "He Disconnected from Network";
 
@@ -171,7 +171,7 @@
 "Enter Email"                               =   "דואר אלקטרוני";
 "Accept Agreement"                          =   "אני מסכים לתנאים";
 "Read Agreement"                            =   "לקרוא תנאי שימוש";
-"Enter message"                             =   "He Enter message";
+"Enter message"                             =   "יש להזין הודעה";
 "Enter comment"                             =   "לדוגמה:לקחת ליד הדלת/אני בבית/אצל שומר";
 "Comment error"                             =   "יש להזין הערות ";
 "Enter cleaning instructions"               =   "הנחיות מיוחדות.לדוגמה כתם,מקום הכתם,סוג הבד";
