@@ -87,6 +87,7 @@
 "CancelAlert"                               =   "CancelAlert";
 "CancelToolBar"                             =   "CancelToolBar";
 "Ok"                                        =   "Ok";
+"Yes"                                       =   "Yes";
 "Done"                                      =   "Done";
 "Send"                                      =   "Send";
 "Create Order"                              =   "Create Order";

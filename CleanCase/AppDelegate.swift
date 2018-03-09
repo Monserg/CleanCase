@@ -113,6 +113,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Run Update Status Timer
         self.showDeliveryTermsTimer.resume()
         
+        // TODO: - ADD CHECK DELIVERY TERMS
+        
+        
         self.showDeliveryTermsTimer.eventHandler = {
             // Core Data: load last Order with empty Delivety Date & Time
             if Order.firstToChangeStatus != nil {

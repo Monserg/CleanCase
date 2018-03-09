@@ -215,9 +215,11 @@ class MainShowViewController: UIViewController {
     }
     
     fileprivate func runGetLastClientMessage() {
-        self.lastMessageTimer = CustomTimer.init(withSecondsInterval: 30)
-        self.lastMessageTimer.resume()
+        if self.lastMessageTimer == nil {
+            self.lastMessageTimer = CustomTimer.init(withSecondsInterval: 30)
+        }
         
+        self.lastMessageTimer.resume()
         self.lastMessageTimer.eventHandler = {
             // API
             self.checkNetworkConnection({ connectionSuccess in

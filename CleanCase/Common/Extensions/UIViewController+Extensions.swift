@@ -36,7 +36,7 @@ extension UIViewController {
     func showAlertView(withTitle title: String, andMessage message: String, needCancel cancel: Bool, completion: @escaping ((Bool) -> ())) {
         let alertViewController = UIAlertController.init(title: title.localized(), message: message.localized(), preferredStyle: .alert)
         
-        let alertViewControllerOkAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: { action in
+        let alertViewControllerOkAction = UIAlertAction.init(title: (cancel ? "Yes".localized() : "Ok".localized()), style: .default, handler: { action in
             return completion(true)
         })
 
