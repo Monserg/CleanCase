@@ -171,6 +171,10 @@ class SignInShowViewController: UIViewController {
             if success {
                 let requestModel = SignInShowModels.City.RequestModel()
                 self.interactor?.fetchCities(withRequestModel: requestModel)
+                
+                // Preset phone code
+                self.interactor?.saveSelectedPhoneCode(byRow: 0)
+                _ = self.textFieldsCollection.first(where: { $0.tag == 1 }).map({ $0.text = self.router!.dataStore!.codes[0].title })
             }
         })
     }
