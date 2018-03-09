@@ -24,7 +24,7 @@ enum ShowMode {
     case FromOrderCreate
 }
 
-class PersonalDataShowViewController: UIViewController {
+class PersonalDataShowViewController: UIViewController, RefreshDataSupport {
     // MARK: - Properties
     var interactor: PersonalDataShowBusinessLogic?
     var router: (NSObjectProtocol & PersonalDataShowRoutingLogic & PersonalDataShowDataPassing)?
@@ -116,7 +116,8 @@ class PersonalDataShowViewController: UIViewController {
         self.addBackBarButtonItem()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
-        self.loadViewSettings()
+        // Refresh data of scene
+        self.refreshData()
         
         // Add keyboard Observers
         self.registerForKeyboardNotifications()
@@ -133,6 +134,11 @@ class PersonalDataShowViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
+    // RefreshDataSupport protocol implementation
+    func refreshData() {
+        self.loadViewSettings()
+    }
+    
     
     // MARK: - Custom Functions
     func saveOrderID(_ orderID: Int16) {

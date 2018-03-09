@@ -22,7 +22,7 @@ protocol OrderCreateDisplayLogic: class {
     func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel)
 }
 
-class OrderCreateViewController: UIViewController {
+class OrderCreateViewController: UIViewController, RefreshDataSupport {
     // MARK: - Properties
     var interactor: OrderCreateBusinessLogic?
     var router: (NSObjectProtocol & OrderCreateRoutingLogic & OrderCreateDataPassing)?
@@ -167,7 +167,13 @@ class OrderCreateViewController: UIViewController {
         self.addBackBarButtonItem()
         self.displayLaundryInfo(withName: Laundry.name, andPhoneNumber: "\(Laundry.phoneNumber ?? "")")
         
-        self.loadVewSettings()
+        // Add keyboard Observers
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        // Refresh data of scene
+        self.refreshData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -177,14 +183,14 @@ class OrderCreateViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
+    // RefreshDataSupport protocol implementation
+    func refreshData() {
+        self.loadVewSettings()
+    }
+    
     
     // MARK: - Custom Functions
     private func loadVewSettings() {
-        // Add keyboard Observers
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-        
         // API
         checkNetworkConnection({ [unowned self] success in
             if success {

@@ -15,7 +15,7 @@ import SideMenu
 import SwiftSpinner
 import Localize_Swift
 
-class MainShowViewController: UIViewController {
+class MainShowViewController: UIViewController, RefreshDataSupport {
     // MARK: - Properties
     fileprivate var order: Order?
     fileprivate var isDeliveryTermShow: Bool = false
@@ -140,6 +140,12 @@ class MainShowViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Refresh data of scene
+        self.refreshData()
+    }
+    
+    // RefreshDataSupport protocol implementation
+    func refreshData() {
         self.loadOrder()
         self.runGetLastClientMessage()
     }

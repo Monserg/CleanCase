@@ -119,7 +119,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.showDeliveryTermsTimer.eventHandler = {
             self.checkDeliveryTermsValues()
         }
+        
+        // Start to refresh data of current screen
+        if let currentVC = UIApplication.topViewController() as? RefreshDataSupport {
+            currentVC.refreshData()
+        }
     }
+    
     
     func checkDeliveryTermsValues() {
         // Core Data: load last Order with empty Delivety Date & Time

@@ -19,7 +19,7 @@ extension UIViewController {
 
     @objc func handlerCustomAppNotification(notification: Notification) {
     }
-
+    
     func checkNetworkConnection(_ completion: @escaping ((_ success: Bool) -> Void)) {
         guard isNetworkAvailable else {
             Logger.log(message: "isNetworkAvailable is false", event: .Severe)

@@ -19,7 +19,7 @@ protocol PriceListShowDisplayLogic: class {
     func displayDepartmentItems(fromViewModel viewModel: PriceListShowModels.DepartmentItems.ViewModel)
 }
 
-class PriceListShowViewController: UIViewController {
+class PriceListShowViewController: UIViewController, RefreshDataSupport {
     // MARK: - Properties
     var interactor: PriceListShowBusinessLogic?
     var router: (NSObjectProtocol & PriceListShowRoutingLogic & PriceListShowDataPassing)?
@@ -107,7 +107,6 @@ class PriceListShowViewController: UIViewController {
 
         if let departments = self.router?.dataStore?.departments, departments.count > 0 {
             let section                 =   0
-//            self.selectedDepartmentRow  =   self.departmentsCollectionView.numberOfItems(inSection: section) - 1
             let indexPath               =   IndexPath(item: self.selectedDepartmentRow, section: section)
             self.widthDepartmentCell    =   (self.departmentsCollectionView.frame.width - 30.0) / 3.0
             
@@ -121,7 +120,8 @@ class PriceListShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.viewSettingsDidLoad()
+        // Refresh data of scene
+        self.refreshData()
 
         self.departmentsCollectionView.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
 
@@ -161,6 +161,11 @@ class PriceListShowViewController: UIViewController {
         }
     }
 
+    // RefreshDataSupport protocol implementation
+    func refreshData() {
+        self.viewSettingsDidLoad()
+    }
+    
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {

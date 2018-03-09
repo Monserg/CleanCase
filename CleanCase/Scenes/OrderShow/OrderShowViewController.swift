@@ -18,7 +18,7 @@ protocol OrderShowDisplayLogic: class {
     func displayCancelOrder(fromViewModel viewModel: OrderShowModels.Order.ViewModel)
 }
 
-class OrderShowViewController: UIViewController {
+class OrderShowViewController: UIViewController, RefreshDataSupport {
     // MARK: - Properties
     var interactor: OrderShowBusinessLogic?
     var router: (NSObjectProtocol & OrderShowRoutingLogic & OrderShowDataPassing)?
@@ -141,6 +141,22 @@ class OrderShowViewController: UIViewController {
         }
     }
     
+    // RefreshDataSupport protocol implementation
+    func refreshData() {
+        if let order = self.router?.dataStore?.order, order.orderStatus == 0 {
+            self.navigationController?.popViewController(animated: true)
+        }
+            
+        else {
+            self.saveOrderID(self.router!.dataStore!.orderID)
+            self.loadViewSettings()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     
     // MARK: - Custom Functions
     private func loadViewSettings() {
@@ -173,18 +189,8 @@ class OrderShowViewController: UIViewController {
     }
     
     @objc func handlerCompleteChangeOrderStatusNotification(_ notification: Notification) {
-        if let order = self.router?.dataStore?.order, order.orderStatus == 0 {
-            self.navigationController?.popViewController(animated: true)
-        }
-        
-        else {
-            self.saveOrderID(self.router!.dataStore!.orderID)
-            self.loadViewSettings()
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        // Redraw OrderShow scene
+        self.refreshData()
     }
 }
 

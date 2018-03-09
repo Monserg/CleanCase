@@ -22,6 +22,10 @@ protocol PickerViewSupport {
     var title: String { get set }
 }
 
+protocol RefreshDataSupport {
+    func refreshData()
+}
+
 
 // Inject Dependencies
 protocol HasRestAPIManager {
