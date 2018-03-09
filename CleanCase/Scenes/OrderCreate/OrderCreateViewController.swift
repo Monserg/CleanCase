@@ -32,7 +32,8 @@ class OrderCreateViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var departmentsTableViewHeightConstraint: NSLayoutConstraint!
+
     @IBOutlet var labelsCollection: [UILabel]! {
         didSet {
             _ = labelsCollection.map({
@@ -105,14 +106,6 @@ class OrderCreateViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var departmentsTableViewHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint! {
-        didSet {
-            scrollViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? -64.0 : 0.0
-        }
-    }
-
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -367,7 +360,7 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
     func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel) {
         // NOTE: Display the result from the Presenter
         DispatchQueue.main.async(execute: {
-            self.departmentsTableViewHeightConstraint.constant += CGFloat(self.router!.dataStore!.departments.count - 1) * 54.0 * heightRatio + 4.0
+            self.departmentsTableViewHeightConstraint.constant = CGFloat(self.router!.dataStore!.departments.count) * 54.0 * heightRatio + 4.0
             self.departmentsTableView.reloadData()
         })
     }

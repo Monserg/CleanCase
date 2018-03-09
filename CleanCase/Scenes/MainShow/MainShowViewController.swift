@@ -17,10 +17,10 @@ import Localize_Swift
 
 class MainShowViewController: UIViewController {
     // MARK: - Properties
-    fileprivate var sideMenuManager: SideMenuManager!
     fileprivate var order: Order?
     fileprivate var isDeliveryTermShow: Bool = false
-    
+    fileprivate var sideMenuManager: SideMenuManager!
+
     // Background timer
     fileprivate var lastMessageTimer: CustomTimer!
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?

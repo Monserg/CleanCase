@@ -248,6 +248,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="iRn-9s-Nm9"/>
                     <connections>
                         <outlet property="acceptAgreementCheckBox" destination="bt3-JL-S02" id="uaM-gI-Yjy"/>

@@ -56,12 +56,6 @@ class WriteUsShowViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var textViewTopConstraint: NSLayoutConstraint! {
-        didSet {
-            textViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? 52.0 : 96.0
-        }
-    }
-
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

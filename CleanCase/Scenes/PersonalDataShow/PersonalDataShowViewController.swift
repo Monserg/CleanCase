@@ -62,13 +62,7 @@ class PersonalDataShowViewController: UIViewController {
         didSet {
             creditCardCVVLabel.text = "Credit Card CVV".localized()
         }
-    }
-    
-    @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint! {
-        didSet {
-//            scrollViewTopConstraint.constant = smallDevices.contains(UIDevice.current.deviceType) ? -64.0 : 0.0
-        }
-    }
+    }    
     
     
     // MARK: - Class Initialization

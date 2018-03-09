@@ -26,7 +26,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roZ-xz-f8G" customClass="SKLabel" customModule="SKStyleKit">
-                                <rect key="frame" x="16" y="87" width="343" height="21"/>
+                                <rect key="frame" x="16" y="61" width="343" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -36,7 +36,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Enter message" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="kqW-qu-qTv">
-                                <rect key="frame" x="16" y="116" width="343" height="150"/>
+                                <rect key="frame" x="16" y="90" width="343" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="osZ-Xn-dUm"/>
@@ -82,7 +82,7 @@
                         <constraints>
                             <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="6T0-UZ-vR1" secondAttribute="trailing" id="30D-BB-uZq"/>
                             <constraint firstItem="roZ-xz-f8G" firstAttribute="leading" secondItem="X1k-h0-CJf" secondAttribute="leading" constant="16" id="5ob-QP-Z27"/>
-                            <constraint firstItem="kqW-qu-qTv" firstAttribute="top" secondItem="X1k-h0-CJf" secondAttribute="top" constant="96" id="ODJ-y9-mFx"/>
+                            <constraint firstItem="kqW-qu-qTv" firstAttribute="top" secondItem="X1k-h0-CJf" secondAttribute="top" constant="70" id="ODJ-y9-mFx"/>
                             <constraint firstItem="mK3-q7-RU2" firstAttribute="top" secondItem="6T0-UZ-vR1" secondAttribute="bottom" id="Wil-7a-zSN"/>
                             <constraint firstItem="6T0-UZ-vR1" firstAttribute="top" secondItem="X1k-h0-CJf" secondAttribute="top" id="WpJ-Rj-MJK"/>
                             <constraint firstItem="X1k-h0-CJf" firstAttribute="trailing" secondItem="mK3-q7-RU2" secondAttribute="trailing" id="ZoN-FY-fab"/>
@@ -102,11 +102,11 @@
                             <outletCollection property="gestureRecognizers" destination="v83-NH-jpb" appends="YES" id="wx8-E1-dwn"/>
                         </connections>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="charactersCountLabel" destination="roZ-xz-f8G" id="4z9-sY-drA"/>
                         <outlet property="sendMessageButton" destination="Ysn-ew-LIn" id="c9D-aJ-AH7"/>
                         <outlet property="textView" destination="kqW-qu-qTv" id="j0Q-WB-81g"/>
-                        <outlet property="textViewTopConstraint" destination="ODJ-y9-mFx" id="5yM-UC-BiC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Alq-iW-fKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
