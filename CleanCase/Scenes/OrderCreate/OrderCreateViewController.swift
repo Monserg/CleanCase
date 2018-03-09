@@ -185,12 +185,12 @@ class OrderCreateViewController: UIViewController, RefreshDataSupport {
 
     // RefreshDataSupport protocol implementation
     func refreshData() {
-        self.loadVewSettings()
+        self.loadViewSettings()
     }
     
     
     // MARK: - Custom Functions
-    private func loadVewSettings() {
+    private func loadViewSettings() {
         // API
         checkNetworkConnection({ [unowned self] success in
             if success {

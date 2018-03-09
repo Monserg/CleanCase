@@ -18,7 +18,7 @@ protocol OrdersShowDisplayLogic: class {
     func displayOrders(fromViewModel viewModel: OrdersShowModels.OrderItem.ViewModel)
 }
 
-class OrdersShowViewController: UIViewController {
+class OrdersShowViewController: UIViewController, RefreshDataSupport {
     // MARK: - Properties
     var interactor: OrdersShowBusinessLogic?
     var router: (NSObjectProtocol & OrdersShowRoutingLogic & OrdersShowDataPassing)?
@@ -97,9 +97,14 @@ class OrdersShowViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.loadViewSettings()
+        self.refreshData()
     }
     
+    // RefreshDataSupport protocol implementation
+    func refreshData() {
+        self.loadViewSettings()
+    }
+
     
     // MARK: - Custom Functions
     private func loadViewSettings() {
