@@ -130,6 +130,11 @@ class MainShowViewController: UIViewController {
                 Logger.log(message: "Departments List is full", event: .Severe)
             }
         }
+        
+        // Core Data: load last Order with empty Delivety Date & Time
+        if Order.firstToChangeStatus != nil {
+            self.handlerShowDeliveryTermsSceneNotification(Notification.init(name: Notification.Name("ShowDeliveryTermsScene")))
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -224,10 +229,16 @@ class MainShowViewController: UIViewController {
             // API
             self.checkNetworkConnection({ connectionSuccess in
                 if connectionSuccess {
-                    _ = UpdateManager().getLastClientMessage({ [unowned self] changeOrderStatusSuccess in
-                        if changeOrderStatusSuccess && self.navigationController!.viewControllers.last!.isKind(of: OrderShowViewController.self) {
-                            Logger.log(message: "Post Notification to complete change current Order status", event: .Debug)
-                            NotificationCenter.default.post(name: Notification.Name("CompleteChangeOrderStatus"), object: nil)
+                    _ = UpdateManager().getLastClientMessage({ [unowned self] (changeOrderStatusSuccess, statusCode) in
+                        if changeOrderStatusSuccess {
+                            if let status = statusCode, status == 9 || status == 13 {
+                                self.showAlertView(withTitle: "Info", andMessage: "Order accepted", needCancel: false, completion: { _ in })
+                            }
+
+                            if self.navigationController!.viewControllers.last!.isKind(of: OrderShowViewController.self) {
+                                Logger.log(message: "Post Notification to complete change current Order status", event: .Debug)
+                                NotificationCenter.default.post(name: Notification.Name("CompleteChangeOrderStatus"), object: nil)
+                            }
                         }
                     })
                 }
@@ -259,6 +270,10 @@ class MainShowViewController: UIViewController {
                     Logger.log(message: "Display DeliveryTermsShow scene", event: .Verbose)
                     self.createPopover(withName: "DeliveryTermsShow", completion: { [unowned self] in
                         self.isDeliveryTermShow = false
+                        
+                        // Redraw OrderShow scene
+                        Logger.log(message: "Post Notification to complete Order delivery change", event: .Debug)
+                        NotificationCenter.default.post(name: Notification.Name("CompleteChangeOrderStatus"), object: nil)
                     })
                     
                     self.isDeliveryTermShow = true

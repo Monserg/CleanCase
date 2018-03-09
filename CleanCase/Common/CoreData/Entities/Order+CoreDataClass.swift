@@ -24,6 +24,7 @@ enum OrderStatus: Int16 {
     case LockerOrderChanged     =   10
     case Paid                   =   11
     case RequestForPaid         =   12
+    case Approved               =   13
     
     var name: String {
         get {

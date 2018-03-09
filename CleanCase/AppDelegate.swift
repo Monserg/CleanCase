@@ -113,18 +113,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Run Update Status Timer
         self.showDeliveryTermsTimer.resume()
         
-        // TODO: - ADD CHECK DELIVERY TERMS
-        
+        // After return from background mode
+        self.checkDeliveryTermsValues()
         
         self.showDeliveryTermsTimer.eventHandler = {
-            // Core Data: load last Order with empty Delivety Date & Time
-            if Order.firstToChangeStatus != nil {
-                Logger.log(message: "Post Notification to show Delivery Terms scene", event: .Debug)
-                NotificationCenter.default.post(name: Notification.Name("ShowDeliveryTermsScene"), object: nil)
-            }
+            self.checkDeliveryTermsValues()
         }
     }
     
+    func checkDeliveryTermsValues() {
+        // Core Data: load last Order with empty Delivety Date & Time
+        if Order.firstToChangeStatus != nil {
+            Logger.log(message: "Post Notification to show Delivery Terms scene", event: .Debug)
+            NotificationCenter.default.post(name: Notification.Name("ShowDeliveryTermsScene"), object: nil)
+        }
+    }
+
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         self.showDeliveryTermsTimer.suspend()

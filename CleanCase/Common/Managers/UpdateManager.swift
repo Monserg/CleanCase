@@ -30,7 +30,7 @@ public enum CommandType: Int16 {
 
 class UpdateManager {
     // MARK: - Custom Functions
-    func getLastClientMessage(_ completion: @escaping (Bool) -> ()) {
+    func getLastClientMessage(_ completion: @escaping (Bool, Int16?) -> ()) {
         let params: [ String: Any ] = [ "0":    Int64(Laundry.codeID),
                                         "1":    Int64(PersonalData.current!.clientId),
                                         "2":    Token.current!.lastMessageID ]
@@ -74,7 +74,7 @@ class UpdateManager {
                                 }
                                 
                                 order.save()
-                                completion(true)
+                                completion(true, dataInfo.status)
                             }
                         }
                     }
@@ -122,12 +122,12 @@ class UpdateManager {
                         }
                         
                         Logger.log(message: "Update Manager return true", event: .Severe)
-                        completion(true)
+                        completion(true, nil)
                     }
                 }
                 
                 Logger.log(message: "Update Manager return false", event: .Severe)
-                completion(false)
+                completion(false, nil)
             }
         })
     }

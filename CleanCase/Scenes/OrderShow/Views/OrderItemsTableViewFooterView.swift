@@ -56,7 +56,6 @@ class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
         case 2, 3, 5, 8:
             self.topView.isHidden                   =   false
             self.priceView.isHidden                 =   false
-            self.orderDeliveryDateLabel.isHidden    =   false
             self.orderPriceLabel.text               =   String(format: "%@ %.2f", "Currency".localized(), order.price)
             
             if let deliveryFrom = order.deliveryFrom, let deliveryTo = order.deliveryTo {
@@ -64,7 +63,8 @@ class OrderItemsTableViewFooterView: UITableViewHeaderFooterView {
             }
             
         default:
-            break
+            self.topView.isHidden                   =   true
+            self.priceView.isHidden                 =   true
         }
     }
 }
