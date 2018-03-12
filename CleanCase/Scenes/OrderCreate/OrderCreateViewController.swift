@@ -312,6 +312,10 @@ class OrderCreateViewController: UIViewController, RefreshDataSupport {
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
+        guard self.firstResponder != nil else {
+            return
+        }
+        
         let userInfo = notification.userInfo!
         
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue

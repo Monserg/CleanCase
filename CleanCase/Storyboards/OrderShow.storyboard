@@ -284,7 +284,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ehH-J5-eCj"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
