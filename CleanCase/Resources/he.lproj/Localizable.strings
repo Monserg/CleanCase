@@ -36,7 +36,7 @@
 "LockerOrderChanged"                        =   "LockerOrderChanged";
 "Paid"                                      =   "שולם";
 "RequestForPaid"                            =   "He RequestForPaid";
-"Approved"                                  =   "He Approved";
+"Approved"                                  =   "מאושר";
 
 
 // Labels
