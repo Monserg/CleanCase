@@ -36,6 +36,7 @@
 "LockerOrderChanged"                        =   "Ar LockerOrderChanged";
 "Paid"                                      =   "Ar Paid";
 "RequestForPaid"                            =   "Ar RequestForPaid";
+"Approved"                                  =   "Ar Approved";
 
 
 // Labels

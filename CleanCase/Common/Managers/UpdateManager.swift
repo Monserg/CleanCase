@@ -60,7 +60,7 @@ class UpdateManager {
                                 switch model.Command {
                                 // UpdateOrder
                                 case 4:
-                                    order.orderStatus   =   dataInfo.status
+//                                    order.orderStatus   =   dataInfo.status
                                     order.price         =   dataInfo.price
                                     
                                     order.getItems()

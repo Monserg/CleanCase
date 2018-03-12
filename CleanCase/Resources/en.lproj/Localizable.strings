@@ -36,6 +36,7 @@
 "LockerOrderChanged"                        =   "LockerOrderChanged";
 "Paid"                                      =   "Paid";
 "RequestForPaid"                            =   "RequestForPaid";
+"Approved"                                  =   "Approved";
 
 
 // Labels
