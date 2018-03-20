@@ -169,13 +169,9 @@ class PriceListShowViewController: UIViewController, RefreshDataSupport {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // API
-        checkNetworkConnection({ [unowned self] success in
-            if success {
-                let requestModel = PriceListShowModels.Department.RequestModel()
-                self.interactor?.loadDepartments(withRequestModel: requestModel)
-            }
-        })
+        // CoreData
+        let requestModel = PriceListShowModels.Department.RequestModel()
+        self.interactor?.loadDepartments(withRequestModel: requestModel)
     }
     
     private func moveSelectedView() {
