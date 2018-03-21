@@ -50,6 +50,10 @@ enum DeliveryTermsShowModels {
         
         struct ResponseModel {
             let error: Error?
+            
+            init(error: Error? = nil) {
+                self.error = error
+            }
         }
         
         struct ViewModel {
