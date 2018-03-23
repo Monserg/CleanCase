@@ -110,10 +110,10 @@
 "SMS code error"                            =   "He Please\nenter correct code from sms";
 "Empty user name message"                   =   "He Please\nenter your name";
 "Retry count info message"                  =   "He Entry opportunity is blocked for 15 minutes";
-"Cities list is empty"                      =   "He Cities list is empty";
+"Cities list is empty"                      =   "אין רשימת ישובים";
 "User welcome"                              =   "He Welcome!";
-"Connected to Network"                      =   "He Connected to Network";
-"Disconnected from Network"                 =   "He Disconnected from Network";
+"Connected to Network"                      =   "התחברות לשרת";
+"Disconnected from Network"                 =   "אין תקשורת לשרת";
 "Reachable"                                 =   "He Reachable";
 "Not Reachable"                             =   "He Not Reachable";
 "About App Doc is empty"                    =   "He Content of About Project\nis empty";

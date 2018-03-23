@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5C72E5D6EC9AF2FC9D0F5CD1 /* Pods_CleanCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */; };
+		6713C77520610D7F002F7EA6 /* ChatMessages+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713C77320610D7F002F7EA6 /* ChatMessages+CoreDataClass.swift */; };
+		6713C77620610D7F002F7EA6 /* ChatMessages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713C77420610D7F002F7EA6 /* ChatMessages+CoreDataProperties.swift */; };
+		6713C779206277F3002F7EA6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6713C778206277F3002F7EA6 /* ChatTableViewCell.swift */; };
 		B1099868203D82BE00236985 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1099867203D82BE00236985 /* GoogleService-Info.plist */; };
 		B11B186A2025816D00EA29F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B11B186C2025816D00EA29F7 /* Localizable.strings */; };
 		B12295AA202C312B00E3D750 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12295A9202C312B00E3D750 /* Array+Extensions.swift */; };
@@ -149,6 +152,10 @@
 /* Begin PBXFileReference section */
 		27913F3729368B518AECD01C /* Pods-CleanCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanCase.release.xcconfig"; path = "Pods/Target Support Files/Pods-CleanCase/Pods-CleanCase.release.xcconfig"; sourceTree = "<group>"; };
 		4429DBFC09EBAAA714E08757 /* Pods_CleanCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6713C77220610BC0002F7EA6 /* CleanCaseModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CleanCaseModel 3.xcdatamodel"; sourceTree = "<group>"; };
+		6713C77320610D7F002F7EA6 /* ChatMessages+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatMessages+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6713C77420610D7F002F7EA6 /* ChatMessages+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatMessages+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6713C778206277F3002F7EA6 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		B1099866203D7E5700236985 /* CleanCase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CleanCase.entitlements; sourceTree = "<group>"; };
 		B1099867203D82BE00236985 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B11B18662025811B00EA29F7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -318,6 +325,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6713C777206277A8002F7EA6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6713C778206277F3002F7EA6 /* ChatTableViewCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		74F34CCE6AC1548C815C4D16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +361,7 @@
 		B148E8FC202C41750007D79B /* ChatShow */ = {
 			isa = PBXGroup;
 			children = (
+				6713C777206277A8002F7EA6 /* Models */,
 				B148E902202C418B0007D79B /* ChatShowInteractor.swift */,
 				B148E900202C418B0007D79B /* ChatShowModels.swift */,
 				B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */,
@@ -702,6 +718,8 @@
 		B1FA2DA02024912100351BB7 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				6713C77320610D7F002F7EA6 /* ChatMessages+CoreDataClass.swift */,
+				6713C77420610D7F002F7EA6 /* ChatMessages+CoreDataProperties.swift */,
 				B1FA2DAC202498C500351BB7 /* City+CoreDataClass.swift */,
 				B1FA2DAD202498C500351BB7 /* City+CoreDataProperties.swift */,
 				B1BAF5552028CF0C00BB4C66 /* CollectionDate+CoreDataClass.swift */,
@@ -956,6 +974,7 @@
 				B1FA2D9220246D2100351BB7 /* LeftSideMenuShowModels.swift in Sources */,
 				B139620020403A2100B5063C /* NSManagedObject+Extensions.swift in Sources */,
 				B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */,
+				6713C77520610D7F002F7EA6 /* ChatMessages+CoreDataClass.swift in Sources */,
 				B148E910202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift in Sources */,
 				B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */,
 				B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */,
@@ -1048,6 +1067,7 @@
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
 				B1FA2D6F20245F4B00351BB7 /* WriteUsShowRouter.swift in Sources */,
 				B15AF351202B5563002B170F /* UITextField+Extension.swift in Sources */,
+				6713C779206277F3002F7EA6 /* ChatTableViewCell.swift in Sources */,
 				B1FA2CF820244DC200351BB7 /* FlowControlShowInteractor.swift in Sources */,
 				B19DA3F6202891E800E9F7D6 /* Decodable+Extensions.swift in Sources */,
 				B1FA2D4220245E2B00351BB7 /* PersonalDataShowRouter.swift in Sources */,
@@ -1059,6 +1079,7 @@
 				B19DA3F82028993900E9F7D6 /* String+Extensions.swift in Sources */,
 				B1FA2D7220245F4B00351BB7 /* WriteUsShowInteractor.swift in Sources */,
 				B1FA2D8F20246D2100351BB7 /* LeftSideMenuShowPresenter.swift in Sources */,
+				6713C77620610D7F002F7EA6 /* ChatMessages+CoreDataProperties.swift in Sources */,
 				B1DBDEFA2029879B00127ECB /* DeliveryDate+CoreDataClass.swift in Sources */,
 				B192FF442045AB4000F700B2 /* Logger.swift in Sources */,
 			);
@@ -1289,11 +1310,12 @@
 		B1FA2DA12024914900351BB7 /* CleanCaseModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				6713C77220610BC0002F7EA6 /* CleanCaseModel 3.xcdatamodel */,
 				B192FF42204564F400F700B2 /* CleanCaseModel 2.xcdatamodel */,
 				B1FA2DA42024925200351BB7 /* CleanCaseModel 1.xcdatamodel */,
 				B1FA2DA22024914900351BB7 /* CleanCaseModel.xcdatamodel */,
 			);
-			currentVersion = B192FF42204564F400F700B2 /* CleanCaseModel 2.xcdatamodel */;
+			currentVersion = 6713C77220610BC0002F7EA6 /* CleanCaseModel 3.xcdatamodel */;
 			path = CleanCaseModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

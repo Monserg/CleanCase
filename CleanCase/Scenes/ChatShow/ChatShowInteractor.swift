@@ -14,34 +14,44 @@ import UIKit
 
 // MARK: - Business Logic protocols
 protocol ChatShowBusinessLogic {
-    func doSomething(withRequestModel requestModel: ChatShowModels.Something.RequestModel)
+    func fetchMessages(withRequestModel requestModel: ChatShowModels.Message.RequestModel)
 }
 
 protocol ChatShowDataStore {
-//     var name: String { get set }
+    var messages: [ChatShowModels.Message.RequestModel.DisplayedMessage]! { get set }
 }
 
-class ChatShowInteractor: ChatShowBusinessLogic, ChatShowDataStore {
+
+class ChatShowInteractor:ShareInteractor, ChatShowBusinessLogic, ChatShowDataStore {
     // MARK: - Properties
     var presenter: ChatShowPresentationLogic?
     var worker: ChatShowWorker?
     
     // ... protocol implementation
-//    var name: String = ""
-    
-    
+    // OrdersShowDataStore protocol implementation
+    var messages: [ChatShowModels.Message.RequestModel.DisplayedMessage]!
+
     // MARK: - Class Initialization
     deinit {
         Logger.log(message: "Success", event: .Severe)
     }
     
-
     // MARK: - Business logic implementation
-    func doSomething(withRequestModel requestModel: ChatShowModels.Something.RequestModel) {
-        worker = ChatShowWorker()
-        worker?.doSomeWork()
+    func fetchMessages(withRequestModel requestModel: ChatShowModels.Message.RequestModel) {
+        if let messagesList = self.appDependency.coreDataManager.readEntities(withName: "ChatMessages",
+                                                                            withPredicateParameters: nil,
+                                                                            andSortDescriptor: NSSortDescriptor.init(key: "created_date", ascending: false)) as? [ChatMessages],
+            messagesList.count > 0 {
+            self.messages = [ChatShowModels.Message.RequestModel.DisplayedMessage]()
+            
+            for messageEntity in messagesList {
+                self.messages.append(ChatShowModels.Message.RequestModel.DisplayedMessage(createdDate:      messageEntity.created_date,
+                                                                                            laundry_id:          messageEntity.laundry_id,                                                                                          text:           messageEntity.text))
+            }
+        }
         
-        let responseModel = ChatShowModels.Something.ResponseModel()
-        presenter?.presentSomething(fromResponseModel: responseModel)
+        let responseModel = ChatShowModels.Message.ResponseModel()
+        presenter?.display(fromResponseModel: responseModel)
+        
     }
 }

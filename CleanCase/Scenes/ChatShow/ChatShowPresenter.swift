@@ -14,7 +14,7 @@ import UIKit
 
 // MARK: - Presentation Logic protocols
 protocol ChatShowPresentationLogic {
-    func presentSomething(fromResponseModel responseModel: ChatShowModels.Something.ResponseModel)
+    func display(fromResponseModel responseModel: ChatShowModels.Message.ResponseModel)
 }
 
 class ChatShowPresenter: ChatShowPresentationLogic {
@@ -29,8 +29,8 @@ class ChatShowPresenter: ChatShowPresentationLogic {
     
 
     // MARK: - Presentation Logic implementation
-    func presentSomething(fromResponseModel responseModel: ChatShowModels.Something.ResponseModel) {
-        let viewModel = ChatShowModels.Something.ViewModel()
-        viewController?.displaySomething(fromViewModel: viewModel)
+    func display(fromResponseModel responseModel: ChatShowModels.Message.ResponseModel) {
+        let viewModel = ChatShowModels.Message.ViewModel()
+        viewController?.display(fromViewModel: viewModel)
     }
 }

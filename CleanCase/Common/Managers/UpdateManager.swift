@@ -67,7 +67,8 @@ class UpdateManager {
                                 // UpdateStatus
                                 case 5:
                                     order.orderStatus   =   dataInfo.status
-                                    
+                                
+                                   
                                 default:
                                     break
                                 }
@@ -123,6 +124,12 @@ class UpdateManager {
                         Logger.log(message: "Update Manager return true", event: .Severe)
                         completion(true, nil)
                     }
+                    //chat message
+                    if model.Command == 11 {
+                        
+                        Logger.log(message: "Add new chat message", event: .Severe)
+                    }
+                    
                 }
                 
                 Logger.log(message: "Update Manager return false", event: .Severe)

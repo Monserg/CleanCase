@@ -15,8 +15,13 @@ import UIKit
 // MARK: - Data models
 enum ChatShowModels {
     // MARK: - Use cases
-    enum Something {
+    enum Message {
         struct RequestModel {
+            struct DisplayedMessage {
+                let createdDate: String
+                let laundry_id: Int32
+                let text: String
+            }
         }
         
         struct ResponseModel {
@@ -26,3 +31,4 @@ enum ChatShowModels {
         }
     }
 }
+
