@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="CleanCaseModel">
+    <entity name="City" representedClassName="City" syncable="YES">
+        <attribute name="cityName" attributeType="String" defaultValueString="Zorro" syncable="YES"/>
+        <attribute name="iD" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="iD"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CollectionDate" representedClassName="CollectionDate" syncable="YES">
+        <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromDate" attributeType="String" syncable="YES"/>
+        <attribute name="laundryId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDate" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weekDay" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="DeliveryDate" representedClassName="DeliveryDate" syncable="YES">
+        <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromDate" attributeType="String" syncable="YES"/>
+        <attribute name="laundryId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDate" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weekDay" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Department" representedClassName="Department" syncable="YES">
+        <attribute name="departmentId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departmentName" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionItem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="laundryId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DepartmentItem" inverseName="department" inverseEntity="DepartmentItem" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="DepartmentItem" representedClassName="DepartmentItem" syncable="YES">
+        <attribute name="departmentId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departmentItemId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departmentName" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionItem" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="department" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="items" inverseEntity="Department" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Laundry" representedClassName="Laundry" syncable="YES">
+        <attribute name="addressLine" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="businessId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cityName" attributeType="String" syncable="YES"/>
+        <attribute name="header" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iD" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="telephone" optional="YES" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="iD"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES">
+        <attribute name="address1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cleaningInstructions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="clientID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="collectionFrom" attributeType="String" defaultValueString="&quot;10:00&quot;" syncable="YES"/>
+        <attribute name="collectionTo" attributeType="String" defaultValueString="&quot;12:00&quot;" syncable="YES"/>
+        <attribute name="createdDate" attributeType="String" syncable="YES"/>
+        <attribute name="deliveryFrom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deliveryNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deliveryTo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="discount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderStatus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="OrderItem" inverseName="order" inverseEntity="OrderItem" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="orderID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="OrderItem" representedClassName="OrderItem" syncable="YES">
+        <attribute name="departmentID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departmentItemID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="iD" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="orderID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="qty" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="width" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="items" inverseEntity="Order" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="departmentID"/>
+                <constraint value="departmentItemID"/>
+                <constraint value="iD"/>
+                <constraint value="name"/>
+                <constraint value="orderID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="PersonalData" representedClassName="PersonalData" syncable="YES">
+        <attribute name="addressLine1" attributeType="String" syncable="YES"/>
+        <attribute name="addressLine2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adv" attributeType="String" defaultValueString="&quot;1&quot;" syncable="YES"/>
+        <attribute name="cardCVV" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cardExpired" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cardNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityId" attributeType="String" syncable="YES"/>
+        <attribute name="clientId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="email" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" attributeType="String" syncable="YES"/>
+        <attribute name="laundryId" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mobilePhone" attributeType="String" syncable="YES"/>
+        <attribute name="postCode" optional="YES" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="clientId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Tested" representedClassName="Tested" syncable="YES">
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Token" representedClassName="Token" syncable="YES">
+        <attribute name="device" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firebase" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastMessageID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Version" representedClassName="Version" syncable="YES">
+        <attribute name="getVerResult" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="CollectionDate" positionX="-45" positionY="63" width="128" height="165"/>
+        <element name="DeliveryDate" positionX="-45" positionY="90" width="128" height="165"/>
+        <element name="Department" positionX="-36" positionY="108" width="128" height="135"/>
+        <element name="DepartmentItem" positionX="-27" positionY="126" width="128" height="165"/>
+        <element name="Laundry" positionX="-45" positionY="18" width="128" height="165"/>
+        <element name="Order" positionX="-27" positionY="153" width="128" height="285"/>
+        <element name="OrderItem" positionX="-36" positionY="144" width="128" height="195"/>
+        <element name="PersonalData" positionX="-36" positionY="126" width="128" height="255"/>
+        <element name="Token" positionX="-36" positionY="144" width="128" height="90"/>
+        <element name="Version" positionX="-36" positionY="27" width="128" height="60"/>
+        <element name="Tested" positionX="-27" positionY="153" width="128" height="75"/>
+    </elements>
+</model>
