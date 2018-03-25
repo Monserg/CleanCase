@@ -94,6 +94,7 @@ class FlowControlShowViewController: UIViewController {
     
     // MARK: - Custom Functions
     private func loadViewSettings() {
+        // API
         checkNetworkConnection({ [unowned self] success in
             SwiftSpinner.show("Loading App data...".localized(), animated: true)
 

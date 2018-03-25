@@ -192,18 +192,14 @@ class OrderCreateViewController: UIViewController, RefreshDataSupport {
     // MARK: - Custom Functions
     private func loadViewSettings() {
         // API
-        checkNetworkConnection({ [unowned self] success in
-            if success {
-                DispatchQueue.main.async(execute: {
-                    let requestModel = OrderCreateModels.Departments.RequestModel()
-                    self.interactor?.fetchDepartments(withRequestModel: requestModel)
-                })
-                
-                DispatchQueue.main.async(execute: {
-                    let requestModel = OrderCreateModels.Dates.RequestModel()
-                    self.interactor?.fetchDates(withRequestModel: requestModel)
-                })
-            }
+        DispatchQueue.main.async(execute: {
+            let requestModel = OrderCreateModels.Departments.RequestModel()
+            self.interactor?.fetchDepartments(withRequestModel: requestModel)
+        })
+        
+        DispatchQueue.main.async(execute: {
+            let requestModel = OrderCreateModels.Dates.RequestModel()
+            self.interactor?.fetchDates(withRequestModel: requestModel)
         })
     }
     

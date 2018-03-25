@@ -211,14 +211,10 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
         // Add keyboard Observers
         self.registerForKeyboardNotifications()
         
-        // API
-        checkNetworkConnection({ [unowned self] success in
-            if success {
-                DispatchQueue.main.async(execute: {
-                    let requestModel = DeliveryTermsShowModels.Dates.RequestModel()
-                    self.interactor?.fetchDates(withRequestModel: requestModel)
-                })
-            }
+        // CoreData
+        DispatchQueue.main.async(execute: {
+            let requestModel = DeliveryTermsShowModels.Dates.RequestModel()
+            self.interactor?.fetchDates(withRequestModel: requestModel)
         })
     }
     
