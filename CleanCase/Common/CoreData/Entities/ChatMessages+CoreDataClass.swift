@@ -18,13 +18,22 @@ public class ChatMessages: NSManagedObject {
     }
     
     // MARK: - Class Functions
-    func updateEntity(fromJSON json: [String: Any]) {
+    func updateEntity(fromResponse responseAPI: ResponseAPIChatMessage) {
         self.created_date       =   getTodayString()
-        self.laundry_id         =   Int32(json["LaundryId"] as! Int)
-        self.text               =   json["Data"] as! String
+        self.laundry_id         =   responseAPI.LaundryId
+        self.text               =   responseAPI.text
         
         self.save()
-    }}
+    }
+ 
+    func updateEntity( laundry_id: Int32, text: String) {
+        self.created_date       =   getTodayString()
+        self.laundry_id         =   laundry_id
+        self.text               =   text
+        
+        self.save()
+    }
+}
 
 func getTodayString() -> String{
     

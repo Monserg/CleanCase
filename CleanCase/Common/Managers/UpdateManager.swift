@@ -124,10 +124,17 @@ class UpdateManager {
                         Logger.log(message: "Update Manager return true", event: .Severe)
                         completion(true, nil)
                     }
+                    
                     //chat message
                     if model.Command == 11 {
                         
                         Logger.log(message: "Add new chat message", event: .Severe)
+                        
+                        if let dataXML = model.Data, !dataXML.isEmpty {
+                            // CoreData
+                            let messageEntity = CoreDataManager.instance.createEntity("ChatMessages") as! ChatMessages
+                            messageEntity.updateEntity(laundry_id: 1, text: dataXML)
+                        }
                     }
                     
                 }

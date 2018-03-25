@@ -162,3 +162,10 @@ struct ResponseAPIRecordIDResult: Decodable {
     // MARK: - Properties
     let GetRecordIdResult: Int64
 }
+
+struct ResponseAPIChatMessage: Decodable {
+    // MARK: - Properties
+    let created_date: String
+    let LaundryId: Int32
+    let text: String
+}
