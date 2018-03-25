@@ -18,12 +18,6 @@
 		B1413A7F20358D9100E62463 /* OrderItemsTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1413A7E20358D9100E62463 /* OrderItemsTableViewFooterView.swift */; };
 		B1413A8120358DAD00E62463 /* OrderItemsTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1413A8020358DAD00E62463 /* OrderItemsTableViewFooterView.xib */; };
 		B148E8FB202C410C0007D79B /* ChatShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B148E8FA202C410C0007D79B /* ChatShow.storyboard */; };
-		B148E903202C418B0007D79B /* ChatShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */; };
-		B148E904202C418B0007D79B /* ChatShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8FE202C418B0007D79B /* ChatShowWorker.swift */; };
-		B148E905202C418B0007D79B /* ChatShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E8FF202C418B0007D79B /* ChatShowRouter.swift */; };
-		B148E906202C418B0007D79B /* ChatShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E900202C418B0007D79B /* ChatShowModels.swift */; };
-		B148E907202C418B0007D79B /* ChatShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E901202C418B0007D79B /* ChatShowViewController.swift */; };
-		B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E902202C418B0007D79B /* ChatShowInteractor.swift */; };
 		B148E910202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E90A202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift */; };
 		B148E913202C9C3F0007D79B /* DeliveryTermsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E90D202C9C3F0007D79B /* DeliveryTermsShowModels.swift */; };
 		B148E914202C9C3F0007D79B /* DeliveryTermsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B148E90E202C9C3F0007D79B /* DeliveryTermsShowViewController.swift */; };
@@ -164,12 +158,6 @@
 		B1413A7E20358D9100E62463 /* OrderItemsTableViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemsTableViewFooterView.swift; sourceTree = "<group>"; };
 		B1413A8020358DAD00E62463 /* OrderItemsTableViewFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderItemsTableViewFooterView.xib; sourceTree = "<group>"; };
 		B148E8FA202C410C0007D79B /* ChatShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatShow.storyboard; sourceTree = "<group>"; };
-		B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowPresenter.swift; sourceTree = "<group>"; };
-		B148E8FE202C418B0007D79B /* ChatShowWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowWorker.swift; sourceTree = "<group>"; };
-		B148E8FF202C418B0007D79B /* ChatShowRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowRouter.swift; sourceTree = "<group>"; };
-		B148E900202C418B0007D79B /* ChatShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowModels.swift; sourceTree = "<group>"; };
-		B148E901202C418B0007D79B /* ChatShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowViewController.swift; sourceTree = "<group>"; };
-		B148E902202C418B0007D79B /* ChatShowInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShowInteractor.swift; sourceTree = "<group>"; };
 		B148E90A202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowPresenter.swift; sourceTree = "<group>"; };
 		B148E90D202C9C3F0007D79B /* DeliveryTermsShowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowModels.swift; sourceTree = "<group>"; };
 		B148E90E202C9C3F0007D79B /* DeliveryTermsShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTermsShowViewController.swift; sourceTree = "<group>"; };
@@ -343,19 +331,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B148E8FC202C41750007D79B /* ChatShow */ = {
-			isa = PBXGroup;
-			children = (
-				B148E902202C418B0007D79B /* ChatShowInteractor.swift */,
-				B148E900202C418B0007D79B /* ChatShowModels.swift */,
-				B148E8FD202C418B0007D79B /* ChatShowPresenter.swift */,
-				B148E8FF202C418B0007D79B /* ChatShowRouter.swift */,
-				B148E901202C418B0007D79B /* ChatShowViewController.swift */,
-				B148E8FE202C418B0007D79B /* ChatShowWorker.swift */,
-			);
-			path = ChatShow;
-			sourceTree = "<group>";
-		};
 		B148E909202C9BE70007D79B /* DeliveryTermsShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,7 +453,6 @@
 			children = (
 				B1FA2D5720245ECF00351BB7 /* AboutShow */,
 				B19DA3CC202852BE00E9F7D6 /* AgreementShow */,
-				B148E8FC202C41750007D79B /* ChatShow */,
 				B148E909202C9BE70007D79B /* DeliveryTermsShow */,
 				B1FA2CEC20244D9700351BB7 /* FlowControlShow */,
 				B1FA2D8820246D1400351BB7 /* LeftSideMenuShow */,
@@ -957,7 +931,6 @@
 				B139620020403A2100B5063C /* NSManagedObject+Extensions.swift in Sources */,
 				B1FA2D9F202490A900351BB7 /* CoreDataManager.swift in Sources */,
 				B148E910202C9C3F0007D79B /* DeliveryTermsShowPresenter.swift in Sources */,
-				B148E908202C418B0007D79B /* ChatShowInteractor.swift in Sources */,
 				B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */,
 				B1597D19203189FD00C75966 /* PersonalData+CoreDataProperties.swift in Sources */,
 				B19DA3FB2028B0B000E9F7D6 /* Laundry+CoreDataClass.swift in Sources */,
@@ -977,7 +950,6 @@
 				B1FA2D9A2024735D00351BB7 /* LeftMenuItemCell.swift in Sources */,
 				B1FA2D4520245E2B00351BB7 /* PersonalDataShowInteractor.swift in Sources */,
 				B1798D3B20336B9600381584 /* Date+Extensions.swift in Sources */,
-				B148E904202C418B0007D79B /* ChatShowWorker.swift in Sources */,
 				B1FA2D4320245E2B00351BB7 /* PersonalDataShowModels.swift in Sources */,
 				B1FA2D9420246D2100351BB7 /* LeftSideMenuShowInteractor.swift in Sources */,
 				B1FA2D7E20245FC000351BB7 /* PriceListShowRouter.swift in Sources */,
@@ -1000,7 +972,6 @@
 				B1FA2D9D2024748E00351BB7 /* Protocols.swift in Sources */,
 				B1FA2D2620245D5F00351BB7 /* OrderShowRouter.swift in Sources */,
 				B1DBBCF4203F3DE100C30EA7 /* Token+CoreDataProperties.swift in Sources */,
-				B148E903202C418B0007D79B /* ChatShowPresenter.swift in Sources */,
 				B1FA2DB620249B2F00351BB7 /* ShareInteractor.swift in Sources */,
 				B1FA2D8020245FC000351BB7 /* PriceListShowViewController.swift in Sources */,
 				B1EEED8120257B6200F257AA /* Bundle+Extensions.swift in Sources */,
@@ -1008,7 +979,6 @@
 				B1FA2CF620244DC200351BB7 /* FlowControlShowModels.swift in Sources */,
 				B1597D18203189FD00C75966 /* PersonalData+CoreDataClass.swift in Sources */,
 				B1FA2DB3202498C500351BB7 /* Version+CoreDataProperties.swift in Sources */,
-				B148E905202C418B0007D79B /* ChatShowRouter.swift in Sources */,
 				B1FA2D9120246D2100351BB7 /* LeftSideMenuShowRouter.swift in Sources */,
 				B1597D1C2031E55E00C75966 /* OrderTableViewCell.swift in Sources */,
 				B1FA2DA92024948400351BB7 /* RestAPIManager.swift in Sources */,
@@ -1018,10 +988,8 @@
 				B1847C642036B8BD0052DC18 /* DepartmentCollectionViewCell.swift in Sources */,
 				B148E919202CA61E0007D79B /* DeliveryTermsShowRouter.swift in Sources */,
 				B1FA2D052024500000351BB7 /* SignInShowModels.swift in Sources */,
-				B148E907202C418B0007D79B /* ChatShowViewController.swift in Sources */,
 				B1FA2D5420245E8900351BB7 /* OrdersShowInteractor.swift in Sources */,
 				B1FA2D5120245E8900351BB7 /* OrdersShowRouter.swift in Sources */,
-				B148E906202C418B0007D79B /* ChatShowModels.swift in Sources */,
 				B1847C682036BF200052DC18 /* DepartmentItemTableViewCell.swift in Sources */,
 				B17940A620261BA100A9B675 /* UIViewController+Extensions.swift in Sources */,
 				B1FA2D5320245E8900351BB7 /* OrdersShowViewController.swift in Sources */,
