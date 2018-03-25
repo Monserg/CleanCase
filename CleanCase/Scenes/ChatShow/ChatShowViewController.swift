@@ -145,7 +145,7 @@ extension ChatShowViewController: UITableViewDataSource {
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cellIdentifier = "ChatCell"
+            let cellIdentifier = "ChatTableViewCell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! ChatTableViewCell
             let message = self.router!.dataStore!.messages[indexPath.row]
             
