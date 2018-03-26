@@ -68,6 +68,13 @@ class UpdateManager {
                                 case 5:
                                     order.orderStatus   =   dataInfo.status
                                     
+                                // ChangeCollection
+                                case 13:
+                                    if let collectionTerms = dataInfo.collection {
+                                        order.collectionTo      =   collectionTerms
+                                        order.collectionFrom    =   collectionTerms
+                                    }
+                                    
                                 default:
                                     break
                                 }
