@@ -27,16 +27,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter message" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="C3e-gP-W7Y" customClass="SKTextField" customModule="SKStyleKit">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Enter message" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Fdb-og-SdT">
                                         <rect key="frame" x="93" y="7" width="210" height="30"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jAV-0s-wmd"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="textFieldTextStyle"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderStyleName" value="textFieldPlaceholderStyle"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2D-qR-VsW" userLabel="Send Message Button">
                                         <rect key="frame" x="319" y="-2" width="48" height="48"/>
                                         <constraints>
@@ -52,12 +51,12 @@
                                 <constraints>
                                     <constraint firstItem="oX9-fQ-Rjv" firstAttribute="leading" secondItem="76G-GP-ntu" secondAttribute="leading" constant="8" id="DzF-HJ-uhv"/>
                                     <constraint firstAttribute="trailing" secondItem="G2D-qR-VsW" secondAttribute="trailing" constant="8" id="G7q-HV-mtk"/>
+                                    <constraint firstItem="Fdb-og-SdT" firstAttribute="centerY" secondItem="76G-GP-ntu" secondAttribute="centerY" id="GFH-7J-7dA"/>
                                     <constraint firstItem="G2D-qR-VsW" firstAttribute="centerY" secondItem="76G-GP-ntu" secondAttribute="centerY" id="KWm-nc-Vps"/>
-                                    <constraint firstItem="C3e-gP-W7Y" firstAttribute="centerY" secondItem="76G-GP-ntu" secondAttribute="centerY" id="VY8-vW-AyA"/>
                                     <constraint firstItem="oX9-fQ-Rjv" firstAttribute="centerY" secondItem="76G-GP-ntu" secondAttribute="centerY" id="gJQ-SF-mfJ"/>
-                                    <constraint firstItem="G2D-qR-VsW" firstAttribute="leading" secondItem="C3e-gP-W7Y" secondAttribute="trailing" constant="16" id="uyh-yo-ku5"/>
                                     <constraint firstAttribute="height" constant="44" id="vKa-Iw-tsp"/>
-                                    <constraint firstItem="C3e-gP-W7Y" firstAttribute="leading" secondItem="oX9-fQ-Rjv" secondAttribute="trailing" constant="16" id="x9Q-2W-btL"/>
+                                    <constraint firstItem="G2D-qR-VsW" firstAttribute="leading" secondItem="Fdb-og-SdT" secondAttribute="trailing" constant="16" id="xQ9-xx-4iB"/>
+                                    <constraint firstItem="Fdb-og-SdT" firstAttribute="leading" secondItem="oX9-fQ-Rjv" secondAttribute="trailing" constant="16" id="zZZ-1z-Krf"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
@@ -146,8 +145,8 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="messageTextField" destination="C3e-gP-W7Y" id="im2-bK-8Vy"/>
                         <outlet property="tableView" destination="Tlz-Qu-BUO" id="OcH-cz-PhS"/>
+                        <outlet property="textView" destination="Fdb-og-SdT" id="ezY-QC-1Ow"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAq-GF-OKG" userLabel="First Responder" sceneMemberID="firstResponder"/>

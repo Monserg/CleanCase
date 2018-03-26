@@ -12,6 +12,7 @@
 
 import UIKit
 import SKStyleKit
+import DynamicColor
 
 // MARK: - Input & Output protocols
 protocol ChatShowDisplayLogic: class {
@@ -37,13 +38,23 @@ class ChatShowViewController: UIViewController, RefreshDataSupport {
         }
     }
 
-    @IBOutlet weak var messageTextField: UITextField! {
+    @IBOutlet weak var textView: UITextView! {
         didSet {
-            messageTextField.placeholder!.localize()
-            messageTextField.delegate       =   self
+            textView.text!.localize()
+            textView.backgroundColor      =   DynamicColor(hexString: "#82FFFF")              // veryLightCyan
+            textView.layer.borderColor    =   DynamicColor(hexString: "#A9A9A9").cgColor      // gray
+            textView.layer.borderWidth    =   1
+            textView.layer.cornerRadius   =   4
+            textView.font                 =   UIFont.systemFont(ofSize: 16.0)
+            textView.textAlignment        =   .right
+            textView.textColor            =   DynamicColor(hexString: "#A9A9A9")              // gray
+            textView.tintColor            =   DynamicColor(hexString: "#000000")              // black
+            textView.textContainerInset   =   UIEdgeInsets(top: 4.0, left: 1.0, bottom: 4.0, right: 4.0)
+            
+            textView.delegate   =   self
         }
     }
-    
+
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -126,10 +137,35 @@ class ChatShowViewController: UIViewController, RefreshDataSupport {
         interactor?.loadMessages(withRequestModel: requestModel)
     }
     
+    fileprivate func loadTextViewPlaceholder(_ text: String?) {
+        guard text != nil else {
+            textView.text         =   ""
+            textView.textColor    =   DynamicColor(hexString: "#000000")              // black
+            return
+        }
+        
+        if (text!.isEmpty) {
+            textView.text         =   "Enter message".localized()
+            textView.textColor    =   DynamicColor(hexString: "#A9A9A9")              // gray
+        }
+            
+        else if text == "Enter message".localized() {
+            textView.text         =   ""
+            textView.textColor    =   DynamicColor(hexString: "#A9A9A9")              // gray
+        }
+            
+        else {
+            textView.textColor    =   DynamicColor(hexString: "#000000")              // black
+        }
+    }
+
     
     // MARK: - Gestures
     @IBAction func handlerTapGestureOnTableView(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+        
+        // Scroll UITextView
+        textView.scrollRangeToVisible(NSMakeRange(0, 0))
     }
     
     
@@ -140,18 +176,18 @@ class ChatShowViewController: UIViewController, RefreshDataSupport {
     }
 
     @IBAction func handlerSendMessageButtonTapped(_ sender: UIButton) {
-        if let text = self.messageTextField.text, text.count > 0 {
+        if let text = self.textView.text, text.count > 0, text != "Enter message".localized() {
             // API
             checkNetworkConnection({ [unowned self] success in
                 if success {
-                    let requestModel = ChatShowModels.Message.RequestModel(message: self.messageTextField.text)
+                    let requestModel = ChatShowModels.Message.RequestModel(message: text)
                     self.interactor?.sendMessage(withRequestModel: requestModel)
                 }
             })
         }
         
         else {
-            self.showAlertView(withTitle: "Error", andMessage: "", needCancel: false, completion: { _ in })
+            self.showAlertView(withTitle: "Info", andMessage: "Enter message", needCancel: false, completion: { _ in })
         }
     }
 }
@@ -238,30 +274,22 @@ extension ChatShowViewController: UITableViewDelegate {
 }
 
 
-// MARK: - UITextFieldDelegate
-extension ChatShowViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    // Clear button tap
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    // TextField editing
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return (textField.text!.count + string.count) < 101
-    }
-    
-    // Return button tap
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+// MARK: - UITextViewDelegate
+extension ChatShowViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        loadTextViewPlaceholder((textView.text == "Enter message".localized()) ? nil : textView.text)
         
         return true
     }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        loadTextViewPlaceholder((textView.text == "Enter message".localized()) ? nil : textView.text)
+
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return (textView.text!.count + text.count) < 100
+    }
 }
+

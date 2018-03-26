@@ -54,7 +54,6 @@ extension String {
     }
     
     static func createDate(from date: Date? = nil, withFormat dateFormat: String) -> String {
-//        static func createDateString(fromComponents components: DateComponents, withDateFormat dateFormat: String) -> String {
         let dateFormatter               =   DateFormatter()
         dateFormatter.locale            =   NSLocale.current
         dateFormatter.dateFormat        =   dateFormat

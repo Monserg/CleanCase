@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1(2)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZ5-3r-5hN">
-                                <rect key="frame" x="146.5" y="641" width="82" height="18"/>
+                                <rect key="frame" x="146.5" y="633" width="82" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                             <constraint firstItem="7CB-lN-PO6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="PCy-qB-tPh"/>
                             <constraint firstItem="VPH-bJ-Avz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X2g-dd-whx"/>
                             <constraint firstItem="yZ5-3r-5hN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YIk-Uw-C8R"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yZ5-3r-5hN" secondAttribute="bottom" constant="8" id="tvN-i4-adV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yZ5-3r-5hN" secondAttribute="bottom" constant="16" id="tvN-i4-adV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VPH-bJ-Avz" secondAttribute="bottom" id="u5E-lh-I1Y"/>
                             <constraint firstItem="VPH-bJ-Avz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yiH-wR-06z"/>
                         </constraints>

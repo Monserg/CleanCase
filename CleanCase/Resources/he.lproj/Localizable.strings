@@ -103,7 +103,7 @@
 
 // Info/Errors Messages
 "Info"                                      =   "לתשומתך!";
-"Error"                                     =   "He Error";
+"Error"                                     =   "שגיא";
 "CoreData saved error"                      =   "He There was an error creating or loading the application's saved data";
 "CoreData init error"                       =   "He Failed to initialize the application's saved data";
 "Empty phone number message"                =   "He Please\nenter phone number";
