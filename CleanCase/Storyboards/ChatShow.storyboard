@@ -42,7 +42,8 @@
                                             <constraint firstAttribute="width" constant="48" id="4lJ-TM-qhw"/>
                                             <constraint firstAttribute="height" constant="48" id="HjO-Wf-jhs"/>
                                         </constraints>
-                                        <state key="normal" image="icon-send-message"/>
+                                        <state key="normal" image="icon-send-message-normal"/>
+                                        <state key="highlighted" image="icon-send-message-highlighted"/>
                                         <connections>
                                             <action selector="handlerSendMessageButtonTapped:" destination="oaO-vs-Yw4" eventType="touchUpInside" id="Jgx-D0-Fsc"/>
                                         </connections>
@@ -145,6 +146,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="sendMessageButton" destination="G2D-qR-VsW" id="OGZ-HD-oV0"/>
                         <outlet property="tableView" destination="Tlz-Qu-BUO" id="OcH-cz-PhS"/>
                         <outlet property="textView" destination="Fdb-og-SdT" id="ezY-QC-1Ow"/>
                     </connections>
@@ -161,6 +163,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-send-message" width="48" height="48"/>
+        <image name="icon-send-message-highlighted" width="48" height="48"/>
+        <image name="icon-send-message-normal" width="48" height="48"/>
     </resources>
 </document>

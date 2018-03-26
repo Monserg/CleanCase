@@ -33,7 +33,7 @@ class ChatShowViewController: UIViewController, RefreshDataSupport {
             tableView.dataSource    =   self
 
             // Set automatic dimensions for row height
-            tableView.rowHeight             =       UITableViewAutomaticDimension
+            tableView.rowHeight             =   UITableViewAutomaticDimension
             tableView.estimatedRowHeight    =   UITableViewAutomaticDimension
         }
     }
@@ -41,20 +41,25 @@ class ChatShowViewController: UIViewController, RefreshDataSupport {
     @IBOutlet weak var textView: UITextView! {
         didSet {
             textView.text!.localize()
-            textView.backgroundColor      =   DynamicColor(hexString: "#82FFFF")              // veryLightCyan
-            textView.layer.borderColor    =   DynamicColor(hexString: "#A9A9A9").cgColor      // gray
-            textView.layer.borderWidth    =   1
-            textView.layer.cornerRadius   =   4
-            textView.font                 =   UIFont.systemFont(ofSize: 16.0)
-            textView.textAlignment        =   .right
-            textView.textColor            =   DynamicColor(hexString: "#A9A9A9")              // gray
-            textView.tintColor            =   DynamicColor(hexString: "#000000")              // black
-            textView.textContainerInset   =   UIEdgeInsets(top: 4.0, left: 1.0, bottom: 4.0, right: 4.0)
+            textView.backgroundColor        =   DynamicColor(hexString: "#82FFFF")              // veryLightCyan
+            textView.layer.borderColor      =   DynamicColor(hexString: "#A9A9A9").cgColor      // gray
+            textView.layer.borderWidth      =   1
+            textView.layer.cornerRadius     =   4
+            textView.font                   =   UIFont.systemFont(ofSize: 16.0)
+            textView.textAlignment          =   .right
+            textView.textColor              =   DynamicColor(hexString: "#A9A9A9")              // gray
+            textView.tintColor              =   DynamicColor(hexString: "#000000")              // black
+            textView.textContainerInset     =   UIEdgeInsets(top: 4.0, left: 1.0, bottom: 4.0, right: 4.0)
             
             textView.delegate   =   self
         }
     }
 
+    @IBOutlet weak var sendMessageButton: UIButton! {
+        didSet {
+            sendMessageButton.showsTouchWhenHighlighted   =   true
+        }
+    }
     
     // MARK: - Class Initialization
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
