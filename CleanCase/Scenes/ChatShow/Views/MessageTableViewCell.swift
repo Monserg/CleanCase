@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import DynamicColor
 
-class ChatTableViewCell: UITableViewCell {
-
-    // MaARK: - IBOutlets
-
+class MessageTableViewCell: UITableViewCell {
+    // MARK: - IBOutlets
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var labelsView: UIView!
 
+    
     // MARK: - Class Functions
         override func awakeFromNib() {
             super.awakeFromNib()
@@ -27,14 +29,15 @@ class ChatTableViewCell: UITableViewCell {
     
     
     // MARK: - Custom Functions
-    extension ChatTableViewCell: ConfigureCell {
+    extension MessageTableViewCell: ConfigureCell {
         func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
-            let message = item as! ChatShowModels.Message.RequestModel.DisplayedMessage
+            let message = item as! Message
             
-            self.messageLabel.text    =   message.text
+            self.messageLabel.text              =   message.text
+            self.dateLabel.text                 =   message.date
+            self.labelsView.backgroundColor     =   (message.type == 0) ? UIColor.white : DynamicColor(hexString: "#FAEBD8")
             
-            
-            selectionStyle              =   .none
+            selectionStyle  =   .none
         }
     }
 

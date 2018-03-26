@@ -75,10 +75,10 @@ class DeliveryTermsShowInteractor: ShareInteractor, DeliveryTermsShowBusinessLog
                                                                                  withPredicateParameters: NSPredicate.init(format: "weekDay == \(dateComponents.weekday!)"),
                                                                                  andSortDescriptor: nil) as? [DeliveryDate] {
                     // Times
-                    let dateEntity = dateEntities.first!
-                    var dateTimes = [PickerViewSupport]()
-                    let weekDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "dd/MM/yyyy")
-                    let deliveryDate = String.createDateString(fromComponents: dateComponents, withDateFormat: "yyyy-MM-dd")
+                    let dateEntity      =   dateEntities.first!
+                    var dateTimes       =   [PickerViewSupport]()
+                    let weekDate        =   String.createDate(from: date, withFormat: "dd/MM/yyyy")
+                    let deliveryDate    =   String.createDate(from: date, withFormat: "yyyy-MM-dd")
 
                     // Check times for current date
                     for (index, dateEntity) in dateEntities.enumerated() {

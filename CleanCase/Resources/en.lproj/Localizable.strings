@@ -67,7 +67,7 @@
 "Total Caption"                             =   "Total";
 "Delivery Date Note"                        =   "Not definitely";
 "Cleaning instructions notes"               =   "Cleaning instructions notes";
-"Message"                                   =   "Message";
+"Message"                                   =   "הודעה";
 
 
 // Titles
@@ -81,6 +81,7 @@
 "About App is empty"                        =   "Content of About us\nis empty";
 "Notification Title"                        =   "Notification Title";
 "Order is ready"                            =   " .Order is ready";
+"Messages List is Empty"                    =   " ";
 
 
 // Buttons

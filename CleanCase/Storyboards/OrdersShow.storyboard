@@ -135,6 +135,16 @@
                         <outlet property="tableViewTopConstraint" destination="8bc-ka-jNT" id="Nr2-mb-1ZL"/>
                     </connections>
                 </viewController>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exM-DQ-aVV" userLabel="Bottom View" customClass="SKView" customModule="SKStyleKit">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Feq-AL-WPz"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="bih-t5-TMe"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLL-7Q-Xa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="206" y="107"/>

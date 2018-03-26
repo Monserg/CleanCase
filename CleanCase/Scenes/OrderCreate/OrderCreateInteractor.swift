@@ -109,8 +109,8 @@ class OrderCreateInteractor: ShareInteractor, OrderCreateBusinessLogic, OrderCre
                     // Times
                     let dateEntity  =   dateEntities.first!
                     var dateTimes   =   [PickerViewSupport]()
-                    let weekDate    =   String.createDateString(fromComponents: dateComponents, withDateFormat: "dd/MM/yyyy")
-                    let bodyDate    =   String.createDateString(fromComponents: dateComponents, withDateFormat: "yyyy-MM-dd")
+                    let weekDate    =   String.createDate(from: date, withFormat: "dd/MM/yyyy")
+                    let bodyDate    =   String.createDate(from: date, withFormat: "yyyy-MM-dd")
 
                     // Check times for current date
                     for (index, dateEntity) in dateEntities.enumerated() {

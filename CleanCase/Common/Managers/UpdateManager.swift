@@ -54,7 +54,7 @@ class UpdateManager {
                         if let dataXML = model.Data, !dataXML.isEmpty {
                             let dataInfo = dataXML.convertToValues()
                             
-                            // CoreData
+                            // CoreData: use Order commands
                             if let order = CoreDataManager.instance.readEntity(withName:                "Order",
                                                                                andPredicateParameters:  NSPredicate.init(format: "orderID == \(dataInfo.orderID)")) as? Order {
                                 switch model.Command {
@@ -74,6 +74,18 @@ class UpdateManager {
                                 
                                 order.save()
                                 completion(true, dataInfo.status)
+                            }
+                            
+                            // Message
+                            else if model.Command == 11 {
+                                Logger.log(message: "Add new chat message", event: .Severe)
+                                
+                                if let dataXML = model.Data, !dataXML.isEmpty {
+                                    // CoreData
+                                    let messageEntity = CoreDataManager.instance.createEntity("Message") as! Message
+                                    messageEntity.updateEntity(withType: model.LaundryId, andText: dataXML)
+                                    NotificationCenter.default.post(name: Notification.Name("CompleteReceiveNewMessage"), object: nil)
+                                }
                             }
                         }
                     }

@@ -53,11 +53,14 @@ extension String {
         return dateFormatter.string(from: nextDate)
     }
     
-    static func createDateString(fromComponents components: DateComponents, withDateFormat dateFormat: String) -> String {
+    static func createDate(from date: Date? = nil, withFormat dateFormat: String) -> String {
+//        static func createDateString(fromComponents components: DateComponents, withDateFormat dateFormat: String) -> String {
         let dateFormatter               =   DateFormatter()
         dateFormatter.locale            =   NSLocale.current
         dateFormatter.dateFormat        =   dateFormat
-
+        
+        let components                  =   Calendar.current.dateComponents([ .year, .month, .day, .hour, .minute ], from: date ?? Date())
+        
         return dateFormatter.string(from: Calendar.current.date(from: components)!)
     }
     

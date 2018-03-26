@@ -431,7 +431,7 @@ extension SignInShowViewController: UITextFieldDelegate {
 }
 
 
-
+// MARK: - UIGestureRecognizerDelegate
 extension SignInShowViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return !touch.view!.isKind(of: M13Checkbox.self)

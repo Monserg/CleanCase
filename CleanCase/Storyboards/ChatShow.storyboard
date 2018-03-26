@@ -18,26 +18,150 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChatShow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="311-NN-Nfu">
-                                <rect key="frame" x="147.5" y="323" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76G-GP-ntu" userLabel="Top View" customClass="SKView" customModule="SKStyleKit">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX9-fQ-Rjv" userLabel="Message Label">
+                                        <rect key="frame" x="8" y="12" width="69" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter message" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="C3e-gP-W7Y" customClass="SKTextField" customModule="SKStyleKit">
+                                        <rect key="frame" x="93" y="7" width="210" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="textFieldTextStyle"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderStyleName" value="textFieldPlaceholderStyle"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2D-qR-VsW" userLabel="Send Message Button">
+                                        <rect key="frame" x="319" y="-2" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="4lJ-TM-qhw"/>
+                                            <constraint firstAttribute="height" constant="48" id="HjO-Wf-jhs"/>
+                                        </constraints>
+                                        <state key="normal" image="icon-send-message"/>
+                                        <connections>
+                                            <action selector="handlerSendMessageButtonTapped:" destination="oaO-vs-Yw4" eventType="touchUpInside" id="Jgx-D0-Fsc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="oX9-fQ-Rjv" firstAttribute="leading" secondItem="76G-GP-ntu" secondAttribute="leading" constant="8" id="DzF-HJ-uhv"/>
+                                    <constraint firstAttribute="trailing" secondItem="G2D-qR-VsW" secondAttribute="trailing" constant="8" id="G7q-HV-mtk"/>
+                                    <constraint firstItem="G2D-qR-VsW" firstAttribute="centerY" secondItem="76G-GP-ntu" secondAttribute="centerY" id="KWm-nc-Vps"/>
+                                    <constraint firstItem="C3e-gP-W7Y" firstAttribute="centerY" secondItem="76G-GP-ntu" secondAttribute="centerY" id="VY8-vW-AyA"/>
+                                    <constraint firstItem="oX9-fQ-Rjv" firstAttribute="centerY" secondItem="76G-GP-ntu" secondAttribute="centerY" id="gJQ-SF-mfJ"/>
+                                    <constraint firstItem="G2D-qR-VsW" firstAttribute="leading" secondItem="C3e-gP-W7Y" secondAttribute="trailing" constant="16" id="uyh-yo-ku5"/>
+                                    <constraint firstAttribute="height" constant="44" id="vKa-Iw-tsp"/>
+                                    <constraint firstItem="C3e-gP-W7Y" firstAttribute="leading" secondItem="oX9-fQ-Rjv" secondAttribute="trailing" constant="16" id="x9Q-2W-btL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBarTintColorStyle"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tlz-Qu-BUO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.93944048879999997" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" rowHeight="54" id="Q7D-iy-Nvy" customClass="MessageTableViewCell" customModule="CleanCase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q7D-iy-Nvy" id="RRe-k3-aQD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wj-md-72P">
+                                                    <rect key="frame" x="4" y="4" width="367" height="50"/>
+                                                    <subviews>
+                                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8e-87-H0Q" userLabel="Message Label" customClass="SKLabel" customModule="SKStyleKit">
+                                                            <rect key="frame" x="4" y="4" width="359" height="21"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="tableViewItemGreenStyle"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qug-qR-MAj" userLabel="Date Label" customClass="SKLabel" customModule="SKStyleKit">
+                                                            <rect key="frame" x="4" y="25" width="359" height="21"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="tableViewItemGreenStyle"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Qug-qR-MAj" secondAttribute="trailing" constant="4" id="2G5-U0-u5W"/>
+                                                        <constraint firstItem="Qug-qR-MAj" firstAttribute="top" secondItem="A8e-87-H0Q" secondAttribute="bottom" id="BwP-vF-ps3"/>
+                                                        <constraint firstItem="Qug-qR-MAj" firstAttribute="leading" secondItem="1wj-md-72P" secondAttribute="leading" constant="4" id="HLV-7f-GmQ"/>
+                                                        <constraint firstItem="A8e-87-H0Q" firstAttribute="top" secondItem="1wj-md-72P" secondAttribute="top" constant="4" id="HWM-G8-ECn"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Qug-qR-MAj" secondAttribute="bottom" constant="4" id="JJx-UR-08H"/>
+                                                        <constraint firstAttribute="trailing" secondItem="A8e-87-H0Q" secondAttribute="trailing" constant="4" id="lHw-nJ-8Rs"/>
+                                                        <constraint firstItem="A8e-87-H0Q" firstAttribute="leading" secondItem="1wj-md-72P" secondAttribute="leading" constant="4" id="tnS-lr-ZmW"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.94117647059999998" green="0.97254901959999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="1wj-md-72P" firstAttribute="leading" secondItem="RRe-k3-aQD" secondAttribute="leading" constant="4" id="6bL-gs-axq"/>
+                                                <constraint firstAttribute="trailing" secondItem="1wj-md-72P" secondAttribute="trailing" constant="4" id="ASl-O0-e4f"/>
+                                                <constraint firstItem="1wj-md-72P" firstAttribute="top" secondItem="RRe-k3-aQD" secondAttribute="top" constant="4" id="MbT-54-zIb"/>
+                                                <constraint firstAttribute="bottom" secondItem="1wj-md-72P" secondAttribute="bottom" id="iQA-JE-Pdo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="Qug-qR-MAj" id="e8I-uG-rVX"/>
+                                            <outlet property="labelsView" destination="1wj-md-72P" id="izc-x0-PxI"/>
+                                            <outlet property="messageLabel" destination="A8e-87-H0Q" id="7ob-91-vAu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Cju-ha-S1q" appends="YES" id="Nhl-BX-vf5"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="311-NN-Nfu" firstAttribute="centerY" secondItem="oIM-ea-WZP" secondAttribute="centerY" id="4bi-ZF-vgg"/>
-                            <constraint firstItem="311-NN-Nfu" firstAttribute="centerX" secondItem="oIM-ea-WZP" secondAttribute="centerX" id="EdY-OK-ZsV"/>
+                            <constraint firstItem="Tlz-Qu-BUO" firstAttribute="top" secondItem="76G-GP-ntu" secondAttribute="bottom" id="PHK-Ir-2Ou"/>
+                            <constraint firstItem="76G-GP-ntu" firstAttribute="leading" secondItem="Ky1-yv-xif" secondAttribute="leading" id="U09-2e-2W9"/>
+                            <constraint firstItem="76G-GP-ntu" firstAttribute="trailing" secondItem="Ky1-yv-xif" secondAttribute="trailing" id="XaO-Rc-6ID"/>
+                            <constraint firstItem="76G-GP-ntu" firstAttribute="top" secondItem="Ky1-yv-xif" secondAttribute="top" id="l0t-0W-ZBu"/>
+                            <constraint firstItem="Ky1-yv-xif" firstAttribute="trailing" secondItem="Tlz-Qu-BUO" secondAttribute="trailing" id="lPV-bk-15u"/>
+                            <constraint firstItem="Ky1-yv-xif" firstAttribute="bottom" secondItem="Tlz-Qu-BUO" secondAttribute="bottom" id="pNp-vL-Xfg"/>
+                            <constraint firstItem="Tlz-Qu-BUO" firstAttribute="leading" secondItem="oIM-ea-WZP" secondAttribute="leading" id="tG0-d3-IxM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ky1-yv-xif"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="defaultBackgroundColorStyle"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="messageTextField" destination="C3e-gP-W7Y" id="im2-bK-8Vy"/>
+                        <outlet property="tableView" destination="Tlz-Qu-BUO" id="OcH-cz-PhS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAq-GF-OKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Cju-ha-S1q">
+                    <connections>
+                        <action selector="handlerTapGestureOnTableView:" destination="oaO-vs-Yw4" id="s9Z-zp-VRC"/>
+                        <outlet property="delegate" destination="oIM-ea-WZP" id="fkV-ky-uLz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="6" y="67"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-send-message" width="48" height="48"/>
+    </resources>
 </document>
