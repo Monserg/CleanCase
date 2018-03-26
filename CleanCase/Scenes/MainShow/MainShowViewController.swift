@@ -94,10 +94,11 @@ class MainShowViewController: UIViewController, RefreshDataSupport {
         })
         
         // Check Departments in CoreData
-        DispatchQueue.main.async {
+        performUIUpdatesOnMain {
             if CoreDataManager.instance.readEntities(withName: "Department", withPredicateParameters: nil, andSortDescriptor: nil)!.count == 0 {
                 Logger.log(message: "Departments List is empty", event: .Severe)
 
+                // API
                 RestAPIManager().fetchRequest(withRequestType: .getDepartmentsList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPIDepartmentsResult.self, completionHandler: { responseAPI in
                     if let result = responseAPI.model as? ResponseAPIDepartmentsResult {
                         // Delete all departments

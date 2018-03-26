@@ -151,7 +151,7 @@ class OrderShowViewController: UIViewController, RefreshDataSupport {
             self.saveOrderID(self.router!.dataStore!.orderID)
             self.loadViewSettings()
             
-            DispatchQueue.main.async {
+            performUIUpdatesOnMain {
                 self.tableView.reloadData()
             }
         }

@@ -134,6 +134,51 @@ class UpdateManager {
                                     })
                                 }
                             })
+                        
+                        // AddCollectionDates
+                        case 3:
+                            // API 'Get delivery dates'
+                            performUIUpdatesOnMain {
+                                RestAPIManager().fetchRequest(withRequestType: .getDeliveryDatesList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { responseAPI in
+                                    if let result = responseAPI.model as? ResponseAPIDeliveryDatesResult {
+                                        CoreDataManager.instance.deleteEntities(withName: "DeliveryDate", andPredicateParameters: nil, completion: { success in
+                                            if success {
+                                                for model in result.GetDeliveryDatesResult {
+                                                    if model.Type == 2 {
+                                                        let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == 2 AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
+                                                        
+                                                        CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "DeliveryDate",
+                                                                                                                          predicate:  predicate,
+                                                                                                                          model:      model))
+                                                    }
+                                                }
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                            
+                            // API 'Get collection dates'
+                            performUIUpdatesOnMain {
+                                RestAPIManager().fetchRequest(withRequestType: .getCollectionDatesList([ "laundry_id": Laundry.codeID ], false), andResponseType: ResponseAPICollectionDatesResult.self, completionHandler: { responseAPI in
+                                    if let result = responseAPI.model as? ResponseAPICollectionDatesResult {
+                                        // Delete all departments
+                                        CoreDataManager.instance.deleteEntities(withName: "CollectionDate", andPredicateParameters: nil, completion: { success in
+                                            if success {
+                                                for model in result.GetCollectionDatesResult {
+                                                    if model.Type == 1 {
+                                                        let predicate = NSPredicate.init(format: "fromDate == %@ AND toDate == %@ AND laundryId == \(model.LaundryId) AND type == 1 AND weekDay = \(model.WeekDay)", model.FromDate, model.ToDate, model.LaundryId)
+                                                        
+                                                        CoreDataManager.instance.updateEntity(withData: EntityUpdateTuple(name:       "CollectionDate",
+                                                                                                                          predicate:  predicate,
+                                                                                                                          model:      model))
+                                                    }
+                                                }
+                                            }
+                                        })
+                                    }
+                                })
+                            }
                             
                         default:
                             break
