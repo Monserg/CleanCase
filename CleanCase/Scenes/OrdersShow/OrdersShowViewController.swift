@@ -119,9 +119,9 @@ extension OrdersShowViewController: OrdersShowDisplayLogic {
     func displayOrders(fromViewModel viewModel: OrdersShowModels.OrderItem.ViewModel) {
         // NOTE: Display the result from the Presenter
         if let orders = self.router?.dataStore?.orders, orders.count > 0 {
-            DispatchQueue.main.async(execute: {
+            performUIUpdatesOnMain {
                 self.tableView.reloadData()
-            })
+            }
         }
     }
 }

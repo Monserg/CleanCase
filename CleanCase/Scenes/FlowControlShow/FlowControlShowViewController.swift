@@ -110,7 +110,7 @@ class FlowControlShowViewController: UIViewController {
     }
     
     fileprivate func routeToNextScene() {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
+        performTasksOnAsyncAfter(nanoseconds: 17) {
             guard Laundry.name != "My Laundry".localized() || Laundry.phoneNumber != nil else {
                 Logger.log(message: "Route to SignInShow scene", event: .Info)
                 self.performSegue(withIdentifier: "SignInShowSegue", sender: nil)
@@ -138,7 +138,7 @@ extension FlowControlShowViewController: FlowControlShowDisplayLogic {
             Logger.log(message: "App Working & Current Versions are not equal", event: .Verbose)
             SwiftSpinner.sharedInstance.title = "Please, restart App...".localized()
             
-            DispatchQueue.main.async(execute: {
+            performUIUpdatesOnMain {
                 if let url = URL(string: "https://itunes.apple.com/app/id1353769148"), UIApplication.shared.canOpenURL(url) {
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -150,7 +150,7 @@ extension FlowControlShowViewController: FlowControlShowDisplayLogic {
                 }
                 
                 self.flowControlLabel.isHidden = false
-            })
+            }
         }
     }
 }

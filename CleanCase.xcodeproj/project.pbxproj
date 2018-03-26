@@ -51,6 +51,7 @@
 		B19266B82067C4B20066A17C /* ChatShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19266B32067C4B20066A17C /* ChatShowRouter.swift */; };
 		B19266BC2067C5A20066A17C /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19266BA2067C5A20066A17C /* Message+CoreDataClass.swift */; };
 		B19266BD2067C5A20066A17C /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19266BB2067C5A20066A17C /* Message+CoreDataProperties.swift */; };
+		B19266BF2068C18A0066A17C /* GCDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19266BE2068C18A0066A17C /* GCDManager.swift */; };
 		B192FF442045AB4000F700B2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192FF432045AB4000F700B2 /* Logger.swift */; };
 		B19DA3CB2028529A00E9F7D6 /* AgreementShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */; };
 		B19DA3CE202852D100E9F7D6 /* AgreementShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DA3CD202852D100E9F7D6 /* AgreementShowViewController.swift */; };
@@ -200,6 +201,7 @@
 		B19266B92067C52F0066A17C /* CleanCaseModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CleanCaseModel 4.xcdatamodel"; sourceTree = "<group>"; };
 		B19266BA2067C5A20066A17C /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B19266BB2067C5A20066A17C /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B19266BE2068C18A0066A17C /* GCDManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDManager.swift; sourceTree = "<group>"; };
 		B192FF42204564F400F700B2 /* CleanCaseModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CleanCaseModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		B192FF432045AB4000F700B2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		B19DA3CA2028529A00E9F7D6 /* AgreementShow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementShow.storyboard; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				B1FA2D9E202490A900351BB7 /* CoreDataManager.swift */,
 				B17DC799203DECD7002BEF12 /* CustomTimer.swift */,
 				B1FA2DAA202496F100351BB7 /* ErrorManager.swift */,
+				B19266BE2068C18A0066A17C /* GCDManager.swift */,
 				B192FF432045AB4000F700B2 /* Logger.swift */,
 				B1FA2DA82024948400351BB7 /* RestAPIManager.swift */,
 				B13961FD204020C900B5063C /* UpdateManager.swift */,
@@ -1059,6 +1062,7 @@
 				B17DC79A203DECD7002BEF12 /* CustomTimer.swift in Sources */,
 				B15AF34F202B5139002B170F /* ToolBarPickerView.swift in Sources */,
 				B1FA2D3620245DDF00351BB7 /* OrderCreateModels.swift in Sources */,
+				B19266BF2068C18A0066A17C /* GCDManager.swift in Sources */,
 				B1FA2D2920245D5F00351BB7 /* OrderShowInteractor.swift in Sources */,
 				B1FA2CF320244DC200351BB7 /* FlowControlShowPresenter.swift in Sources */,
 				B1FA2D6F20245F4B00351BB7 /* WriteUsShowRouter.swift in Sources */,

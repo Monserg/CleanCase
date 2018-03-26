@@ -188,10 +188,10 @@ class MainShowViewController: UIViewController, RefreshDataSupport {
         // Handler left side menu item select
         leftSideMenuShowVC.handlerMenuItemSelectCompletion = { [unowned self] (scene) in
             if let nextScene = scene as? LeftSideMenuShowModels.MenuItems.ResponseModel.MenuItem  {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
+                performTasksOnAsyncAfter(nanoseconds: 3) {
                     leftSideMenuNC.dismiss(animated: true, completion: {})
                     
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 7) {
+                    performTasksOnAsyncAfter(nanoseconds: 7) {
                         if nextScene.storyboardName == "AgreementShow" {
                             SwiftSpinner.hide()
                             self.createPopover(withName: nextScene.storyboardName, completion: { [unowned self] in
@@ -272,7 +272,7 @@ class MainShowViewController: UIViewController, RefreshDataSupport {
     @objc func handlerShowDeliveryTermsSceneNotification(_ notification: Notification) {
         if !isDeliveryTermShow && sideMenuManager.menuLeftNavigationController!.isHidden {
             if Order.firstToDelivery != nil {
-                DispatchQueue.main.async(execute: {
+                performUIUpdatesOnMain {
                     Logger.log(message: "Display DeliveryTermsShow scene", event: .Verbose)
                     self.createPopover(withName: "DeliveryTermsShow", completion: { [unowned self] in
                         self.isDeliveryTermShow = false
@@ -283,7 +283,7 @@ class MainShowViewController: UIViewController, RefreshDataSupport {
                     })
                     
                     self.isDeliveryTermShow = true
-                })
+                }
             }
         }
     }

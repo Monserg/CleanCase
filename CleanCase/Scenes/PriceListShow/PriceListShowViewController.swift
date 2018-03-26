@@ -175,20 +175,20 @@ class PriceListShowViewController: UIViewController, RefreshDataSupport {
     }
     
     private func moveSelectedView() {
-        DispatchQueue.main.async(execute: {
+        performUIUpdatesOnMain {
             UIView.animate(withDuration: 0.1, animations: {
                 self.selectedView.frame.origin = CGPoint.init(x: self.departmentsCollectionView.frame.maxX + self.widthDepartmentCell * CGFloat(self.selectedDepartmentRow - self.router!.dataStore!.departments.count) + self.departmentsCollectionView.contentOffset.x,
                                                               y: self.selectedView.frame.minY)
             }, completion: nil)
-        })
+        }
     }
     
     
     // MARK: - Actions
     override func handlerCustomAppNotification(notification: Notification) {
-        DispatchQueue.main.async(execute: {
+        performUIUpdatesOnMain {
             self.viewSettingsDidLoad()
-        })
+        }
     }
 }
 
@@ -201,18 +201,18 @@ extension PriceListShowViewController: PriceListShowDisplayLogic {
             self.departmentsCollectionView.reloadData()
             self.selectedDepartmentRow = self.departmentsCollectionView.numberOfItems(inSection: 0) - 1
             
-            DispatchQueue.main.async(execute: {
+            performUIUpdatesOnMain {
                 let requestModel = PriceListShowModels.DepartmentItems.RequestModel.init(selectedDepartmentRow: self.selectedDepartmentRow)
                 self.interactor?.loadDepartmentItems(withRequestModel: requestModel)
-            })
+            }
         }
     }
     
     func displayDepartmentItems(fromViewModel viewModel: PriceListShowModels.DepartmentItems.ViewModel) {
         // NOTE: Display the result from the Presenter
-        DispatchQueue.main.async(execute: {
+        performUIUpdatesOnMain {
             self.departmentItemsTableView.reloadData()
-        })
+        }
     }
 }
 

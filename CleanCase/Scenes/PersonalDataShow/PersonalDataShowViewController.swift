@@ -218,7 +218,7 @@ class PersonalDataShowViewController: UIViewController, RefreshDataSupport {
                 if success {
                     self.view.isUserInteractionEnabled = false
                     
-                    DispatchQueue.main.async(execute: {
+                    performUIUpdatesOnMain {
                         let requestModel = PersonalDataShowModels.Client.RequestModel(params: [
                                 "ClientId":         PersonalData.current!.clientId,
                                 "LaundryId":        Laundry.codeID,
@@ -239,7 +239,7 @@ class PersonalDataShowViewController: UIViewController, RefreshDataSupport {
                             ])
                         
                         self.interactor?.updatePersonalData(withRequestModel: requestModel)
-                    })
+                    }
                 }
             })
         }

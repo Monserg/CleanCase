@@ -198,9 +198,9 @@ extension ChatShowViewController: ChatShowDisplayLogic {
     func displayMessages(fromViewModel viewModel: ChatShowModels.Message.ViewModel) {
         // NOTE: Display the result from the Presenter
         if let messages = self.router?.dataStore?.messages, messages.count > 0 {
-            DispatchQueue.main.async(execute: {
+            performUIUpdatesOnMain {
                 self.tableView.reloadData()
-            })
+            }
         }
     }
     
@@ -212,7 +212,11 @@ extension ChatShowViewController: ChatShowDisplayLogic {
         }
         
         self.showAlertView(withTitle: "Info", andMessage: "Message sent", needCancel: false, completion: { [unowned self] success in
-            self.navigationController?.popViewController(animated: true)
+            if success {
+                performUIUpdatesOnMain {
+                    self.tableView.reloadData()
+                }
+            }
         })
     }
 }
@@ -292,4 +296,3 @@ extension ChatShowViewController: UITextViewDelegate {
         return (textView.text!.count + text.count) < 100
     }
 }
-

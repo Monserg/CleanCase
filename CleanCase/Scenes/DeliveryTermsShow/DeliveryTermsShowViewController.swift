@@ -212,10 +212,10 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
         self.registerForKeyboardNotifications()
         
         // CoreData
-        DispatchQueue.main.async(execute: {
+        performUIUpdatesOnMain {
             let requestModel = DeliveryTermsShowModels.Dates.RequestModel()
             self.interactor?.fetchDates(withRequestModel: requestModel)
-        })
+        }
     }
     
     fileprivate func registerForKeyboardNotifications() {
@@ -238,10 +238,10 @@ class DeliveryTermsShowViewController: SharePopoverViewController {
             // API
             checkNetworkConnection({ [unowned self] success in
                 if success {
-                    DispatchQueue.main.async(execute: {
+                    performUIUpdatesOnMain {
                         let requestModel = DeliveryTermsShowModels.Item.RequestModel(comment: self.textView.text)
                         self.interactor?.confirmDeliveryTerms(withRequestModel: requestModel)
-                    })
+                    }
                 }
             })
         }

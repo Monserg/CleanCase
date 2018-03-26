@@ -195,10 +195,10 @@ class SignInShowViewController: UIViewController {
                 if success {
                     self.view.isUserInteractionEnabled = false
                     
-                    DispatchQueue.main.async(execute: {
+                    performUIUpdatesOnMain {
                         let requestModel = SignInShowModels.Laundry.RequestModel()
                         self.interactor?.fetchLaundry(withRequestModel: requestModel)
-                    })
+                    }
                 }
             })
         }
@@ -223,7 +223,7 @@ class SignInShowViewController: UIViewController {
     @IBAction func handlerReadAgreementButtonTapped(_ sender: UIButton) {
         self.firstResponder = sender
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 3) {
+        performTasksOnAsyncAfter(nanoseconds: 3) {
             self.createPopover(withName: "AgreementShow", completion: {})
         }
     }
@@ -278,22 +278,22 @@ extension SignInShowViewController: SignInShowDisplayLogic {
         // API
         checkNetworkConnection({ [unowned self] success in
             if success {
-                DispatchQueue.main.async(execute: {
+                performUIUpdatesOnMain {
                     SwiftSpinner.show("Initialization...".localized(), animated: true)
                     
                     let requestModel = SignInShowModels.Date.RequestModel()
                     self.interactor?.fetchCollectionDates(withRequestModel: requestModel)
-                })
+                }
                 
-                DispatchQueue.main.async(execute: {
+                performUIUpdatesOnMain {
                     let requestModel = SignInShowModels.Date.RequestModel()
                     self.interactor?.fetchDeliveryDates(withRequestModel: requestModel)
-                })
+                }
                 
-                DispatchQueue.main.async(execute: {
+                performUIUpdatesOnMain {
                     let requestModel = SignInShowModels.Department.RequestModel()
                     self.interactor?.fetchDepartments(withRequestModel: requestModel)
-                })
+                }
             }
         })
     }
@@ -310,7 +310,7 @@ extension SignInShowViewController: SignInShowDisplayLogic {
         // API
         checkNetworkConnection({ [unowned self] success in
             if success {
-                DispatchQueue.main.async(execute: {
+                performUIUpdatesOnMain {
                     let requestModel = SignInShowModels.User.RequestModel(params: (firstName:   self.textFieldsCollection.first(where: { $0.tag == 3})!.text!,
                                                                                    lastName:    self.textFieldsCollection.first(where: { $0.tag == 4})!.text!,
                                                                                    address:     self.textFieldsCollection.first(where: { $0.tag == 5})!.text!,
@@ -318,7 +318,7 @@ extension SignInShowViewController: SignInShowDisplayLogic {
                                                                                    phone:       self.textFieldsCollection.first(where: { $0.tag == 2})!.text!))
                     
                     self.interactor?.addClient(withRequestModel: requestModel)
-                })
+                }
             }
         })
     }

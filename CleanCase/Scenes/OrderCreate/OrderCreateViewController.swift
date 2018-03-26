@@ -192,15 +192,15 @@ class OrderCreateViewController: UIViewController, RefreshDataSupport {
     // MARK: - Custom Functions
     private func loadViewSettings() {
         // API
-        DispatchQueue.main.async(execute: {
+        performUIUpdatesOnMain {
             let requestModel = OrderCreateModels.Departments.RequestModel()
             self.interactor?.fetchDepartments(withRequestModel: requestModel)
-        })
+        }
         
-        DispatchQueue.main.async(execute: {
+        performUIUpdatesOnMain {
             let requestModel = OrderCreateModels.Dates.RequestModel()
             self.interactor?.fetchDates(withRequestModel: requestModel)
-        })
+        }
     }
     
     fileprivate func startDataValidation() {
@@ -214,11 +214,11 @@ class OrderCreateViewController: UIViewController, RefreshDataSupport {
                 if success {
                     SwiftSpinner.show("Add Order...".localized(), animated: true)
                     
-                    DispatchQueue.main.async(execute: {
+                    performUIUpdatesOnMain {
                         self.view.isUserInteractionEnabled = false
                         let requestModel = OrderCreateModels.Order.RequestModel(bodyParams: self.prepareBodyParameters(true) as! [String : [String : Any]])
                         self.interactor?.addOrder(withRequestModel: requestModel)
-                    })
+                    }
                 }
             })
         }
@@ -338,7 +338,7 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
         // NOTE: Display the result from the Presenter
         self.view.isUserInteractionEnabled = true
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
+        performTasksOnAsyncAfter(nanoseconds: 17) {
             SwiftSpinner.hide()
             
             guard viewModel.error == nil else {
@@ -365,10 +365,10 @@ extension OrderCreateViewController: OrderCreateDisplayLogic {
 
     func displayDepartments(fromViewModel viewModel: OrderCreateModels.Departments.ViewModel) {
         // NOTE: Display the result from the Presenter
-        DispatchQueue.main.async(execute: {
+        performUIUpdatesOnMain {
             self.departmentsTableViewHeightConstraint.constant = CGFloat(self.router!.dataStore!.departments.count) * 54.0 * heightRatio + 4.0
             self.departmentsTableView.reloadData()
-        })
+        }
     }
 }
 

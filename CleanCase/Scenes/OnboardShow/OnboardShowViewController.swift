@@ -113,7 +113,7 @@ class OnboardShowViewController: UIViewController {
         if sender.title(for: .normal) == "Start".localized() {
             SwiftSpinner.show("Loading App data...".localized(), animated: true)
 
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 17) {
+            performTasksOnAsyncAfter(nanoseconds: 17) {
                 self.performSegue(withIdentifier: "MainShowSegue", sender: nil)
             }
         }

@@ -141,18 +141,18 @@ class LeftSideMenuShowViewController: UIViewController {
     }
     
     private func localize() {
-        DispatchQueue.main.async(execute: {
+        performUIUpdatesOnMain {
             self.menuTableView.reloadData()
             self.arabicLabel.text = "Arabic".localized()
             self.hebrewLabel.text = "Hebrew".localized()
-        })
+        }
     }
     
     
     
     // MARK: - Actions
     @IBAction func handlerSideMenuButtonTapped(_ sender: Any) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 0) {
+        performTasksOnAsyncAfter(nanoseconds: 0) {
             self.navigationController?.dismiss(animated: true, completion: {})
         }
     }
@@ -214,7 +214,7 @@ extension LeftSideMenuShowViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         handlerMenuItemSelectCompletion!(self.router!.dataStore!.menuItems[indexPath.row])
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + dispatchTimeDelay * 0) {
+        performTasksOnAsyncAfter(nanoseconds: 0) {
             self.navigationController?.dismiss(animated: true, completion: {})
         }
     }
