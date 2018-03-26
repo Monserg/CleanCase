@@ -56,6 +56,12 @@ class ChatShowInteractor: ShareInteractor, ChatShowBusinessLogic, ChatShowDataSt
         
         // API: Fetch request data
         self.appDependency.restAPIManager.fetchRequest(withRequestType: .sendMessage(bodyParams, true), andResponseType: ResponseAPILaundryResult.self, completionHandler: { [unowned self] response in
+            // CoreData: add new Message
+            if response.error == nil {
+                let messageEntity = CoreDataManager.instance.createEntity("Message") as! Message
+                messageEntity.updateEntity(withType: 0, andText: requestModel.message!)
+            }
+            
             let responseModel = ChatShowModels.Message.ResponseModel(error: response.error)
             self.presenter?.presentSendMessage(fromResponseModel: responseModel)
         })

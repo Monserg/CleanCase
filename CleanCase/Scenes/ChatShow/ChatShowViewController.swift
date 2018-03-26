@@ -132,6 +132,9 @@ class ChatShowViewController: UIViewController, RefreshDataSupport {
     
     // MARK: - Custom Functions
     private func loadViewSettings() {
+        self.textView.text          =   "Enter message".localized()
+        textView.textColor          =   DynamicColor(hexString: "#A9A9A9")              // gray
+
         // CoreData
         let requestModel = ChatShowModels.Message.RequestModel()
         interactor?.loadMessages(withRequestModel: requestModel)
@@ -139,23 +142,23 @@ class ChatShowViewController: UIViewController, RefreshDataSupport {
     
     fileprivate func loadTextViewPlaceholder(_ text: String?) {
         guard text != nil else {
-            textView.text         =   ""
-            textView.textColor    =   DynamicColor(hexString: "#000000")              // black
+            textView.text           =   ""
+            textView.textColor      =   DynamicColor(hexString: "#000000")              // black
             return
         }
         
         if (text!.isEmpty) {
-            textView.text         =   "Enter message".localized()
-            textView.textColor    =   DynamicColor(hexString: "#A9A9A9")              // gray
+            textView.text           =   "Enter message".localized()
+            textView.textColor      =   DynamicColor(hexString: "#A9A9A9")              // gray
         }
             
         else if text == "Enter message".localized() {
-            textView.text         =   ""
-            textView.textColor    =   DynamicColor(hexString: "#A9A9A9")              // gray
+            textView.text           =   ""
+            textView.textColor      =   DynamicColor(hexString: "#A9A9A9")              // gray
         }
             
         else {
-            textView.textColor    =   DynamicColor(hexString: "#000000")              // black
+            textView.textColor      =   DynamicColor(hexString: "#000000")              // black
         }
     }
 
@@ -211,13 +214,9 @@ extension ChatShowViewController: ChatShowDisplayLogic {
             return
         }
         
-        self.showAlertView(withTitle: "Info", andMessage: "Message sent", needCancel: false, completion: { [unowned self] success in
-            if success {
-                performUIUpdatesOnMain {
-                    self.tableView.reloadData()
-                }
-            }
-        })
+        performTasksOnAsyncAfter(nanoseconds: 5) {
+            self.refreshData()
+        }
     }
 }
 
