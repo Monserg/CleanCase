@@ -152,6 +152,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Token.current!.device = token
         Token.current!.save()
+        
+//        let type: MessagingAPNSTokenType
+//        #if DEBUG
+//            type = .sandbox
+//        #else
+//            type = .prod
+//        #endif
+//
+//        Messaging.messaging().setAPNSToken(deviceToken, type: type)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

@@ -167,7 +167,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
     
     func fetchDeliveryDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel) {
         // API
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDeliveryDatesList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getDeliveryDatesList([ "laundry_id": self.laundryID! ], false), andResponseType: ResponseAPIDeliveryDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPIDeliveryDatesResult {
                 for model in result.GetDeliveryDatesResult {
                     if model.Type == 2 {
@@ -189,7 +189,7 @@ class SignInShowInteractor: ShareInteractor, SignInShowBusinessLogic, SignInShow
 
     func fetchCollectionDates(withRequestModel requestModel: SignInShowModels.Date.RequestModel) {
         // API
-        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCollectionDatesList([ "laundry_id": self.laundryID ], false), andResponseType: ResponseAPICollectionDatesResult.self, completionHandler: { [unowned self] responseAPI in
+        self.appDependency.restAPIManager.fetchRequest(withRequestType: .getCollectionDatesList([ "laundry_id": self.laundryID! ], false), andResponseType: ResponseAPICollectionDatesResult.self, completionHandler: { [unowned self] responseAPI in
             if let result = responseAPI.model as? ResponseAPICollectionDatesResult {
                 for model in result.GetCollectionDatesResult {
                     if model.Type == 1 {

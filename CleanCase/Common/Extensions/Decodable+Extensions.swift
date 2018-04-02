@@ -10,7 +10,7 @@ import UIKit
 
 extension Decodable {
     func propertyNames() -> [String] {
-        return Mirror(reflecting: self).children.flatMap { $0.label }
+        return Mirror(reflecting: self).children.compactMap { $0.label }
     }
     
     func valueByProperty(name: String) -> Any? {
