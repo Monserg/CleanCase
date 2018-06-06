@@ -28,12 +28,12 @@
                   moduleName = "CleanCase"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msm72/My%20Projects/Denis%20Meltsine/App/CleanCase/CleanCase/Common/Managers/UpdateManager.swift"
-                  timestampString = "545044231.536611"
+                  timestampString = "549953610.180703"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
                   endingLineNumber = "34"
-                  offsetFromSymbolStart = "216">
+                  offsetFromSymbolStart = "174">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -43,12 +43,12 @@
                   moduleName = "CleanCase"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msm72/My%20Projects/Denis%20Meltsine/App/CleanCase/CleanCase/Scenes/MainShow/MainShowViewController.swift"
-                  timestampString = "545044231.538817"
+                  timestampString = "549953610.1838861"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "248">
+                  offsetFromSymbolStart = "223">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -58,12 +58,12 @@
                   moduleName = "CleanCase"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msm72/My%20Projects/Denis%20Meltsine/App/CleanCase/CleanCase/Scenes/MainShow/MainShowViewController.swift"
-                  timestampString = "545044231.540858"
+                  timestampString = "549953610.1866961"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "88">
+                  offsetFromSymbolStart = "82">
                </Location>
             </Locations>
          </BreakpointContent>
