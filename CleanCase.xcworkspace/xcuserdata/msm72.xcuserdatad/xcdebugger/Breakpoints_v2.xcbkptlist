@@ -24,16 +24,46 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "CleanCase.UpdateManager.getLastClientMessage((Swift.Bool, Swift.Optional&lt;Swift.Int16&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "function signature specialization &lt;Arg[0] = Owned To Guaranteed, Arg[1] = Dead&gt; of CleanCase.UpdateManager.getLastClientMessage((Swift.Bool, Swift.Optional&lt;Swift.Int16&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "CleanCase"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/msm72/My%20Projects/Denis%20Meltsine/App/CleanCase/CleanCase/Common/Managers/UpdateManager.swift"
-                  timestampString = "544376606.275229"
+                  timestampString = "545044231.536611"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
                   endingLineNumber = "34"
-                  offsetFromSymbolStart = "26">
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in CleanCase.MainShowViewController.(runGetLastClientMessage in _A924213472F2CE3025510189D15996F7)() -&gt; ()"
+                  moduleName = "CleanCase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msm72/My%20Projects/Denis%20Meltsine/App/CleanCase/CleanCase/Scenes/MainShow/MainShowViewController.swift"
+                  timestampString = "545044231.538817"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in closure #1 () -&gt; () in CleanCase.MainShowViewController.(runGetLastClientMessage in _A924213472F2CE3025510189D15996F7)() -&gt; ()"
+                  moduleName = "CleanCase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/msm72/My%20Projects/Denis%20Meltsine/App/CleanCase/CleanCase/Scenes/MainShow/MainShowViewController.swift"
+                  timestampString = "545044231.540858"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "88">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -84,38 +114,22 @@
             endingLineNumber = "163"
             landmarkName = "getLastClientMessage(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in closure #1 ((model: Swift.Optional&lt;Swift.Decodable&gt;, error: Swift.Optional&lt;Swift.Error&gt;)) -&gt; () in CleanCase.UpdateManager.getLastClientMessage((Swift.Bool, Swift.Optional&lt;Swift.Int16&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "CleanCase"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/msm72/My%20Projects/Denis%20Meltsine/App/CleanCase/CleanCase/Common/Managers/UpdateManager.swift"
-                  timestampString = "544376606.293655"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "163"
-                  endingLineNumber = "163"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((model: Swift.Optional&lt;Swift.Decodable&gt;, error: Swift.Optional&lt;Swift.Error&gt;)) -&gt; () in closure #3 () -&gt; () in closure #1 ((model: Swift.Optional&lt;Swift.Decodable&gt;, error: Swift.Optional&lt;Swift.Error&gt;)) -&gt; () in CleanCase.UpdateManager.getLastClientMessage((Swift.Bool, Swift.Optional&lt;Swift.Int16&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "CleanCase"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/msm72/My%20Projects/Denis%20Meltsine/App/CleanCase/CleanCase/Common/Managers/UpdateManager.swift"
-                  timestampString = "544376606.296223"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "164"
-                  endingLineNumber = "164"
-                  offsetFromSymbolStart = "57">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CleanCase/Common/Models/ResponseAPI.swift"
+            timestampString = "545550109.1353559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "ResponseAPILaundryInfo"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

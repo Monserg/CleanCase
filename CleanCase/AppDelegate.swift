@@ -143,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Remote Push Notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().apnsToken = deviceToken
+//        Messaging.messaging().apnsToken = deviceToken
         let token = deviceToken.reduce("") { $0 + String(format: "%02x", $1) }
 
         if Token.current == nil {
@@ -153,14 +153,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Token.current!.device = token
         Token.current!.save()
         
-//        let type: MessagingAPNSTokenType
-//        #if DEBUG
-//            type = .sandbox
-//        #else
-//            type = .prod
-//        #endif
-//
-//        Messaging.messaging().setAPNSToken(deviceToken, type: type)
+        let type: MessagingAPNSTokenType
+        #if DEBUG
+            type = .sandbox
+        #else
+            type = .prod
+        #endif
+
+        Messaging.messaging().setAPNSToken(deviceToken, type: type)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
