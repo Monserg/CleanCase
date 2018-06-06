@@ -70,7 +70,7 @@ DEPENDENCIES:
   - SwiftyXMLParser (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - ActionKit
     - ADEmailAndPassword
     - Alamofire
@@ -122,4 +122,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 10676cfde81bc3a7974d67f92ef1df276973ef1b
 
-COCOAPODS: 1.5.0.beta.1
+COCOAPODS: 1.5.2
